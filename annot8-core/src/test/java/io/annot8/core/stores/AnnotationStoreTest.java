@@ -23,7 +23,7 @@ import io.annot8.core.properties.Properties;
 /** Unit tests for the default method implementations on {@link AnnotationStore} */
 public class AnnotationStoreTest {
 
-  Content<?> content;
+  Content<?> content = null;
 
   @Test
   public void testCreate() {
@@ -101,7 +101,8 @@ public class AnnotationStoreTest {
     annotations.add(annotation);
     annotations.add(annotation2);
 
-    AnnotationStore store = new TestAnnotationStore(content);
+    AnnotationStore store = new TestAnnotationStore(content, annotations);
+
 
     assertEquals(1, store.getByType("type").count());
     assertEquals(1, store.getByType("type2").count());
@@ -121,7 +122,7 @@ public class AnnotationStoreTest {
     annotations.add(annotation);
     annotations.add(annotation2);
 
-    TestAnnotationStore store = new TestAnnotationStore(content);
+    TestAnnotationStore store = new TestAnnotationStore(content, annotations);
     assertEquals(1, store.getByBounds(TestBounds.class).count());
     assertEquals(1, store.getByBounds(TestBounds2.class).count());
     assertEquals(id1, store.getByBounds(TestBounds.class).findFirst().get().getId());
