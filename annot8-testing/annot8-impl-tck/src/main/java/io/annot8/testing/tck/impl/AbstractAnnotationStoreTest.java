@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import io.annot8.testing.testimpl.TestItem;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -29,11 +30,13 @@ public abstract class AbstractAnnotationStoreTest {
   private static final String TEST_PROPERTY_KEY = "TEST_KEY";
   private static final String TEST_PROPERTY_VALUE = "TEST_VALUE";
   private final TestBounds bounds = new TestBounds();
+  private final TestItem item  = new TestItem();
+
 
   protected abstract AnnotationStore getAnnotationStore(Content content);
 
   private Content getTestContent() {
-    return new TestStringContent(TEST_ID, TEST_NAME, new TestProperties(), () -> TEST_DATA);
+    return new TestStringContent(item, TEST_ID, TEST_NAME, new TestProperties(), () -> TEST_DATA);
   }
 
   @Test

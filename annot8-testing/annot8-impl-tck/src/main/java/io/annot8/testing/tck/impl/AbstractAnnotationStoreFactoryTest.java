@@ -17,7 +17,7 @@ public abstract class AbstractAnnotationStoreFactoryTest {
   @Test
   public void testGetAnnotationStore() {
     TestStringContent content =
-        new TestStringContent("testContentId", "name", new TestProperties(), () -> "test");
+        new TestStringContent(null, "testContentId", "name", new TestProperties(), () -> "test");
     AnnotationStore annotationStore = getAnnotationStoreFactory().create(content);
     assertNotNull(annotationStore);
   }
