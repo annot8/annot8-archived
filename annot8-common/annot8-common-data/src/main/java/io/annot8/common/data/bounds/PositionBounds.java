@@ -1,13 +1,15 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.data.bounds;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-
 import io.annot8.core.bounds.Bounds;
 import io.annot8.core.data.Content;
 import io.annot8.core.exceptions.InvalidBoundsException;
+
+import javax.json.bind.annotation.JsonbCreator;
+import javax.json.bind.annotation.JsonbProperty;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * A position marker within a content.
@@ -23,7 +25,8 @@ public class PositionBounds implements Bounds {
    *
    * @param position offset at least 0
    */
-  public PositionBounds(int position) {
+  @JsonbCreator
+  public PositionBounds(@JsonbProperty("position") int position) {
     if (position < 0) {
       throw new InvalidBoundsException("Position must be greater than or equal to 0");
     }

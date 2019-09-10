@@ -1,12 +1,15 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.data.bounds;
 
-import java.util.Objects;
-import java.util.Optional;
-
 import io.annot8.core.bounds.Bounds;
 import io.annot8.core.data.Content;
 import io.annot8.core.exceptions.InvalidBoundsException;
+
+import javax.json.bind.annotation.JsonbCreator;
+import javax.json.bind.annotation.JsonbProperty;
+import javax.json.bind.annotation.JsonbTransient;
+import java.util.Objects;
+import java.util.Optional;
 
 /** Implementation of Bounds for a simple 2D span, such as an offset of text. */
 public class SpanBounds implements Bounds {
@@ -20,7 +23,8 @@ public class SpanBounds implements Bounds {
    * @param begin start offset, at least 0
    * @param end (must be greater than begin)
    */
-  public SpanBounds(final int begin, final int end) {
+  @JsonbCreator
+  public SpanBounds(@JsonbProperty("begin") final int begin, @JsonbProperty("end") final int end) {
     if (begin < 0) {
       throw new InvalidBoundsException("Begin must be greater than or equal to 0");
     }
@@ -56,6 +60,7 @@ public class SpanBounds implements Bounds {
    *
    * @return length (end-begin)
    */
+  @JsonbTransient
   public int getLength() {
     return end - begin;
   }

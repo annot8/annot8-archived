@@ -4,13 +4,10 @@ open module io.annot8.testing.testimpl {
   requires io.annot8.common.utils;
   requires io.annot8.common.data;
   requires org.slf4j;
-  requires io.annot8.common.jackson.serialisation;
   requires io.annot8.common.pipelines;
-  requires com.fasterxml.jackson.core;
-  requires com.fasterxml.jackson.databind;
+  requires java.json.bind;
 
   exports io.annot8.testing.testimpl.content;
   exports io.annot8.testing.testimpl;
-  exports io.annot8.testing.testimpl.serialisation;
   exports io.annot8.testing.testimpl.pipeline;
 }
