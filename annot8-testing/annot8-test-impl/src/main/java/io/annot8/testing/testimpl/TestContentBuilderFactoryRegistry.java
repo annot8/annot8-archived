@@ -5,6 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Optional;
 import java.util.function.Supplier;
 
+import io.annot8.core.data.Item;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -71,7 +72,7 @@ public class TestContentBuilderFactoryRegistry extends SimpleContentBuilderFacto
     }
 
     @Override
-    public Content.Builder<C, D> create(BaseItem item) {
+    public Content.Builder<C, D> create(Item item) {
       return new TestContentBuilder(instance);
     }
 
