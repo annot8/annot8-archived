@@ -7,6 +7,8 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Stream;
 
+import io.annot8.core.data.Content;
+import io.annot8.core.data.Item;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -21,9 +23,11 @@ import io.annot8.core.properties.Properties;
 /** Unit tests for the default method implementations on {@link AnnotationStore} */
 public class AnnotationStoreTest {
 
+  Content<?> content;
+
   @Test
   public void testCreate() {
-    AnnotationStore store = new TestAnnotationStore();
+    AnnotationStore store = new TestAnnotationStore(content);
     Annotation.Builder builder = store.create();
     assertNotNull(builder);
   }
@@ -31,7 +35,7 @@ public class AnnotationStoreTest {
   @Test
   public void testCopy() {
     String testId = "testId";
-    AnnotationStore store = new TestAnnotationStore();
+    AnnotationStore store = new TestAnnotationStore(content);
     Builder builder = store.copy(new TestAnnotation(testId, null, null, null, null));
     Annotation copied = null;
     try {
@@ -45,7 +49,7 @@ public class AnnotationStoreTest {
   @Test
   public void testEdit() {
     String testId = "testId";
-    AnnotationStore store = new TestAnnotationStore();
+    AnnotationStore store = new TestAnnotationStore(content);
     Annotation annotation = new TestAnnotation(testId, null, null, null, null);
 
     Annotation edit = null;
@@ -62,7 +66,7 @@ public class AnnotationStoreTest {
   public void testDelete() {
     String testId = "testId";
     Annotation annotation = new TestAnnotation(testId, null, null, null, null);
-    AnnotationStore store = new TestAnnotationStore(Collections.singleton(annotation));
+    AnnotationStore store = new TestAnnotationStore(content, Collections.singleton(annotation));
     assertEquals(1, store.getAll().count());
     store.delete(annotation);
     assertEquals(0, store.getAll().count());
@@ -71,7 +75,7 @@ public class AnnotationStoreTest {
   @Test
   public void testDeleteAll() {
     Annotation annotation = new TestAnnotation("test", null, null, null, null);
-    AnnotationStore store = new TestAnnotationStore(Collections.singleton(annotation));
+    AnnotationStore store = new TestAnnotationStore(content, Collections.singleton(annotation));
     assertEquals(1, store.getAll().count());
     store.deleteAll();
     assertEquals(0, store.getAll().count());
@@ -81,7 +85,7 @@ public class AnnotationStoreTest {
   public void testDeleteCollection() {
     Annotation annotation = new TestAnnotation("test", null, null, null, null);
     Collection<Annotation> collection = Collections.singleton(annotation);
-    AnnotationStore store = new TestAnnotationStore(collection);
+    AnnotationStore store = new TestAnnotationStore(content, collection);
     assertEquals(1, store.getAll().count());
     store.delete(collection);
     assertEquals(0, store.getAll().count());
@@ -97,7 +101,7 @@ public class AnnotationStoreTest {
     annotations.add(annotation);
     annotations.add(annotation2);
 
-    AnnotationStore store = new TestAnnotationStore(annotations);
+    AnnotationStore store = new TestAnnotationStore(content);
 
     assertEquals(1, store.getByType("type").count());
     assertEquals(1, store.getByType("type2").count());
@@ -117,7 +121,7 @@ public class AnnotationStoreTest {
     annotations.add(annotation);
     annotations.add(annotation2);
 
-    TestAnnotationStore store = new TestAnnotationStore(annotations);
+    TestAnnotationStore store = new TestAnnotationStore(content);
     assertEquals(1, store.getByBounds(TestBounds.class).count());
     assertEquals(1, store.getByBounds(TestBounds2.class).count());
     assertEquals(id1, store.getByBounds(TestBounds.class).findFirst().get().getId());
@@ -130,15 +134,22 @@ public class AnnotationStoreTest {
 
   private class TestAnnotationStore implements AnnotationStore {
 
-    private Map<String, Annotation> annotations;
+    private final Map<String, Annotation> annotations;
+    private final Content<?> content;
 
-    public TestAnnotationStore() {
-      this(Collections.EMPTY_LIST);
+    public TestAnnotationStore(Content<?> content) {
+      this(content, Collections.EMPTY_LIST);
     }
 
-    public TestAnnotationStore(Collection<Annotation> annotationsToAdd) {
+    public TestAnnotationStore(Content<?> content, Collection<Annotation> annotationsToAdd) {
+      this.content = content;
       this.annotations = new ConcurrentHashMap<>();
       annotationsToAdd.forEach(a -> annotations.put(a.getId(), a));
+    }
+
+    @Override
+    public Content<?> getContent() {
+      return content;
     }
 
     @Override

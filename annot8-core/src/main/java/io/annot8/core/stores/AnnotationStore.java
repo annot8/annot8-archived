@@ -8,9 +8,17 @@ import java.util.stream.Stream;
 
 import io.annot8.core.annotations.Annotation;
 import io.annot8.core.bounds.Bounds;
+import io.annot8.core.data.Content;
 
 /** Base annotations interface from which all other annotation stores extend. */
 public interface AnnotationStore {
+
+  /**
+   * Get the content which this store holds annotations for.
+   *
+   * @return content
+   */
+  Content<?> getContent();
 
   /**
    * Get a new annotation builder

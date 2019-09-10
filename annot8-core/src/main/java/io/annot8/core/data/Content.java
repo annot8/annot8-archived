@@ -20,6 +20,13 @@ import java.util.function.Supplier;
 public interface Content<D> extends WithId, WithProperties, WithDescription {
 
   /**
+   * Get the item which this content relates to.
+   *
+   * @return item
+   */
+  Item getItem();
+
+  /**
    * The data associated with this content object
    *
    * @return the data

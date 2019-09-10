@@ -7,6 +7,7 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Stream;
 
+import io.annot8.core.data.Item;
 import org.junit.jupiter.api.Test;
 
 import io.annot8.core.annotations.Annotation;
@@ -17,15 +18,18 @@ import io.annot8.core.exceptions.IncompleteException;
 import io.annot8.core.properties.ImmutableProperties;
 import io.annot8.core.properties.Properties;
 import io.annot8.core.references.AnnotationReference;
+import org.mockito.Mock;
 
 /** Unit tests for the default method implementations on {@link GroupStore} */
 public class GroupStoreTest {
 
   private static final String GROUP_ID = "testGroupId";
 
+  Item item = null;
+
   @Test
   public void testCreate() {
-    GroupStore store = new TestGroupStore();
+    GroupStore store = new TestGroupStore(item);
     Builder builder = store.create();
     assertNotNull(builder);
   }
@@ -33,7 +37,7 @@ public class GroupStoreTest {
   @Test
   public void testCopy() {
     TestGroup group = new TestGroup(GROUP_ID, null, null, null, null);
-    GroupStore store = new TestGroupStore();
+    GroupStore store = new TestGroupStore(item);
     Group copied = null;
     try {
       copied = store.copy(group).save();
@@ -47,7 +51,7 @@ public class GroupStoreTest {
   @Test
   public void testEdit() {
     TestGroup group = new TestGroup(GROUP_ID, null, null, null, null);
-    GroupStore store = new TestGroupStore();
+    GroupStore store = new TestGroupStore(item);
     Group edit = null;
     try {
       edit = store.edit(group).save();
@@ -61,7 +65,7 @@ public class GroupStoreTest {
   @Test
   public void testDeleteAll() {
     TestGroup group = new TestGroup(GROUP_ID, null, null, null, null);
-    GroupStore store = new TestGroupStore(Collections.singleton(group));
+    GroupStore store = new TestGroupStore(item, Collections.singleton(group));
     assertEquals(1, store.getAll().count());
     store.deleteAll();
     assertEquals(0, store.getAll().count());
@@ -70,7 +74,7 @@ public class GroupStoreTest {
   @Test
   public void testDeleteCollection() {
     TestGroup group = new TestGroup(GROUP_ID, null, null, null, null);
-    GroupStore store = new TestGroupStore(Collections.singleton(group));
+    GroupStore store = new TestGroupStore(item, Collections.singleton(group));
     assertEquals(1, store.getAll().count());
     store.delete(Collections.singleton(group));
     assertEquals(0, store.getAll().count());
@@ -85,7 +89,7 @@ public class GroupStoreTest {
     groups.add(group);
     groups.add(group2);
 
-    GroupStore store = new TestGroupStore(groups);
+    GroupStore store = new TestGroupStore(item, groups);
     assertEquals(1, store.getByType(type).count());
     assertEquals(GROUP_ID, store.getByType(type).findFirst().get().getId());
   }
@@ -93,14 +97,21 @@ public class GroupStoreTest {
   private class TestGroupStore implements GroupStore {
 
     private final Map<String, Group> groups;
+    private Item item;
 
-    public TestGroupStore() {
-      this(new ArrayList<>());
+    public TestGroupStore(Item item) {
+      this(item, new ArrayList<>());
     }
 
-    public TestGroupStore(Collection<Group> groupsToAdd) {
+    public TestGroupStore(Item item, Collection<Group> groupsToAdd) {
+      this.item = item;
       this.groups = new ConcurrentHashMap<>();
       groupsToAdd.forEach(g -> groups.put(g.getId(), g));
+    }
+
+    @Override
+    public Item getItem() {
+      return item;
     }
 
     @Override
