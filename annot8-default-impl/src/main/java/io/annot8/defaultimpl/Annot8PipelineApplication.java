@@ -13,7 +13,7 @@ import io.annot8.common.pipelines.elements.PipelineBuilder;
 import io.annot8.common.pipelines.queues.MemoryItemQueue;
 import io.annot8.common.pipelines.simple.SimplePipelineBuilder;
 import io.annot8.core.exceptions.IncompleteException;
-import io.annot8.defaultimpl.factories.DefaultBaseItemFactory;
+import io.annot8.defaultimpl.factories.DefaultItemFactory;
 import io.annot8.defaultimpl.factories.DefaultContentBuilderFactoryRegistry;
 
 public class Annot8PipelineApplication {
@@ -67,7 +67,7 @@ public class Annot8PipelineApplication {
     DefaultContentBuilderFactoryRegistry contentBuilderFactoryRegistry =
         new DefaultContentBuilderFactoryRegistry();
     contentBuilderFactoryRegistryConsumer.accept(contentBuilderFactoryRegistry);
-    DefaultBaseItemFactory itemFactory = new DefaultBaseItemFactory(contentBuilderFactoryRegistry);
+    DefaultItemFactory itemFactory = new DefaultItemFactory(contentBuilderFactoryRegistry);
     MemoryItemQueue itemQueue = new MemoryItemQueue();
     return builder.withQueue(itemQueue).withItemFactory(itemFactory);
   }

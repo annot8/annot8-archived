@@ -9,6 +9,7 @@ import io.annot8.common.implementations.content.AbstractContent;
 import io.annot8.common.implementations.content.AbstractContentBuilder;
 import io.annot8.common.implementations.content.AbstractContentBuilderFactory;
 import io.annot8.core.data.Content;
+import io.annot8.core.data.Item;
 import io.annot8.core.properties.ImmutableProperties;
 import io.annot8.defaultimpl.stores.DefaultAnnotationStore;
 
@@ -42,7 +43,7 @@ public class DefaultTableContent extends AbstractContent<Table> implements Table
     }
 
     @Override
-    public Content.Builder<TableContent, Table> create(BaseItem item) {
+    public Content.Builder<TableContent, Table> create(Item item) {
       return new Builder();
     }
   }

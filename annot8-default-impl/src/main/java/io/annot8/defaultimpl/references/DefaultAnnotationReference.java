@@ -6,6 +6,7 @@ import java.util.Optional;
 import io.annot8.common.implementations.references.AbstractAnnotationReference;
 import io.annot8.core.annotations.Annotation;
 import io.annot8.core.data.Content;
+import io.annot8.core.data.Item;
 
 /**
  * A reference which will always retrieve the latest annotation from the appropriate annotation
@@ -15,21 +16,21 @@ import io.annot8.core.data.Content;
  */
 public class DefaultAnnotationReference extends AbstractAnnotationReference {
 
-  private final BaseItem item;
+  private final Item item;
 
   private final String contentId;
 
   private final String annotationId;
 
   /** New reference either from another reference or manually created. */
-  public DefaultAnnotationReference(BaseItem item, String contentId, String annotationId) {
+  public DefaultAnnotationReference(Item item, String contentId, String annotationId) {
     this.item = item;
     this.contentId = contentId;
     this.annotationId = annotationId;
   }
 
   /** Create an annotation reference for the annotation. */
-  public static DefaultAnnotationReference to(BaseItem item, Annotation annotation) {
+  public static DefaultAnnotationReference to(Item item, Annotation annotation) {
     return new DefaultAnnotationReference(item, annotation.getContentId(), annotation.getId());
   }
 

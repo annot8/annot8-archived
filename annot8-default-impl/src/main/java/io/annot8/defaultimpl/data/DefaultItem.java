@@ -14,6 +14,7 @@ import io.annot8.common.implementations.registries.ContentBuilderFactoryRegistry
 import io.annot8.core.data.Content;
 import io.annot8.core.data.Content.Builder;
 import io.annot8.core.data.Item;
+import io.annot8.core.data.ItemFactory;
 import io.annot8.core.exceptions.IncompleteException;
 import io.annot8.core.exceptions.UnsupportedContentException;
 import io.annot8.core.properties.MutableProperties;
@@ -28,17 +29,19 @@ public class DefaultItem implements Item {
   private final DefaultGroupStore groups;
   private final String id;
   private final String parentId;
+  private final ItemFactory itemFactory;
   private boolean discarded = false;
 
-  public DefaultItem(String parentId, ContentBuilderFactoryRegistry contentBuilderFactoryRegistry) {
+  public DefaultItem(String parentId, ItemFactory itemFactory, ContentBuilderFactoryRegistry contentBuilderFactoryRegistry) {
     this.parentId = parentId;
+    this.itemFactory = itemFactory;
     this.id = UUID.randomUUID().toString();
     this.contentBuilderFactoryRegistry = contentBuilderFactoryRegistry;
     this.groups = new DefaultGroupStore(this);
   }
 
-  public DefaultItem(ContentBuilderFactoryRegistry contentBuilderFactoryRegistry) {
-    this(null, contentBuilderFactoryRegistry);
+  public DefaultItem(ItemFactory itemFactory, ContentBuilderFactoryRegistry contentBuilderFactoryRegistry) {
+    this(null, itemFactory, contentBuilderFactoryRegistry);
   }
 
   public Optional<String> getParent() {
@@ -111,6 +114,6 @@ public class DefaultItem implements Item {
 
   @Override
   public Item create() {
-    return new DefaultItem();
+    return itemFactory.create(this);
   }
 }
