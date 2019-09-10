@@ -26,14 +26,12 @@ class MergedContextTest {
 
   @Mock Settings bSettings;
 
-  private SimpleContext a;
-  private SimpleContext b;
   private MergedContext m;
 
   @BeforeEach
   public void beforeEach() {
-    a = new SimpleContext(Arrays.asList(aSettings), Map.of("a", aResource));
-    b = new SimpleContext(Arrays.asList(bSettings), Map.of("b", bResource));
+    SimpleContext a = new SimpleContext(Arrays.asList(aSettings), Map.of("a", aResource));
+    SimpleContext b = new SimpleContext(Arrays.asList(bSettings), Map.of("b", bResource));
     m = new MergedContext(a, b);
   }
 
