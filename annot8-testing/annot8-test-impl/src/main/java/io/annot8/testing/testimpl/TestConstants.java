@@ -5,9 +5,9 @@ public final class TestConstants {
 
   public static final String ITEM_ID = "testItemId";
 
-  public static final String CONTENT_NAME = "testContentName";
-
   public static final String CONTENT_ID = "testContentId";
+
+  public static final String CONTENT_DESCRIPTION = "testContentDescription";
 
   public static final String GROUP_ID = "testGroupId";
 

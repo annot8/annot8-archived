@@ -19,32 +19,32 @@ public class TestTableContent extends AbstractTestContent<Table> implements Tabl
     super(Table.class);
   }
 
-  public TestTableContent(String name) {
-    super(Table.class, name);
+  public TestTableContent(String description) {
+    super(Table.class, description);
   }
 
   public TestTableContent(
-      Class<Table> dataClass, String id, String name, ImmutableProperties properties) {
-    super(Table.class, id, name, properties);
+      Class<Table> dataClass, String id, String description, ImmutableProperties properties) {
+    super(Table.class, id, description, properties);
   }
 
   public TestTableContent(
-      String id, String name, ImmutableProperties properties, Supplier<Table> data) {
-    super(Table.class, id, name, properties, data);
+      String id, String description, ImmutableProperties properties, Supplier<Table> data) {
+    super(Table.class, id, description, properties, data);
   }
 
   public TestTableContent(
       AnnotationStoreFactory annotationStoreFactory,
       String id,
-      String name,
+      String description,
       ImmutableProperties properties,
       Supplier<Table> data) {
-    super(Table.class, annotationStoreFactory, id, name, properties, data);
+    super(Table.class, annotationStoreFactory, id, description, properties, data);
   }
 
   public TestTableContent(
-      Class<Table> dataClass, String id, String name, ImmutableProperties properties, Table data) {
-    super(dataClass, id, name, properties, data);
+      Class<Table> dataClass, String id, String description, ImmutableProperties properties, Table data) {
+    super(dataClass, id, description, properties, data);
   }
 
   @Override
@@ -56,8 +56,8 @@ public class TestTableContent extends AbstractTestContent<Table> implements Tabl
 
     @Override
     protected TableContent create(
-        String id, String name, ImmutableProperties properties, Supplier<Table> data) {
-      return new TestTableContent(id, name, properties, data);
+        String id, String description, ImmutableProperties properties, Supplier<Table> data) {
+      return new TestTableContent(id, description, properties, data);
     }
   }
 

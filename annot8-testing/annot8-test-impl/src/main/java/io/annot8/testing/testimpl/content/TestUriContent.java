@@ -1,9 +1,6 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.testing.testimpl.content;
 
-import java.net.URI;
-import java.util.function.Supplier;
-
 import io.annot8.common.data.content.UriContent;
 import io.annot8.common.implementations.content.AbstractContentBuilder;
 import io.annot8.common.implementations.content.AbstractContentBuilderFactory;
@@ -13,17 +10,20 @@ import io.annot8.core.properties.ImmutableProperties;
 import io.annot8.core.stores.AnnotationStore;
 import io.annot8.testing.testimpl.TestAnnotationStore;
 
+import java.net.URI;
+import java.util.function.Supplier;
+
 public class TestUriContent implements UriContent {
 
   private URI data;
   private String id;
-  private String name;
+  private String description;
   private ImmutableProperties properties;
   private AnnotationStore store;
 
-  public TestUriContent(String id, String name, ImmutableProperties properties, URI data) {
+  public TestUriContent(String id, String description, ImmutableProperties properties, URI data) {
     this.id = id;
-    this.name = name;
+    this.description = description;
     this.properties = properties;
     this.store = new TestAnnotationStore();
     this.data = data;
@@ -50,13 +50,13 @@ public class TestUriContent implements UriContent {
   }
 
   @Override
-  public String getName() {
-    return name;
+  public String getId() {
+    return id;
   }
 
   @Override
-  public String getId() {
-    return id;
+  public String getDescription() {
+    return description;
   }
 
   @Override
@@ -68,8 +68,8 @@ public class TestUriContent implements UriContent {
 
     @Override
     protected UriContent create(
-        String id, String name, ImmutableProperties properties, Supplier<URI> data) {
-      return new TestUriContent(id, name, properties, data.get());
+        String id, String description, ImmutableProperties properties, Supplier<URI> data) {
+      return new TestUriContent(id, description, properties, data.get());
     }
   }
 

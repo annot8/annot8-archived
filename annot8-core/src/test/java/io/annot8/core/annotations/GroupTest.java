@@ -35,8 +35,8 @@ public class GroupTest {
   private static final String TEST_ANNOTATION_ID = "annotationId";
   private static final String TEST_GROUP_ID = "testGroup";
   private static final String TEST_ROLE = "testRole";
-  private static final String TEST_CONTENT_NAME = "contentName";
   private static final String TEST_CONTENT_ID = "contentId";
+  private static final String TEST_CONTENT_DESCRIPTION = "contentDescription";
 
   @Test
   public void testGetAnnotations() {
@@ -88,12 +88,12 @@ public class GroupTest {
   public void testGetAnnotationsForContent() {
     Group group = getDefaultTestGroup();
     Content<?> content = Mockito.mock(Content.class);
-    doReturn(TEST_CONTENT_NAME).when(content).getName();
     doReturn(TEST_CONTENT_ID).when(content).getId();
+    doReturn(TEST_CONTENT_DESCRIPTION).when(content).getDescription();
 
     Content<?> noContent = Mockito.mock(Content.class);
-    doReturn("unusedContentName").when(noContent).getName();
     doReturn("unusedId").when(noContent).getId();
+    doReturn("unusedContentDescription").when(noContent).getDescription();
 
     List<Annotation> annotations =
         group.getAnnotationsForContent(content).collect(Collectors.toList());
@@ -107,12 +107,12 @@ public class GroupTest {
   public void testGetAnnotationsForContentAndRole() {
     Group group = getDefaultTestGroup();
     Content<?> content = Mockito.mock(Content.class);
-    doReturn(TEST_CONTENT_NAME).when(content).getName();
     doReturn(TEST_CONTENT_ID).when(content).getId();
+    doReturn(TEST_CONTENT_DESCRIPTION).when(content).getDescription();
 
     Content<?> noContent = Mockito.mock(Content.class);
-    doReturn("unusedContentName").when(noContent).getName();
     doReturn("unusedContentId").when(noContent).getId();
+    doReturn("unusedContentDescription").when(noContent).getDescription();
 
     List<Annotation> annotations =
         group.getAnnotationsForContentAndRole(content, TEST_ROLE).collect(Collectors.toList());

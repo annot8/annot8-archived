@@ -24,7 +24,7 @@ public class TestAnnotation implements Annotation {
   private String type;
 
   public TestAnnotation() {
-    this(UUID.randomUUID().toString(), TestConstants.CONTENT_NAME);
+    this(UUID.randomUUID().toString(), TestConstants.CONTENT_DESCRIPTION);
   }
 
   public TestAnnotation(String id, String content) {

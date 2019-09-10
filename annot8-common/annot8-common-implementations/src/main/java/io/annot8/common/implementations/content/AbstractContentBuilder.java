@@ -15,8 +15,8 @@ public abstract class AbstractContentBuilder<D, C extends Content<D>>
     implements Content.Builder<C, D> {
 
   private final ImmutableProperties.Builder properties = new MapImmutableProperties.Builder();
-  private String name;
   private String id;
+  private String description;
 
   private Supplier<D> data;
 
@@ -27,8 +27,8 @@ public abstract class AbstractContentBuilder<D, C extends Content<D>>
   }
 
   @Override
-  public Content.Builder<C, D> withName(String name) {
-    this.name = name;
+  public Content.Builder<C, D> withDescription(String description) {
+    this.description = description;
     return this;
   }
 
@@ -79,17 +79,13 @@ public abstract class AbstractContentBuilder<D, C extends Content<D>>
       id = UUID.randomUUID().toString();
     }
 
-    if (name == null) {
-      throw new IncompleteException("Name is required");
-    }
-
     if (data == null) {
       throw new IncompleteException("Data supplier is required");
     }
 
-    return create(id, name, properties.save(), data);
+    return create(id, description, properties.save(), data);
   }
 
   protected abstract C create(
-      String id, String name, ImmutableProperties properties, Supplier<D> data);
+      String id, String description, ImmutableProperties properties, Supplier<D> data);
 }

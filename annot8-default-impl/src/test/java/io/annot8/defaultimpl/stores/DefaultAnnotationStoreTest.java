@@ -16,8 +16,8 @@ public class DefaultAnnotationStoreTest {
 
   @Test
   public void testInMemoryAnnotationStore() throws IncompleteException {
-    String contentName = TestConstants.CONTENT_NAME;
-    AnnotationStore store = new DefaultAnnotationStore(contentName);
+    String contentId = TestConstants.CONTENT_ID;
+    AnnotationStore store = new DefaultAnnotationStore(contentId);
 
     assertEquals(0, store.getAll().count());
 

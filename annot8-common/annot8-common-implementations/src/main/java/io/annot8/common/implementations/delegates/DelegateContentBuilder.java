@@ -18,8 +18,8 @@ public class DelegateContentBuilder<C extends Content<D>, D> implements Builder<
   }
 
   @Override
-  public Builder<C, D> withName(String name) {
-    delegate.withName(name);
+  public Builder<C, D> withDescription(String description) {
+    delegate.withDescription(description);
     return this;
   }
 

@@ -80,8 +80,8 @@ public class DefaultItem implements BaseItem {
   }
 
   @Override
-  public void removeContent(String name) {
-    contents.remove(name);
+  public void removeContent(String id) {
+    contents.remove(id);
   }
 
   @Override

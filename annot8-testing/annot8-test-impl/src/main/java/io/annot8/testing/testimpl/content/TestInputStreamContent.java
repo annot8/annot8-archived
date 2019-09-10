@@ -29,26 +29,26 @@ public class TestInputStreamContent extends AbstractTestContent<InputStream>
   }
 
   public TestInputStreamContent(
-      String id, String name, ImmutableProperties properties, Supplier<InputStream> data) {
-    super(InputStream.class, id, name, properties, data);
+      String id, String description, ImmutableProperties properties, Supplier<InputStream> data) {
+    super(InputStream.class, id, description, properties, data);
   }
 
   public TestInputStreamContent(
       AnnotationStore annotations,
       String id,
-      String name,
+      String description,
       ImmutableProperties properties,
       Supplier<InputStream> data) {
-    super(InputStream.class, c -> annotations, id, name, properties, data);
+    super(InputStream.class, c -> annotations, id, description, properties, data);
   }
 
   public TestInputStreamContent(
       AnnotationStoreFactory annotationStore,
       String id,
-      String name,
+      String description,
       ImmutableProperties properties,
       Supplier<InputStream> data) {
-    super(InputStream.class, annotationStore, id, name, properties, data);
+    super(InputStream.class, annotationStore, id, description, properties, data);
   }
 
   @Override
@@ -66,8 +66,8 @@ public class TestInputStreamContent extends AbstractTestContent<InputStream>
 
     @Override
     protected TestInputStreamContent create(
-        String id, String name, ImmutableProperties properties, Supplier<InputStream> data) {
-      return new TestInputStreamContent(annotationStoreFactory, id, name, properties, data);
+        String id, String description, ImmutableProperties properties, Supplier<InputStream> data) {
+      return new TestInputStreamContent(annotationStoreFactory, id, description, properties, data);
     }
   }
 

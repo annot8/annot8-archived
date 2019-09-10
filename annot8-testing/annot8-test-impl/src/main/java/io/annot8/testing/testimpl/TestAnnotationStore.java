@@ -21,7 +21,7 @@ public class TestAnnotationStore implements AnnotationStore {
   private String contentId;
 
   public TestAnnotationStore() {
-    this(TestConstants.CONTENT_NAME);
+    this(TestConstants.CONTENT_ID);
   }
 
   public TestAnnotationStore(String contentId) {
@@ -34,7 +34,7 @@ public class TestAnnotationStore implements AnnotationStore {
   }
 
   public TestAnnotationStore(Content<?> content) {
-    this(content.getName());
+    this(content.getId());
   }
 
   @Override
@@ -47,8 +47,8 @@ public class TestAnnotationStore implements AnnotationStore {
     };
   }
 
-  public void setContentId(String contentName) {
-    this.contentId = contentName;
+  public void setContentId(String contentId) {
+    this.contentId = contentId;
   }
 
   public Annotation save(Builder annotationBuilder) throws IncompleteException {

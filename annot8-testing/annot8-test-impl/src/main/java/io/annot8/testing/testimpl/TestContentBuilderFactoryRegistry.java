@@ -104,8 +104,8 @@ public class TestContentBuilderFactoryRegistry extends SimpleContentBuilderFacto
     }
 
     @Override
-    public Builder<C, D> withName(String name) {
-      instance.setName(name);
+    public Builder<C, D> withDescription(String description) {
+      instance.setDescription(description);
       return this;
     }
 

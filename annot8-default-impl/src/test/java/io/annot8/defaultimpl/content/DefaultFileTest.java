@@ -32,11 +32,11 @@ public class DefaultFileTest {
   private void assertBasicBuilderUsage(Content.Builder<DefaultFile, File> builder) {
     Content<File> content = null;
     try {
-      content = builder.withName("test").withData(new File("test")).save();
+      content = builder.withDescription("test").withData(new File("test")).save();
     } catch (IncompleteException e) {
       fail("Exception not expected here", e);
     }
-    assertEquals("test", content.getName());
+    assertEquals("test", content.getDescription());
     assertEquals(new File("test"), content.getData());
   }
 }

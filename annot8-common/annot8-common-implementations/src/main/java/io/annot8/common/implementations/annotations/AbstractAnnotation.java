@@ -59,7 +59,7 @@ public abstract class AbstractAnnotation implements Annotation {
         + getId()
         + ", type="
         + getType()
-        + ", contentName="
+        + ", contentId="
         + getContentId()
         + ", bounds="
         + getBounds()

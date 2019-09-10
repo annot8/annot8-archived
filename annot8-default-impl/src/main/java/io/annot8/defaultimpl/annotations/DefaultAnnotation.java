@@ -22,19 +22,19 @@ public class DefaultAnnotation extends AbstractAnnotation {
   private final String type;
   private final ImmutableProperties properties;
   private final Bounds bounds;
-  private final String content;
+  private final String contentId;
 
   private DefaultAnnotation(
       final String id,
       final String type,
       final ImmutableProperties properties,
       final Bounds bounds,
-      final String content) {
+      final String contentId) {
     this.id = id;
     this.type = type;
     this.properties = properties;
     this.bounds = bounds;
-    this.content = content;
+    this.contentId = contentId;
   }
 
   @Override
@@ -59,7 +59,7 @@ public class DefaultAnnotation extends AbstractAnnotation {
 
   @Override
   public String getContentId() {
-    return content;
+    return contentId;
   }
 
   /**
@@ -68,14 +68,14 @@ public class DefaultAnnotation extends AbstractAnnotation {
    */
   public static class Builder implements Annotation.Builder {
 
-    private final String content;
+    private final String contentId;
     private String type = null;
     private MutableProperties properties = new MapMutableProperties();
     private Bounds bounds = null;
     private String id = null;
 
-    public Builder(String content) {
-      this.content = content;
+    public Builder(String contentId) {
+      this.contentId = contentId;
     }
 
     @Override
@@ -154,8 +154,8 @@ public class DefaultAnnotation extends AbstractAnnotation {
         throw new IncompleteException("Bounds has not been set");
       }
 
-      if (content == null) {
-        throw new IncompleteException("Content name has not been set");
+      if (contentId == null) {
+        throw new IncompleteException("Content ID has not been set");
       }
 
       ImmutableProperties immutableProperties;
@@ -165,7 +165,7 @@ public class DefaultAnnotation extends AbstractAnnotation {
         immutableProperties = new MapImmutableProperties.Builder().from(properties).save();
       }
 
-      return new DefaultAnnotation(id, type, immutableProperties, bounds, content);
+      return new DefaultAnnotation(id, type, immutableProperties, bounds, contentId);
     }
 
     @Override

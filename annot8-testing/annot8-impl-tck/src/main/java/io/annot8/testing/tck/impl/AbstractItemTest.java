@@ -30,8 +30,8 @@ public abstract class AbstractItemTest {
     try {
       item.create(Text.class)
           .withData(() -> "test")
-          .withName(TestConstants.CONTENT_NAME)
           .withId(TestConstants.CONTENT_ID)
+          .withDescription(TestConstants.CONTENT_DESCRIPTION)
           .save();
     } catch (IncompleteException | UnsupportedContentException e) {
       fail("Test should not fail here", e);
@@ -41,7 +41,7 @@ public abstract class AbstractItemTest {
     assertTrue(optional.isPresent());
     Content<?> content = optional.get();
     assertEquals(TestConstants.CONTENT_ID, content.getId());
-    assertEquals(TestConstants.CONTENT_NAME, content.getName());
+    assertEquals(TestConstants.CONTENT_DESCRIPTION, content.getDescription());
     assertEquals("test", content.getData());
   }
 
@@ -50,16 +50,16 @@ public abstract class AbstractItemTest {
     BaseItem item = getItem();
 
     try {
-      item.create(Text.class).withData(() -> "test").withName(TestConstants.CONTENT_NAME).save();
-      item.create(Text.class).withData(() -> "test2").withName("content2").save();
+      item.create(Text.class).withData(() -> "test").withDescription(TestConstants.CONTENT_DESCRIPTION).save();
+      item.create(Text.class).withData(() -> "test2").withDescription("content2").save();
     } catch (UnsupportedContentException | IncompleteException e) {
       fail("Test should not error here", e);
     }
 
     assertThat(item.getContents().map(Content::getData).map(String.class::cast))
         .containsExactlyInAnyOrder("test", "test2");
-    assertThat(item.getContents().map(Content::getName))
-        .containsExactlyInAnyOrder(TestConstants.CONTENT_NAME, "content2");
+    assertThat(item.getContents().map(Content::getDescription))
+        .containsExactlyInAnyOrder(TestConstants.CONTENT_DESCRIPTION, "content2");
   }
 
   @Test
@@ -68,13 +68,13 @@ public abstract class AbstractItemTest {
 
     Text test = null;
     try {
-      test = item.create(Text.class).withName(TestConstants.CONTENT_NAME).withData("test").save();
+      test = item.create(Text.class).withDescription(TestConstants.CONTENT_DESCRIPTION).withData("test").save();
     } catch (UnsupportedContentException | IncompleteException e) {
       fail("Test should not throw an exception.", e);
     }
 
     assertNotNull(test);
-    assertEquals(TestConstants.CONTENT_NAME, test.getName());
+    assertEquals(TestConstants.CONTENT_DESCRIPTION, test.getDescription());
     assertEquals("test", test.getData());
     assertNotNull(test.getId());
   }
@@ -85,8 +85,8 @@ public abstract class AbstractItemTest {
     try {
       item.create(Text.class)
           .withData(() -> "test")
-          .withName(TestConstants.CONTENT_NAME)
           .withId(TestConstants.CONTENT_ID)
+          .withDescription(TestConstants.CONTENT_DESCRIPTION)
           .save();
     } catch (IncompleteException | UnsupportedContentException e) {
       fail("Test should not fail here", e);

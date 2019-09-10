@@ -31,11 +31,11 @@ public class DefaultInputStreamTest {
     DefaultInputStream content =
         builder.create(
             TestConstants.CONTENT_ID,
-            TestConstants.CONTENT_NAME,
+            TestConstants.CONTENT_DESCRIPTION,
             null,
             () -> new ByteArrayInputStream("test".getBytes()));
     assertEquals(TestConstants.CONTENT_ID, content.getId());
-    assertEquals(TestConstants.CONTENT_NAME, content.getName());
+    assertEquals(TestConstants.CONTENT_DESCRIPTION, content.getDescription());
     try {
       assertEquals("test", new String(content.getData().readAllBytes()));
     } catch (IOException e) {

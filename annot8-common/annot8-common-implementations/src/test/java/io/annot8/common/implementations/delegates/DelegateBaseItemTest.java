@@ -39,27 +39,9 @@ class DelegateBaseItemTest {
   }
 
   @Test
-  void hasContentOfName() {
-    item.hasContentOfName("test");
-    Mockito.verify(delegate, Mockito.times(1)).hasContentOfName("test");
-  }
-
-  @Test
-  void listNames() {
-    item.listNames();
-    Mockito.verify(delegate, Mockito.times(1)).listNames();
-  }
-
-  @Test
   void getContent() {
     item.getContent("id");
     Mockito.verify(delegate, Mockito.times(1)).getContent("id");
-  }
-
-  @Test
-  void getContentByName() {
-    item.getContentByName("n");
-    Mockito.verify(delegate, Mockito.times(1)).getContentByName("n");
   }
 
   @Test
