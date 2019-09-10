@@ -33,13 +33,12 @@ class SimpleItemQueueReaderTest {
   @Test
   void next() {
     Item bi = mock(Item.class);
-    Item i = mock(Item.class);
 
     when(itemQueue.next()).thenReturn(bi);
 
     SimpleItemQueueReader reader = new SimpleItemQueueReader(itemQueue);
 
-    assertThat(reader.next()).isEqualTo(i);
+    assertThat(reader.next()).isEqualTo(bi);
 
     verify(itemQueue).next();
   }
