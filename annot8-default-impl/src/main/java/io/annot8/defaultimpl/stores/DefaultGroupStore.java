@@ -28,6 +28,11 @@ public class DefaultGroupStore implements GroupStore {
   }
 
   @Override
+  public Item getItem() {
+    return item;
+  }
+
+  @Override
   public Group.Builder getBuilder() {
     return new DelegateGroupBuilder(new DefaultGroup.Builder(item)) {
       @Override

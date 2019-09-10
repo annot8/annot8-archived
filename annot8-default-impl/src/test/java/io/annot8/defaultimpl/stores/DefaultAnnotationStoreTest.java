@@ -4,6 +4,7 @@ package io.annot8.defaultimpl.stores;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import io.annot8.testing.testimpl.content.TestStringContent;
 import org.junit.jupiter.api.Test;
 
 import io.annot8.common.data.bounds.NoBounds;
@@ -17,7 +18,7 @@ public class DefaultAnnotationStoreTest {
   @Test
   public void testInMemoryAnnotationStore() throws IncompleteException {
     String contentId = TestConstants.CONTENT_ID;
-    AnnotationStore store = new DefaultAnnotationStore(contentId);
+    AnnotationStore store = new DefaultAnnotationStore(new TestStringContent());
 
     assertEquals(0, store.getAll().count());
 

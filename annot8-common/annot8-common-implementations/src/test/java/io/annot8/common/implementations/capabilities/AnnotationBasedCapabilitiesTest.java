@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.Optional;
 import java.util.stream.Stream;
 
+import io.annot8.core.data.Item;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -173,6 +174,11 @@ public class AnnotationBasedCapabilitiesTest {
   public static class ChildAnnotatedComponent extends AnnotatedComponent {}
 
   public static class FakeContent implements Content<String> {
+
+    @Override
+    public Item getItem() {
+      return null;
+    }
 
     @Override
     public String getData() {

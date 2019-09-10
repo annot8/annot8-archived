@@ -12,6 +12,7 @@ import java.util.stream.Stream;
 
 import io.annot8.common.implementations.delegates.DelegateAnnotationBuilder;
 import io.annot8.core.annotations.Annotation;
+import io.annot8.core.data.Content;
 import io.annot8.core.exceptions.IncompleteException;
 import io.annot8.core.stores.AnnotationStore;
 import io.annot8.defaultimpl.annotations.DefaultAnnotation;
@@ -20,19 +21,24 @@ import io.annot8.defaultimpl.annotations.DefaultAnnotation;
 public class DefaultAnnotationStore implements AnnotationStore {
 
   private final Map<String, Annotation> annotations = new ConcurrentHashMap<>();
-  private final String contentId;
+  private final Content<?> content;
 
   /**
    * Construct a new instance of this class using DefaultAnnotation.AbstractContentBuilder as the
    * annotation builder
    */
-  public DefaultAnnotationStore(String contentId) {
-    this.contentId = contentId;
+  public DefaultAnnotationStore(Content<?> content) {
+    this.content = content;
+  }
+
+  @Override
+  public Content<?> getContent() {
+    return content;
   }
 
   @Override
   public Annotation.Builder getBuilder() {
-    return new DelegateAnnotationBuilder(new DefaultAnnotation.Builder(contentId)) {
+    return new DelegateAnnotationBuilder(new DefaultAnnotation.Builder(content.getId())) {
       @Override
       public Annotation save() throws IncompleteException {
         return DefaultAnnotationStore.this.save(super.save());

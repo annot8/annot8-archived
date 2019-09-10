@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
+import io.annot8.core.data.Item;
 import org.junit.jupiter.api.Test;
 
 import io.annot8.core.exceptions.Annot8RuntimeException;
@@ -19,6 +20,8 @@ import io.annot8.testing.testimpl.TestItem;
 
 public class DefaultInputStreamTest {
 
+  Item item = new TestItem();
+
   @Test
   public void testBuilderFactory() {
     BuilderFactory factory = new BuilderFactory();
@@ -27,7 +30,7 @@ public class DefaultInputStreamTest {
 
   @Test
   public void testBuilder() {
-    Builder builder = new Builder();
+    Builder builder = new Builder(item);
     DefaultInputStream content =
         builder.create(
             TestConstants.CONTENT_ID,
@@ -45,7 +48,7 @@ public class DefaultInputStreamTest {
 
   @Test
   public void testNonSupplierError() {
-    Builder builder = new Builder();
+    Builder builder = new Builder(item);
     assertThrows(
         Annot8RuntimeException.class,
         () -> builder.withData(new ByteArrayInputStream("test".getBytes())));

@@ -7,6 +7,7 @@ import java.util.function.Supplier;
 
 import io.annot8.common.implementations.properties.MapImmutableProperties;
 import io.annot8.core.data.Content;
+import io.annot8.core.data.Item;
 import io.annot8.core.exceptions.IncompleteException;
 import io.annot8.core.properties.ImmutableProperties;
 import io.annot8.core.properties.Properties;
@@ -14,11 +15,20 @@ import io.annot8.core.properties.Properties;
 public abstract class AbstractContentBuilder<D, C extends Content<D>>
     implements Content.Builder<C, D> {
 
+  private final Item item;
   private final ImmutableProperties.Builder properties = new MapImmutableProperties.Builder();
   private String id;
   private String description;
 
   private Supplier<D> data;
+
+  protected AbstractContentBuilder(Item item) {
+    this.item = item;
+  }
+
+  protected Item getItem() {
+    return item;
+  }
 
   @Override
   public Content.Builder<C, D> withId(String id) {

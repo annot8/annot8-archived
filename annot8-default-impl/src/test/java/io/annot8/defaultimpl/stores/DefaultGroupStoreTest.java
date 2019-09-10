@@ -21,7 +21,7 @@ public class DefaultGroupStoreTest {
     TestItem item = new TestItem();
     GroupStore store = new DefaultGroupStore(item);
     item.setGroups(store);
-    TestStringContent content = item.save(new TestStringContent());
+    TestStringContent content = item.save(new TestStringContent(new TestItem()));
     Annotation a1 = content.getAnnotations().create().save();
     Annotation a2 = content.getAnnotations().create().save();
 
