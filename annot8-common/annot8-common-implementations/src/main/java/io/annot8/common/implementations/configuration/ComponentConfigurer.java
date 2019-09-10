@@ -22,7 +22,7 @@ public class ComponentConfigurer {
   private static final Logger LOGGER = LoggerFactory.getLogger(ComponentConfigurer.class);
   private final Context globalContext;
 
-  private Map<String, Resource> resources = new HashMap<>();
+  private final Map<String, Resource> resources = new HashMap<>();
 
   public ComponentConfigurer(Context context) {
     this.globalContext = context;

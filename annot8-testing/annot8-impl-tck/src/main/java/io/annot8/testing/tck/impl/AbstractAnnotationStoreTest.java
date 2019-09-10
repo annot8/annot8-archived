@@ -99,7 +99,7 @@ public abstract class AbstractAnnotationStoreTest {
     Assertions.assertTrue(annotationStore.getById(TEST_ANNOTATION_ID).isPresent());
 
     annotationStore.delete(annotation);
-    Assertions.assertTrue(!annotationStore.getById(TEST_ANNOTATION_ID).isPresent());
+    Assertions.assertTrue(annotationStore.getById(TEST_ANNOTATION_ID).isEmpty());
   }
 
   @Test
@@ -112,8 +112,8 @@ public abstract class AbstractAnnotationStoreTest {
     list.add(annotation);
     list.add(annotation2);
     annotationStore.delete(list);
-    Assertions.assertTrue(!annotationStore.getById(TEST_ANNOTATION_ID).isPresent());
-    Assertions.assertTrue(!annotationStore.getById("ANNOTATION2").isPresent());
+    Assertions.assertTrue(annotationStore.getById(TEST_ANNOTATION_ID).isEmpty());
+    Assertions.assertTrue(annotationStore.getById("ANNOTATION2").isEmpty());
   }
 
   @Test

@@ -33,7 +33,7 @@ public class TestItem implements Item {
 
   private boolean discarded = false;
 
-  private ItemFactory itemFactory;
+  private final ItemFactory itemFactory;
 
   public TestItem() {
     this(new TestGroupStore());
@@ -105,13 +105,13 @@ public class TestItem implements Item {
       throws UnsupportedContentException {
     Optional<ContentBuilderFactory<D, C>> optional = contentBuilderFactoryRegistry.get(clazz);
 
-    if (!optional.isPresent()) {
+    if (optional.isEmpty()) {
       throw new UnsupportedContentException("No content builder factory " + clazz.getSimpleName());
     }
 
     ContentBuilderFactory<D, C> factory = optional.get();
 
-    return new DelegateContentBuilder<C, D>(factory.create(this)) {
+    return new DelegateContentBuilder<>(factory.create(this)) {
       @Override
       public C save() throws IncompleteException {
         return TestItem.this.save(super.save());

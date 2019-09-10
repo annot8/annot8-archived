@@ -58,14 +58,11 @@ public class TableTest {
   }
 
   private Answer<Stream<Row>> getRowsAnswer(Row... rows) {
-    return new Answer<Stream<Row>>() {
-      @Override
-      public Stream<Row> answer(InvocationOnMock invocation) throws Throwable {
-        if (rows.length == 0) {
-          return Stream.empty();
-        }
-        return Stream.of(rows);
+    return invocation -> {
+      if (rows.length == 0) {
+        return Stream.empty();
       }
+      return Stream.of(rows);
     };
   }
 }

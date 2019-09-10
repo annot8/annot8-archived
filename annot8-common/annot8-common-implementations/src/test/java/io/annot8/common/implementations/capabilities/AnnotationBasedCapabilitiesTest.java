@@ -90,7 +90,7 @@ public class AnnotationBasedCapabilitiesTest {
     assertThat(
             capabilities
                 .getProcessedGroups()
-                .filter(c -> c.isOptional())
+                .filter(GroupCapability::isOptional)
                 .map(GroupCapability::getType))
         .containsExactlyInAnyOrder("go1");
   }

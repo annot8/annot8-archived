@@ -9,7 +9,7 @@ import io.annot8.core.data.ItemFactory;
 
 public class TestItemFactory implements ItemFactory {
 
-  private List<Item> createdItems = new LinkedList<>();
+  private final List<Item> createdItems = new LinkedList<>();
 
   @Override
   public Item create() {

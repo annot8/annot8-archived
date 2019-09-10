@@ -17,7 +17,7 @@ public class DefaultRowTest {
   @Test
   public void testDefaultRow() {
     int index = 1;
-    List<String> columnNames = Arrays.asList(new String[] {"test", "test2"});
+    List<String> columnNames = Arrays.asList("test", "test2");
     List<Object> data = Arrays.asList(new Object[] {1, "test"});
     DefaultRow row = new DefaultRow(index, columnNames, data);
 

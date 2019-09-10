@@ -77,9 +77,9 @@ public class ConversionUtilsTest {
     assertFalse(testNonIntValue.isPresent());
     assertFalse(testEmpty.isPresent());
 
-    assertEquals(1.0, (double) testIntValue.get(), 0.001);
-    assertEquals(1.0, (double) testStringValue.get(), 0.001);
-    assertEquals(1234567890.0, (double) testLongValue.get(), 0.001);
-    assertEquals(1.2, (double) testDoubleValue.get(), 0.001);
+    assertEquals(1.0, testIntValue.get(), 0.001);
+    assertEquals(1.0, testStringValue.get(), 0.001);
+    assertEquals(1234567890.0, testLongValue.get(), 0.001);
+    assertEquals(1.2, testDoubleValue.get(), 0.001);
   }
 }

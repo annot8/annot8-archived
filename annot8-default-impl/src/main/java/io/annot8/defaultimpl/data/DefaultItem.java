@@ -63,11 +63,11 @@ public class DefaultItem implements Item {
       throws UnsupportedContentException {
     Optional<ContentBuilderFactory<D, C>> factory = contentBuilderFactoryRegistry.get(clazz);
 
-    if (!factory.isPresent()) {
+    if (factory.isEmpty()) {
       throw new UnsupportedContentException("Unknown content type: " + clazz.getSimpleName());
     }
 
-    return new DelegateContentBuilder<C, D>(factory.get().create(this)) {
+    return new DelegateContentBuilder<>(factory.get().create(this)) {
       @Override
       public C save() throws IncompleteException {
         C c = super.save();

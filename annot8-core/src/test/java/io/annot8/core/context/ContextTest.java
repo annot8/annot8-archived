@@ -74,12 +74,7 @@ public class ContextTest {
         .getResource(Mockito.eq(res2), Mockito.eq(TestResource2.class));
 
     doAnswer(
-            new Answer<Stream<String>>() {
-              @Override
-              public Stream<String> answer(InvocationOnMock invocation) {
-                return Stream.of(res1, res2);
-              }
-            })
+            (Answer<Stream<String>>) invocation -> Stream.of(res1, res2))
         .when(context)
         .getResourceKeys();
 
@@ -103,21 +98,11 @@ public class ContextTest {
     Context context = Mockito.mock(Context.class);
     Resource res1 = Mockito.mock(TestResource1.class);
     doAnswer(
-            new Answer<Stream<Resource>>() {
-              @Override
-              public Stream<Resource> answer(InvocationOnMock invocation) {
-                return Stream.of(res1);
-              }
-            })
+            (Answer<Stream<Resource>>) invocation -> Stream.of(res1))
         .when(context)
         .getResources(Mockito.eq(TestResource1.class));
     doAnswer(
-            new Answer<Stream<Resource>>() {
-              @Override
-              public Stream<Resource> answer(InvocationOnMock invocation) {
-                return Stream.empty();
-              }
-            })
+            (Answer<Stream<Resource>>) invocation -> Stream.empty())
         .when(context)
         .getResources(Mockito.eq(TestResource2.class));
     doCallRealMethod().when(context).getResource(Mockito.any());

@@ -55,9 +55,7 @@ public class MultiCellBounds extends AbstractCellBounds {
           Optional<String> headerOptional = row.getColumnName(i);
           if (valueOptional.isPresent()) {
             values.put(i, valueOptional.get());
-            if (headerOptional.isPresent()) {
-              headers.put(headerOptional.get(), i);
-            }
+            headerOptional.ifPresent(s -> headers.put(s, i));
           }
         }
 

@@ -15,12 +15,12 @@ import java.util.function.Supplier;
 
 public class TestUriContent implements UriContent {
 
-  private URI data;
+  private final URI data;
   private Item item;
   private String id;
-  private String description;
-  private ImmutableProperties properties;
-  private AnnotationStore store;
+  private final String description;
+  private final ImmutableProperties properties;
+  private final AnnotationStore store;
 
   public TestUriContent(Item item, String id, String description, ImmutableProperties properties, URI data) {
     this.item = item;

@@ -21,7 +21,7 @@ import io.annot8.core.components.Source;
 @ExtendWith(MockitoExtension.class)
 class PipelineDefinitionTest {
 
-  String name = "test";
+  final String name = "test";
 
   @Mock
   ItemFactory baseItemFactory;

@@ -47,7 +47,7 @@ public class SettingsCompiler {
       return Collections.emptySet();
     }
 
-    return values.stream().flatMap(s -> s.stream()).collect(Collectors.toSet());
+    return values.stream().flatMap(Collection::stream).collect(Collectors.toSet());
   }
 
   protected void addAnnotatedSettings(

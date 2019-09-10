@@ -1,8 +1,6 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.implementations.delegates;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.Optional;
 import java.util.stream.Stream;
 

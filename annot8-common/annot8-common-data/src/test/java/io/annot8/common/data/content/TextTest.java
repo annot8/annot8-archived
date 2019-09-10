@@ -131,12 +131,7 @@ class TextTest {
     AnnotationStore annotationStore = mock(AnnotationStore.class);
     when(annotationStore.getByBounds(Mockito.eq(SpanBounds.class)))
         .thenAnswer(
-            new Answer<Stream<Annotation>>() {
-              @Override
-              public Stream<Annotation> answer(InvocationOnMock invocation) {
-                return Stream.of(annotation);
-              }
-            });
+                (Answer<Stream<Annotation>>) invocation -> Stream.of(annotation));
     return annotationStore;
   }
 }

@@ -10,8 +10,6 @@ import io.annot8.core.settings.Settings;
 
 public class TestPipelineComponentConfiguration implements ComponentConfiguration {
 
-  private final String name = "test";
-
   private final String component;
 
   private final Set<Settings> settings;
@@ -27,7 +25,7 @@ public class TestPipelineComponentConfiguration implements ComponentConfiguratio
 
   @Override
   public String getName() {
-    return name;
+    return "test";
   }
 
   @Override

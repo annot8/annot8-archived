@@ -52,7 +52,7 @@ public class SimplePipelineFactory implements PipelineFactory {
     configuration
         .getSources()
         .forEach(
-            s -> addComponentToBuilder(Source.class, s, (i, c) -> pipelineBuilder.addSource(i, c)));
+            s -> addComponentToBuilder(Source.class, s, pipelineBuilder::addSource));
 
     // Currently just convert to a pipe and pass that in
     PipeBuilder pipeBuilder = pipeBuilderSupplier.get();
@@ -61,7 +61,7 @@ public class SimplePipelineFactory implements PipelineFactory {
         .forEach(
             s ->
                 addComponentToBuilder(
-                    Processor.class, s, (i, c) -> pipeBuilder.addProcessor(i, c)));
+                    Processor.class, s, pipeBuilder::addProcessor));
 
     pipelineBuilder.addPipe(pipeBuilder);
 

@@ -5,8 +5,8 @@ import java.util.Objects;
 
 public class ColumnMetadata {
 
-  private String name;
-  private long size;
+  private final String name;
+  private final long size;
 
   public ColumnMetadata(String name, long size) {
     this.name = name;

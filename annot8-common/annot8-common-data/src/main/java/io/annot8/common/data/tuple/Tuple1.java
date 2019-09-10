@@ -15,7 +15,7 @@ public class Tuple1<A> implements Tuple {
   }
 
   public <Z> Tuple2<A, Z> append(Z z) {
-    return new Tuple2(getA(), z);
+    return new Tuple2<>(getA(), z);
   }
 
   @Override

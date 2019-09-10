@@ -8,7 +8,7 @@ import java.util.Optional;
 public class MultiCellData {
 
   private final Map<Integer, Object> data;
-  private Map<String, Integer> columnNames;
+  private final Map<String, Integer> columnNames;
 
   public MultiCellData(Map<Integer, Object> data, Map<String, Integer> columnNames) {
     this.data = data;

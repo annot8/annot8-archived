@@ -18,9 +18,9 @@ import io.annot8.common.pipelines.elements.Merge;
 @ExtendWith(MockitoExtension.class)
 class MergeDefinitionTest {
 
-  Set<String> inputs = new HashSet<>();
+  final Set<String> inputs = new HashSet<>();
 
-  String output = "example";
+  final String output = "example";
 
   @Mock Supplier<Merge> supplier;
 

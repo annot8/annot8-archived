@@ -2,7 +2,6 @@
 package io.annot8.common.pipelines.simple;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -62,7 +61,7 @@ class MultiPipeTest {
   }
 
   @Test
-  void close() throws BadConfigurationException, MissingResourceException {
+  void close() {
     MultiPipe mp = new MultiPipe("test", Arrays.asList(p1, p2));
 
     mp.close();

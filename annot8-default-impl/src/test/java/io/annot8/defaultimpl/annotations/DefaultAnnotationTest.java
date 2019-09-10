@@ -2,7 +2,6 @@
 package io.annot8.defaultimpl.annotations;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
 import java.util.HashMap;
 import java.util.Map;
