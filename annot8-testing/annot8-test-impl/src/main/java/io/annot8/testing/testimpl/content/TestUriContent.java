@@ -16,17 +16,24 @@ import java.util.function.Supplier;
 public class TestUriContent implements UriContent {
 
   private URI data;
+  private Item item;
   private String id;
   private String description;
   private ImmutableProperties properties;
   private AnnotationStore store;
 
-  public TestUriContent(String id, String description, ImmutableProperties properties, URI data) {
+  public TestUriContent(Item item, String id, String description, ImmutableProperties properties, URI data) {
+    this.item = item;
     this.id = id;
     this.description = description;
     this.properties = properties;
-    this.store = new TestAnnotationStore();
+    this.store = new TestAnnotationStore(this);
     this.data = data;
+  }
+
+  @Override
+  public Item getItem() {
+    return item;
   }
 
   @Override
@@ -66,10 +73,14 @@ public class TestUriContent implements UriContent {
 
   public static class TestUriBuilder extends AbstractContentBuilder<URI, UriContent> {
 
+    public TestUriBuilder(Item item) {
+      super(item);
+    }
+
     @Override
     protected UriContent create(
         String id, String description, ImmutableProperties properties, Supplier<URI> data) {
-      return new TestUriContent(id, description, properties, data.get());
+      return new TestUriContent(getItem(), id, description, properties, data.get());
     }
   }
 
@@ -81,7 +92,7 @@ public class TestUriContent implements UriContent {
 
     @Override
     public Builder<UriContent, URI> create(Item item) {
-      return new TestUriBuilder();
+      return new TestUriBuilder(item);
     }
   }
 }

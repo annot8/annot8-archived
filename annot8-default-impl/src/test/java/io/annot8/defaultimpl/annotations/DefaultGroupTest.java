@@ -33,7 +33,7 @@ public class DefaultGroupTest {
   @BeforeEach
   public void beforeEach() throws IncompleteException {
     item = new TestItem();
-    TestStringContent content = item.save(new TestStringContent());
+    TestStringContent content = item.save(new TestStringContent(new TestItem()));
     a1 = content.getAnnotations().create().save();
     a2 = content.getAnnotations().create().save();
     a3 = content.getAnnotations().create().save();

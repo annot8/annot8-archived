@@ -13,35 +13,44 @@ import io.annot8.core.properties.ImmutableProperties;
 import io.annot8.core.stores.AnnotationStore;
 import io.annot8.testing.testimpl.AbstractTestContent;
 import io.annot8.testing.testimpl.TestAnnotationStoreFactory;
+import io.annot8.testing.testimpl.TestItem;
 
 public class TestStringContent extends AbstractTestContent<String> implements Text {
 
+
   public TestStringContent() {
-    super(String.class);
+    super(new TestItem(), String.class);
     setData("Test data");
   }
 
-  public TestStringContent(
+  public TestStringContent(Item item) {
+    super(item, String.class);
+    setData("Test data");
+  }
+
+  public TestStringContent(Item item,
       String id, String description, ImmutableProperties properties, Supplier<String> data) {
-    super(String.class, id, description, properties, data);
+    super(item, String.class, id, description, properties, data);
   }
 
   public TestStringContent(
+          Item item,
       AnnotationStore annotations,
       String id,
       String description,
       ImmutableProperties properties,
       Supplier<String> data) {
-    super(String.class, c -> annotations, id, description, properties, data);
+    super(item, String.class, c -> annotations, id, description, properties, data);
   }
 
   public TestStringContent(
+          Item item,
       AnnotationStoreFactory annotationStore,
       String id,
       String description,
       ImmutableProperties properties,
       Supplier<String> data) {
-    super(String.class, annotationStore, id, description, properties, data);
+    super(item, String.class, annotationStore, id, description, properties, data);
   }
 
   @Override
@@ -53,14 +62,15 @@ public class TestStringContent extends AbstractTestContent<String> implements Te
 
     private final AnnotationStoreFactory annotationStoreFactory;
 
-    public Builder(AnnotationStoreFactory annotationStoreFactory) {
-      this.annotationStoreFactory = annotationStoreFactory;
+    public Builder(Item item, AnnotationStoreFactory annotationStoreFactory) {
+        super(item);
+        this.annotationStoreFactory = annotationStoreFactory;
     }
 
     @Override
     protected TestStringContent create(
         String id, String description, ImmutableProperties properties, Supplier<String> data) {
-      return new TestStringContent(annotationStoreFactory, id, description, properties, data);
+      return new TestStringContent(getItem(), annotationStoreFactory, id, description, properties, data);
     }
   }
 
@@ -80,7 +90,7 @@ public class TestStringContent extends AbstractTestContent<String> implements Te
 
     @Override
     public Builder create(Item item) {
-      return new Builder(annotationStoreFactory);
+      return new Builder(item, annotationStoreFactory);
     }
   }
 }

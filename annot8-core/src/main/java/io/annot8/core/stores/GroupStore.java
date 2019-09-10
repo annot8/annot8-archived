@@ -7,9 +7,18 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import io.annot8.core.annotations.Group;
+import io.annot8.core.data.Content;
+import io.annot8.core.data.Item;
 
 /** Base groups interface from which all other group stores extend. */
 public interface GroupStore {
+
+  /**
+   * Get the item to which the groups relate.
+   *
+   * @return item
+   */
+  Item getItem();
 
   /**
    * Create a new group builder

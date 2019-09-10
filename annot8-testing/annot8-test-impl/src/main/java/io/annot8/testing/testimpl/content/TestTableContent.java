@@ -15,37 +15,34 @@ import io.annot8.testing.testimpl.AbstractTestContent;
 
 public class TestTableContent extends AbstractTestContent<Table> implements TableContent {
 
-  public TestTableContent() {
-    super(Table.class);
+  public TestTableContent(Item item) {
+    super(item, Table.class);
   }
 
-  public TestTableContent(String description) {
-    super(Table.class, description);
+  public TestTableContent(Item item, String description) {
+    super(item, Table.class, description);
+  }
+
+  public TestTableContent(Item item,
+                          Class<Table> dataClass, String id, String description, ImmutableProperties properties) {
+    super(item, Table.class, id, description, properties);
+  }
+
+  public TestTableContent(Item item,
+                          String id, String description, ImmutableProperties properties, Supplier<Table> data) {
+    super(item, Table.class, id, description, properties, data);
   }
 
   public TestTableContent(
-      Class<Table> dataClass, String id, String description, ImmutableProperties properties) {
-    super(Table.class, id, description, properties);
-  }
-
-  public TestTableContent(
-      String id, String description, ImmutableProperties properties, Supplier<Table> data) {
-    super(Table.class, id, description, properties, data);
-  }
-
-  public TestTableContent(
+          Item item,
       AnnotationStoreFactory annotationStoreFactory,
       String id,
       String description,
       ImmutableProperties properties,
       Supplier<Table> data) {
-    super(Table.class, annotationStoreFactory, id, description, properties, data);
+    super(item, Table.class, annotationStoreFactory, id, description, properties, data);
   }
 
-  public TestTableContent(
-      Class<Table> dataClass, String id, String description, ImmutableProperties properties, Table data) {
-    super(dataClass, id, description, properties, data);
-  }
 
   @Override
   public Class<? extends Content<Table>> getContentClass() {
@@ -54,10 +51,14 @@ public class TestTableContent extends AbstractTestContent<Table> implements Tabl
 
   public static class Builder extends AbstractContentBuilder<Table, TableContent> {
 
+    public Builder(Item item) {
+          super(item);
+      }
+
     @Override
     protected TableContent create(
         String id, String description, ImmutableProperties properties, Supplier<Table> data) {
-      return new TestTableContent(id, description, properties, data);
+      return new TestTableContent(getItem(), id, description, properties, data);
     }
   }
 
@@ -69,7 +70,7 @@ public class TestTableContent extends AbstractTestContent<Table> implements Tabl
 
     @Override
     public Content.Builder<TableContent, Table> create(Item item) {
-      return new Builder();
+      return new Builder(item);
     }
   }
 }

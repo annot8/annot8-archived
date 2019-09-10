@@ -18,37 +18,34 @@ public class TestAnnotationStore implements AnnotationStore {
 
   private final Map<String, Annotation> annotations = new ConcurrentHashMap<>();
   private final AnnotationBuilderFactory annotationBuilderFactory;
-  private String contentId;
+  private Content<?> content;
 
-  public TestAnnotationStore() {
-    this(TestConstants.CONTENT_ID);
+  public TestAnnotationStore(Content<?> content) {
+    this(content, TestAnnotationBuilder.factory());
   }
 
-  public TestAnnotationStore(String contentId) {
-    this(contentId, TestAnnotationBuilder.factory());
-  }
-
-  public TestAnnotationStore(String contentId, AnnotationBuilderFactory annotationBuilderFactory) {
-    this.contentId = contentId;
+  public TestAnnotationStore(Content<?> content, AnnotationBuilderFactory annotationBuilderFactory) {
+    this.content = content;
     this.annotationBuilderFactory = annotationBuilderFactory;
   }
 
-  public TestAnnotationStore(Content<?> content) {
-    this(content.getId());
+  @Override
+  public Content<?> getContent() {
+    return content;
+  }
+
+  public void setContent(Content<?> content) {
+    this.content = content;
   }
 
   @Override
   public Builder getBuilder() {
-    return new DelegateAnnotationBuilder(annotationBuilderFactory.create(contentId, this)) {
+    return new DelegateAnnotationBuilder(annotationBuilderFactory.create(content, this)) {
       @Override
       public Annotation save() throws IncompleteException {
         return TestAnnotationStore.this.save(super.save());
       }
     };
-  }
-
-  public void setContentId(String contentId) {
-    this.contentId = contentId;
   }
 
   public Annotation save(Builder annotationBuilder) throws IncompleteException {

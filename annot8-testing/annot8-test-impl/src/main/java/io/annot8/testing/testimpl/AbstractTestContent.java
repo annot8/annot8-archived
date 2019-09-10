@@ -6,11 +6,13 @@ import java.util.function.Supplier;
 
 import io.annot8.common.implementations.stores.AnnotationStoreFactory;
 import io.annot8.core.data.Content;
+import io.annot8.core.data.Item;
 import io.annot8.core.properties.ImmutableProperties;
 import io.annot8.core.stores.AnnotationStore;
 
 public abstract class AbstractTestContent<D> implements Content<D> {
 
+  private Item item;
   private String id;
   private final Class<D> dataClass;
   private String description;
@@ -19,35 +21,38 @@ public abstract class AbstractTestContent<D> implements Content<D> {
 
   private Supplier<D> data;
 
-  public AbstractTestContent(Class<D> dataClass) {
-    this(dataClass, TestConstants.CONTENT_DESCRIPTION);
+  public AbstractTestContent(Item item, Class<D> dataClass) {
+    this(item, dataClass, TestConstants.CONTENT_DESCRIPTION);
   }
 
-  public AbstractTestContent(Class<D> dataClass, String description) {
-    this(dataClass, UUID.randomUUID().toString(), description, new TestProperties());
-  }
-
-  public AbstractTestContent(
-      Class<D> dataClass, String id, String description, ImmutableProperties properties) {
-    this(dataClass, id, description, properties, (D) null);
+  public AbstractTestContent(Item item, Class<D> dataClass, String description) {
+    this(item, dataClass, UUID.randomUUID().toString(), description, new TestProperties());
   }
 
   public AbstractTestContent(
-      Class<D> dataClass,
+      Item item, Class<D> dataClass, String id, String description, ImmutableProperties properties) {
+    this(item, dataClass, id, description, properties, (D) null);
+  }
+
+  public AbstractTestContent(
+          Item item,
+          Class<D> dataClass,
       String id,
       String description,
       ImmutableProperties properties,
       Supplier<D> data) {
-    this(dataClass, n -> new TestAnnotationStore(n.getId()), id, description, properties, data);
+    this(item, dataClass, n -> new TestAnnotationStore(n), id, description, properties, data);
   }
 
   public AbstractTestContent(
-      Class<D> dataClass,
+          Item item,
+          Class<D> dataClass,
       AnnotationStoreFactory annotationStoreFactory,
       String id,
       String description,
       ImmutableProperties properties,
       Supplier<D> data) {
+    this.item = item;
     this.id = id;
     this.dataClass = dataClass;
     this.description = description;
@@ -58,8 +63,17 @@ public abstract class AbstractTestContent<D> implements Content<D> {
   }
 
   public AbstractTestContent(
-      Class<D> dataClass, String id, String description, ImmutableProperties properties, D data) {
-    this(dataClass, id, description, properties, () -> data);
+      Item item, Class<D> dataClass, String id, String description, ImmutableProperties properties, D data) {
+    this(item, dataClass, id, description, properties, () -> data);
+  }
+
+  @Override
+  public Item getItem() {
+    return item;
+  }
+
+  public void setItem(Item item) {
+    this.item = item;
   }
 
   public void setId(String id) {

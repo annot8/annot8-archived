@@ -9,7 +9,7 @@ public class TestStringContentTest {
 
   @Test
   public void testAbstractTestContent() {
-    TestStringContent stringContent = new TestStringContent();
+    TestStringContent stringContent = new TestStringContent(null);
     assertEquals("Test data", stringContent.getData());
   }
 }

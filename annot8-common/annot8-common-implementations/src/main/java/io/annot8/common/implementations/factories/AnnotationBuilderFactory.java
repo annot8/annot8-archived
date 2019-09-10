@@ -2,6 +2,7 @@
 package io.annot8.common.implementations.factories;
 
 import io.annot8.core.annotations.Annotation;
+import io.annot8.core.data.Content;
 import io.annot8.core.stores.AnnotationStore;
 
 /**
@@ -17,9 +18,9 @@ public interface AnnotationBuilderFactory {
    *
    * <p>Most implementation will simply need the store parameter to allow save on save.
    *
-   * @param content the content id
+   * @param content the content
    * @param store the annotation store to use
    * @return non-null builder
    */
-  Annotation.Builder create(String content, AnnotationStore store);
+  Annotation.Builder create(Content<?> content, AnnotationStore store);
 }
