@@ -6,7 +6,6 @@ import java.util.Map;
 
 import io.annot8.common.implementations.configuration.ComponentHolder;
 import io.annot8.common.implementations.configuration.ResourcesHolder;
-import io.annot8.common.implementations.data.BaseItemFactory;
 import io.annot8.common.pipelines.elements.Pipe;
 import io.annot8.common.pipelines.queues.BaseItemQueue;
 import io.annot8.core.components.Source;

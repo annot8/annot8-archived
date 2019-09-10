@@ -8,7 +8,6 @@ import io.annot8.common.data.content.InputStreamContent;
 import io.annot8.common.implementations.content.AbstractContent;
 import io.annot8.common.implementations.content.AbstractContentBuilder;
 import io.annot8.common.implementations.content.AbstractContentBuilderFactory;
-import io.annot8.core.data.BaseItem;
 import io.annot8.core.data.Content;
 import io.annot8.core.exceptions.Annot8RuntimeException;
 import io.annot8.core.properties.ImmutableProperties;

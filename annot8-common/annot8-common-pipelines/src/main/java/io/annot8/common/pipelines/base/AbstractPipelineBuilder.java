@@ -16,7 +16,6 @@ import com.google.common.collect.ListMultimap;
 
 import io.annot8.common.implementations.configuration.ComponentHolder;
 import io.annot8.common.implementations.configuration.ResourcesHolder;
-import io.annot8.common.implementations.data.BaseItemFactory;
 import io.annot8.common.pipelines.definitions.BranchDefinition;
 import io.annot8.common.pipelines.definitions.MergeDefinition;
 import io.annot8.common.pipelines.definitions.PipelineDefinition;

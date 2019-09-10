@@ -14,7 +14,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import io.annot8.common.implementations.context.SimpleContext;
-import io.annot8.common.implementations.data.BaseItemFactory;
 import io.annot8.common.pipelines.base.AbstractPipelineBuilder;
 import io.annot8.common.pipelines.elements.Pipeline;
 import io.annot8.common.pipelines.elements.PipelineBuilder;
@@ -30,7 +29,6 @@ import io.annot8.core.components.Source;
 import io.annot8.core.components.responses.ProcessorResponse;
 import io.annot8.core.components.responses.SourceResponse;
 import io.annot8.core.context.Context;
-import io.annot8.core.data.BaseItem;
 import io.annot8.core.data.Item;
 import io.annot8.core.exceptions.Annot8Exception;
 import io.annot8.core.exceptions.BadConfigurationException;

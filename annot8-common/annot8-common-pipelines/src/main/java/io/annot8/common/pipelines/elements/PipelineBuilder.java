@@ -4,7 +4,6 @@ package io.annot8.common.pipelines.elements;
 import java.util.Arrays;
 import java.util.Collection;
 
-import io.annot8.common.implementations.data.BaseItemFactory;
 import io.annot8.common.pipelines.definitions.BranchDefinition;
 import io.annot8.common.pipelines.definitions.MergeDefinition;
 import io.annot8.common.pipelines.queues.BaseItemQueue;

@@ -2,7 +2,6 @@
 package io.annot8.testing.testimpl;
 
 import io.annot8.common.implementations.stores.GroupStoreFactory;
-import io.annot8.core.data.BaseItem;
 import io.annot8.core.stores.GroupStore;
 
 public class TestGroupStoreFactory implements GroupStoreFactory {

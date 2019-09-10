@@ -4,8 +4,6 @@ package io.annot8.common.pipelines.queues;
 import java.util.Deque;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
-import io.annot8.core.data.BaseItem;
-
 public class MemoryItemQueue implements BaseItemQueue {
 
   private final Deque<BaseItem> items = new ConcurrentLinkedDeque<>();

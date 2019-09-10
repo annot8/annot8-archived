@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import io.annot8.common.implementations.references.AbstractAnnotationReference;
 import io.annot8.core.annotations.Annotation;
-import io.annot8.core.data.BaseItem;
 import io.annot8.core.data.Content;
 
 /**

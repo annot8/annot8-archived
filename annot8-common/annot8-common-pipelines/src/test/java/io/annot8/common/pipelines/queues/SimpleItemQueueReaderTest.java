@@ -2,7 +2,6 @@
 package io.annot8.common.pipelines.queues;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -12,8 +11,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import io.annot8.common.implementations.data.BaseItemToItem;
-import io.annot8.core.data.BaseItem;
 import io.annot8.core.data.Item;
 
 @ExtendWith(MockitoExtension.class)

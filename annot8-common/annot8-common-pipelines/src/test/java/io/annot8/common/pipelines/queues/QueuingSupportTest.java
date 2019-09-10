@@ -7,8 +7,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import io.annot8.common.implementations.data.BaseItemFactory;
-
 @ExtendWith(MockitoExtension.class)
 class QueuingSupportTest {
 

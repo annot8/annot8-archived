@@ -3,9 +3,7 @@ package io.annot8.defaultimpl.factories;
 
 import java.util.Objects;
 
-import io.annot8.common.implementations.data.BaseItemFactory;
 import io.annot8.common.implementations.registries.ContentBuilderFactoryRegistry;
-import io.annot8.core.data.BaseItem;
 import io.annot8.defaultimpl.data.DefaultItem;
 
 public class DefaultBaseItemFactory implements BaseItemFactory {

@@ -4,9 +4,6 @@ package io.annot8.testing.testimpl;
 import java.util.LinkedList;
 import java.util.List;
 
-import io.annot8.common.implementations.data.BaseItemFactory;
-import io.annot8.core.data.BaseItem;
-
 public class TestBaseItemFactory implements BaseItemFactory {
 
   private List<BaseItem> createdItems = new LinkedList<>();

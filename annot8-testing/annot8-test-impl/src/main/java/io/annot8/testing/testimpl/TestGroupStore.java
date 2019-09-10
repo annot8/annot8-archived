@@ -10,7 +10,6 @@ import io.annot8.common.implementations.delegates.DelegateGroupBuilder;
 import io.annot8.common.implementations.factories.GroupBuilderFactory;
 import io.annot8.core.annotations.Group;
 import io.annot8.core.annotations.Group.Builder;
-import io.annot8.core.data.BaseItem;
 import io.annot8.core.exceptions.IncompleteException;
 import io.annot8.core.stores.GroupStore;
 

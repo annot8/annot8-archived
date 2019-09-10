@@ -15,9 +15,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import io.annot8.common.implementations.data.BaseItemFactory;
 import io.annot8.common.implementations.listeners.Deregister;
-import io.annot8.core.data.BaseItem;
 
 @ExtendWith(MockitoExtension.class)
 class NotifyingBaseItemFactoryTest {
