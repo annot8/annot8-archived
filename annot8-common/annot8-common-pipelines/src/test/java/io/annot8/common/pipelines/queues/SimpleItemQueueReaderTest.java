@@ -16,33 +16,31 @@ import io.annot8.core.data.Item;
 @ExtendWith(MockitoExtension.class)
 class SimpleItemQueueReaderTest {
 
-  @Mock BaseItemQueue baseItemQueue;
-
-  @Mock BaseItemToItem converter;
+  @Mock
+  ItemQueue itemQueue;
 
   @Test
   void hasItems() {
 
-    when(baseItemQueue.hasItems()).thenReturn(true);
-    SimpleItemQueueReader reader = new SimpleItemQueueReader(baseItemQueue, converter);
+    when(itemQueue.hasItems()).thenReturn(true);
+    SimpleItemQueueReader reader = new SimpleItemQueueReader(itemQueue);
 
     assertThat(reader.hasItems()).isTrue();
 
-    verify(baseItemQueue).hasItems();
+    verify(itemQueue).hasItems();
   }
 
   @Test
   void next() {
-    BaseItem bi = mock(BaseItem.class);
+    Item bi = mock(Item.class);
     Item i = mock(Item.class);
 
-    when(baseItemQueue.next()).thenReturn(bi);
-    when(converter.convert(bi)).thenReturn(i);
+    when(itemQueue.next()).thenReturn(bi);
 
-    SimpleItemQueueReader reader = new SimpleItemQueueReader(baseItemQueue, converter);
+    SimpleItemQueueReader reader = new SimpleItemQueueReader(itemQueue);
 
     assertThat(reader.next()).isEqualTo(i);
 
-    verify(baseItemQueue).next();
+    verify(itemQueue).next();
   }
 }

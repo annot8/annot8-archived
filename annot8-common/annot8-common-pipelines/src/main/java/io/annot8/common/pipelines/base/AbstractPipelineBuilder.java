@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import io.annot8.core.data.ItemFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,7 +22,7 @@ import io.annot8.common.pipelines.definitions.MergeDefinition;
 import io.annot8.common.pipelines.definitions.PipelineDefinition;
 import io.annot8.common.pipelines.elements.Pipe;
 import io.annot8.common.pipelines.elements.PipelineBuilder;
-import io.annot8.common.pipelines.queues.BaseItemQueue;
+import io.annot8.common.pipelines.queues.ItemQueue;
 import io.annot8.common.pipelines.queues.MemoryItemQueue;
 import io.annot8.common.pipelines.simple.MultiPipe;
 import io.annot8.core.components.Resource;
@@ -39,9 +40,9 @@ public abstract class AbstractPipelineBuilder implements PipelineBuilder {
   private final List<MergeDefinition> merges = new LinkedList<>();
   private final List<BranchDefinition> branches = new LinkedList<>();
 
-  private BaseItemQueue queue = null;
+  private ItemQueue queue = null;
   private String name = "anonymous";
-  private BaseItemFactory itemFactory = null;
+  private ItemFactory itemFactory = null;
 
   @Override
   public PipelineBuilder withName(String name) {
@@ -80,12 +81,12 @@ public abstract class AbstractPipelineBuilder implements PipelineBuilder {
     return this;
   }
 
-  public PipelineBuilder withQueue(final BaseItemQueue queue) {
+  public PipelineBuilder withQueue(final ItemQueue queue) {
     this.queue = queue;
     return this;
   }
 
-  public PipelineBuilder withItemFactory(final BaseItemFactory itemFactory) {
+  public PipelineBuilder withItemFactory(final ItemFactory itemFactory) {
     this.itemFactory = itemFactory;
     return this;
   }
@@ -120,7 +121,7 @@ public abstract class AbstractPipelineBuilder implements PipelineBuilder {
     return name;
   }
 
-  protected BaseItemFactory getItemFactory() {
+  protected ItemFactory getItemFactory() {
     return itemFactory;
   }
 
@@ -132,7 +133,7 @@ public abstract class AbstractPipelineBuilder implements PipelineBuilder {
     return merges;
   }
 
-  protected BaseItemQueue getQueue() {
+  protected ItemQueue getQueue() {
     if (queue == null) {
       LOGGER.warn(
           "Queue requires for Source ingest, non specified so using the an in-memory queue");

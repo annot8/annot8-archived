@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.List;
 import java.util.Map;
 
+import io.annot8.core.data.ItemFactory;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -14,7 +15,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import io.annot8.common.implementations.configuration.ComponentHolder;
 import io.annot8.common.implementations.configuration.ResourcesHolder;
 import io.annot8.common.pipelines.elements.Pipe;
-import io.annot8.common.pipelines.queues.BaseItemQueue;
+import io.annot8.common.pipelines.queues.ItemQueue;
 import io.annot8.core.components.Source;
 
 @ExtendWith(MockitoExtension.class)
@@ -22,9 +23,11 @@ class PipelineDefinitionTest {
 
   String name = "test";
 
-  @Mock BaseItemFactory baseItemFactory;
+  @Mock
+  ItemFactory baseItemFactory;
 
-  @Mock BaseItemQueue queue;
+  @Mock
+  ItemQueue queue;
 
   @Mock ResourcesHolder resourcesHolder;
 

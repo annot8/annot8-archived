@@ -5,6 +5,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import io.annot8.core.data.ItemFactory;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -21,7 +22,8 @@ class QueueFeederTest {
 
   @Mock ItemQueueReader queue;
 
-  @Mock BaseItemFactory itemFactory;
+  @Mock
+  ItemFactory itemFactory;
 
   @Mock WithProcessItem processor;
 

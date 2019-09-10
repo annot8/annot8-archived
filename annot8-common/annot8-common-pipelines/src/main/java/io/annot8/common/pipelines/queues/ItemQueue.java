@@ -1,18 +1,20 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.pipelines.queues;
 
+import io.annot8.core.data.Item;
+
 import java.util.function.Consumer;
 
-public interface BaseItemQueue extends Consumer<BaseItem> {
+public interface ItemQueue extends Consumer<Item> {
 
-  void add(BaseItem item);
+  void add(Item item);
 
   @Override
-  default void accept(BaseItem item) {
+  default void accept(Item item) {
     add(item);
   }
 
   boolean hasItems();
 
-  BaseItem next();
+  Item next();
 }

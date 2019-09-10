@@ -6,11 +6,12 @@ import java.util.Collection;
 
 import io.annot8.common.pipelines.definitions.BranchDefinition;
 import io.annot8.common.pipelines.definitions.MergeDefinition;
-import io.annot8.common.pipelines.queues.BaseItemQueue;
+import io.annot8.common.pipelines.queues.ItemQueue;
 import io.annot8.common.pipelines.simple.ProcessorPipe;
 import io.annot8.core.components.Processor;
 import io.annot8.core.components.Resource;
 import io.annot8.core.components.Source;
+import io.annot8.core.data.ItemFactory;
 import io.annot8.core.exceptions.IncompleteException;
 import io.annot8.core.settings.Settings;
 
@@ -66,9 +67,9 @@ public interface PipelineBuilder {
 
   PipelineBuilder addMerge(final MergeDefinition definition);
 
-  PipelineBuilder withQueue(BaseItemQueue queue);
+  PipelineBuilder withQueue(ItemQueue queue);
 
-  PipelineBuilder withItemFactory(BaseItemFactory itemFactory);
+  PipelineBuilder withItemFactory(ItemFactory itemFactory);
 
   Pipeline build() throws IncompleteException;
 }

@@ -27,7 +27,7 @@ import io.annot8.core.exceptions.Annot8Exception;
 @ExtendWith(MockitoExtension.class)
 class SimplePipelineTest {
 
-  @Mock BaseItemFactory itemFactory;
+  @Mock ItemFactory itemFactory;
 
   @Mock Source source;
 
