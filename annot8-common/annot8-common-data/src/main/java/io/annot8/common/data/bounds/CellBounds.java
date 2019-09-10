@@ -27,7 +27,7 @@ public class CellBounds extends AbstractCellBounds {
     if (isValid(content)) {
       Table table = (Table) content.getData();
       Optional<Row> optional = table.getRow(row);
-      if (!optional.isPresent()) {
+      if (optional.isEmpty()) {
         throw new Annot8RuntimeException("Failed to find row");
       }
       Optional<Object> value = optional.get().getValueAt(column);

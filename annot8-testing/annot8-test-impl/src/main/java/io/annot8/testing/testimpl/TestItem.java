@@ -105,7 +105,7 @@ public class TestItem implements Item {
       throws UnsupportedContentException {
     Optional<ContentBuilderFactory<D, C>> optional = contentBuilderFactoryRegistry.get(clazz);
 
-    if (!optional.isPresent()) {
+    if (optional.isEmpty()) {
       throw new UnsupportedContentException("No content builder factory " + clazz.getSimpleName());
     }
 

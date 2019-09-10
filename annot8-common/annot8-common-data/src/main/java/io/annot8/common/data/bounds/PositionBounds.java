@@ -67,8 +67,8 @@ public class PositionBounds implements Bounds {
         if (requiredClass.isAssignableFrom(String.class)) {
           return Optional.of((R) s.substring(position, position + 1));
         } else if (requiredClass.isAssignableFrom(Character.class)) {
-          Character c = s.charAt(position);
-          return Optional.of((R) c);
+          char c = s.charAt(position);
+          return Optional.of((R) Character.valueOf(c));
         }
       }
     }

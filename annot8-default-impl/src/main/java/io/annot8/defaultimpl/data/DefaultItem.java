@@ -63,7 +63,7 @@ public class DefaultItem implements Item {
       throws UnsupportedContentException {
     Optional<ContentBuilderFactory<D, C>> factory = contentBuilderFactoryRegistry.get(clazz);
 
-    if (!factory.isPresent()) {
+    if (factory.isEmpty()) {
       throw new UnsupportedContentException("Unknown content type: " + clazz.getSimpleName());
     }
 
