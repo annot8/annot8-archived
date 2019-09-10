@@ -2,7 +2,6 @@
 package io.annot8.common.implementations.configuration;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -30,7 +29,7 @@ class ResourcesHolderTest {
 
     resourceFixtures().forEach(t -> addResource(t.getA(), t.getB(), t.getC()));
 
-    assertThat(holder.getResourcesToConfiguration()).hasSize(3);
+    assertThat(holder.getResources()).hasSize(3);
     assertThat(holder.getResourcesToId()).hasSize(3);
   }
 
@@ -43,7 +42,7 @@ class ResourcesHolderTest {
     assertThat(holder.getResourcesToId()).containsEntry(r, id);
 
     Collection<Settings> expectedSettings = settings == null ? Collections.emptyList() : settings;
-    assertThat(holder.getResourcesToConfiguration().get(r))
+    assertThat(holder.getResources().get(r))
         .containsExactlyElementsOf(expectedSettings);
   }
 

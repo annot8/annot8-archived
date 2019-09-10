@@ -5,7 +5,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +15,8 @@ import io.annot8.core.components.Annot8Component;
 import io.annot8.core.components.Resource;
 import io.annot8.core.context.Context;
 import io.annot8.core.settings.Settings;
+
+import static java.util.stream.Collectors.toList;
 
 public class ComponentConfigurer {
 
@@ -36,10 +37,10 @@ public class ComponentConfigurer {
 
   public Map<String, Resource> configureResources(ResourcesHolder resourcesHolder) {
     resourcesHolder
-        .getResourcesToConfiguration()
+        .getResources()
         .forEach(
-            (resource, settings) -> {
-              if (configureComponent(resource, settings)) {
+            (resource) -> {
+              if (configureComponent(resource)) {
                 String id = resourcesHolder.getId(resource);
                 resources.put(id, resource);
               }
@@ -53,24 +54,13 @@ public class ComponentConfigurer {
   }
 
   public <T extends Annot8Component> List<T> configureComponents(ComponentHolder<T> holder) {
-    return configureAllComponents(holder.getComponentToConfiguration());
+    return holder.getComponents()
+            .stream()
+            .filter(this::configureComponent)
+            .collect(toList());
   }
 
-  protected <T extends Annot8Component> List<T> configureAllComponents(
-      Map<T, Collection<Settings>> componentToConfiguration) {
-
-    return componentToConfiguration
-        .entrySet()
-        .stream()
-        .filter(e -> configureComponent(e.getKey(), e.getValue()))
-        .map(Map.Entry::getKey)
-        .collect(Collectors.toList());
-  }
-
-  // TODO: This will change since settings are no longer passed like this
-  public <T extends Annot8Component> boolean configureComponent(
-      T component, Collection<Settings> settings) {
-
+  public <T extends Annot8Component> boolean configureComponent(T component) {
     // TODO: COmpletely ignore capabilties here.. we could check for resources etc
 
     try {
