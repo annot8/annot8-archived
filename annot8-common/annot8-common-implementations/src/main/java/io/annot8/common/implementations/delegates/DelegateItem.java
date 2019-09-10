@@ -4,18 +4,18 @@ package io.annot8.common.implementations.delegates;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-import io.annot8.core.data.BaseItem;
 import io.annot8.core.data.Content;
 import io.annot8.core.data.Content.Builder;
+import io.annot8.core.data.Item;
 import io.annot8.core.exceptions.UnsupportedContentException;
 import io.annot8.core.properties.MutableProperties;
 import io.annot8.core.stores.GroupStore;
 
-public class DelegateBaseItem implements BaseItem {
+public class DelegateItem implements Item{
 
-  private final BaseItem item;
+  private final Item item;
 
-  public DelegateBaseItem(BaseItem item) {
+  public DelegateItem(Item item) {
     this.item = item;
   }
 
@@ -63,6 +63,11 @@ public class DelegateBaseItem implements BaseItem {
   @Override
   public boolean isDiscarded() {
     return item.isDiscarded();
+  }
+
+  @Override
+  public Item create() {
+    return item.create();
   }
 
   @Override
