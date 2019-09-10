@@ -1,10 +1,11 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.data.bounds;
 
-import java.util.Optional;
-
 import io.annot8.core.bounds.Bounds;
 import io.annot8.core.data.Content;
+
+import javax.json.bind.annotation.JsonbCreator;
+import java.util.Optional;
 
 /**
  * Implementation of Bounds indicating that an annotation does not have any bounds (i.e. it is
@@ -25,6 +26,7 @@ public final class NoBounds implements Bounds {
    *
    * @return the singleton instance of NoBounds
    */
+  @JsonbCreator
   public static NoBounds getInstance() {
     return INSTANCE;
   }

@@ -1,13 +1,15 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.data.bounds;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-
 import io.annot8.common.data.content.Row;
 import io.annot8.common.data.content.TableContent;
 import io.annot8.core.data.Content;
+
+import javax.json.bind.annotation.JsonbCreator;
+import javax.json.bind.annotation.JsonbProperty;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 
 /**
  * Bounds to represent multiple cells within a table row
@@ -19,9 +21,19 @@ public class MultiCellBounds extends AbstractCellBounds {
   private final int[] cells;
   private final int row;
 
-  public MultiCellBounds(int row, int[] cells) {
+  @JsonbCreator
+  public MultiCellBounds(@JsonbProperty("row") int row, @JsonbProperty("cells") int[] cells) {
     this.row = row;
     this.cells = cells;
+  }
+
+
+  public int getRow() {
+    return row;
+  }
+
+  public int[] getCells() {
+    return cells;
   }
 
   @Override
@@ -69,13 +81,5 @@ public class MultiCellBounds extends AbstractCellBounds {
     }
 
     return true;
-  }
-
-  public int getRow() {
-    return row;
-  }
-
-  public int[] getCells() {
-    return cells;
   }
 }

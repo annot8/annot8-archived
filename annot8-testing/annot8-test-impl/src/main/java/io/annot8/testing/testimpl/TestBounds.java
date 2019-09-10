@@ -1,12 +1,14 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.testing.testimpl;
 
+import io.annot8.core.bounds.Bounds;
+import io.annot8.core.data.Content;
+
+import javax.json.bind.annotation.JsonbCreator;
+import javax.json.bind.annotation.JsonbProperty;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
-
-import io.annot8.core.bounds.Bounds;
-import io.annot8.core.data.Content;
 
 /**
  * Test Bounds
@@ -24,7 +26,8 @@ public class TestBounds implements Bounds {
     this(null);
   }
 
-  public TestBounds(String id) {
+  @JsonbCreator
+  public TestBounds(@JsonbProperty("id") String id) {
     this.id = id == null ? UUID.randomUUID().toString() : id;
   }
 
