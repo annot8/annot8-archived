@@ -13,7 +13,7 @@ public abstract class AbstractContent<D> implements Content<D> {
   private final Class<? extends Content<D>> contentClass;
 
   private final String id;
-  private final String name;
+  private final String description;
   private final AnnotationStore annotations;
   private final ImmutableProperties properties;
   private final Supplier<D> data;
@@ -23,14 +23,14 @@ public abstract class AbstractContent<D> implements Content<D> {
       Class<? extends Content<D>> contentClass,
       AnnotationStore annotations,
       String id,
-      String name,
+      String description,
       ImmutableProperties properties,
       Supplier<D> data) {
     this.dataClass = dataClass;
     this.contentClass = contentClass;
     this.annotations = annotations;
     this.id = id;
-    this.name = name;
+    this.description = description;
     this.properties = properties;
     this.data = data;
   }
@@ -38,6 +38,11 @@ public abstract class AbstractContent<D> implements Content<D> {
   @Override
   public String getId() {
     return id;
+  }
+
+  @Override
+  public String getDescription() {
+    return description;
   }
 
   @Override
@@ -58,11 +63,6 @@ public abstract class AbstractContent<D> implements Content<D> {
   @Override
   public AnnotationStore getAnnotations() {
     return annotations;
-  }
-
-  @Override
-  public String getName() {
-    return name;
   }
 
   @Override

@@ -13,44 +13,44 @@ public abstract class AbstractTestContent<D> implements Content<D> {
 
   private String id;
   private final Class<D> dataClass;
-  private String name;
+  private String description;
   private ImmutableProperties properties;
   private AnnotationStore annotations;
 
   private Supplier<D> data;
 
   public AbstractTestContent(Class<D> dataClass) {
-    this(dataClass, TestConstants.CONTENT_NAME);
+    this(dataClass, TestConstants.CONTENT_DESCRIPTION);
   }
 
-  public AbstractTestContent(Class<D> dataClass, String name) {
-    this(dataClass, UUID.randomUUID().toString(), name, new TestProperties());
+  public AbstractTestContent(Class<D> dataClass, String description) {
+    this(dataClass, UUID.randomUUID().toString(), description, new TestProperties());
   }
 
   public AbstractTestContent(
-      Class<D> dataClass, String id, String name, ImmutableProperties properties) {
-    this(dataClass, id, name, properties, (D) null);
+      Class<D> dataClass, String id, String description, ImmutableProperties properties) {
+    this(dataClass, id, description, properties, (D) null);
   }
 
   public AbstractTestContent(
       Class<D> dataClass,
       String id,
-      String name,
+      String description,
       ImmutableProperties properties,
       Supplier<D> data) {
-    this(dataClass, n -> new TestAnnotationStore(n.getId()), id, name, properties, data);
+    this(dataClass, n -> new TestAnnotationStore(n.getId()), id, description, properties, data);
   }
 
   public AbstractTestContent(
       Class<D> dataClass,
       AnnotationStoreFactory annotationStoreFactory,
       String id,
-      String name,
+      String description,
       ImmutableProperties properties,
       Supplier<D> data) {
     this.id = id;
     this.dataClass = dataClass;
-    this.name = name;
+    this.description = description;
     this.properties = properties;
     this.data = data;
 
@@ -58,8 +58,8 @@ public abstract class AbstractTestContent<D> implements Content<D> {
   }
 
   public AbstractTestContent(
-      Class<D> dataClass, String id, String name, ImmutableProperties properties, D data) {
-    this(dataClass, id, name, properties, () -> data);
+      Class<D> dataClass, String id, String description, ImmutableProperties properties, D data) {
+    this(dataClass, id, description, properties, () -> data);
   }
 
   public void setId(String id) {
@@ -102,12 +102,12 @@ public abstract class AbstractTestContent<D> implements Content<D> {
   }
 
   @Override
-  public String getName() {
-    return name;
+  public String getDescription() {
+    return description;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   @Override

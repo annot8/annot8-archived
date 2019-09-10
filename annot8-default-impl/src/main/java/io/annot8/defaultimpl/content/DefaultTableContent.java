@@ -16,13 +16,13 @@ import io.annot8.defaultimpl.stores.DefaultAnnotationStore;
 public class DefaultTableContent extends AbstractContent<Table> implements TableContent {
 
   private DefaultTableContent(
-      String id, String name, ImmutableProperties properties, Supplier<Table> dataSupplier) {
+      String id, String description, ImmutableProperties properties, Supplier<Table> dataSupplier) {
     super(
         Table.class,
         TableContent.class,
         new DefaultAnnotationStore(id),
         id,
-        name,
+        description,
         properties,
         dataSupplier);
   }
@@ -31,8 +31,8 @@ public class DefaultTableContent extends AbstractContent<Table> implements Table
 
     @Override
     protected TableContent create(
-        String id, String name, ImmutableProperties properties, Supplier<Table> data) {
-      return new DefaultTableContent(id, name, properties, data);
+        String id, String description, ImmutableProperties properties, Supplier<Table> data) {
+      return new DefaultTableContent(id, description, properties, data);
     }
   }
 

@@ -137,14 +137,14 @@ public class DefaultAnnotationTest {
   @Test
   public void testFromExistingOverridden() throws IncompleteException {
     Annotation a1 =
-        new DefaultAnnotation.Builder(TestConstants.CONTENT_NAME)
+        new DefaultAnnotation.Builder(TestConstants.CONTENT_ID)
             .withType(TestConstants.ANNOTATION_TYPE)
             .withBounds(bounds)
             .save();
 
     Bounds otherBounds = new TestBounds();
     Annotation a2 =
-        new DefaultAnnotation.Builder(TestConstants.CONTENT_NAME)
+        new DefaultAnnotation.Builder(TestConstants.CONTENT_ID)
             .from(a1)
             .withType("TEST2")
             .withBounds(otherBounds)

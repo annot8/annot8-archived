@@ -195,12 +195,12 @@ public class AnnotationBasedCapabilitiesTest {
     }
 
     @Override
-    public String getName() {
+    public String getId() {
       return null;
     }
 
     @Override
-    public String getId() {
+    public String getDescription() {
       return null;
     }
 

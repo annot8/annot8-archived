@@ -22,26 +22,26 @@ public class TestStringContent extends AbstractTestContent<String> implements Te
   }
 
   public TestStringContent(
-      String id, String name, ImmutableProperties properties, Supplier<String> data) {
-    super(String.class, id, name, properties, data);
+      String id, String description, ImmutableProperties properties, Supplier<String> data) {
+    super(String.class, id, description, properties, data);
   }
 
   public TestStringContent(
       AnnotationStore annotations,
       String id,
-      String name,
+      String description,
       ImmutableProperties properties,
       Supplier<String> data) {
-    super(String.class, c -> annotations, id, name, properties, data);
+    super(String.class, c -> annotations, id, description, properties, data);
   }
 
   public TestStringContent(
       AnnotationStoreFactory annotationStore,
       String id,
-      String name,
+      String description,
       ImmutableProperties properties,
       Supplier<String> data) {
-    super(String.class, annotationStore, id, name, properties, data);
+    super(String.class, annotationStore, id, description, properties, data);
   }
 
   @Override
@@ -59,8 +59,8 @@ public class TestStringContent extends AbstractTestContent<String> implements Te
 
     @Override
     protected TestStringContent create(
-        String id, String name, ImmutableProperties properties, Supplier<String> data) {
-      return new TestStringContent(annotationStoreFactory, id, name, properties, data);
+        String id, String description, ImmutableProperties properties, Supplier<String> data) {
+      return new TestStringContent(annotationStoreFactory, id, description, properties, data);
     }
   }
 

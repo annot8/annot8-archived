@@ -29,13 +29,13 @@ public class DefaultTableContentTest {
 
     TableContent content = null;
     try {
-      content = builder.withName("test").withData(table).withProperty("key", "value").save();
+      content = builder.withDescription("test").withData(table).withProperty("key", "value").save();
     } catch (IncompleteException e) {
       fail("The builder should not fail to create this content", e);
     }
 
     assertNotNull(content);
-    assertEquals("test", content.getName());
+    assertEquals("test", content.getDescription());
     assertEquals(table, content.getData());
     assertTrue(content.getProperties().has("key"));
     assertEquals("value", content.getProperties().get("key").get());

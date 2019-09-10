@@ -30,7 +30,7 @@ public abstract class AbstractGroupStoreTest {
   private static final String key = "key";
   private static final String value = "value";
   private static final String TEST_ANNOTATION_ID = "TEST_ANNOTATION_ID";
-  private static final String TEST_CONTENT_NAME = "TEST_CONTENT_NAME";
+  private static final String TEST_CONTENT_DESCRIPTION = "TEST_CONTENT_DESCRIPTION";
 
   protected abstract GroupStore getGroupStore(Item item);
 
@@ -202,9 +202,9 @@ public abstract class AbstractGroupStoreTest {
     Item mock = Mockito.mock(Item.class);
     Content mockContent = Mockito.mock(Content.class);
     Mockito.when(mockContent.getId()).thenReturn("TEST_CONTENT_ID");
-    Mockito.when(mockContent.getName()).thenReturn(TEST_CONTENT_NAME);
+    Mockito.when(mockContent.getDescription()).thenReturn(TEST_CONTENT_DESCRIPTION);
     Mockito.when(mock.getId()).thenReturn("TEST_ITEM_ID");
-    Mockito.when(mock.getContent(ArgumentMatchers.eq(TEST_CONTENT_NAME)))
+    Mockito.when(mock.getContent(ArgumentMatchers.eq(TEST_CONTENT_DESCRIPTION)))
         .thenReturn(Optional.of(mockContent));
 
     return mock;
@@ -212,7 +212,7 @@ public abstract class AbstractGroupStoreTest {
 
   private Annotation getTestAnnotation() {
     TestAnnotation annotation = new TestAnnotation();
-    annotation.setContentId(TEST_CONTENT_NAME);
+    annotation.setContentId(TEST_CONTENT_DESCRIPTION);
     annotation.setId(TEST_ANNOTATION_ID);
     return annotation;
   }

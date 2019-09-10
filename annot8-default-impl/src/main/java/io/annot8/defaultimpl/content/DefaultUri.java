@@ -16,14 +16,14 @@ import io.annot8.defaultimpl.stores.DefaultAnnotationStore;
 public class DefaultUri implements UriContent {
 
   private final String id;
-  private final String name;
+  private final String description;
   private final URI url;
   private final ImmutableProperties properties;
   private final AnnotationStore store;
 
-  private DefaultUri(String id, String name, URI url, ImmutableProperties properties) {
+  private DefaultUri(String id, String description, URI url, ImmutableProperties properties) {
     this.id = id;
-    this.name = name;
+    this.description = description;
     this.url = url;
     this.properties = properties;
     this.store = new DefaultAnnotationStore(id);
@@ -50,8 +50,8 @@ public class DefaultUri implements UriContent {
   }
 
   @Override
-  public String getName() {
-    return name;
+  public String getDescription() {
+    return description;
   }
 
   @Override
@@ -68,8 +68,8 @@ public class DefaultUri implements UriContent {
 
     @Override
     protected UriContent create(
-        String id, String name, ImmutableProperties properties, Supplier<URI> data) {
-      return new DefaultUri(id, name, data.get(), properties);
+        String id, String description, ImmutableProperties properties, Supplier<URI> data) {
+      return new DefaultUri(id, description, data.get(), properties);
     }
   }
 

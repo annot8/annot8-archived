@@ -1,10 +1,8 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.core.data;
 
-import java.util.function.Supplier;
-
+import io.annot8.core.helpers.WithDescription;
 import io.annot8.core.helpers.WithId;
-import io.annot8.core.helpers.WithName;
 import io.annot8.core.helpers.WithProperties;
 import io.annot8.core.helpers.builders.WithFromBuilder;
 import io.annot8.core.helpers.builders.WithIdBuilder;
@@ -12,12 +10,14 @@ import io.annot8.core.helpers.builders.WithPropertiesBuilder;
 import io.annot8.core.helpers.builders.WithSave;
 import io.annot8.core.stores.AnnotationStore;
 
+import java.util.function.Supplier;
+
 /**
  * Base content interface from which all content implementations extend.
  *
  * @param <D> the type of data held
  */
-public interface Content<D> extends WithId, WithProperties, WithName {
+public interface Content<D> extends WithId, WithProperties, WithDescription {
 
   /**
    * The data associated with this content object
@@ -55,17 +55,17 @@ public interface Content<D> extends WithId, WithProperties, WithName {
           WithSave<A> {
 
     /**
-     * Set the name of this content object
+     * Set the description of this content object
      *
-     * @param name the content name
+     * @param description the content description
      * @return this builder for chaining
      */
-    Content.Builder<A, D> withName(final String name);
+    Content.Builder<A, D> withDescription(final String description);
 
     /**
      * Set the data for this content object
      *
-     * @param data the data name
+     * @param data the data
      * @return this builder for chaining
      */
     default Content.Builder<A, D> withData(final D data) {
@@ -80,7 +80,7 @@ public interface Content<D> extends WithId, WithProperties, WithName {
     /**
      * Set the data for this content object, accessed via a supplier
      *
-     * @param data the data name
+     * @param data the data
      * @return this builder for chaining
      */
     Content.Builder<A, D> withData(final Supplier<D> data);

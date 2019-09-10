@@ -23,26 +23,26 @@ public class TestFileContent extends AbstractTestContent<File> implements FileCo
   }
 
   public TestFileContent(
-      String id, String name, ImmutableProperties properties, Supplier<File> data) {
-    super(File.class, id, name, properties, data);
+      String id, String description, ImmutableProperties properties, Supplier<File> data) {
+    super(File.class, id, description, properties, data);
   }
 
   public TestFileContent(
       AnnotationStore annotations,
       String id,
-      String name,
+      String description,
       ImmutableProperties properties,
       Supplier<File> data) {
-    super(File.class, c -> annotations, id, name, properties, data);
+    super(File.class, c -> annotations, id, description, properties, data);
   }
 
   public TestFileContent(
       AnnotationStoreFactory annotationStore,
       String id,
-      String name,
+      String description,
       ImmutableProperties properties,
       Supplier<File> data) {
-    super(File.class, annotationStore, id, name, properties, data);
+    super(File.class, annotationStore, id, description, properties, data);
   }
 
   @Override
@@ -60,8 +60,8 @@ public class TestFileContent extends AbstractTestContent<File> implements FileCo
 
     @Override
     protected TestFileContent create(
-        String id, String name, ImmutableProperties properties, Supplier<File> data) {
-      return new TestFileContent(annotationStoreFactory, id, name, properties, data);
+        String id, String description, ImmutableProperties properties, Supplier<File> data) {
+      return new TestFileContent(annotationStoreFactory, id, description, properties, data);
     }
   }
 

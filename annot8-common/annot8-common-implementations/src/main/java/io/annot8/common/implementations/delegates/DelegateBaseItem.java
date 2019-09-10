@@ -30,23 +30,8 @@ public class DelegateBaseItem implements BaseItem {
   }
 
   @Override
-  public boolean hasContentOfName(String name) {
-    return item.hasContentOfName(name);
-  }
-
-  @Override
-  public Stream<String> listNames() {
-    return item.listNames();
-  }
-
-  @Override
   public Optional<Content<?>> getContent(String id) {
     return item.getContent(id);
-  }
-
-  @Override
-  public Stream<Content<?>> getContentByName(String name) {
-    return item.getContentByName(name);
   }
 
   @Override

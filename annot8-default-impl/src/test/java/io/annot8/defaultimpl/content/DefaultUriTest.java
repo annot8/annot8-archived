@@ -34,7 +34,7 @@ public class DefaultUriTest {
     Builder<UriContent, URI> urlContentBuilder = builderFactory.create(new TestItem());
 
     String id = "id";
-    String name = "test";
+    String description = "test";
     String key = "testKey";
     String prop = "testValue";
     UriContent content = null;
@@ -42,7 +42,7 @@ public class DefaultUriTest {
       content =
           urlContentBuilder
               .withId(id)
-              .withName(name)
+              .withDescription(description)
               .withData(new URI(URL))
               .withProperty(key, prop)
               .save();
@@ -51,7 +51,7 @@ public class DefaultUriTest {
     }
 
     assertNotNull(content);
-    assertEquals(name, content.getName());
+    assertEquals(description, content.getDescription());
     assertEquals(URL, content.getData().toString());
     assertEquals(URI.class, content.getDataClass());
     assertEquals(UriContent.class, content.getContentClass());
@@ -68,7 +68,7 @@ public class DefaultUriTest {
 
     UriContent content = null;
     try {
-      content = urlContentBuilder.withName("test").withData(new URI(URL)).save();
+      content = urlContentBuilder.withDescription("test").withData(new URI(URL)).save();
     } catch (URISyntaxException | IncompleteException e) {
       fail("Test should not fail here", e);
     }

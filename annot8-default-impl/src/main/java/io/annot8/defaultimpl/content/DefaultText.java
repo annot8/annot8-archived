@@ -15,16 +15,16 @@ import io.annot8.defaultimpl.stores.DefaultAnnotationStore;
 public class DefaultText extends AbstractContent<String> implements Text {
 
   private DefaultText(
-      String id, String name, ImmutableProperties properties, Supplier<String> data) {
-    super(String.class, Text.class, new DefaultAnnotationStore(id), id, name, properties, data);
+      String id, String description, ImmutableProperties properties, Supplier<String> data) {
+    super(String.class, Text.class, new DefaultAnnotationStore(id), id, description, properties, data);
   }
 
   public static class Builder extends AbstractContentBuilder<String, DefaultText> {
 
     @Override
     public DefaultText create(
-        String id, String name, ImmutableProperties properties, Supplier<String> data) {
-      return new DefaultText(id, name, properties, data);
+        String id, String description, ImmutableProperties properties, Supplier<String> data) {
+      return new DefaultText(id, description, properties, data);
     }
   }
 

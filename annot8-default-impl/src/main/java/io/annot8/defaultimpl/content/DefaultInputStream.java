@@ -17,13 +17,13 @@ import io.annot8.defaultimpl.stores.DefaultAnnotationStore;
 public class DefaultInputStream extends AbstractContent<InputStream> implements InputStreamContent {
 
   private DefaultInputStream(
-      String id, String name, ImmutableProperties properties, Supplier<InputStream> data) {
+      String id, String description, ImmutableProperties properties, Supplier<InputStream> data) {
     super(
         InputStream.class,
         InputStreamContent.class,
         new DefaultAnnotationStore(id),
         id,
-        name,
+        description,
         properties,
         data);
   }
@@ -38,8 +38,8 @@ public class DefaultInputStream extends AbstractContent<InputStream> implements 
 
     @Override
     protected DefaultInputStream create(
-        String id, String name, ImmutableProperties properties, Supplier<InputStream> data) {
-      return new DefaultInputStream(id, name, properties, data);
+        String id, String description, ImmutableProperties properties, Supplier<InputStream> data) {
+      return new DefaultInputStream(id, description, properties, data);
     }
   }
 

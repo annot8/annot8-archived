@@ -3,7 +3,7 @@ package io.annot8.core.exceptions;
 
 /**
  * Exception indicating that an attempt has been made to create something that already exists, i.e.
- * has the same name or ID.
+ * has the same ID.
  */
 public class AlreadyExistsException extends Annot8RuntimeException {
 

@@ -77,11 +77,6 @@ public class TestItem implements Item {
   }
 
   @Override
-  public Stream<String> listNames() {
-    return content.values().stream().map(Content::getName);
-  }
-
-  @Override
   public Optional<Content<?>> getContent(String id) {
     return Optional.ofNullable(content.get(id));
   }
@@ -130,10 +125,6 @@ public class TestItem implements Item {
       c = builder.save();
     } catch (IncompleteException e) {
       throw new AssertionError(e.getMessage());
-    }
-
-    if (content.get(c.getName()) != null) {
-      throw new AlreadyExistsException("Already exists " + c.getName());
     }
 
     return save(c);
