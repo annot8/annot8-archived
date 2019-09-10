@@ -26,7 +26,7 @@ public class DefaultFileTest {
   }
 
   private void assertIncompleteBuilderUsage(Content.Builder<DefaultFile, File> builder) {
-    assertThrows(IncompleteException.class, () -> builder.save());
+    assertThrows(IncompleteException.class, builder::save);
   }
 
   private void assertBasicBuilderUsage(Content.Builder<DefaultFile, File> builder) {

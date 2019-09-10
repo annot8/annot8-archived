@@ -2,7 +2,6 @@
 package io.annot8.common.pipelines.events.tasks;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 
 import java.lang.reflect.InvocationTargetException;

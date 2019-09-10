@@ -96,12 +96,7 @@ public class AbstractAnnotationTest {
 
     @Override
     public ImmutableProperties getProperties() {
-      return new ImmutableProperties() {
-        @Override
-        public Map<String, Object> getAll() {
-          return properties;
-        }
-      };
+      return () -> properties;
     }
   }
 }

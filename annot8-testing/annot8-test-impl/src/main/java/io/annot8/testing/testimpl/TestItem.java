@@ -111,7 +111,7 @@ public class TestItem implements Item {
 
     ContentBuilderFactory<D, C> factory = optional.get();
 
-    return new DelegateContentBuilder<C, D>(factory.create(this)) {
+    return new DelegateContentBuilder<>(factory.create(this)) {
       @Override
       public C save() throws IncompleteException {
         return TestItem.this.save(super.save());

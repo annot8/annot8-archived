@@ -35,7 +35,7 @@ public class CapabilitiesCompilerTest {
 
   @Test
   public void testCompile() {
-    CapabilitiesCompiler compiler = new CapabilitiesCompiler(() -> new TestCapabilitiesBuilder());
+    CapabilitiesCompiler compiler = new CapabilitiesCompiler(TestCapabilitiesBuilder::new);
     Capabilities capabilities = compiler.compile(new FakeComponent());
 
     assertThat(capabilities.getCreatedAnnotations().map(AnnotationCapability::getType))
@@ -63,7 +63,7 @@ public class CapabilitiesCompilerTest {
 
   @Test
   public void testParentCapabilities() {
-    CapabilitiesCompiler compiler = new CapabilitiesCompiler(() -> new TestCapabilitiesBuilder());
+    CapabilitiesCompiler compiler = new CapabilitiesCompiler(TestCapabilitiesBuilder::new);
     Capabilities capabilities = compiler.compile(new FakeComponentChild());
 
     assertThat(capabilities.getCreatedGroups().map(GroupCapability::getType))
