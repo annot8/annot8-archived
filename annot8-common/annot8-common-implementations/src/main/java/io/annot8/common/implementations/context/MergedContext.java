@@ -19,21 +19,6 @@ public class MergedContext implements Context {
   }
 
   @Override
-  public Stream<Settings> getSettings() {
-    return contexts.stream().flatMap(Context::getSettings);
-  }
-
-  @Override
-  public <T extends Settings> Optional<T> getSettings(Class<T> clazz) {
-    return contexts
-        .stream()
-        .map(c -> c.getSettings(clazz))
-        .filter(Optional::isPresent)
-        .map(Optional::get)
-        .findFirst();
-  }
-
-  @Override
   public <T extends Resource> Optional<T> getResource(String key, Class<T> clazz) {
     return contexts
         .stream()

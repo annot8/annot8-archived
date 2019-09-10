@@ -12,29 +12,14 @@ import io.annot8.core.settings.Settings;
 
 public class TestContext implements Context {
 
-  private final Settings settings;
   private final Map<String, Resource> resources;
 
   public TestContext() {
-    this(null, Collections.emptyMap());
-  }
-
-  public TestContext(Settings settings) {
-    this(settings, Collections.emptyMap());
+    this(null);
   }
 
   public TestContext(Map<String, Resource> resources) {
-    this(null, resources);
-  }
-
-  public TestContext(Settings settings, Map<String, Resource> resources) {
-    this.settings = settings;
     this.resources = resources == null ? Collections.emptyMap() : resources;
-  }
-
-  @Override
-  public Stream<Settings> getSettings() {
-    return Stream.ofNullable(settings);
   }
 
   @Override

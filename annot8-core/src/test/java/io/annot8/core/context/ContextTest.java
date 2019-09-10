@@ -24,40 +24,40 @@ import io.annot8.core.settings.Settings;
 
 public class ContextTest {
 
-  @Test
-  public void testGetSettings() {
-    Context context = Mockito.mock(Context.class);
-    Context context2 = Mockito.mock(Context.class);
-    TestSettings settings = new TestSettings();
-    Settings settings2 = Mockito.mock(Settings.class);
-    doReturn(Stream.of(settings)).when(context).getSettings();
-    doReturn(Stream.of(settings2)).when(context2).getSettings();
-    doCallRealMethod().when(context).getSettings(Mockito.any());
-    doCallRealMethod().when(context2).getSettings(Mockito.any());
-
-    assertEquals(settings, context.getSettings(TestSettings.class).get());
-    assertFalse(context2.getSettings(TestSettings.class).isPresent());
-  }
-
-  @Test
-  public void testGetSettingsWithDefault() {
-    Context context = Mockito.mock(Context.class);
-    TestSettings settings = new TestSettings();
-    doReturn(Optional.of(settings)).when(context).getSettings(TestSettings.class);
-    doReturn(Optional.empty()).when(context).getSettings(UnusedSettings.class);
-
-    doCallRealMethod().when(context).getSettings(Mockito.any(), Mockito.any());
-
-    // if it exists we get it (null or otherwise)
-    assertEquals(settings, context.getSettings(TestSettings.class, null));
-    assertEquals(settings, context.getSettings(TestSettings.class, new TestSettings()));
-
-    // If we don't have it, then if null we get a new instance
-    assertNotNull(context.getSettings(UnusedSettings.class, null));
-    // Or the default
-    UnusedSettings unusedSettings = new UnusedSettings();
-    assertEquals(unusedSettings, context.getSettings(UnusedSettings.class, unusedSettings));
-  }
+//  @Test
+//  public void testGetSettings() {
+//    Context context = Mockito.mock(Context.class);
+//    Context context2 = Mockito.mock(Context.class);
+//    TestSettings settings = new TestSettings();
+//    Settings settings2 = Mockito.mock(Settings.class);
+//    doReturn(Stream.of(settings)).when(context).getSettings();
+//    doReturn(Stream.of(settings2)).when(context2).getSettings();
+//    doCallRealMethod().when(context).getSettings(Mockito.any());
+//    doCallRealMethod().when(context2).getSettings(Mockito.any());
+//
+//    assertEquals(settings, context.getSettings(TestSettings.class).get());
+//    assertFalse(context2.getSettings(TestSettings.class).isPresent());
+//  }
+//
+//  @Test
+//  public void testGetSettingsWithDefault() {
+//    Context context = Mockito.mock(Context.class);
+//    TestSettings settings = new TestSettings();
+//    doReturn(Optional.of(settings)).when(context).getSettings(TestSettings.class);
+//    doReturn(Optional.empty()).when(context).getSettings(UnusedSettings.class);
+//
+//    doCallRealMethod().when(context).getSettings(Mockito.any(), Mockito.any());
+//
+//    // if it exists we get it (null or otherwise)
+//    assertEquals(settings, context.getSettings(TestSettings.class, null));
+//    assertEquals(settings, context.getSettings(TestSettings.class, new TestSettings()));
+//
+//    // If we don't have it, then if null we get a new instance
+//    assertNotNull(context.getSettings(UnusedSettings.class, null));
+//    // Or the default
+//    UnusedSettings unusedSettings = new UnusedSettings();
+//    assertEquals(unusedSettings, context.getSettings(UnusedSettings.class, unusedSettings));
+//  }
 
   @Test
   public void testGetResourceKeys() {
@@ -130,21 +130,21 @@ public class ContextTest {
     assertFalse(resource2.isPresent());
   }
 
-  public static class TestSettings implements Settings {
-
-    @Override
-    public boolean validate() {
-      return true;
-    }
-  }
-
-  public static class UnusedSettings implements Settings {
-
-    @Override
-    public boolean validate() {
-      return true;
-    }
-  }
+//  public static class TestSettings implements Settings {
+//
+//    @Override
+//    public boolean validate() {
+//      return true;
+//    }
+//  }
+//
+//  public static class UnusedSettings implements Settings {
+//
+//    @Override
+//    public boolean validate() {
+//      return true;
+//    }
+//  }
 
   public abstract class TestResource1 implements Resource {}
 

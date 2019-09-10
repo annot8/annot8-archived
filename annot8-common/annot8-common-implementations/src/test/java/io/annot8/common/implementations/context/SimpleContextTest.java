@@ -29,8 +29,6 @@ public class SimpleContextTest {
     context.addResource("resource1", r1);
     context.addResource("resource2", r2);
 
-    Assertions.assertEquals(0, context.getSettings().count());
-
     Assertions.assertFalse(context.getResource("foo", Resource.class).isPresent());
     Assertions.assertFalse(context.getResource("resource1", TestResource.class).isPresent());
     Assertions.assertTrue(context.getResource("resource1", Resource.class).isPresent());
@@ -58,8 +56,6 @@ public class SimpleContextTest {
 
     SimpleContext context = new SimpleContext(r);
 
-    Assertions.assertEquals(0, context.getSettings().count());
-
     Assertions.assertFalse(context.getResource("foo", Resource.class).isPresent());
     Assertions.assertFalse(context.getResource("resource1", NotTestResource.class).isPresent());
     Assertions.assertTrue(context.getResource("resource2", Resource.class).isPresent());
@@ -81,10 +77,7 @@ public class SimpleContextTest {
     Settings s = mock(Settings.class);
     BaseItemFactory itemFactory = mock(BaseItemFactory.class);
 
-    SimpleContext context = new SimpleContext(Collections.singletonList(s));
-
-    Assertions.assertEquals(1, context.getSettings().count());
-    Assertions.assertEquals(s, context.getSettings().findFirst().get());
+    SimpleContext context = new SimpleContext();
 
     List<String> keys = context.getResourceKeys().collect(Collectors.toList());
     Assertions.assertTrue(keys.isEmpty());
@@ -105,10 +98,7 @@ public class SimpleContextTest {
 
     BaseItemFactory itemFactory = mock(BaseItemFactory.class);
 
-    SimpleContext context = new SimpleContext(Collections.singletonList(s), r);
-
-    Assertions.assertEquals(1, context.getSettings().count());
-    Assertions.assertEquals(s, context.getSettings().findFirst().get());
+    SimpleContext context = new SimpleContext(r);
 
     Assertions.assertFalse(context.getResource("foo", Resource.class).isPresent());
     Assertions.assertFalse(context.getResource("resource1", TestResource.class).isPresent());

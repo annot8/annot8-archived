@@ -22,29 +22,15 @@ class MergedContextTest {
 
   @Mock Resource bResource;
 
-  @Mock Settings aSettings;
-
-  @Mock Settings bSettings;
-
   private SimpleContext a;
   private SimpleContext b;
   private MergedContext m;
 
   @BeforeEach
   public void beforeEach() {
-    a = new SimpleContext(Arrays.asList(aSettings), Map.of("a", aResource));
-    b = new SimpleContext(Arrays.asList(bSettings), Map.of("b", bResource));
+    a = new SimpleContext(Map.of("a", aResource));
+    b = new SimpleContext(Map.of("b", bResource));
     m = new MergedContext(a, b);
-  }
-
-  @Test
-  void getSettings() {
-    assertThat(m.getSettings()).containsExactly(aSettings, bSettings);
-  }
-
-  @Test
-  void getSettings1() {
-    assertThat(m.getSettings(Settings.class).get()).isEqualTo(aSettings);
   }
 
   @Test

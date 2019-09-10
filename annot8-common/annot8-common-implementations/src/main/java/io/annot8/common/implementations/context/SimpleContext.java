@@ -16,26 +16,14 @@ import io.annot8.core.settings.Settings;
 public class SimpleContext implements Context {
 
   private final Map<String, Resource> resources = new HashMap<>();
-  private final Collection<Settings> settings;
 
-  /** Create a new instance, with no settings and no resources */
+  /** Create a new instance, with no resources */
   public SimpleContext() {
-    this(null, null);
+    this(null);
   }
 
-  /** Create a new instance, with the specified settings and no resources */
-  public SimpleContext(Collection<Settings> settings) {
-    this(settings, null);
-  }
-
-  /** Create a new instance, with no settings and the specified resources */
+  /** Create a new instance, with the resources */
   public SimpleContext(Map<String, Resource> resources) {
-    this(null, resources);
-  }
-
-  /** Create a new instance, with the specified settings and resources */
-  public SimpleContext(Collection<Settings> settings, Map<String, Resource> resources) {
-    this.settings = settings;
     if (resources != null) {
       this.resources.putAll(resources);
     }
@@ -44,11 +32,6 @@ public class SimpleContext implements Context {
   /** Add a new resource to the context object */
   public void addResource(String key, Resource resource) {
     resources.put(key, resource);
-  }
-
-  @Override
-  public Stream<Settings> getSettings() {
-    return settings != null ? settings.stream() : Stream.empty();
   }
 
   @Override
@@ -78,12 +61,12 @@ public class SimpleContext implements Context {
 
   @Override
   public String toString() {
-    return this.getClass().getName() + " [settings=" + settings + ", resources=" + resources + "]";
+    return this.getClass().getName() + " [resources=" + resources + "]";
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(settings, resources);
+    return Objects.hash( resources);
   }
 
   @Override
@@ -102,7 +85,6 @@ public class SimpleContext implements Context {
               r.ifPresent(resource -> resourceMap.put(s, resource));
             });
 
-    return Objects.equals(c.getSettings(), getSettings())
-        && Objects.equals(resourceMap, this.resources);
+    return Objects.equals(resourceMap, this.resources);
   }
 }

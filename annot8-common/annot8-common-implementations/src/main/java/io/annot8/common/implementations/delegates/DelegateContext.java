@@ -13,18 +13,7 @@ public class DelegateContext implements Context {
   private final Context delegate;
 
   public DelegateContext(Context delegate) {
-
     this.delegate = delegate;
-  }
-
-  @Override
-  public Stream<Settings> getSettings() {
-    return delegate.getSettings();
-  }
-
-  @Override
-  public <T extends Settings> Optional<T> getSettings(Class<T> clazz) {
-    return delegate.getSettings(clazz);
   }
 
   @Override

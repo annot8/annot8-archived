@@ -67,13 +67,14 @@ public class ComponentConfigurer {
         .collect(Collectors.toList());
   }
 
+  // TODO: This will change since settings are no longer passed like this
   public <T extends Annot8Component> boolean configureComponent(
       T component, Collection<Settings> settings) {
 
     // TODO: COmpletely ignore capabilties here.. we could check for resources etc
 
     try {
-      final SimpleContext componentContext = new SimpleContext(settings, resources);
+      final SimpleContext componentContext = new SimpleContext(resources);
       Context context = new MergedContext(globalContext, componentContext);
       component.configure(context);
       return true;

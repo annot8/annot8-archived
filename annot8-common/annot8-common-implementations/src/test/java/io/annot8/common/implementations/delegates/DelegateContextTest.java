@@ -29,17 +29,6 @@ class DelegateContextTest {
     context = new DelegateContext(delegate);
   }
 
-  @Test
-  void getSettings() {
-    final Stream<Settings> settings = context.getSettings();
-    Mockito.verify(delegate, Mockito.times(1)).getSettings();
-  }
-
-  @Test
-  void getSettings1() {
-    final Optional<Settings> result = context.getSettings(Settings.class);
-    Mockito.verify(delegate, Mockito.times(1)).getSettings(Settings.class);
-  }
 
   @Test
   void getResource() {
