@@ -4,6 +4,7 @@ package io.annot8.common.implementations.context;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Map;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -30,8 +31,8 @@ class MergedContextTest {
 
   @BeforeEach
   public void beforeEach() {
-    SimpleContext a = new SimpleContext(Arrays.asList(aSettings), Map.of("a", aResource));
-    SimpleContext b = new SimpleContext(Arrays.asList(bSettings), Map.of("b", bResource));
+    SimpleContext a = new SimpleContext(Collections.singletonList(aSettings), Map.of("a", aResource));
+    SimpleContext b = new SimpleContext(Collections.singletonList(bSettings), Map.of("b", bResource));
     m = new MergedContext(a, b);
   }
 
