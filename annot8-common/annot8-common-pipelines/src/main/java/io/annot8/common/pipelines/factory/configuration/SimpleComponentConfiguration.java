@@ -1,9 +1,7 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.pipelines.factory.configuration;
 
-import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 
 import io.annot8.core.settings.Settings;
 
@@ -11,21 +9,21 @@ public class SimpleComponentConfiguration implements ComponentConfiguration {
 
   private String name;
   private String component;
-  private Set<Settings> settings = new HashSet<>();
+  private Settings settings;
 
   public SimpleComponentConfiguration() {
     // Do nothing
   }
 
-  public SimpleComponentConfiguration(String component, Collection<Settings> settings) {
+  public SimpleComponentConfiguration(String component, Settings settings) {
     this(null, component, settings);
   }
 
   public SimpleComponentConfiguration(
-      String name, String component, Collection<Settings> settings) {
+      String name, String component, Settings settings) {
     this.name = name;
     this.component = component;
-    this.settings.addAll(settings);
+    this.settings = settings;
   }
 
   @Override
@@ -47,11 +45,11 @@ public class SimpleComponentConfiguration implements ComponentConfiguration {
   }
 
   @Override
-  public Set<Settings> getSettings() {
+  public Settings getSettings() {
     return settings;
   }
 
-  public void setSettings(Set<Settings> settings) {
+  public void setSettings(Settings settings) {
     this.settings = settings;
   }
 }

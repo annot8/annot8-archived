@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.stream.Stream;
 
+import io.annot8.common.data.tuple.Tuple2;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -27,39 +28,28 @@ class ResourcesHolderTest {
   @Test
   public void addResources() {
 
-    resourceFixtures().forEach(t -> addResource(t.getA(), t.getB(), t.getC()));
+    resourceFixtures().forEach(t -> addResource(t.getA(), t.getB()));
 
     assertThat(holder.getResources()).hasSize(3);
     assertThat(holder.getResourcesToId()).hasSize(3);
   }
 
-  void addResource(String id, Resource r, Collection<Settings> settings) {
+  void addResource(String id, Resource r) {
 
-    holder.addResource(id, r, settings);
+    holder.addResource(id, r);
 
     assertThat(holder.getId(r)).isEqualTo(id);
 
     assertThat(holder.getResourcesToId()).containsEntry(r, id);
 
-    Collection<Settings> expectedSettings = settings == null ? Collections.emptyList() : settings;
-    assertThat(holder.getResources().get(r))
-        .containsExactlyElementsOf(expectedSettings);
   }
 
-  static Stream<Tuple3<String, Resource, Collection<Settings>>> resourceFixtures() {
+  static Stream<Tuple2<String, Resource>> resourceFixtures() {
     return Stream.of(
-        new Tuple3<>("id1", new FakeResource(), null),
-        new Tuple3<>("id2", new FakeResource(), Collections.emptyList()),
-        new Tuple3<>(
-            "id3", new FakeResource(), Arrays.asList(new FakeSettings(), new FakeSettings())));
-  }
-
-  public static class FakeSettings implements Settings {
-
-    @Override
-    public boolean validate() {
-      return true;
-    }
+        new Tuple2<>("id1", new FakeResource()),
+        new Tuple2<>("id2", new FakeResource()),
+        new Tuple2<>(
+            "id3", new FakeResource()));
   }
 
   public static class FakeResource implements Resource {}

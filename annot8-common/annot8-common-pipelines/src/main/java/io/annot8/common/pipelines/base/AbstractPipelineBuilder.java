@@ -52,14 +52,14 @@ public abstract class AbstractPipelineBuilder implements PipelineBuilder {
 
   @Override
   public PipelineBuilder addResource(
-      final String id, final Resource resource, final Collection<Settings> configuration) {
-    resourcesHolder.addResource(id, resource, configuration);
+      final String id, final Resource resource) {
+    resourcesHolder.addResource(id, resource);
     return this;
   }
 
   @Override
-  public PipelineBuilder addSource(final Source source, final Collection<Settings> configuration) {
-    sourceHolder.add(source, configuration);
+  public PipelineBuilder addSource(final Source source) {
+    sourceHolder.add(source);
     return this;
   }
 

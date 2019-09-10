@@ -4,6 +4,7 @@ package io.annot8.common.pipelines.factory;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 import org.slf4j.Logger;
@@ -52,7 +53,7 @@ public class SimplePipelineFactory implements PipelineFactory {
     configuration
         .getSources()
         .forEach(
-            s -> addComponentToBuilder(Source.class, s, (i, c) -> pipelineBuilder.addSource(i, c)));
+            s -> addComponentToBuilder(Source.class, s, pipelineBuilder::addSource));
 
     // Currently just convert to a pipe and pass that in
     PipeBuilder pipeBuilder = pipeBuilderSupplier.get();
@@ -61,7 +62,7 @@ public class SimplePipelineFactory implements PipelineFactory {
         .forEach(
             s ->
                 addComponentToBuilder(
-                    Processor.class, s, (i, c) -> pipeBuilder.addProcessor(i, c)));
+                    Processor.class, s, pipeBuilder::addProcessor));
 
     pipelineBuilder.addPipe(pipeBuilder);
 
@@ -70,19 +71,19 @@ public class SimplePipelineFactory implements PipelineFactory {
         .forEach(
             s ->
                 addComponentToBuilder(
-                    Resource.class, s, (i, c) -> pipelineBuilder.addResource(s.getName(), i, c)));
+                    Resource.class, s, (i) -> pipelineBuilder.addResource(s.getName(), i)));
 
     return pipelineBuilder.build();
   }
 
   private <T extends Annot8Component> void addComponentToBuilder(
-      Class<T> clazz, ComponentConfiguration config, BiConsumer<T, Collection<Settings>> consumer) {
+      Class<T> clazz, ComponentConfiguration config, Consumer<T> consumer) {
 
     try {
       TypedComponentConfiguration<T> tcc = validateComponent(config, clazz);
 
-      T s = createInstance(tcc.getComponentClass());
-      consumer.accept(s, tcc.getSettings());
+      T s = createInstance(tcc.getComponentClass(), config.getSettings());
+      consumer.accept(s);
 
     } catch (Annot8Exception e) {
       LOGGER.warn(e.getMessage());
@@ -103,9 +104,17 @@ public class SimplePipelineFactory implements PipelineFactory {
     }
   }
 
-  private <T> T createInstance(Class<T> clazz) throws Annot8Exception {
+  private <T> T createInstance(Class<T> clazz, Settings settings) throws Annot8Exception {
     try {
-      return clazz.getConstructor().newInstance();
+
+      // if settings == null use the for the default constructor
+      if(settings == null) {
+        return clazz.getConstructor().newInstance();
+      }
+
+      // Otherwise look for a constructor which takes the settings class
+      return clazz.getConstructor(settings.getClass()).newInstance(settings);
+
     } catch (Exception e) {
       throw new Annot8Exception("Could not create instance of component " + clazz.getName(), e);
     }

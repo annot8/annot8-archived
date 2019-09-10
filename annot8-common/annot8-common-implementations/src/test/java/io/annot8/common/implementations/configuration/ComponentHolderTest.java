@@ -30,35 +30,20 @@ class ComponentHolderTest {
   @Test
   public void add() {
 
-    fixtures().forEach(t -> addProcessor(t.getA(), t.getB()));
+    fixtures().forEach(this::addProcessor);
 
-    assertThat(holder.getComponentToConfiguration()).hasSize(3);
+    assertThat(holder.getComponents()).hasSize(3);
   }
 
-  void addProcessor(Processor r, Collection<Settings> settings) {
-
-    holder.add(r, settings);
-
-    Collection<Settings> expectedSettings = settings == null ? Collections.emptyList() : settings;
-    assertThat(holder.getComponentToConfiguration().get(r))
-        .containsExactlyElementsOf(expectedSettings);
+  void addProcessor(Processor r) {
+    holder.add(r);
   }
 
-  static Stream<Tuple2<Processor, Collection<Settings>>> fixtures() {
+  static Stream<Processor> fixtures() {
     return Stream.of(
-        new Tuple2<>(new FakeProcessor(), null),
-        new Tuple2<>(new FakeProcessor(), Collections.emptyList()),
-        new Tuple2<>(
-            new FakeProcessor(),
-            Arrays.asList(new ResourcesHolderTest.FakeSettings(), new FakeSettings())));
-  }
-
-  public static class FakeSettings implements Settings {
-
-    @Override
-    public boolean validate() {
-      return true;
-    }
+        new FakeProcessor(),
+        new FakeProcessor(),
+            new FakeProcessor());
   }
 
   public static class FakeProcessor implements Processor {

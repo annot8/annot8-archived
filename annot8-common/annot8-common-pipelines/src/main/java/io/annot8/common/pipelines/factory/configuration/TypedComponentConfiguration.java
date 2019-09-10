@@ -9,15 +9,15 @@ import io.annot8.core.settings.Settings;
 public class TypedComponentConfiguration<T extends Annot8Component> {
 
   private final Class<? extends T> componentClass;
-  private final Collection<Settings> settings;
+  private final Settings settings;
 
   public TypedComponentConfiguration(
-      Class<? extends T> componentClass, Collection<Settings> settings) {
+      Class<? extends T> componentClass, Settings settings) {
     this.componentClass = componentClass;
     this.settings = settings;
   }
 
-  public Collection<Settings> getSettings() {
+  public Settings getSettings() {
     return settings;
   }
 

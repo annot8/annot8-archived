@@ -13,19 +13,10 @@ public interface PipeBuilder {
 
   PipeBuilder withName(String name);
 
-  default PipeBuilder addResource(
-      final String id, final Resource resource, final Settings... settings) {
-    return addResource(id, resource, Arrays.asList(settings));
-  }
+  PipeBuilder addResource(final String id, final Resource resource);
 
-  default PipeBuilder addProcessor(final Processor processor, final Settings... settings) {
-    return addProcessor(processor, Arrays.asList(settings));
-  }
+  PipeBuilder addProcessor(final Processor processor);
 
-  PipeBuilder addResource(
-      final String id, final Resource resource, final Collection<Settings> settings);
-
-  PipeBuilder addProcessor(final Processor processor, final Collection<Settings> settings);
 
   Pipe build() throws IncompleteException;
 }

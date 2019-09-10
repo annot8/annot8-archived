@@ -21,20 +21,10 @@ public interface PipelineBuilder {
 
   PipelineBuilder withName(String name);
 
-  default PipelineBuilder addResource(
-      final String id, final Resource resource, final Settings... settings) {
-    return addResource(id, resource, Arrays.asList(settings));
-  }
-
   PipelineBuilder addResource(
-      final String id, final Resource resource, final Collection<Settings> settings);
+      final String id, final Resource resource);
 
-  default PipelineBuilder addSource(final Source source, final Settings... settings) {
-    addSource(source, Arrays.asList(settings));
-    return this;
-  }
-
-  PipelineBuilder addSource(final Source source, final Collection<Settings> settings);
+  PipelineBuilder addSource(final Source source);
 
   default PipelineBuilder addPipe(final PipeBuilder pipe) throws IncompleteException {
     addPipe(DEFAULT_PIPE, pipe);

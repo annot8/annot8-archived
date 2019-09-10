@@ -65,8 +65,7 @@ class ComponentConfigurerTest {
     ResourcesHolder holder = new ResourcesHolder();
 
     Resource r = mock(Resource.class);
-    Collection<Settings> settings = new ArrayList<>();
-    holder.addResource("local", r, settings);
+    holder.addResource("local", r);
 
     final Map<String, Resource> resources = configurer.configureResources(holder);
     final Map<String, Resource> gotResources = configurer.getResources();
@@ -88,12 +87,10 @@ class ComponentConfigurerTest {
     ComponentHolder<Processor> holder = new ComponentHolder<>();
 
     Processor p = mock(Processor.class);
-    Collection<Settings> settings = new ArrayList<>();
-    holder.add(p, settings);
+    holder.add(p);
 
     Processor q = mock(Processor.class);
-    Collection<Settings> qSettings = new ArrayList<>();
-    holder.add(q, qSettings);
+    holder.add(q);
 
     final List<Processor> processors = configurer.configureComponents(holder);
 
@@ -104,9 +101,8 @@ class ComponentConfigurerTest {
   @Test
   void configureComponent() throws BadConfigurationException, MissingResourceException {
     Processor p = mock(Processor.class);
-    Collection<Settings> settings = new ArrayList<>();
 
-    configurer.configureComponent(p, settings);
+    configurer.configureComponent(p);
 
     verify(p).configure(any(Context.class));
   }

@@ -11,5 +11,5 @@ public interface ComponentConfiguration {
 
   String getComponent();
 
-  Set<Settings> getSettings();
+  Settings getSettings();
 }

@@ -14,15 +14,11 @@ public class TestPipelineComponentConfiguration implements ComponentConfiguratio
 
   private final String component;
 
-  private final Set<Settings> settings;
+  private final Settings settings;
 
-  public TestPipelineComponentConfiguration(String component, Set<Settings> settings) {
+  public TestPipelineComponentConfiguration(String component, Settings settings) {
     this.component = component;
     this.settings = settings;
-  }
-
-  public TestPipelineComponentConfiguration(String component, Settings... settings) {
-    this(component, new HashSet<>(Arrays.asList(settings)));
   }
 
   @Override
@@ -36,7 +32,7 @@ public class TestPipelineComponentConfiguration implements ComponentConfiguratio
   }
 
   @Override
-  public Set<Settings> getSettings() {
+  public Settings getSettings() {
     return settings;
   }
 }

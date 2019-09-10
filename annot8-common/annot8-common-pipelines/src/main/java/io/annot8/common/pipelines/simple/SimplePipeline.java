@@ -76,7 +76,7 @@ public class SimplePipeline extends AbstractTask implements Pipeline {
             definition.getPipes(), definition.getBranches(), definition.getMerges());
 
     plumber.plumb(AbstractPipelineBuilder.DEFAULT_PIPE);
-    componentConfigurer.configureComponent(plumber, Collections.emptyList());
+    componentConfigurer.configureComponent(plumber);
     pipe = plumber.getPipe();
   }
 

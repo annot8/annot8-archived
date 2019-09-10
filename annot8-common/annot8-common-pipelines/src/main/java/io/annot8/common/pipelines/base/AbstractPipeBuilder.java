@@ -21,15 +21,17 @@ public abstract class AbstractPipeBuilder implements PipeBuilder {
   private final ResourcesHolder resourcesHolder = new ResourcesHolder();
   private String name = "anonymous";
 
+  @Override
   public PipeBuilder addResource(
-      final String id, final Resource resource, final Collection<Settings> configuration) {
-    resourcesHolder.addResource(id, resource, configuration);
+      final String id, final Resource resource) {
+    resourcesHolder.addResource(id, resource);
     return this;
   }
 
+  @Override
   public PipeBuilder addProcessor(
-      final Processor processor, final Collection<Settings> configuration) {
-    processorHolder.add(processor, configuration);
+      final Processor processor) {
+    processorHolder.add(processor);
     return this;
   }
 
