@@ -45,7 +45,7 @@ public class Annot8PipelineApplication {
     }
   }
 
-  private void runPipeline(Pipeline pipeline) throws Exception {
+  private void runPipeline(Pipeline pipeline) {
     try (pipeline) {
       pipeline.run();
     }

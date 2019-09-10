@@ -111,9 +111,8 @@ public abstract class AbstractPipelineBuilder implements PipelineBuilder {
             Collectors.toMap(
                 k -> k,
                 k -> {
-                  String name = k;
                   List<Pipe> list = pipes.get(k);
-                  return new MultiPipe(name, list);
+                  return new MultiPipe(k, list);
                 }));
   }
 

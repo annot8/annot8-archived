@@ -64,7 +64,7 @@ class ComponentHolderTest {
   public static class FakeProcessor implements Processor {
 
     @Override
-    public ProcessorResponse process(Item item) throws Annot8Exception {
+    public ProcessorResponse process(Item item) {
       return ProcessorResponse.ok();
     }
   }

@@ -62,7 +62,7 @@ class MultiPipeTest {
   }
 
   @Test
-  void close() throws BadConfigurationException, MissingResourceException {
+  void close() {
     MultiPipe mp = new MultiPipe("test", Arrays.asList(p1, p2));
 
     mp.close();

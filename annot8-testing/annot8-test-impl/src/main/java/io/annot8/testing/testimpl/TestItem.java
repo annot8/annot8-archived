@@ -33,7 +33,7 @@ public class TestItem implements Item {
 
   private boolean discarded = false;
 
-  private ItemFactory itemFactory;
+  private final ItemFactory itemFactory;
 
   public TestItem() {
     this(new TestGroupStore());

@@ -5,10 +5,10 @@ import java.util.List;
 
 public class TableMetadata {
 
-  private String name;
-  private String type;
-  private List<ColumnMetadata> columns;
-  private int rowCount;
+  private final String name;
+  private final String type;
+  private final List<ColumnMetadata> columns;
+  private final int rowCount;
 
   public TableMetadata(String name, String type, List<ColumnMetadata> columns, int rowCount) {
     this.name = name;

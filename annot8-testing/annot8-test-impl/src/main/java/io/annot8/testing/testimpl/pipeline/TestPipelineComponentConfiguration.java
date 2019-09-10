@@ -9,7 +9,7 @@ import io.annot8.common.pipelines.factory.configuration.ComponentConfiguration;
 import io.annot8.core.settings.Settings;
 
 public class TestPipelineComponentConfiguration implements ComponentConfiguration {
-  
+
   private final String component;
 
   private final Set<Settings> settings;

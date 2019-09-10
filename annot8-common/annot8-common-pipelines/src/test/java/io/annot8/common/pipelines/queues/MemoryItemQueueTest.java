@@ -20,7 +20,7 @@ class MemoryItemQueueTest {
 
   @Mock Item c;
 
-  MemoryItemQueue queue = new MemoryItemQueue();
+  final MemoryItemQueue queue = new MemoryItemQueue();
 
   @Test
   void retainOrder() {

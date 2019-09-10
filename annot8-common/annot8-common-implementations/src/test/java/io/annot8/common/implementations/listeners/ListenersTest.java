@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 
 class ListenersTest {
 
-  Listeners<Consumer<Object>, Object> listeners = new Listeners<>(Consumer::accept);
+  final Listeners<Consumer<Object>, Object> listeners = new Listeners<>(Consumer::accept);
 
   @Test
   void fireWithoutListeners() {

@@ -15,7 +15,7 @@ import io.annot8.core.exceptions.IncompleteException;
 
 public class SimpleBranchBuilder implements BranchBuilder {
 
-  private Set<String> outputs = new HashSet<>();
+  private final Set<String> outputs = new HashSet<>();
   private String input;
   private Supplier<Branch> supplier;
 

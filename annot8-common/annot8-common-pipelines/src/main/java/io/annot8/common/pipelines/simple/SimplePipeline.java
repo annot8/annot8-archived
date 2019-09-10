@@ -50,7 +50,7 @@ public class SimplePipeline extends AbstractTask implements Pipeline {
 
   @Override
   public void configure(Context context)
-      throws BadConfigurationException, MissingResourceException {
+      throws BadConfigurationException {
 
     // Close old values
     close();

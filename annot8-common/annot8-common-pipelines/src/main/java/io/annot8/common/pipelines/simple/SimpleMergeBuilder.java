@@ -13,7 +13,7 @@ import io.annot8.core.exceptions.IncompleteException;
 
 public class SimpleMergeBuilder implements MergeBuilder {
 
-  private Set<String> inputs = new HashSet<>();
+  private final Set<String> inputs = new HashSet<>();
   private String output;
 
   // Default to a simple merge

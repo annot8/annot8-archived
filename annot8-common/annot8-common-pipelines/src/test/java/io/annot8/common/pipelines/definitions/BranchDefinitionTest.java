@@ -18,9 +18,9 @@ import io.annot8.common.pipelines.elements.Branch;
 @ExtendWith(MockitoExtension.class)
 class BranchDefinitionTest {
 
-  Set<String> outputs = new HashSet<>();
+  final Set<String> outputs = new HashSet<>();
 
-  String input = "example";
+  final String input = "example";
 
   @Mock Supplier<Branch> branchSupplier;
 
