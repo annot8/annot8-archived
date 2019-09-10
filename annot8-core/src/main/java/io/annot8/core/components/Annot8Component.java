@@ -5,9 +5,13 @@ import io.annot8.core.capabilities.Capabilities;
 import io.annot8.core.context.Context;
 import io.annot8.core.exceptions.BadConfigurationException;
 import io.annot8.core.exceptions.MissingResourceException;
+import io.annot8.core.settings.Settings;
 
-/** Base interface from which all other Annot8 components extend. */
-public interface Annot8Component extends AutoCloseable {
+/** Base interface from which all other Annot8 components extend.
+ *
+ * @param <S> settings class
+ */
+public interface Annot8Component<S extends Settings> extends AutoCloseable {
 
   /**
    * Configure this component using information from the given context.
