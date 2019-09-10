@@ -15,6 +15,6 @@ public class TestAnnotationStoreFactory implements AnnotationStoreFactory {
 
   @Override
   public AnnotationStore create(Content<?> content) {
-    return new TestAnnotationStore(content.getId());
+    return new TestAnnotationStore(content);
   }
 }

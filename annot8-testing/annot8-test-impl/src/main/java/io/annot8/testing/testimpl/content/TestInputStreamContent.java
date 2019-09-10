@@ -22,33 +22,34 @@ public class TestInputStreamContent extends AbstractTestContent<InputStream>
 
   private static final byte[] DEFAULT_DATA = "Test Data".getBytes(StandardCharsets.UTF_8);
 
-  public TestInputStreamContent() {
-    super(InputStream.class);
+  public TestInputStreamContent(Item item) {
+    super(item,InputStream.class);
     // THis is not really useful in general, but its something non-null
     setData(() -> new ByteArrayInputStream(DEFAULT_DATA));
   }
 
-  public TestInputStreamContent(
+  public TestInputStreamContent(Item item,
       String id, String description, ImmutableProperties properties, Supplier<InputStream> data) {
-    super(InputStream.class, id, description, properties, data);
+    super(item, InputStream.class, id, description, properties, data);
   }
 
-  public TestInputStreamContent(
+  public TestInputStreamContent(Item item,
       AnnotationStore annotations,
       String id,
       String description,
       ImmutableProperties properties,
       Supplier<InputStream> data) {
-    super(InputStream.class, c -> annotations, id, description, properties, data);
+    super(item,InputStream.class, c -> annotations, id, description, properties, data);
   }
 
   public TestInputStreamContent(
+      Item item,
       AnnotationStoreFactory annotationStore,
       String id,
       String description,
       ImmutableProperties properties,
       Supplier<InputStream> data) {
-    super(InputStream.class, annotationStore, id, description, properties, data);
+    super(item,InputStream.class, annotationStore, id, description, properties, data);
   }
 
   @Override
@@ -60,14 +61,15 @@ public class TestInputStreamContent extends AbstractTestContent<InputStream>
 
     private final AnnotationStoreFactory annotationStoreFactory;
 
-    public Builder(AnnotationStoreFactory annotationStoreFactory) {
-      this.annotationStoreFactory = annotationStoreFactory;
+    public Builder(Item item, AnnotationStoreFactory annotationStoreFactory) {
+        super(item);
+        this.annotationStoreFactory = annotationStoreFactory;
     }
 
     @Override
     protected TestInputStreamContent create(
         String id, String description, ImmutableProperties properties, Supplier<InputStream> data) {
-      return new TestInputStreamContent(annotationStoreFactory, id, description, properties, data);
+      return new TestInputStreamContent(getItem(), annotationStoreFactory, id, description, properties, data);
     }
   }
 
@@ -87,7 +89,7 @@ public class TestInputStreamContent extends AbstractTestContent<InputStream>
 
     @Override
     public TestInputStreamContent.Builder create(Item item) {
-      return new TestInputStreamContent.Builder(annotationStoreFactory);
+      return new TestInputStreamContent.Builder(item, annotationStoreFactory);
     }
   }
 }
