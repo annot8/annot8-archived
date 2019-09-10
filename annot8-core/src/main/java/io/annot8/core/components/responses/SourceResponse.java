@@ -1,6 +1,9 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.core.components.responses;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Objects;
 
 /**
@@ -25,6 +28,16 @@ public interface SourceResponse {
     return new SourceResponseBuilder(Status.SOURCE_ERROR);
   }
 
+  /** There was an error reading from the Source with a collection of exceptions */
+  static SourceResponseBuilder sourceError(Collection<Exception> exceptions) {
+    return new SourceResponseBuilder(Status.SOURCE_ERROR, exceptions);
+  }
+
+  /** There was an error reading from the Source with one or more exception */
+  static SourceResponseBuilder sourceError(Exception... exceptions) {
+    return new SourceResponseBuilder(Status.SOURCE_ERROR, Arrays.asList(exceptions));
+  }
+
   /** The Source is currently empty */
   static SourceResponseBuilder empty() {
     return new SourceResponseBuilder(Status.EMPTY);
@@ -32,6 +45,12 @@ public interface SourceResponse {
 
   /** Return the status associated with this response */
   Status getStatus();
+
+  /** Return any exceptions associated with this response */
+  Collection<Exception> getExceptions();
+
+  /** Return true if this response has exceptions associated with it */
+  boolean hasExceptions();
 
   /** Response status returned by the source */
   enum Status {
@@ -62,14 +81,31 @@ public interface SourceResponse {
   class SourceResponseBuilder implements SourceResponse {
 
     private final Status status;
+    private final Collection<Exception> exceptions;
 
     protected SourceResponseBuilder(Status status) {
       this.status = status;
+      this.exceptions = Collections.emptyList();
+    }
+
+    protected SourceResponseBuilder(Status status, Collection<Exception> exceptions) {
+      this.status = status;
+      this.exceptions = exceptions;
     }
 
     @Override
     public Status getStatus() {
       return status;
+    }
+
+    @Override
+    public Collection<Exception> getExceptions() {
+      return exceptions;
+    }
+
+    @Override
+    public boolean hasExceptions() {
+      return !exceptions.isEmpty();
     }
 
     @Override

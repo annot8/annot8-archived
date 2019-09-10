@@ -1,33 +1,88 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.core.components.responses;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import io.annot8.core.components.responses.ProcessorResponse.Status;
 import org.junit.jupiter.api.Test;
 
-import io.annot8.core.components.responses.ProcessorResponse.Status;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ProcessorResponseTest {
 
   @Test
   public void testOk() {
-    ProcessorResponse sr = ProcessorResponse.ok();
+    ProcessorResponse pr = ProcessorResponse.ok();
 
-    assertEquals(ProcessorResponse.Status.OK, sr.getStatus());
+    assertEquals(ProcessorResponse.Status.OK, pr.getStatus());
+    assertFalse(pr.hasExceptions());
+    assertEquals(0, pr.getExceptions().size());
   }
 
   @Test
   public void testItemError() {
-    ProcessorResponse sr = ProcessorResponse.itemError();
+    ProcessorResponse pr = ProcessorResponse.itemError();
 
-    assertEquals(ProcessorResponse.Status.ITEM_ERROR, sr.getStatus());
+    assertEquals(Status.ITEM_ERROR, pr.getStatus());
+    assertFalse(pr.hasExceptions());
+    assertEquals(0, pr.getExceptions().size());
   }
 
   @Test
-  public void testPipelineError() {
-    ProcessorResponse sr = ProcessorResponse.processingError();
+  public void testItemErrorExceptionCollection() {
+    Collection<Exception> ex = new ArrayList<>();
+    ex.add(new IOException("Test exception"));
+    ex.add(new IllegalArgumentException("Another test exception"));
 
-    assertEquals(Status.PROCESSOR_ERROR, sr.getStatus());
+    ProcessorResponse pr = ProcessorResponse.itemError(ex);
+
+    assertEquals(Status.ITEM_ERROR, pr.getStatus());
+    assertTrue(pr.hasExceptions());
+    assertEquals(2, pr.getExceptions().size());
+    assertEquals(ex, pr.getExceptions());
+  }
+
+  @Test
+  public void testItemErrorExceptionArgs() {
+    ProcessorResponse pr = ProcessorResponse.itemError(new IOException("Test exception"), new IllegalArgumentException("Another test exception"));
+
+    assertEquals(Status.ITEM_ERROR, pr.getStatus());
+    assertTrue(pr.hasExceptions());
+    assertEquals(2, pr.getExceptions().size());
+  }
+
+  @Test
+  public void testProcessingError() {
+    ProcessorResponse pr = ProcessorResponse.processingError();
+
+    assertEquals(Status.PROCESSOR_ERROR, pr.getStatus());
+    assertFalse(pr.hasExceptions());
+    assertEquals(0, pr.getExceptions().size());
+  }
+
+  @Test
+  public void testProcessingErrorExceptionCollection() {
+    Collection<Exception> ex = new ArrayList<>();
+    ex.add(new IOException("Test exception"));
+    ex.add(new IllegalArgumentException("Another test exception"));
+
+    ProcessorResponse pr = ProcessorResponse.processingError(ex);
+
+    assertEquals(Status.PROCESSOR_ERROR, pr.getStatus());
+    assertTrue(pr.hasExceptions());
+    assertEquals(2, pr.getExceptions().size());
+    assertEquals(ex, pr.getExceptions());
+  }
+
+  @Test
+  public void testProcessorErrorExceptionArgs() {
+    ProcessorResponse pr = ProcessorResponse.processingError(new IOException("Test exception"), new IllegalArgumentException("Another test exception"));
+
+    assertEquals(Status.PROCESSOR_ERROR, pr.getStatus());
+    assertTrue(pr.hasExceptions());
+    assertEquals(2, pr.getExceptions().size());
   }
 
   @Test
