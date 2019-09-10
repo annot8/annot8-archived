@@ -20,7 +20,7 @@ public class TestGroupBuilder implements Group.Builder {
   private String id = UUID.randomUUID().toString();
   private String type = TestConstants.GROUP_TYPE;
 
-  public static GroupBuilderFactory<Group> factory() {
+  public static GroupBuilderFactory factory() {
     return (item, store) -> new TestGroupBuilder();
   }
 

@@ -9,7 +9,6 @@ import java.util.Optional;
 import org.junit.jupiter.api.Test;
 
 import io.annot8.common.data.content.Text;
-import io.annot8.core.data.BaseItem;
 import io.annot8.core.data.Content;
 import io.annot8.core.data.Item;
 import io.annot8.core.exceptions.IncompleteException;
@@ -22,11 +21,11 @@ import io.annot8.testing.testimpl.TestConstants;
  */
 public abstract class AbstractItemTest {
 
-  protected abstract BaseItem getItem();
+  protected abstract Item getItem();
 
   @Test
   public void testGetContent() {
-    BaseItem item = getItem();
+    Item item = getItem();
     try {
       item.create(Text.class)
           .withData(() -> "test")
@@ -47,7 +46,7 @@ public abstract class AbstractItemTest {
 
   @Test
   public void testGetContents() {
-    BaseItem item = getItem();
+    Item item = getItem();
 
     try {
       item.create(Text.class).withData(() -> "test").withDescription(TestConstants.CONTENT_DESCRIPTION).save();
@@ -64,7 +63,7 @@ public abstract class AbstractItemTest {
 
   @Test
   public void testCreate() {
-    BaseItem item = getItem();
+    Item item = getItem();
 
     Text test = null;
     try {
@@ -81,7 +80,7 @@ public abstract class AbstractItemTest {
 
   @Test
   public void testRemoveContent() {
-    BaseItem item = getItem();
+    Item item = getItem();
     try {
       item.create(Text.class)
           .withData(() -> "test")
@@ -101,7 +100,7 @@ public abstract class AbstractItemTest {
 
   @Test
   public void testDiscard() {
-    BaseItem item = getItem();
+    Item item = getItem();
     assertFalse(item.isDiscarded());
     item.discard();
     assertTrue(item.isDiscarded());

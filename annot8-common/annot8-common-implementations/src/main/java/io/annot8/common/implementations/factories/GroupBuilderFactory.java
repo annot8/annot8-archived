@@ -2,7 +2,7 @@
 package io.annot8.common.implementations.factories;
 
 import io.annot8.core.annotations.Group;
-import io.annot8.core.data.BaseItem;
+import io.annot8.core.data.Item;
 import io.annot8.core.stores.GroupStore;
 
 /**
@@ -11,7 +11,7 @@ import io.annot8.core.stores.GroupStore;
  * <p>Typically used in a GroupStore.getBuilder().
  */
 @FunctionalInterface
-public interface GroupBuilderFactory<T> {
+public interface GroupBuilderFactory {
 
   /**
    * Create a new builder for the provided item.
@@ -20,5 +20,5 @@ public interface GroupBuilderFactory<T> {
    * @param groupStore the group store
    * @return non-null
    */
-  Group.Builder create(BaseItem item, GroupStore groupStore);
+  Group.Builder create(Item item, GroupStore groupStore);
 }

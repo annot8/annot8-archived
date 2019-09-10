@@ -10,34 +10,34 @@ import io.annot8.common.implementations.delegates.DelegateGroupBuilder;
 import io.annot8.common.implementations.factories.GroupBuilderFactory;
 import io.annot8.core.annotations.Group;
 import io.annot8.core.annotations.Group.Builder;
-import io.annot8.core.data.BaseItem;
+import io.annot8.core.data.Item;
 import io.annot8.core.exceptions.IncompleteException;
 import io.annot8.core.stores.GroupStore;
 
 public class TestGroupStore implements GroupStore {
 
   private final Map<String, Group> groups = new ConcurrentHashMap<>();
-  private final GroupBuilderFactory<Group> groupBuilderFactory;
-  private BaseItem item;
+  private final GroupBuilderFactory groupBuilderFactory;
+  private Item item;
 
   public TestGroupStore() {
     this(null);
   }
 
-  public TestGroupStore(BaseItem item, GroupBuilderFactory<Group> groupBuilderFactory) {
+  public TestGroupStore(Item item, GroupBuilderFactory groupBuilderFactory) {
     this.item = item;
     this.groupBuilderFactory = groupBuilderFactory;
   }
 
-  public TestGroupStore(BaseItem item) {
+  public TestGroupStore(Item item) {
     this(item, TestGroupBuilder.factory());
   }
 
-  public void setItem(BaseItem item) {
+  public void setItem(Item item) {
     this.item = item;
   }
 
-  public BaseItem getItem() {
+  public Item getItem() {
     return item;
   }
 

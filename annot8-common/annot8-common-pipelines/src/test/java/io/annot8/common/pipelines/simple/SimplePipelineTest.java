@@ -2,7 +2,6 @@
 package io.annot8.common.pipelines.simple;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.clearInvocations;
 import static org.mockito.Mockito.times;
@@ -15,7 +14,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import io.annot8.common.implementations.context.SimpleContext;
-import io.annot8.common.implementations.data.BaseItemFactory;
 import io.annot8.common.pipelines.elements.Pipe;
 import io.annot8.common.pipelines.elements.Pipeline;
 import io.annot8.common.pipelines.queues.MemoryItemQueue;
@@ -29,7 +27,7 @@ import io.annot8.core.exceptions.Annot8Exception;
 @ExtendWith(MockitoExtension.class)
 class SimplePipelineTest {
 
-  @Mock BaseItemFactory itemFactory;
+  @Mock ItemFactory itemFactory;
 
   @Mock Source source;
 

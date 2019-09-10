@@ -8,8 +8,8 @@ import io.annot8.common.data.content.InputStreamContent;
 import io.annot8.common.implementations.content.AbstractContent;
 import io.annot8.common.implementations.content.AbstractContentBuilder;
 import io.annot8.common.implementations.content.AbstractContentBuilderFactory;
-import io.annot8.core.data.BaseItem;
 import io.annot8.core.data.Content;
+import io.annot8.core.data.Item;
 import io.annot8.core.exceptions.Annot8RuntimeException;
 import io.annot8.core.properties.ImmutableProperties;
 import io.annot8.defaultimpl.stores.DefaultAnnotationStore;
@@ -51,7 +51,7 @@ public class DefaultInputStream extends AbstractContent<InputStream> implements 
     }
 
     @Override
-    public Content.Builder<DefaultInputStream, InputStream> create(BaseItem item) {
+    public Content.Builder<DefaultInputStream, InputStream> create(Item item) {
       return new DefaultInputStream.Builder();
     }
   }

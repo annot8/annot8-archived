@@ -6,17 +6,17 @@ import java.util.Map;
 
 import io.annot8.common.implementations.configuration.ComponentHolder;
 import io.annot8.common.implementations.configuration.ResourcesHolder;
-import io.annot8.common.implementations.data.BaseItemFactory;
 import io.annot8.common.pipelines.elements.Pipe;
-import io.annot8.common.pipelines.queues.BaseItemQueue;
+import io.annot8.common.pipelines.queues.ItemQueue;
 import io.annot8.core.components.Source;
+import io.annot8.core.data.ItemFactory;
 
 public class PipelineDefinition {
 
   private final String name;
-  private final BaseItemFactory baseItemFactory;
+  private final ItemFactory baseItemFactory;
 
-  private final BaseItemQueue queue;
+  private final ItemQueue queue;
   private final ResourcesHolder resourcesHolder;
   private final ComponentHolder<Source> sourceHolder;
   private final Map<String, Pipe> pipes;
@@ -25,8 +25,8 @@ public class PipelineDefinition {
 
   public PipelineDefinition(
       String name,
-      BaseItemFactory baseItemFactory,
-      BaseItemQueue queue,
+      ItemFactory baseItemFactory,
+      ItemQueue queue,
       ResourcesHolder resourcesHolder,
       ComponentHolder<Source> sourceHolder,
       Map<String, Pipe> pipes,
@@ -46,11 +46,11 @@ public class PipelineDefinition {
     return name;
   }
 
-  public BaseItemFactory getBaseItemFactory() {
+  public ItemFactory getBaseItemFactory() {
     return baseItemFactory;
   }
 
-  public BaseItemQueue getQueue() {
+  public ItemQueue getQueue() {
     return queue;
   }
 

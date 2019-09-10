@@ -7,8 +7,8 @@ import io.annot8.common.data.content.Text;
 import io.annot8.common.implementations.content.AbstractContent;
 import io.annot8.common.implementations.content.AbstractContentBuilder;
 import io.annot8.common.implementations.content.AbstractContentBuilderFactory;
-import io.annot8.core.data.BaseItem;
 import io.annot8.core.data.Content;
+import io.annot8.core.data.Item;
 import io.annot8.core.properties.ImmutableProperties;
 import io.annot8.defaultimpl.stores.DefaultAnnotationStore;
 
@@ -35,7 +35,7 @@ public class DefaultText extends AbstractContent<String> implements Text {
     }
 
     @Override
-    public Content.Builder<DefaultText, String> create(BaseItem item) {
+    public Content.Builder<DefaultText, String> create(Item item) {
       return new DefaultText.Builder();
     }
   }

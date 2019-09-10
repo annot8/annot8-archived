@@ -15,7 +15,7 @@ import io.annot8.common.implementations.properties.MapMutableProperties;
 import io.annot8.common.utils.properties.EmptyImmutableProperties;
 import io.annot8.core.annotations.Annotation;
 import io.annot8.core.annotations.Group;
-import io.annot8.core.data.BaseItem;
+import io.annot8.core.data.Item;
 import io.annot8.core.exceptions.IncompleteException;
 import io.annot8.core.properties.ImmutableProperties;
 import io.annot8.core.properties.MutableProperties;
@@ -26,7 +26,7 @@ import io.annot8.defaultimpl.references.DefaultAnnotationReference;
 /** Simple implementation of Group interface */
 public class DefaultGroup extends AbstractGroup {
 
-  private final BaseItem item;
+  private final Item item;
   private final String id;
   private final String type;
   private final ImmutableProperties properties;
@@ -35,7 +35,7 @@ public class DefaultGroup extends AbstractGroup {
   private final Map<DefaultAnnotationReference, String> annotations;
 
   private DefaultGroup(
-      final BaseItem item,
+      final Item item,
       final String id,
       final String type,
       final ImmutableProperties properties,
@@ -91,18 +91,18 @@ public class DefaultGroup extends AbstractGroup {
    */
   public static class Builder implements Group.Builder {
 
-    private final BaseItem item;
+    private final Item item;
 
     private String id;
     private String type = null;
     private MutableProperties properties = new MapMutableProperties();
     private Map<Annotation, String> annotations = new HashMap<>();
 
-    public Builder(BaseItem item) {
+    public Builder(Item item) {
       this(item, null);
     }
 
-    public Builder(BaseItem item, String id) {
+    public Builder(Item item, String id) {
       this.item = item;
       this.id = id;
     }

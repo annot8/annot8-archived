@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 
 import io.annot8.common.implementations.delegates.DelegateGroupBuilder;
 import io.annot8.core.annotations.Group;
-import io.annot8.core.data.BaseItem;
+import io.annot8.core.data.Item;
 import io.annot8.core.exceptions.IncompleteException;
 import io.annot8.core.stores.GroupStore;
 import io.annot8.defaultimpl.annotations.DefaultGroup;
@@ -20,10 +20,10 @@ import io.annot8.defaultimpl.annotations.DefaultGroup;
 /** In memory implementation, backed by a HashMap, of GroupStore */
 public class DefaultGroupStore implements GroupStore {
 
-  private final BaseItem item;
+  private final Item item;
   private final Map<String, Group> groups = new ConcurrentHashMap<>();
   /** Construct a new instance of this class for the provided item */
-  public DefaultGroupStore(BaseItem item) {
+  public DefaultGroupStore(Item item) {
     this.item = item;
   }
 

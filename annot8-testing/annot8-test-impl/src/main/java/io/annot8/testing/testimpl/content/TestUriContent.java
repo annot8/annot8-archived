@@ -4,8 +4,8 @@ package io.annot8.testing.testimpl.content;
 import io.annot8.common.data.content.UriContent;
 import io.annot8.common.implementations.content.AbstractContentBuilder;
 import io.annot8.common.implementations.content.AbstractContentBuilderFactory;
-import io.annot8.core.data.BaseItem;
 import io.annot8.core.data.Content;
+import io.annot8.core.data.Item;
 import io.annot8.core.properties.ImmutableProperties;
 import io.annot8.core.stores.AnnotationStore;
 import io.annot8.testing.testimpl.TestAnnotationStore;
@@ -80,7 +80,7 @@ public class TestUriContent implements UriContent {
     }
 
     @Override
-    public Builder<UriContent, URI> create(BaseItem item) {
+    public Builder<UriContent, URI> create(Item item) {
       return new TestUriBuilder();
     }
   }

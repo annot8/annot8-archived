@@ -7,6 +7,7 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import io.annot8.core.data.ItemFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,11 +15,10 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import io.annot8.common.implementations.context.SimpleContext;
-import io.annot8.common.implementations.data.BaseItemFactory;
 import io.annot8.common.pipelines.base.AbstractPipelineBuilder;
 import io.annot8.common.pipelines.elements.Pipeline;
 import io.annot8.common.pipelines.elements.PipelineBuilder;
-import io.annot8.common.pipelines.queues.BaseItemQueue;
+import io.annot8.common.pipelines.queues.ItemQueue;
 import io.annot8.common.pipelines.simple.SimpleBranch;
 import io.annot8.common.pipelines.simple.SimpleBranchBuilder;
 import io.annot8.common.pipelines.simple.SimpleMerge;
@@ -30,7 +30,6 @@ import io.annot8.core.components.Source;
 import io.annot8.core.components.responses.ProcessorResponse;
 import io.annot8.core.components.responses.SourceResponse;
 import io.annot8.core.context.Context;
-import io.annot8.core.data.BaseItem;
 import io.annot8.core.data.Item;
 import io.annot8.core.exceptions.Annot8Exception;
 import io.annot8.core.exceptions.BadConfigurationException;
@@ -43,11 +42,13 @@ class PipelinePlumberTest {
 
   // TODO: This should be a lot more comphrensive
 
-  @Mock BaseItemFactory baseItemFactory;
+  @Mock
+  ItemFactory itemFactory;
 
-  @Mock BaseItemQueue baseItemQueue;
+  @Mock
+  ItemQueue itemQueue;
 
-  @Mock BaseItem item;
+  @Mock Item item;
 
   @Mock Source source;
 
@@ -61,8 +62,8 @@ class PipelinePlumberTest {
 
   @BeforeEach
   void beforeEach() {
-    when(baseItemQueue.hasItems()).thenReturn(true, false);
-    when(baseItemQueue.next()).thenReturn(item, null);
+    when(itemQueue.hasItems()).thenReturn(true, false);
+    when(itemQueue.next()).thenReturn(item, null);
 
     when(source.read(any())).thenReturn(SourceResponse.ok(), SourceResponse.done());
   }
@@ -178,8 +179,8 @@ class PipelinePlumberTest {
   private PipelineBuilder newPipelineBuilder() {
     return new SimplePipelineBuilder()
         .withName("test")
-        .withItemFactory(baseItemFactory)
-        .withQueue(baseItemQueue)
+        .withItemFactory(itemFactory)
+        .withQueue(itemQueue)
         .addSource(source);
   }
 

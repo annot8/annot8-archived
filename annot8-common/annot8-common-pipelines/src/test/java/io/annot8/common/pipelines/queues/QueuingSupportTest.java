@@ -1,20 +1,22 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.pipelines.queues;
 
+import io.annot8.core.data.ItemFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import io.annot8.common.implementations.data.BaseItemFactory;
-
 @ExtendWith(MockitoExtension.class)
 class QueuingSupportTest {
 
-  @Mock BaseItemQueue queue;
+  @Mock
+  ItemQueue queue;
 
-  @Mock BaseItemFactory baseItemFactory;
+  @Mock
+  ItemFactory baseItemFactory;
+
   private QueuingSupport support;
 
   @BeforeEach
@@ -31,16 +33,9 @@ class QueuingSupportTest {
     support.getQueueReader();
   }
 
-  void testBaseItemFactory() {
-    support.getBaseItemFactory();
-  }
-
   void testItemFactory() {
 
     support.getItemFactory();
   }
 
-  void testConvertor() {
-    support.getConverter();
-  }
 }

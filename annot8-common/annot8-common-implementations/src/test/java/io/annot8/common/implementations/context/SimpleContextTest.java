@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import io.annot8.core.data.ItemFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import io.annot8.common.implementations.data.BaseItemFactory;
 import io.annot8.core.components.Resource;
 import io.annot8.core.settings.Settings;
 
@@ -22,7 +22,6 @@ public class SimpleContextTest {
   public void testSimpleContextDefault() {
     Resource r1 = mock(Resource.class);
     Resource r2 = new TestResource();
-    BaseItemFactory itemFactory = mock(BaseItemFactory.class);
 
     SimpleContext context = new SimpleContext();
 
@@ -54,7 +53,6 @@ public class SimpleContextTest {
     Map<String, Resource> r = new HashMap<>();
     r.put("resource1", r1);
     r.put("resource2", r2);
-    BaseItemFactory itemFactory = mock(BaseItemFactory.class);
 
     SimpleContext context = new SimpleContext(r);
 
@@ -79,7 +77,6 @@ public class SimpleContextTest {
   @Test
   public void testSimpleContextSettings() {
     Settings s = mock(Settings.class);
-    BaseItemFactory itemFactory = mock(BaseItemFactory.class);
 
     SimpleContext context = new SimpleContext(Collections.singletonList(s));
 
@@ -102,8 +99,6 @@ public class SimpleContextTest {
     Map<String, Resource> r = new HashMap<>();
     r.put("resource1", r1);
     r.put("resource2", r2);
-
-    BaseItemFactory itemFactory = mock(BaseItemFactory.class);
 
     SimpleContext context = new SimpleContext(Collections.singletonList(s), r);
 

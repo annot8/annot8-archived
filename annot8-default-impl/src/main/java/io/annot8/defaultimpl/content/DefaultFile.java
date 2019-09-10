@@ -8,8 +8,8 @@ import io.annot8.common.data.content.FileContent;
 import io.annot8.common.implementations.content.AbstractContent;
 import io.annot8.common.implementations.content.AbstractContentBuilder;
 import io.annot8.common.implementations.content.AbstractContentBuilderFactory;
-import io.annot8.core.data.BaseItem;
 import io.annot8.core.data.Content;
+import io.annot8.core.data.Item;
 import io.annot8.core.properties.ImmutableProperties;
 import io.annot8.defaultimpl.stores.DefaultAnnotationStore;
 
@@ -36,7 +36,7 @@ public class DefaultFile extends AbstractContent<File> implements FileContent {
     }
 
     @Override
-    public Content.Builder<DefaultFile, File> create(BaseItem item) {
+    public Content.Builder<DefaultFile, File> create(Item item) {
       return new DefaultFile.Builder();
     }
   }
