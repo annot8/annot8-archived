@@ -6,7 +6,7 @@ import io.annot8.core.data.Item;
 import io.annot8.core.stores.GroupStore;
 
 /**
- * Factory to create an group builder.
+ * Factory to createContent an group builder.
  *
  * <p>Typically used in a GroupStore.getBuilder().
  */

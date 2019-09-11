@@ -1,15 +1,15 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.implementations.delegates;
 
-import java.util.Optional;
-import java.util.stream.Stream;
-
 import io.annot8.core.data.Content;
 import io.annot8.core.data.Content.Builder;
 import io.annot8.core.data.Item;
 import io.annot8.core.exceptions.UnsupportedContentException;
 import io.annot8.core.properties.MutableProperties;
 import io.annot8.core.stores.GroupStore;
+
+import java.util.Optional;
+import java.util.stream.Stream;
 
 public class DelegateItem implements Item{
 
@@ -45,9 +45,9 @@ public class DelegateItem implements Item{
   }
 
   @Override
-  public <C extends Content<D>, D> Builder<C, D> create(Class<C> clazz)
+  public <C extends Content<D>, D> Builder<C, D> createContent(Class<C> clazz)
       throws UnsupportedContentException {
-    return item.create(clazz);
+    return item.createContent(clazz);
   }
 
   @Override
@@ -66,8 +66,8 @@ public class DelegateItem implements Item{
   }
 
   @Override
-  public Item create() {
-    return item.create();
+  public Item createChild() {
+    return item.createChild();
   }
 
   @Override

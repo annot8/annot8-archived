@@ -44,13 +44,13 @@ public class TestContentBuilderFactoryRegistry extends SimpleContentBuilderFacto
   @Override
   public <D, C extends Content<D>> Optional<ContentBuilderFactory<D, C>> get(
       Class<C> contentClass) {
-    // if you specifically ask for testcontent types we get create them (without needing
+    // if you specifically ask for testcontent types we get createContent them (without needing
     // registration)
     if (AbstractTestContent.class.isAssignableFrom(contentClass)) {
       try {
         return Optional.of(new TestContentBuilderFactory(contentClass));
       } catch (Exception e) {
-        LOGGER.error("Unable to create test content", e);
+        LOGGER.error("Unable to createContent test content", e);
       }
     }
 

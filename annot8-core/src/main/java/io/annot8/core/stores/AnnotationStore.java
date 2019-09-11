@@ -28,16 +28,16 @@ public interface AnnotationStore {
   Annotation.Builder getBuilder();
 
   /**
-   * Get a builder to create a new annotation
+   * Get a builder to createContent a new annotation
    *
-   * @return a builder to create a new annotation
+   * @return a builder to createContent a new annotation
    */
   default Annotation.Builder create() {
     return getBuilder();
   }
 
   /**
-   * Clone an existing annotation to create a new annotation
+   * Clone an existing annotation to createContent a new annotation
    *
    * @param existing the annotation to copy
    * @return a builder to based on the an existing annotation, but don't overwrite that annotation

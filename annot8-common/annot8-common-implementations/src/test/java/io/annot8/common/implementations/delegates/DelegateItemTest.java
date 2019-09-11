@@ -57,8 +57,8 @@ class DelegateItemTest {
 
   @Test
   void create() throws UnsupportedContentException {
-    item.create(Content.class);
-    Mockito.verify(delegate, Mockito.times(1)).create(Content.class);
+    item.createContent(Content.class);
+    Mockito.verify(delegate, Mockito.times(1)).createContent(Content.class);
   }
 
   @Test
@@ -99,7 +99,7 @@ class DelegateItemTest {
 
   @Test
   void createSubItem() {
-    item.create();
-    Mockito.verify(delegate, Mockito.times(1)).create();
+    item.createChild();
+    Mockito.verify(delegate, Mockito.times(1)).createChild();
   }
 }

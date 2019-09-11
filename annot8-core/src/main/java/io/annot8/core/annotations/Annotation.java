@@ -60,7 +60,7 @@ public interface Annotation extends WithId, WithType, WithProperties {
     return other != null && getId().equals(other.getId());
   }
 
-  /** Builder interface to create (immutable) Annotation classes */
+  /** Builder interface to createContent (immutable) Annotation classes */
   interface Builder
       extends WithTypeBuilder<Annotation.Builder>,
           WithIdBuilder<Annotation.Builder>,

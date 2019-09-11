@@ -127,7 +127,7 @@ public interface Group extends WithId, WithType, WithProperties {
     return other != null && getId().equals(other.getId());
   }
 
-  /** Builder interface to create (immutable) Group classes */
+  /** Builder interface to createContent (immutable) Group classes */
   interface Builder
       extends WithIdBuilder<Builder>,
           WithTypeBuilder<Builder>,

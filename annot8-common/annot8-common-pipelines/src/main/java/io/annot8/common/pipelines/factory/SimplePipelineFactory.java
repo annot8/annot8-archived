@@ -107,7 +107,7 @@ public class SimplePipelineFactory implements PipelineFactory {
     try {
       return clazz.getConstructor().newInstance();
     } catch (Exception e) {
-      throw new Annot8Exception("Could not create instance of component " + clazz.getName(), e);
+      throw new Annot8Exception("Could not createContent instance of component " + clazz.getName(), e);
     }
   }
 }

@@ -21,12 +21,12 @@ public interface Context {
   }
 
   /**
-   * Return a settings object as the given class, attempting to create a new settings object of that
+   * Return a settings object as the given class, attempting to createContent a new settings object of that
    * class if the currently given settings are not of this class.
    *
-   * @param clazz the setting clazz to create
+   * @param clazz the setting clazz to createContent
    * @param defaultValue if non=null this will be returned if the settings are absensce. If null
-   *     then will try to create a new instances of the Settings class
+   *     then will try to createContent a new instances of the Settings class
    * @return may be null (if defaultValue is null)
    */
   default <T extends Settings> T getSettings(final Class<T> clazz, T defaultValue) {

@@ -6,7 +6,7 @@ import io.annot8.core.data.Content;
 import io.annot8.core.stores.AnnotationStore;
 
 /**
- * Factory to create an annotation builder.
+ * Factory to createContent an annotation builder.
  *
  * <p>Typically used in an AnnotationStore.getBuilder().
  */

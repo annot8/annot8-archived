@@ -2,7 +2,7 @@
 package io.annot8.core.exceptions;
 
 /**
- * Exception indicating that a builder has been asked to create a new object without having been
+ * Exception indicating that a builder has been asked to createContent a new object without having been
  * given all the required information
  */
 public class IncompleteException extends Annot8RuntimeException {
