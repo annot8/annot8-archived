@@ -1,4 +1,4 @@
-package io.annot8.common.data.indexes;
+package io.annot8.common.support.indices;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;

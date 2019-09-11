@@ -22,10 +22,7 @@
       <groupId>io.annot8</groupId>
       <artifactId>annot8-common-utils</artifactId>
     </dependency>
-    <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava</artifactId>
-    </dependency>
+
   </dependencies>
 
 </project>
