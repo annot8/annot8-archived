@@ -2,6 +2,6 @@
 target/
 .idea/
 dependency-reduced-pom.xml
-.settings/
 .project
 .classpath
+.settings/
