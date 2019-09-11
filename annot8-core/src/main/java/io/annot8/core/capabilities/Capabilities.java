@@ -108,7 +108,7 @@ public interface Capabilities {
     }
 
     /**
-     * Declare that the component will create an annotation
+     * Declare that the component will createContent an annotation
      *
      * @param type annotation type
      * @param clazz bounds class
@@ -141,7 +141,7 @@ public interface Capabilities {
     }
 
     /**
-     * Declare that the component will create a group
+     * Declare that the component will createContent a group
      *
      * @param type annotation type
      * @return the builder for chaining
@@ -172,7 +172,7 @@ public interface Capabilities {
     }
 
     /**
-     * Declare that the component will create a type of content
+     * Declare that the component will createContent a type of content
      *
      * @param clazz content type
      * @return the builder for chaining
@@ -211,7 +211,7 @@ public interface Capabilities {
     Builder processesAnnotation(AnnotationCapability capability);
 
     /**
-     * Declare that the component will create an annotation
+     * Declare that the component will createContent an annotation
      *
      * @param capability capability definition
      * @return the builder for chaining
@@ -235,7 +235,7 @@ public interface Capabilities {
     Builder processesGroup(GroupCapability capability);
 
     /**
-     * Declare that the component will create a group
+     * Declare that the component will createContent a group
      *
      * @param capability capability definition
      * @return the builder for chaining
@@ -259,7 +259,7 @@ public interface Capabilities {
     Builder processesContent(ContentCapability capability);
 
     /**
-     * Declare that the component will create a content type
+     * Declare that the component will createContent a content type
      *
      * @param capability capability definition
      * @return the builder for chaining

@@ -2,7 +2,7 @@
 package io.annot8.core.exceptions;
 
 /**
- * Runtime exception indicating that an attempt to either create or use an invalid Bounds object has
+ * Runtime exception indicating that an attempt to either createContent or use an invalid Bounds object has
  * been performed.
  */
 public class InvalidBoundsException extends Annot8RuntimeException {

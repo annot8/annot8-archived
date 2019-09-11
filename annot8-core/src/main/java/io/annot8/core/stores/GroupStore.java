@@ -30,14 +30,14 @@ public interface GroupStore {
   /**
    * Create a new group
    *
-   * @return a builder to create a new group
+   * @return a builder to createContent a new group
    */
   default Group.Builder create() {
     return getBuilder();
   }
 
   /**
-   * Clone an existing group to create a new group
+   * Clone an existing group to createContent a new group
    *
    * @param existing the existing group
    * @return a builder to based on the an existing group, but don't overwrite that group on save.

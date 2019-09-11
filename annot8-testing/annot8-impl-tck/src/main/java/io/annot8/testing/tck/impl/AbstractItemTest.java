@@ -27,7 +27,7 @@ public abstract class AbstractItemTest {
   public void testGetContent() {
     Item item = getItem();
     try {
-      item.create(Text.class)
+      item.createContent(Text.class)
           .withData(() -> "test")
           .withId(TestConstants.CONTENT_ID)
           .withDescription(TestConstants.CONTENT_DESCRIPTION)
@@ -49,8 +49,8 @@ public abstract class AbstractItemTest {
     Item item = getItem();
 
     try {
-      item.create(Text.class).withData(() -> "test").withDescription(TestConstants.CONTENT_DESCRIPTION).save();
-      item.create(Text.class).withData(() -> "test2").withDescription("content2").save();
+      item.createContent(Text.class).withData(() -> "test").withDescription(TestConstants.CONTENT_DESCRIPTION).save();
+      item.createContent(Text.class).withData(() -> "test2").withDescription("content2").save();
     } catch (UnsupportedContentException | IncompleteException e) {
       fail("Test should not error here", e);
     }
@@ -67,7 +67,7 @@ public abstract class AbstractItemTest {
 
     Text test = null;
     try {
-      test = item.create(Text.class).withDescription(TestConstants.CONTENT_DESCRIPTION).withData("test").save();
+      test = item.createContent(Text.class).withDescription(TestConstants.CONTENT_DESCRIPTION).withData("test").save();
     } catch (UnsupportedContentException | IncompleteException e) {
       fail("Test should not throw an exception.", e);
     }
@@ -82,7 +82,7 @@ public abstract class AbstractItemTest {
   public void testRemoveContent() {
     Item item = getItem();
     try {
-      item.create(Text.class)
+      item.createContent(Text.class)
           .withData(() -> "test")
           .withId(TestConstants.CONTENT_ID)
           .withDescription(TestConstants.CONTENT_DESCRIPTION)

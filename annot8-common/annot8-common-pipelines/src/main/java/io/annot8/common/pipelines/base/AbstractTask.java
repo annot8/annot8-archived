@@ -48,7 +48,7 @@ public abstract class AbstractTask implements Task {
 
       listeners.fire(new TaskCompleteEvent(this));
     } catch (Exception e) {
-      // TODO: Log via abstractcomponent functionality (but it'll create a cicular dependency atm)
+      // TODO: Log via abstractcomponent functionality (but it'll createContent a cicular dependency atm)
       e.printStackTrace();
       listeners.fire(new TaskErrorEvent(this));
     }

@@ -51,7 +51,7 @@ public interface Item extends WithId, WithMutableProperties, WithGroups {
    * @return content builder
    * @throws UnsupportedContentException if the clazz can't be created
    */
-  <C extends Content<D>, D> Content.Builder<C, D> create(Class<C> clazz)
+  <C extends Content<D>, D> Content.Builder<C, D> createContent(Class<C> clazz)
           throws UnsupportedContentException;
 
   /**
@@ -81,5 +81,5 @@ public interface Item extends WithId, WithMutableProperties, WithGroups {
    *
    * @return new item, with this item as its parent
    */
-  Item create();
+  Item createChild();
 }

@@ -5,7 +5,7 @@ import io.annot8.core.data.Content;
 import io.annot8.core.data.Item;
 
 /**
- * Factory to create an content builder.
+ * Factory to createContent an content builder.
  *
  * <p>Typically used in a Item.createContent().
  */

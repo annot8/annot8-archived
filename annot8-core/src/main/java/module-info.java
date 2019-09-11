@@ -9,7 +9,7 @@
  * - for instance, if the data you wished to process was a HTML page, you might have a plain text
  * 'view' of the data as well as a formatted view.
  *
- * <p>On to these Content objects, you create Annotations. Annotations indicate that a certain part
+ * <p>On to these Content objects, you createContent Annotations. Annotations indicate that a certain part
  * of the Content has some special meaning (e.g. it is a mention of a person). These Annotations are
  * stored in an AnnotationStore, which is held by each Content object. An Annotation has Bounds
  * associated with it, which indicate the extent of the Annotation. The type of Bounds will vary
@@ -24,8 +24,8 @@
  * <p>Most of the objects above support Properties, which allow you to attach additional information
  * to an object. Many objects also have a type and an ID.
  *
- * <p>There are three types of 'component' which are used to create and manipulate the above
- * objects. A Source will create new Items from some external source, for example a file system or a
+ * <p>There are three types of 'component' which are used to createContent and manipulate the above
+ * objects. A Source will createContent new Items from some external source, for example a file system or a
  * database. The Items created by a Source will be passed to one or more Processors, which will
  * manipulate the Items by adding new Content objects to it, manipulating the Annotations within
  * these Content objects, and creating Groups of Annotations.

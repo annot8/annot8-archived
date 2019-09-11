@@ -8,8 +8,8 @@ import io.annot8.core.components.Resource;
 /**
  * Specification for resource used by a component.
  *
- * <p>Note that optional will be set to true for create and delete operations. This reflects that
- * typically we may or may not create/delete elements, even if all the prerequisites are met.
+ * <p>Note that optional will be set to true for createContent and delete operations. This reflects that
+ * typically we may or may not createContent/delete elements, even if all the prerequisites are met.
  */
 public class ResourceCapability {
 

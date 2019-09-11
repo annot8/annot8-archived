@@ -54,7 +54,7 @@ public interface Content<D> extends WithId, WithProperties, WithDescription {
    */
   AnnotationStore getAnnotations();
 
-  /** Builder interface to create (immutable) Content classes */
+  /** Builder interface to createContent (immutable) Content classes */
   interface Builder<A extends Content<D>, D>
       extends WithPropertiesBuilder<Builder<A, D>>,
           WithFromBuilder<Builder<A, D>, A>,

@@ -2,7 +2,7 @@
 package io.annot8.core.helpers.builders;
 
 /**
- * Helper interface to indicate that a builder can create an object based off an existing object of
+ * Helper interface to indicate that a builder can createContent an object based off an existing object of
  * the same type
  *
  * @param <E> The builder class
