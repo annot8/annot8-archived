@@ -10,6 +10,10 @@ import java.util.Optional;
 
 public class AnnotationFilters {
 
+    private AnnotationFilters() {
+        // Singleton
+    }
+
     public static Filter<Annotation> byType(String type) {
         return new TypeFilter(type);
     }

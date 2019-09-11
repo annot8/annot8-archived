@@ -15,6 +15,10 @@ import java.util.stream.Collectors;
 
 public class GroupFilters {
 
+    private GroupFilters() {
+        // Singleton
+    }
+
     public static Filter<Group> byType(String type) {
         return new TypeFilter(type);
     }
