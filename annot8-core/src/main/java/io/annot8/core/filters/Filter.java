@@ -14,5 +14,11 @@ public interface Filter<T> {
      */
     boolean test(T t);
 
+    default Filter<T> negate() {
+        return new NotFilter<>(this);
+    }
 
+    default Filter<T> and(Filter<T> filter) {
+        return new AndFilter<>(this, filter);
+    }
 }
