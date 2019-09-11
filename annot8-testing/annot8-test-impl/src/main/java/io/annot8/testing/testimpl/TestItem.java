@@ -115,8 +115,7 @@ public class TestItem implements Item {
     return new DelegateContentBuilder<>(builder) {
       @Override
       public C save() throws IncompleteException {
-        C saved = builder.save();
-        return TestItem.this.save(saved);
+        return TestItem.this.save(super.save());
       }
     };
   }
