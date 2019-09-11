@@ -47,4 +47,9 @@ public abstract class AbstractComponentCapabilities implements ComponentCapabili
   public Stream<Group> deletesGroups() {
     return Stream.empty();
   }
+
+  @Override
+  public boolean createsItems() {
+    return false;
+  }
 }

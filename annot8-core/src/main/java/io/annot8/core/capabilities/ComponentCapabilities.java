@@ -18,6 +18,8 @@ public interface ComponentCapabilities {
   Stream<Group> processesGroups();
   Stream<Group> deletesGroups();
 
+  boolean createsItems();
+
   final class Annotation {
     private final String type;
     private final Class<? extends Bounds> bounds;

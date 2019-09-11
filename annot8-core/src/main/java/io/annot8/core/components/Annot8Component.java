@@ -1,7 +1,6 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.core.components;
 
-import io.annot8.core.capabilities.ComponentCapabilities;
 import io.annot8.core.exceptions.BadConfigurationException;
 import io.annot8.core.exceptions.MissingResourceException;
 import io.annot8.core.settings.Settings;
@@ -30,6 +29,4 @@ public interface Annot8Component<S extends Settings> extends AutoCloseable {
   default void close() {
     // Do nothing
   }
-
-  ComponentCapabilities getCapabilities();
 }
