@@ -1,22 +1,20 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.implementations.configuration;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import io.annot8.common.data.tuple.Tuple2;
+import io.annot8.core.components.Processor;
+import io.annot8.core.components.responses.ProcessorResponse;
+import io.annot8.core.data.Item;
+import io.annot8.core.settings.Settings;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.stream.Stream;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import io.annot8.common.data.tuple.Tuple2;
-import io.annot8.core.components.Processor;
-import io.annot8.core.components.responses.ProcessorResponse;
-import io.annot8.core.data.Item;
-import io.annot8.core.exceptions.Annot8Exception;
-import io.annot8.core.settings.Settings;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class ComponentHolderTest {
 
@@ -64,7 +62,7 @@ class ComponentHolderTest {
   public static class FakeProcessor implements Processor {
 
     @Override
-    public ProcessorResponse process(Item item) throws Annot8Exception {
+    public ProcessorResponse process(Item item) {
       return ProcessorResponse.ok();
     }
   }
