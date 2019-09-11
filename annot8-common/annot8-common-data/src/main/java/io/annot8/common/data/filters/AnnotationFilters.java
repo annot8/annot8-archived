@@ -2,37 +2,93 @@ package io.annot8.common.data.filters;
 
 import io.annot8.core.annotations.Annotation;
 import io.annot8.core.bounds.Bounds;
-import io.annot8.core.filters.AnnotationFilter;
+import io.annot8.core.filters.AndFilter;
+import io.annot8.core.filters.Filter;
+import io.annot8.core.filters.NotFilter;
 
-import java.io.StringBufferInputStream;
+import java.util.Optional;
 
 public class AnnotationFilters {
 
-    public static AnnotationFilter byType(String type) {
-        return new SimpleAnnotationFilter(type, null);
+    public static Filter<Annotation> byType(String type) {
+        return new TypeFilter(type);
     }
 
-    public static <B extends Bounds> AnnotationFilter byBounds(Class<B> bounds) {
-        return new SimpleAnnotationFilter(null, bounds);
+    public static <B extends Bounds> Filter<Annotation> hasBounds(Class<B> bounds) {
+        return new BoundsFilter(bounds);
     }
 
-    public static <B extends Bounds> AnnotationFilter byTypeAndBounds(String type, Class<B> bounds) {
-        return new SimpleAnnotationFilter(null, bounds);
+    public static Filter<Annotation> byProperty(String key) {
+        return new HasPropertyFilter(key, null, null);
     }
 
-    private static class SimpleAnnotationFilter implements AnnotationFilter {
+    public static Filter<Annotation> byProperty(String key, Class<?> clazz) {
+        return new HasPropertyFilter(key, clazz, null);
+    }
 
+    public static Filter<Annotation> byProperty(String key, Object value) {
+        return new HasPropertyFilter(key, null, value);
+    }
+
+    public static Filter<Annotation> not(Filter<Annotation> filter) {
+        return new NotFilter<>(filter);
+    }
+
+    public static Filter<Annotation> and(Filter<Annotation>... filters) {
+        return new AndFilter<>(filters);
+    }
+
+
+    public static class TypeFilter implements Filter<Annotation> {
         private String type;
+
+        public TypeFilter(String type) {
+            this.type = type;
+        }
+
+        @Override
+        public boolean test(Annotation annotation) {
+            return annotation.getType().equals(type);
+        }
+    }
+
+    private static class BoundsFilter implements Filter<Annotation> {
+
         private Class<? extends Bounds> boundsClass;
 
-        public SimpleAnnotationFilter(String type,  Class<? extends Bounds> boundsClass) {
-            this.type = type;
+        public BoundsFilter(Class<? extends Bounds> boundsClass) {
             this.boundsClass = boundsClass;
         }
 
         public boolean test(Annotation annotation) {
-            return (type != null && annotation.getType().equals(type))
-                    && (boundsClass != null && annotation.getBounds() != null && annotation.getBounds().getClass().isInstance(boundsClass));
+            return annotation.getBounds().getClass().isInstance(boundsClass);
+        }
+    }
+
+    public static class HasPropertyFilter implements Filter<Annotation> {
+
+        private final String key;
+        private final Class<?> valueClass;
+        private final Object value;
+
+        public HasPropertyFilter(String key, Class<?> valueClass, Object value) {
+            this.key = key;
+            this.valueClass = valueClass;
+            this.value = value;
+        }
+
+        @Override
+        public boolean test(Annotation annotation) {
+            Optional<Object> o = annotation.getProperties().get(key);
+            if(o.isEmpty()) {
+                return false;
+            } else if(value != null){
+                return o.get().equals(value);
+            } else if(valueClass != null) {
+                return valueClass.isInstance(o.get());
+            } else {
+                return true;
+            }
         }
     }
 }
