@@ -14,4 +14,5 @@ jobs:
         with:
           java-version: '11'
       - run: mvn -B test
-      - run: mvn sonar:sonar -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+      - run: mvn sonar:sonar -Dsonar.projectKey=annot8_annot8-merged -Dsonar.organization=annot8 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+  
