@@ -10,7 +10,6 @@ import java.util.stream.Stream;
  * General interface for filtering elements to find matches.
  *
  * @param <T> element type to find
- * @param <F> filter function
  */
 public interface WithFilter<T> {
 
