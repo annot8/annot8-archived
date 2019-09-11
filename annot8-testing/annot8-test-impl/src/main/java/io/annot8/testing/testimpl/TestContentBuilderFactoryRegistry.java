@@ -73,6 +73,8 @@ public class TestContentBuilderFactoryRegistry extends SimpleContentBuilderFacto
 
     @Override
     public Content.Builder<C, D> create(Item item) {
+      // Add the right item at the last minute
+      instance.setItem(item);
       return new TestContentBuilder(instance);
     }
 
