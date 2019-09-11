@@ -1,8 +1,6 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.testing.testimpl.components;
 
-import io.annot8.core.capabilities.AbstractComponentCapabilities;
-import io.annot8.core.capabilities.ComponentCapabilities;
 import io.annot8.core.components.Processor;
 import io.annot8.core.components.responses.ProcessorResponse;
 import io.annot8.core.data.Item;
@@ -26,10 +24,5 @@ public class ItemCollector implements Processor {
 
   public void clear() {
     items.clear();
-  }
-
-  @Override
-  public ComponentCapabilities getCapabilities() {
-    return new AbstractComponentCapabilities() {};
   }
 }

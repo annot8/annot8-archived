@@ -34,4 +34,8 @@ public final class StreamUtils {
   public static <T> Stream<T> getIfPresent(Stream<Optional<T>> stream) {
     return stream.filter(Optional::isPresent).map(Optional::get);
   }
+
+  public static <T> Stream<T> append(Stream<T> stream, T... objects){
+    return Stream.concat(stream, Stream.of(objects));
+  }
 }

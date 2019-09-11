@@ -2,11 +2,11 @@
 package io.annot8.core.settings;
 
 /** An empty Settings class. */
-public final class EmptySettings implements Settings {
+public final class NoSettings implements Settings {
 
-  private static final EmptySettings INSTANCE = new EmptySettings();
+  private static final NoSettings INSTANCE = new NoSettings();
 
-  private EmptySettings() {
+  private NoSettings() {
     // No public constructor for singleton
   }
 
@@ -15,7 +15,7 @@ public final class EmptySettings implements Settings {
    *
    * @return instance of empty settings
    */
-  public static EmptySettings getInstance() {
+  public static NoSettings getInstance() {
     return INSTANCE;
   }
 

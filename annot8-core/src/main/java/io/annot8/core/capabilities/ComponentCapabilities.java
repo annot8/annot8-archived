@@ -1,64 +1,45 @@
 package io.annot8.core.capabilities;
 
-import io.annot8.core.bounds.Bounds;
-
 import java.util.stream.Stream;
 
 public interface ComponentCapabilities {
-
-  Stream<Annotation> createsAnnotations();
-  Stream<Annotation> processesAnnotations();
-  Stream<Annotation> deletesAnnotations();
-
-  Stream<Content> createsContent();
-  Stream<Content> processesContent();
-  Stream<Content> deletesContent();
-
-  Stream<Group> createsGroups();
-  Stream<Group> processesGroups();
-  Stream<Group> deletesGroups();
-
-  boolean createsItems();
-
-  final class Annotation {
-    private final String type;
-    private final Class<? extends Bounds> bounds;
-
-    public Annotation(String type, Class<? extends Bounds> bounds) {
-      this.type = type;
-      this.bounds = bounds;
-    }
-
-    public String getType() {
-      return type;
-    }
-
-    public Class<? extends Bounds> getBounds() {
-      return bounds;
-    }
+  default Stream<AnnotationCapability> createsAnnotations() {
+    return Stream.empty();
   }
 
-  final class Content {
-    private final Class<? extends io.annot8.core.data.Content> type;
-
-    public Content(Class<? extends io.annot8.core.data.Content> type) {
-      this.type = type;
-    }
-
-    public Class<? extends io.annot8.core.data.Content> getType() {
-      return type;
-    }
+  default Stream<AnnotationCapability> processesAnnotations() {
+    return Stream.empty();
   }
 
-  final class Group {
-    private final String type;
+  default Stream<AnnotationCapability> deletesAnnotations() {
+    return Stream.empty();
+  }
 
-    public Group(String type) {
-      this.type = type;
-    }
+  default Stream<ContentCapability> createsContent() {
+    return Stream.empty();
+  }
 
-    public String getType() {
-      return type;
-    }
+  default Stream<ContentCapability> processesContent() {
+    return Stream.empty();
+  }
+
+  default Stream<ContentCapability> deletesContent() {
+    return Stream.empty();
+  }
+
+  default Stream<GroupCapability> createsGroups() {
+    return Stream.empty();
+  }
+
+  default Stream<GroupCapability> processesGroups() {
+    return Stream.empty();
+  }
+
+  default Stream<GroupCapability> deletesGroups() {
+    return Stream.empty();
+  }
+
+  default boolean createsItems() {
+    return false;
   }
 }

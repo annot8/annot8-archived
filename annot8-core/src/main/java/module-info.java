@@ -43,6 +43,7 @@ open module io.annot8.core {
   exports io.annot8.core.bounds;
   exports io.annot8.core.capabilities;
   exports io.annot8.core.components;
+  exports io.annot8.core.components.annotations;
   exports io.annot8.core.components.responses;
   exports io.annot8.core.data;
   exports io.annot8.core.exceptions;
