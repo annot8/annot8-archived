@@ -5,7 +5,7 @@ package io.annot8.core.exceptions;
  * Exception indicating that an unacceptable configuration has been provided to a component, or
  * required configuration information is missing.
  */
-public class BadConfigurationException extends Annot8Exception {
+public class BadConfigurationException extends Annot8RuntimeException {
 
   private static final long serialVersionUID = 1L;
 
