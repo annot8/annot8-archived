@@ -66,7 +66,7 @@ public interface Item extends WithId, WithMutableProperties, WithGroups {
    *
    * @param content the content
    */
-  default void remove(final Content<?> content) {
+  default void removeContent(final Content<?> content) {
     if(content != null) {
       removeContent(content.getId());
     }
