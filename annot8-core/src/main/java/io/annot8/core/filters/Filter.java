@@ -21,4 +21,8 @@ public interface Filter<T> {
     default Filter<T> and(Filter<T> filter) {
         return new AndFilter<>(this, filter);
     }
+
+    default Filter<T> or(Filter<T> filter) {
+        return new OrFilter<>(this, filter);
+    }
 }
