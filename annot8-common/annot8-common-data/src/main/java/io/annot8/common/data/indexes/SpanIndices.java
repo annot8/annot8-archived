@@ -6,12 +6,30 @@ import io.annot8.common.data.bounds.SpanBounds;
 import io.annot8.core.annotations.Annotation;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toMap;
 
 public class SpanIndices {
 
-    public static Multimap<Annotation, Annotation> topDown(List<Annotation> over, List<Annotation> under) {
+    private final List<Annotation> over;
+    private final List<Annotation> under;
+
+    public SpanIndices(Stream<Annotation> overStream, Stream<Annotation> underStream) {
+        over = filterSpanBounds(overStream);
+        under = filterSpanBounds(underStream);
+    }
+
+    public Multimap<Annotation, Annotation> topDown() {
+        Map<Annotation, SpanBounds> underMap = under
+                .stream()
+                .collect(toMap(Function.identity(), e -> e.getBounds(SpanBounds.class).orElse(null)));
+
         HashMultimap<Annotation, Annotation> multimap = HashMultimap.create();
 
         for(Annotation o : over) {
@@ -19,7 +37,7 @@ public class SpanIndices {
             Optional<SpanBounds> oBounds = o.getBounds(SpanBounds.class);
 
             if(oBounds.isPresent()) {
-                List<Annotation> found = findEnclosedAnnotations(oBounds.get(), under);
+                List<Annotation> found = findEnclosedAnnotations(oBounds.get(), underMap);
 
                 if(!found.isEmpty()) {
                     multimap.putAll(o, found);
@@ -30,20 +48,27 @@ public class SpanIndices {
         return multimap;
     }
 
-    private static List<Annotation> findEnclosedAnnotations(SpanBounds bounds, List<Annotation> list) {
-
-        return list.stream()
-                .filter(a -> {
-                    Optional<SpanBounds> b = a.getBounds(SpanBounds.class);
-                    if(b.isEmpty()) {
-                        return false;
-                    }
-
-                    return bounds.isWithin(b.get());
-                }).collect(Collectors.toList());
+    private List<Annotation> filterSpanBounds(Stream<Annotation> stream) {
+        return stream
+                .filter(s -> s.getBounds(SpanBounds.class).isPresent())
+                .collect(toList());
     }
 
-    public static Multimap<Annotation, Annotation> bottomUp(List<Annotation> under, List<Annotation> over) {
+    private List<Annotation> findEnclosedAnnotations(SpanBounds bounds, Map<Annotation, SpanBounds> list) {
+
+        return list.entrySet().stream()
+                .filter(e -> bounds.isWithin(e.getValue()))
+                .map(Map.Entry::getKey)
+                .collect(toList());
+    }
+
+    public Multimap<Annotation, Annotation> bottomUp() {
+
+        Map<Annotation, SpanBounds> overMap = over
+                .stream()
+                .collect(toMap(e -> e, e -> e.getBounds(SpanBounds.class).orElse(null)));
+
+
         HashMultimap<Annotation, Annotation> multimap = HashMultimap.create();
 
         for(Annotation u : under) {
@@ -51,7 +76,7 @@ public class SpanIndices {
             Optional<SpanBounds> oBounds = u.getBounds(SpanBounds.class);
 
             if(oBounds.isPresent()) {
-                List<Annotation> found = findInsideAnnotations(oBounds.get(), over);
+                List<Annotation> found = findInsideAnnotations(oBounds.get(), overMap);
 
                 if(!found.isEmpty()) {
                     multimap.putAll(u, found);
@@ -62,16 +87,10 @@ public class SpanIndices {
         return multimap;
     }
 
-    private static List<Annotation> findInsideAnnotations(SpanBounds bounds, List<Annotation> list) {
-
-        return list.stream()
-                .filter(a -> {
-                    Optional<SpanBounds> b = a.getBounds(SpanBounds.class);
-                    if(b.isEmpty()) {
-                        return false;
-                    }
-
-                    return b.get().isWithin(bounds);
-                }).collect(Collectors.toList());
+    private List<Annotation> findInsideAnnotations(SpanBounds bounds, Map<Annotation, SpanBounds> list) {
+        return list.entrySet().stream()
+                .filter(e -> e.getValue().isWithin(bounds))
+                .map(Map.Entry::getKey)
+                .collect(toList());
     }
 }
