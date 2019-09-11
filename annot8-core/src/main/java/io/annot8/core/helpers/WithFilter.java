@@ -1,5 +1,7 @@
 package io.annot8.core.helpers;
 
+import io.annot8.core.filters.Filter;
+
 import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
@@ -10,22 +12,22 @@ import java.util.stream.Stream;
  * @param <T> element type to find
  * @param <F> filter function
  */
-public interface WithFilter<T,F extends Predicate<T>> {
+public interface WithFilter<T> {
 
     /**
      * Filter to many matching elements
      * @param filter the test to filter with
      * @return stream of matching annotations
      */
-    Stream<T> filter(F filter);
+    Stream<T> filter(Filter<T> filter);
 
     /**
      * Find a single matching element
      * @param filter the test to filter with
      * @return single of matching annotation (or empty)
      */
-    default Optional<T> find(F filter) {
-        return filter(filter).findAny();
+    default Optional<T> find(Filter<T> filter) {
+        return filter(filter::test).findAny();
     }
 
 }

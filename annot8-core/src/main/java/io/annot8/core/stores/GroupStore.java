@@ -6,16 +6,13 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import io.annot8.core.annotations.Annotation;
 import io.annot8.core.annotations.Group;
-import io.annot8.core.data.Content;
 import io.annot8.core.data.Item;
-import io.annot8.core.filters.AnnotationFilter;
-import io.annot8.core.filters.GroupFilter;
+import io.annot8.core.filters.Filter;
 import io.annot8.core.helpers.WithFilter;
 
 /** Base groups interface from which all other group stores extend. */
-public interface GroupStore extends WithFilter<Group, GroupFilter> {
+public interface GroupStore extends WithFilter<Group> {
 
   /**
    * Get the item to which the groups relate.
@@ -112,7 +109,7 @@ public interface GroupStore extends WithFilter<Group, GroupFilter> {
    * @param filter the test to filter with
    * @return stream of matching annotations
    */
-  default Stream<Group> filter(GroupFilter filter) {
-    return getAll().filter(filter);
+  default Stream<Group> filter(Filter<Group> filter) {
+    return getAll().filter(filter::test);
   }
 }
