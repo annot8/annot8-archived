@@ -32,7 +32,7 @@ public class SpanFilters {
         return new AfterFilter(bounds);
     }
 
-    public static abstract class AbstractSpanBoundsFilter implements Filter<Annotation> {
+    public abstract static class AbstractSpanBoundsFilter implements Filter<Annotation> {
 
         protected final SpanBounds bounds;
 

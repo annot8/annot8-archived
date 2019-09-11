@@ -3,7 +3,6 @@ package io.annot8.core.helpers;
 import io.annot8.core.filters.Filter;
 
 import java.util.Optional;
-import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 /**

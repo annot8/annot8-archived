@@ -2,7 +2,6 @@ package io.annot8.common.support.filters;
 
 import io.annot8.core.annotations.Annotation;
 import io.annot8.core.annotations.Group;
-import io.annot8.core.bounds.Bounds;
 import io.annot8.core.filters.AndFilter;
 import io.annot8.core.filters.Filter;
 import io.annot8.core.filters.NotFilter;
