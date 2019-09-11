@@ -5,15 +5,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class EmptySettingsTest {
+class NoSettingsTest {
 
   @Test
   void getInstance() {
-    assertNotNull(EmptySettings.getInstance());
+    assertNotNull(NoSettings.getInstance());
   }
 
   @Test
   void validate() {
-    assertTrue(EmptySettings.getInstance().validate());
+    assertTrue(NoSettings.getInstance().validate());
   }
 }

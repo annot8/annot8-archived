@@ -17,15 +17,12 @@ open module io.annot8.common.implementations {
   requires io.annot8.common.utils;
 
   exports io.annot8.common.implementations.annotations;
-  exports io.annot8.common.implementations.capabilities;
   exports io.annot8.common.implementations.factories;
   exports io.annot8.common.implementations.references;
   exports io.annot8.common.implementations.registries;
   exports io.annot8.common.implementations.stores;
   exports io.annot8.common.implementations.properties;
   exports io.annot8.common.implementations.content;
-  exports io.annot8.common.implementations.context;
   exports io.annot8.common.implementations.delegates;
-  exports io.annot8.common.implementations.configuration;
   exports io.annot8.common.implementations.listeners;
 }
