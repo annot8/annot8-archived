@@ -1,4 +1,4 @@
-package io.annot8.common.data.filters;
+package io.annot8.common.support.filters;
 
 import io.annot8.common.data.bounds.SpanBounds;
 import io.annot8.core.annotations.Annotation;
@@ -61,7 +61,7 @@ public class SpanFilters {
 
         @Override
         protected boolean test(SpanBounds ref, SpanBounds annotation) {
-            return annotation.isWithin(ref);
+            return ref.isWithin(annotation);
         }
     }
 
@@ -73,7 +73,7 @@ public class SpanFilters {
 
         @Override
         protected boolean test(SpanBounds ref, SpanBounds annotation) {
-            return ref.isWithin(annotation);
+            return annotation.isWithin(ref);
         }
     }
 

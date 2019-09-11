@@ -1,4 +1,4 @@
-package io.annot8.common.data.filters;
+package io.annot8.common.support.filters;
 
 import io.annot8.core.annotations.Annotation;
 import io.annot8.core.annotations.Group;

@@ -13,6 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SpanIndicesTest {
+
     TestAnnotation o1 = new TestAnnotation("o1", "c", "t", new SpanBounds(0, 10));
     TestAnnotation o2 = new TestAnnotation("o2", "c", "t", new SpanBounds(20, 30));
     TestAnnotation o3 = new TestAnnotation("o3", "c", "t", new SpanBounds(40, 50));
@@ -35,9 +36,7 @@ class SpanIndicesTest {
     // Nothing under o3
 
 
-    List<Annotation> under = List.of(
-            u1, u2, u3, u4, u5, u6, u7
-            );
+    List<Annotation> under = List.of(u1, u2, u3, u4, u5, u6, u7);
 
     private SpanIndices si;
 
