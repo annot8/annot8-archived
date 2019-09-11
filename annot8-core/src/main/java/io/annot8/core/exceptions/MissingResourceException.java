@@ -2,7 +2,7 @@
 package io.annot8.core.exceptions;
 
 /** Exception indicating a required resource has not been provided to a component */
-public class MissingResourceException extends Annot8Exception {
+public class MissingResourceException extends Annot8RuntimeException {
 
   private static final long serialVersionUID = 1L;
 

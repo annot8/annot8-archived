@@ -40,9 +40,9 @@ public class PropertiesTest extends PropertiesTestResources {
   @Test
   public void testGetProperty() {
     TestProperties properties = new TestProperties(getPropertyMap());
-    assertEquals(TEST_VALUE, properties.getProperty(TEST_KEY, String.class).get());
-    assertFalse(properties.getProperty("nonExistentKey", String.class).isPresent());
-    assertFalse(properties.getProperty(TEST_KEY, Integer.class).isPresent());
+    assertEquals(TEST_VALUE, properties.get(TEST_KEY, String.class).get());
+    assertFalse(properties.get("nonExistentKey", String.class).isPresent());
+    assertFalse(properties.get(TEST_KEY, Integer.class).isPresent());
   }
 
   @Test

@@ -54,7 +54,7 @@ public interface Properties {
    * @param clazz the requried value classs
    * @return the property value as the specified class for the specified key, if it exists
    */
-  default <T> Optional<T> getProperty(final String key, final Class<T> clazz) {
+  default <T> Optional<T> get(final String key, final Class<T> clazz) {
     return Optional.ofNullable(getAll(clazz).get(key));
   }
 

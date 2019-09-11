@@ -62,6 +62,17 @@ public interface Item extends WithId, WithMutableProperties, WithGroups {
   void removeContent(final String id);
 
   /**
+   * Remove the specified content object from this item
+   *
+   * @param content the content
+   */
+  default void removeContent(final Content<?> content) {
+    if(content != null) {
+      removeContent(content.getId());
+    }
+  }
+
+  /**
    * Stop processing this item any further.
    *
    * <p>Note that it is up to the underlying implementation as to whether they delete existing
