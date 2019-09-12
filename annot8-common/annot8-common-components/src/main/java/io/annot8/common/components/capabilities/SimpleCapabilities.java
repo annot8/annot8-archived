@@ -1,5 +1,5 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
-package io.annot8.common.implementations.capabilities;
+package io.annot8.common.components.capabilities;
 
 import java.util.ArrayList;
 import java.util.Collection;

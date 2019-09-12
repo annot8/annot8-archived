@@ -26,6 +26,10 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.annot8</groupId>
+            <artifactId>annot8-common-data</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
