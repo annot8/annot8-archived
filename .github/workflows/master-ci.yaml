@@ -14,7 +14,8 @@ jobs:
         with:
           java-version: '11'
       - run: mvn spotless:check
-      - run: mvn -B clean org.jacoco:jacoco-maven-plugin:prepare-agent test
+      - run: mvn -B clean org.jacoco:jacoco-maven-plugin:prepare-agent test package
       - run: mvn -B jacoco:report 
-      - run: mvn -B sonar:sonar -Dsonar.projectKey=annot8_annot8-merged -Dsonar.organization=annot8 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-      - run: mvn deploy -Drepo.login==${{ secrets.OSSHR_USERNAME }} -Drepo.pwd=${{ secrets.OSSHR_PASSWORD }}
+      # Sonar doesn't work due on master (works on PRs...asks for GITHUB_TOKEN ) 
+#       - run: mvn -B sonar:sonar -Dsonar.github.oauth=${{ secrets.GITHUB_TOKEN }} -Dsonar.projectKey=annot8_annot8-merged -Dsonar.organization=annot8 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+      - run: mvn deploy -DskipTests -Drepo.login==${{ secrets.OSSHR_USERNAME }} -Drepo.pwd=${{ secrets.OSSHR_PASSWORD }}
