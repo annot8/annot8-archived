@@ -1,15 +1,14 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.implementations.registries;
 
+import io.annot8.core.components.Annot8Component;
+import io.annot8.core.components.Processor;
+import io.annot8.core.components.Source;
+
 import java.util.Collections;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
-
-import io.annot8.core.components.Annot8Component;
-import io.annot8.core.components.Processor;
-import io.annot8.core.components.Resource;
-import io.annot8.core.components.Source;
 
 public class Annot8ComponentRegistry {
 
@@ -33,23 +32,12 @@ public class Annot8ComponentRegistry {
         .map(c -> c.asSubclass(Processor.class));
   }
 
-  public Stream<Class<? extends Resource>> getResources() {
-    return classes
-        .stream()
-        .filter(Resource.class::isAssignableFrom)
-        .map(c -> c.asSubclass(Resource.class));
-  }
-
   public Optional<Class<? extends Source>> getSource(String klass) {
     return getSources().filter(c -> c.getName().equals(klass)).findFirst();
   }
 
   public Optional<Class<? extends Processor>> getProcessor(String klass) {
     return getProcessors().filter(c -> c.getName().equals(klass)).findFirst();
-  }
-
-  public Optional<Class<? extends Resource>> getResource(String klass) {
-    return getResources().filter(c -> c.getName().equals(klass)).findFirst();
   }
 
   public <T extends Annot8Component> Optional<Class<? extends T>> getComponent(

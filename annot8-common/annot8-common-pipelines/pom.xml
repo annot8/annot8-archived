@@ -11,7 +11,7 @@
 
   <artifactId>annot8-common-pipelines</artifactId>
   <name>Annot8 Common Pipelines</name>
-  <description>Higher order elements for jobs and pipelines</description>
+  <description>Classes for working with pipelines of components</description>
 
   <dependencies>
     <dependency>

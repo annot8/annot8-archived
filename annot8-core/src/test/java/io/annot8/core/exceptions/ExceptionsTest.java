@@ -1,11 +1,11 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.core.exceptions;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ExceptionsTest {
 
@@ -19,7 +19,6 @@ public class ExceptionsTest {
     testException(BadConfigurationException.class);
     testException(IncompleteException.class);
     testException(InvalidBoundsException.class);
-    testException(MissingResourceException.class);
     testException(ProcessingException.class);
     testException(UnsupportedContentException.class);
   }
