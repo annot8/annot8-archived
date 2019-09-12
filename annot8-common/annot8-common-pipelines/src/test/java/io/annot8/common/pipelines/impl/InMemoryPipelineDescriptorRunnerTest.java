@@ -1,8 +1,10 @@
 package io.annot8.common.pipelines.impl;
 
-import io.annot8.common.pipelines.Pipeline;
+import io.annot8.common.pipelines.PipelineDescriptor;
 import io.annot8.core.components.Processor;
+import io.annot8.core.components.ProcessorDescriptor;
 import io.annot8.core.components.Source;
+import io.annot8.core.components.SourceDescriptor;
 import io.annot8.core.components.responses.ProcessorResponse;
 import io.annot8.core.components.responses.SourceResponse;
 import io.annot8.core.data.Item;
@@ -15,10 +17,10 @@ import java.util.Arrays;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-public class InMemoryPipelineRunnerTest {
+public class InMemoryPipelineDescriptorRunnerTest {
+
   @Test
   public void test(){
-
     ItemFactory itemFactory = mock(ItemFactory.class);
     when(itemFactory.create()).thenReturn(mock(Item.class));
 
@@ -51,11 +53,21 @@ public class InMemoryPipelineRunnerTest {
     when(processor1.process(any())).thenReturn(ProcessorResponse.ok(), ProcessorResponse.itemError(), ProcessorResponse.ok(), ProcessorResponse.ok(), ProcessorResponse.ok());
     when(processor2.process(any())).thenReturn(ProcessorResponse.ok(), ProcessorResponse.ok(), ProcessorResponse.processingError());
 
-    Pipeline pipeline = mock(Pipeline.class);
-    when(pipeline.getSources()).thenReturn(Arrays.asList(source1, source2));
-    when((pipeline.getProcessors())).thenReturn(Arrays.asList(processor1, processor2));
+    SourceDescriptor sd1 = mock(SourceDescriptor.class);
+    when(sd1.create()).thenReturn(source1);
+    SourceDescriptor sd2 = mock(SourceDescriptor.class);
+    when(sd2.create()).thenReturn(source2);
 
-    InMemoryPipelineRunner runner = new InMemoryPipelineRunner(pipeline, itemFactory);
+    ProcessorDescriptor pd1 = mock(ProcessorDescriptor.class);
+    when(pd1.create()).thenReturn(processor1);
+    ProcessorDescriptor pd2 = mock(ProcessorDescriptor.class);
+    when(pd2.create()).thenReturn(processor2);
+
+    PipelineDescriptor pipelineDescriptor = mock(PipelineDescriptor.class);
+    when(pipelineDescriptor.getSources()).thenReturn(Arrays.asList(sd1, sd2));
+    when((pipelineDescriptor.getProcessors())).thenReturn(Arrays.asList(pd1, pd2));
+
+    InMemoryPipelineRunner runner = new InMemoryPipelineRunner(pipelineDescriptor, itemFactory);
     runner.run();
 
     verify(itemFactory, times(5)).create();

@@ -1,22 +1,22 @@
 package io.annot8.common.pipelines.impl;
 
-import io.annot8.common.pipelines.Pipeline;
-import io.annot8.core.components.Processor;
-import io.annot8.core.components.Source;
+import io.annot8.common.pipelines.PipelineDescriptor;
+import io.annot8.core.components.ProcessorDescriptor;
+import io.annot8.core.components.SourceDescriptor;
 import io.annot8.core.exceptions.IncompleteException;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class SimplePipeline implements Pipeline {
+public class SimplePipelineDescriptor implements PipelineDescriptor {
   private final String name;
   private final String description;
 
-  private final Collection<Source> sources;
-  private final Collection<Processor> processors;
+  private final Collection<SourceDescriptor> sources;
+  private final Collection<ProcessorDescriptor> processors;
 
-  private SimplePipeline(String name, String description, Collection<Source> sources, Collection<Processor> processors) {
+  private SimplePipelineDescriptor(String name, String description, Collection<SourceDescriptor> sources, Collection<ProcessorDescriptor> processors) {
     this.name = name;
     this.description = description;
     this.sources = sources;
@@ -34,28 +34,28 @@ public class SimplePipeline implements Pipeline {
   }
 
   @Override
-  public Collection<Source> getSources() {
+  public Collection<SourceDescriptor> getSources() {
     return sources;
   }
 
   @Override
-  public Collection<Processor> getProcessors() {
+  public Collection<ProcessorDescriptor> getProcessors() {
     return processors;
   }
 
-  static class Builder implements Pipeline.Builder{
+  static class Builder implements PipelineDescriptor.Builder{
 
     private String name;
     private String description;
-    private List<Source> sources = new ArrayList<>();
-    private List<Processor> processors = new ArrayList<>();
+    private List<SourceDescriptor> sources = new ArrayList<>();
+    private List<ProcessorDescriptor> processors = new ArrayList<>();
 
     @Override
-    public Builder from(Pipeline pipeline) {
-      name = pipeline.getName();
-      description = pipeline.getDescription();
-      sources.addAll(pipeline.getSources());
-      processors.addAll(pipeline.getProcessors());
+    public Builder from(PipelineDescriptor pipelineDescriptor) {
+      name = pipelineDescriptor.getName();
+      description = pipelineDescriptor.getDescription();
+      sources.addAll(pipelineDescriptor.getSources());
+      processors.addAll(pipelineDescriptor.getProcessors());
 
       return this;
     }
@@ -73,19 +73,19 @@ public class SimplePipeline implements Pipeline {
     }
 
     @Override
-    public Builder withSource(Source source) {
+    public Builder withSource(SourceDescriptor source) {
       sources.add(source);
       return this;
     }
 
     @Override
-    public Builder withProcessor(Processor processor) {
+    public Builder withProcessor(ProcessorDescriptor processor) {
       processors.add(processor);
       return this;
     }
 
     @Override
-    public SimplePipeline build() throws IncompleteException {
+    public SimplePipelineDescriptor build() throws IncompleteException {
       if(name == null || name.isEmpty()){
         throw new IncompleteException("Pipeline must have a name");
       }
@@ -98,7 +98,7 @@ public class SimplePipeline implements Pipeline {
         throw new IncompleteException("Pipeline requires at least one processor");
       }
 
-      return new SimplePipeline(name, description, sources, processors);
+      return new SimplePipelineDescriptor(name, description, sources, processors);
     }
   }
 }
