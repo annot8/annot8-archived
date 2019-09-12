@@ -81,6 +81,7 @@
     <mockito.version>3.0.0</mockito.version>
     <assertj-core.version>3.13.2</assertj-core.version>
     <assertj-guava.version>3.2.1</assertj-guava.version>
+    <yasson.version>1.0.5</yasson.version>
 
     <!-- Plugins -->
     <maven-surefire-plugin.version>2.22.1</maven-surefire-plugin.version>
@@ -267,6 +268,12 @@
         <groupId>javax.json.bind</groupId>
         <artifactId>javax.json.bind-api</artifactId>
         <version>${jsonb.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse</groupId>
+        <artifactId>yasson</artifactId>
+        <version>${yasson.version}</version>
+        <scope>test</scope>
       </dependency>
 
       <!-- Utilities -->
