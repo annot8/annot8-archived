@@ -63,8 +63,6 @@ public class InMemoryPipelineRunner implements Runnable {
         .map(d -> (Processor) create(d))
         .forEach(activeProcessors::add);
 
-    pipelineDescriptor.getProcessors().forEach(pd -> activeProcessors.add((Processor) pd.create()));
-
     while (running && !activeSources.isEmpty()) {
       Iterator<Source> sourceIter = activeSources.iterator();
       while (sourceIter.hasNext()) {
