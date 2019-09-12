@@ -5,7 +5,8 @@ import java.util.stream.Stream;
 
 import io.annot8.core.bounds.Bounds;
 import io.annot8.core.capabilities.AnnotationCapability;
-import io.annot8.core.capabilities.ComponentCapabilities;
+import io.annot8.core.capabilities.Capabilities;
+import io.annot8.core.capabilities.Capability;
 import io.annot8.core.components.ProcessorDescriptor;
 
 public class TestDescriptor implements ProcessorDescriptor<TestProcessor, TestSettings> {
@@ -43,11 +44,32 @@ public class TestDescriptor implements ProcessorDescriptor<TestProcessor, TestSe
   }
 
   @Override
-  public ComponentCapabilities capabilities() {
-    return new ComponentCapabilities() {
+  public Capabilities capabilities() {
+    return new Capabilities() {
       @Override
-      public Stream<AnnotationCapability> processesAnnotations() {
-        return Stream.of(new AnnotationCapability(AnnotationCapability.ANY_TYPE, Bounds.class));
+      public Stream<Capability> creates() {
+        return Stream.of(
+            new AnnotationCapability() {
+              @Override
+              public String getType() {
+                return "any";
+              }
+
+              @Override
+              public Class<? extends Bounds> getBounds() {
+                return Bounds.class;
+              }
+            });
+      }
+
+      @Override
+      public Stream<Capability> processes() {
+        return Stream.empty();
+      }
+
+      @Override
+      public Stream<Capability> deletes() {
+        return Stream.empty();
       }
     };
   }
