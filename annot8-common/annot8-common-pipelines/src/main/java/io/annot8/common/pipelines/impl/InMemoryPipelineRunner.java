@@ -8,8 +8,13 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import io.annot8.common.components.AbstractComponent;
+import io.annot8.common.components.logging.Logging;
+import io.annot8.common.components.metering.Metering;
 import io.annot8.common.implementations.stores.NotifyingItemFactory;
 import io.annot8.common.pipelines.PipelineDescriptor;
+import io.annot8.core.components.Annot8Component;
+import io.annot8.core.components.Annot8ComponentDescriptor;
 import io.annot8.core.components.Processor;
 import io.annot8.core.components.Source;
 import io.annot8.core.components.responses.ProcessorResponse;
@@ -23,12 +28,17 @@ public class InMemoryPipelineRunner implements Runnable {
   private final ItemFactory itemFactory;
 
   private static final Logger LOGGER = LoggerFactory.getLogger(InMemoryPipelineRunner.class);
+  private final Metering metering;
+  private final Logging logging;
 
   private boolean running = true;
 
   public InMemoryPipelineRunner(PipelineDescriptor pipelineDescriptor, ItemFactory itemFactory) {
     this.pipelineDescriptor = pipelineDescriptor;
     this.itemFactory = itemFactory;
+
+    this.logging = Logging.useLoggerFactory();
+    this.metering = Metering.useGlobalRegistry(pipelineDescriptor.getName());
   }
 
   @Override
@@ -40,9 +50,19 @@ public class InMemoryPipelineRunner implements Runnable {
     nif.register(i -> LOGGER.debug("Item {} added to queue", i.getId()));
 
     List<Source> activeSources = new ArrayList<>();
-    pipelineDescriptor.getSources().forEach(sd -> activeSources.add((Source) sd.create()));
+    pipelineDescriptor
+        .getSources()
+        .stream()
+        .map(d -> (Source) create(d))
+        .forEach(activeSources::add);
 
     List<Processor> activeProcessors = new ArrayList<>();
+    pipelineDescriptor
+        .getProcessors()
+        .stream()
+        .map(d -> (Processor) create(d))
+        .forEach(activeProcessors::add);
+
     pipelineDescriptor.getProcessors().forEach(pd -> activeProcessors.add((Processor) pd.create()));
 
     while (running && !activeSources.isEmpty()) {
@@ -129,6 +149,19 @@ public class InMemoryPipelineRunner implements Runnable {
         }
       }
     }
+  }
+
+  private <T extends Annot8Component> T create(Annot8ComponentDescriptor<T, ?> descriptor) {
+    T t = descriptor.create();
+
+    if (t instanceof AbstractComponent) {
+      AbstractComponent ac = (AbstractComponent) t;
+      Class<? extends AbstractComponent> clazz = ac.getClass();
+      ac.setMetrics(metering.getMetrics(clazz));
+      ac.setLogger(logging.getLogger(clazz));
+    }
+
+    return t;
   }
 
   public void stop() {

@@ -156,6 +156,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
+        <version>2.5.3</version>
         <configuration>
           <useReleaseProfile>false</useReleaseProfile>
           <releaseProfiles>release</releaseProfiles>
@@ -165,6 +166,7 @@
       <plugin>
         <groupId>org.sonatype.plugins</groupId>
         <artifactId>nexus-staging-maven-plugin</artifactId>
+        <version>1.6.8</version>
         <extensions>true</extensions>
         <configuration>
           <serverId>ossrh</serverId>
@@ -245,7 +247,7 @@
 
                   java_files=$(git diff --cached --name-only --diff-filter=ACMR | grep -Ei "\.java$" | paste -sd "," -)
                   if [ ! -z "${java_files}" ]; then
-                  mvn spotless:apply -DspotlessFiles=${java_files}
+                  mvn spotless:apply
                   git add "$java_files"
                   fi
                 </pre-commit>
@@ -290,6 +292,11 @@
       <dependency>
         <groupId>io.annot8</groupId>
         <artifactId>annot8-common-utils</artifactId>
+        <version>${annot8-common.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.annot8</groupId>
+        <artifactId>annot8-common-components</artifactId>
         <version>${annot8-common.version}</version>
       </dependency>
       <dependency>
@@ -438,6 +445,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
+            <version>3.0.1</version>
             <executions>
               <execution>
                 <id>attach-sources</id>
@@ -450,6 +458,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
+            <version>3.0.1</version>
             <executions>
               <execution>
                 <id>attach-javadocs</id>
@@ -462,6 +471,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.6</version>
             <executions>
               <execution>
                 <id>sign-artifacts</id>
