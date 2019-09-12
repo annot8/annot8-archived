@@ -23,13 +23,16 @@ public class TestFileContent extends AbstractTestContent<File> implements FileCo
   }
 
   public TestFileContent(
-      Item item, String id, String description, ImmutableProperties properties, Supplier<File> data) {
+      Item item,
+      String id,
+      String description,
+      ImmutableProperties properties,
+      Supplier<File> data) {
     super(item, File.class, id, description, properties, data);
   }
 
-
   public TestFileContent(
-          Item item,
+      Item item,
       AnnotationStore annotations,
       String id,
       String description,
@@ -39,7 +42,7 @@ public class TestFileContent extends AbstractTestContent<File> implements FileCo
   }
 
   public TestFileContent(
-          Item item,
+      Item item,
       AnnotationStoreFactory annotationStore,
       String id,
       String description,
@@ -65,7 +68,8 @@ public class TestFileContent extends AbstractTestContent<File> implements FileCo
     @Override
     protected TestFileContent create(
         String id, String description, ImmutableProperties properties, Supplier<File> data) {
-      return new TestFileContent(getItem(), annotationStoreFactory, id, description, properties, data);
+      return new TestFileContent(
+          getItem(), annotationStoreFactory, id, description, properties, data);
     }
   }
 

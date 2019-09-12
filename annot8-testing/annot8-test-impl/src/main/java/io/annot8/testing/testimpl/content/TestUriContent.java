@@ -1,6 +1,9 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.testing.testimpl.content;
 
+import java.net.URI;
+import java.util.function.Supplier;
+
 import io.annot8.common.data.content.UriContent;
 import io.annot8.common.implementations.content.AbstractContentBuilder;
 import io.annot8.common.implementations.content.AbstractContentBuilderFactory;
@@ -9,9 +12,6 @@ import io.annot8.core.data.Item;
 import io.annot8.core.properties.ImmutableProperties;
 import io.annot8.core.stores.AnnotationStore;
 import io.annot8.testing.testimpl.TestAnnotationStore;
-
-import java.net.URI;
-import java.util.function.Supplier;
 
 public class TestUriContent implements UriContent {
 
@@ -22,7 +22,8 @@ public class TestUriContent implements UriContent {
   private final ImmutableProperties properties;
   private final AnnotationStore store;
 
-  public TestUriContent(Item item, String id, String description, ImmutableProperties properties, URI data) {
+  public TestUriContent(
+      Item item, String id, String description, ImmutableProperties properties, URI data) {
     this.item = item;
     this.id = id;
     this.description = description;

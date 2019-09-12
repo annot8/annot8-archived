@@ -15,18 +15,30 @@ import io.annot8.defaultimpl.stores.DefaultAnnotationStore;
 
 public class DefaultFile extends AbstractContent<File> implements FileContent {
 
-  private DefaultFile(Item item, String id, String description, ImmutableProperties properties, Supplier<File> data) {
+  private DefaultFile(
+      Item item,
+      String id,
+      String description,
+      ImmutableProperties properties,
+      Supplier<File> data) {
     super(
-        item, File.class, FileContent.class, DefaultAnnotationStore::new, id, description, properties, data);
+        item,
+        File.class,
+        FileContent.class,
+        DefaultAnnotationStore::new,
+        id,
+        description,
+        properties,
+        data);
   }
 
   public static class Builder extends AbstractContentBuilder<File, DefaultFile> {
 
-      public Builder(Item item) {
-          super(item);
-      }
+    public Builder(Item item) {
+      super(item);
+    }
 
-      @Override
+    @Override
     protected DefaultFile create(
         String id, String description, ImmutableProperties properties, Supplier<File> data) {
       return new DefaultFile(getItem(), id, description, properties, data);

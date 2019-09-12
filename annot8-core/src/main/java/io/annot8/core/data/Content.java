@@ -1,6 +1,8 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.core.data;
 
+import java.util.function.Supplier;
+
 import io.annot8.core.helpers.WithDescription;
 import io.annot8.core.helpers.WithId;
 import io.annot8.core.helpers.WithProperties;
@@ -9,8 +11,6 @@ import io.annot8.core.helpers.builders.WithIdBuilder;
 import io.annot8.core.helpers.builders.WithPropertiesBuilder;
 import io.annot8.core.helpers.builders.WithSave;
 import io.annot8.core.stores.AnnotationStore;
-
-import java.util.function.Supplier;
 
 /**
  * Base content interface from which all content implementations extend.

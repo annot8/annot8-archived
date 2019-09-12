@@ -1,13 +1,14 @@
+/* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.pipelines.impl;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import io.annot8.common.pipelines.PipelineDescriptor;
 import io.annot8.core.components.ProcessorDescriptor;
 import io.annot8.core.components.SourceDescriptor;
 import io.annot8.core.exceptions.IncompleteException;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 public class SimplePipelineDescriptor implements PipelineDescriptor {
   private final String name;
@@ -16,7 +17,11 @@ public class SimplePipelineDescriptor implements PipelineDescriptor {
   private final Collection<SourceDescriptor> sources;
   private final Collection<ProcessorDescriptor> processors;
 
-  private SimplePipelineDescriptor(String name, String description, Collection<SourceDescriptor> sources, Collection<ProcessorDescriptor> processors) {
+  private SimplePipelineDescriptor(
+      String name,
+      String description,
+      Collection<SourceDescriptor> sources,
+      Collection<ProcessorDescriptor> processors) {
     this.name = name;
     this.description = description;
     this.sources = sources;
@@ -43,7 +48,7 @@ public class SimplePipelineDescriptor implements PipelineDescriptor {
     return processors;
   }
 
-  static class Builder implements PipelineDescriptor.Builder{
+  static class Builder implements PipelineDescriptor.Builder {
 
     private String name;
     private String description;
@@ -86,15 +91,15 @@ public class SimplePipelineDescriptor implements PipelineDescriptor {
 
     @Override
     public SimplePipelineDescriptor build() throws IncompleteException {
-      if(name == null || name.isEmpty()){
+      if (name == null || name.isEmpty()) {
         throw new IncompleteException("Pipeline must have a name");
       }
 
-      if(sources.isEmpty()){
+      if (sources.isEmpty()) {
         throw new IncompleteException("Pipeline requires at least one source");
       }
 
-      if(processors.isEmpty()){
+      if (processors.isEmpty()) {
         throw new IncompleteException("Pipeline requires at least one processor");
       }
 

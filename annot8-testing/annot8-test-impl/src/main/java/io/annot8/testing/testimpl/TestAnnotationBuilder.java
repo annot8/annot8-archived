@@ -8,7 +8,6 @@ import io.annot8.common.implementations.factories.AnnotationBuilderFactory;
 import io.annot8.core.annotations.Annotation;
 import io.annot8.core.annotations.Annotation.Builder;
 import io.annot8.core.bounds.Bounds;
-import io.annot8.core.data.Content;
 import io.annot8.core.properties.MutableProperties;
 import io.annot8.core.properties.Properties;
 

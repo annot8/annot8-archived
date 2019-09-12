@@ -1,6 +1,12 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.defaultimpl.data;
 
+import java.util.Map;
+import java.util.Optional;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Stream;
+
 import io.annot8.common.implementations.delegates.DelegateContentBuilder;
 import io.annot8.common.implementations.factories.ContentBuilderFactory;
 import io.annot8.common.implementations.properties.MapMutableProperties;
@@ -15,12 +21,6 @@ import io.annot8.core.properties.MutableProperties;
 import io.annot8.core.stores.GroupStore;
 import io.annot8.defaultimpl.stores.DefaultGroupStore;
 
-import java.util.Map;
-import java.util.Optional;
-import java.util.UUID;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Stream;
-
 public class DefaultItem implements Item {
 
   private final Map<String, Content<?>> contents = new ConcurrentHashMap<>();
@@ -32,7 +32,10 @@ public class DefaultItem implements Item {
   private final ItemFactory itemFactory;
   private boolean discarded = false;
 
-  public DefaultItem(String parentId, ItemFactory itemFactory, ContentBuilderFactoryRegistry contentBuilderFactoryRegistry) {
+  public DefaultItem(
+      String parentId,
+      ItemFactory itemFactory,
+      ContentBuilderFactoryRegistry contentBuilderFactoryRegistry) {
     this.parentId = parentId;
     this.itemFactory = itemFactory;
     this.id = UUID.randomUUID().toString();
@@ -40,7 +43,8 @@ public class DefaultItem implements Item {
     this.groups = new DefaultGroupStore(this);
   }
 
-  public DefaultItem(ItemFactory itemFactory, ContentBuilderFactoryRegistry contentBuilderFactoryRegistry) {
+  public DefaultItem(
+      ItemFactory itemFactory, ContentBuilderFactoryRegistry contentBuilderFactoryRegistry) {
     this(null, itemFactory, contentBuilderFactoryRegistry);
   }
 

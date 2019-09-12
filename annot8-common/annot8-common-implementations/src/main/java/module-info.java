@@ -11,6 +11,7 @@
  * generally be used by any implementations of the interfaces they are abstracting.
  */
 open module io.annot8.common.implementations {
+  requires java.json.bind;
   requires com.google.common;
   requires transitive io.annot8.core;
   requires org.slf4j;

@@ -7,20 +7,17 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Stream;
 
-import io.annot8.core.annotations.TestAnnotation;
-import io.annot8.core.data.Item;
 import org.junit.jupiter.api.Test;
 
 import io.annot8.core.annotations.Annotation;
 import io.annot8.core.annotations.Group;
 import io.annot8.core.annotations.Group.Builder;
 import io.annot8.core.annotations.TestGroup;
+import io.annot8.core.data.Item;
 import io.annot8.core.exceptions.IncompleteException;
 import io.annot8.core.properties.ImmutableProperties;
 import io.annot8.core.properties.Properties;
 import io.annot8.core.references.AnnotationReference;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 
 /** Unit tests for the default method implementations on {@link GroupStore} */
 public class GroupStoreTest {
@@ -109,7 +106,6 @@ public class GroupStoreTest {
 
     assertEquals(2, store.filter(a -> true).count());
     assertEquals(1, store.filter(a -> a.getType().endsWith("2")).count());
-
   }
 
   private class TestGroupStore implements GroupStore {

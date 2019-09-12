@@ -1,15 +1,16 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.data.bounds;
 
+import java.util.Optional;
+
+import javax.json.bind.annotation.JsonbCreator;
+import javax.json.bind.annotation.JsonbProperty;
+
 import io.annot8.common.data.content.Row;
 import io.annot8.common.data.content.Table;
 import io.annot8.common.data.content.TableContent;
 import io.annot8.core.data.Content;
 import io.annot8.core.exceptions.Annot8RuntimeException;
-
-import javax.json.bind.annotation.JsonbCreator;
-import javax.json.bind.annotation.JsonbProperty;
-import java.util.Optional;
 
 public class CellBounds extends AbstractCellBounds {
 

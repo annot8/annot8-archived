@@ -1,7 +1,6 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.implementations.delegates;
 
-import io.annot8.core.data.Item;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -10,13 +9,13 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import io.annot8.core.data.Content;
+import io.annot8.core.data.Item;
 import io.annot8.core.exceptions.UnsupportedContentException;
 
 @ExtendWith(MockitoExtension.class)
 class DelegateItemTest {
 
-  @Mock
-  Item delegate;
+  @Mock Item delegate;
 
   private DelegateItem item;
 
