@@ -4,6 +4,7 @@ open module io.annot8.common.pipelines {
   requires org.slf4j;
   requires io.annot8.common.implementations;
   requires io.annot8.common.utils;
+  requires io.annot8.common.components;
 
   exports io.annot8.common.pipelines;
   exports io.annot8.common.pipelines.impl;
