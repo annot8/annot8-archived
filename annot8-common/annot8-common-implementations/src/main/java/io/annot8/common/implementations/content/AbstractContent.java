@@ -22,14 +22,14 @@ public abstract class AbstractContent<D> implements Content<D> {
   private final Item item;
 
   protected AbstractContent(
-          Item item,
-          Class<D> dataClass,
-          Class<? extends Content<D>> contentClass,
-          Function<Content<?>, AnnotationStore> annotations,
-          String id,
-          String description,
-          ImmutableProperties properties,
-          Supplier<D> data) {
+      Item item,
+      Class<D> dataClass,
+      Class<? extends Content<D>> contentClass,
+      Function<Content<?>, AnnotationStore> annotations,
+      String id,
+      String description,
+      ImmutableProperties properties,
+      Supplier<D> data) {
     this.item = item;
     this.dataClass = dataClass;
     this.contentClass = contentClass;

@@ -30,13 +30,17 @@ public abstract class AbstractTestContent<D> implements Content<D> {
   }
 
   public AbstractTestContent(
-      Item item, Class<D> dataClass, String id, String description, ImmutableProperties properties) {
+      Item item,
+      Class<D> dataClass,
+      String id,
+      String description,
+      ImmutableProperties properties) {
     this(item, dataClass, id, description, properties, (D) null);
   }
 
   public AbstractTestContent(
-          Item item,
-          Class<D> dataClass,
+      Item item,
+      Class<D> dataClass,
       String id,
       String description,
       ImmutableProperties properties,
@@ -45,8 +49,8 @@ public abstract class AbstractTestContent<D> implements Content<D> {
   }
 
   public AbstractTestContent(
-          Item item,
-          Class<D> dataClass,
+      Item item,
+      Class<D> dataClass,
       AnnotationStoreFactory annotationStoreFactory,
       String id,
       String description,
@@ -63,7 +67,12 @@ public abstract class AbstractTestContent<D> implements Content<D> {
   }
 
   public AbstractTestContent(
-      Item item, Class<D> dataClass, String id, String description, ImmutableProperties properties, D data) {
+      Item item,
+      Class<D> dataClass,
+      String id,
+      String description,
+      ImmutableProperties properties,
+      D data) {
     this(item, dataClass, id, description, properties, () -> data);
   }
 

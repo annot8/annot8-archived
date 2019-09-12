@@ -6,13 +6,12 @@ import java.util.function.Consumer;
 import io.annot8.common.implementations.listeners.Deregister;
 import io.annot8.common.implementations.listeners.Listenable;
 import io.annot8.common.implementations.listeners.Listeners;
-import io.annot8.core.data.ItemFactory;
 import io.annot8.core.data.Item;
+import io.annot8.core.data.ItemFactory;
 
 public class NotifyingItemFactory implements ItemFactory, Listenable<Consumer<Item>> {
 
-  private final Listeners<Consumer<Item>, Item> listeners =
-      new Listeners<>(Consumer::accept);
+  private final Listeners<Consumer<Item>, Item> listeners = new Listeners<>(Consumer::accept);
   private final ItemFactory itemFactory;
 
   public NotifyingItemFactory(ItemFactory itemFactory) {

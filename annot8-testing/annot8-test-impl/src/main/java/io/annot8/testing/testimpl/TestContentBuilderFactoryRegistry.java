@@ -5,7 +5,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Optional;
 import java.util.function.Supplier;
 
-import io.annot8.core.data.Item;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,6 +13,7 @@ import io.annot8.common.implementations.factories.ContentBuilderFactory;
 import io.annot8.common.implementations.registries.SimpleContentBuilderFactoryRegistry;
 import io.annot8.core.data.Content;
 import io.annot8.core.data.Content.Builder;
+import io.annot8.core.data.Item;
 import io.annot8.core.properties.Properties;
 import io.annot8.testing.testimpl.content.TestFileContent;
 import io.annot8.testing.testimpl.content.TestInputStreamContent;

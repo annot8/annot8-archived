@@ -1,14 +1,15 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.core.components.responses;
 
-import io.annot8.core.components.responses.ProcessorResponse.Status;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+import io.annot8.core.components.responses.ProcessorResponse.Status;
 
 public class ProcessorResponseTest {
 
@@ -46,7 +47,10 @@ public class ProcessorResponseTest {
 
   @Test
   public void testItemErrorExceptionArgs() {
-    ProcessorResponse pr = ProcessorResponse.itemError(new IOException("Test exception"), new IllegalArgumentException("Another test exception"));
+    ProcessorResponse pr =
+        ProcessorResponse.itemError(
+            new IOException("Test exception"),
+            new IllegalArgumentException("Another test exception"));
 
     assertEquals(Status.ITEM_ERROR, pr.getStatus());
     assertTrue(pr.hasExceptions());
@@ -78,7 +82,10 @@ public class ProcessorResponseTest {
 
   @Test
   public void testProcessorErrorExceptionArgs() {
-    ProcessorResponse pr = ProcessorResponse.processingError(new IOException("Test exception"), new IllegalArgumentException("Another test exception"));
+    ProcessorResponse pr =
+        ProcessorResponse.processingError(
+            new IOException("Test exception"),
+            new IllegalArgumentException("Another test exception"));
 
     assertEquals(Status.PROCESSOR_ERROR, pr.getStatus());
     assertTrue(pr.hasExceptions());

@@ -20,7 +20,8 @@ public class DefaultTextTest {
   public void testBuilder() {
     DefaultText.Builder builder = new DefaultText.Builder(new TestItem());
     DefaultText defaultText =
-        builder.create(TestConstants.CONTENT_ID, TestConstants.CONTENT_DESCRIPTION, null, () -> "test");
+        builder.create(
+            TestConstants.CONTENT_ID, TestConstants.CONTENT_DESCRIPTION, null, () -> "test");
     Assertions.assertEquals(TestConstants.CONTENT_ID, defaultText.getId());
     Assertions.assertEquals(TestConstants.CONTENT_DESCRIPTION, defaultText.getDescription());
     Assertions.assertEquals("test", defaultText.getData());

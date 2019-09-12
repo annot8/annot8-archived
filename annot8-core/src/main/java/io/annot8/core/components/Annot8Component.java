@@ -8,5 +8,4 @@ public interface Annot8Component extends AutoCloseable {
   default void close() {
     // Do nothing
   }
-
 }

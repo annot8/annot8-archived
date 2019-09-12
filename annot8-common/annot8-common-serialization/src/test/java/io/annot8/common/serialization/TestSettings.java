@@ -1,9 +1,10 @@
+/* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.serialization;
-
-import io.annot8.core.settings.Settings;
 
 import javax.json.bind.annotation.JsonbCreator;
 import javax.json.bind.annotation.JsonbProperty;
+
+import io.annot8.core.settings.Settings;
 
 public class TestSettings implements Settings {
   private final String host;
@@ -17,8 +18,7 @@ public class TestSettings implements Settings {
 
   @Override
   public boolean validate() {
-    return host != null && !host.isBlank()
-        && port >= 0 && port <= 65535;
+    return host != null && !host.isBlank() && port >= 0 && port <= 65535;
   }
 
   public String getHost() {

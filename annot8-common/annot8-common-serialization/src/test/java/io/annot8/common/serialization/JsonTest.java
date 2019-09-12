@@ -1,18 +1,23 @@
+/* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.serialization;
 
-import io.annot8.core.components.Annot8ComponentDescriptor;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import io.annot8.core.components.Annot8ComponentDescriptor;
 
 public class JsonTest {
 
   private static final TestDescriptor descriptor = new TestDescriptor("Test", "localhost", 8080);
-  private static final String serialized = "{\""+TestDescriptor.class.getName()+"\":{\"name\":\"Test\",\"settings\":{\"host\":\"localhost\",\"port\":8080}}}";
+  private static final String serialized =
+      "{\""
+          + TestDescriptor.class.getName()
+          + "\":{\"name\":\"Test\",\"settings\":{\"host\":\"localhost\",\"port\":8080}}}";
 
   @Test
-  public void testSerialize(){
+  public void testSerialize() {
     String json = new Json().serialize(descriptor);
     System.out.println(json);
     Assertions.assertEquals(serialized, json);
