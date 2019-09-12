@@ -14,7 +14,7 @@ jobs:
         with:
           java-version: '11'
       - run: mvn spotless:check
-      - run: mvn -B clean org.jacoco:jacoco-maven-plugin:prepare-agent test
+      - run: mvn -B clean org.jacoco:jacoco-maven-plugin:prepare-agent test package
       - run: mvn -B jacoco:report 
       - run: mvn -B sonar:sonar -Dsonar.projectKey=annot8_annot8-merged -Dsonar.organization=annot8 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
   
