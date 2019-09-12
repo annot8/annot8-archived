@@ -18,7 +18,6 @@ import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
 import io.annot8.common.data.bounds.SpanBounds;
@@ -130,8 +129,7 @@ class TextTest {
   private AnnotationStore getAnnotationStore(Annotation annotation) {
     AnnotationStore annotationStore = mock(AnnotationStore.class);
     when(annotationStore.getByBounds(Mockito.eq(SpanBounds.class)))
-        .thenAnswer(
-                (Answer<Stream<Annotation>>) invocation -> Stream.of(annotation));
+        .thenAnswer((Answer<Stream<Annotation>>) invocation -> Stream.of(annotation));
     return annotationStore;
   }
 }

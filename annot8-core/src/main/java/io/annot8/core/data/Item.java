@@ -1,15 +1,15 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.core.data;
 
+import java.util.Optional;
+import java.util.stream.Stream;
+
 import io.annot8.core.exceptions.UnsupportedContentException;
 import io.annot8.core.filters.Filter;
 import io.annot8.core.helpers.WithFilter;
 import io.annot8.core.helpers.WithGroups;
 import io.annot8.core.helpers.WithId;
 import io.annot8.core.helpers.WithMutableProperties;
-
-import java.util.Optional;
-import java.util.stream.Stream;
 
 /** Item interface used by components. */
 public interface Item extends WithId, WithMutableProperties, WithGroups, WithFilter<Content<?>> {
@@ -19,7 +19,6 @@ public interface Item extends WithId, WithMutableProperties, WithGroups, WithFil
   default boolean hasParent() {
     return getParent().isPresent();
   }
-
 
   /**
    * The content object for the specified id
@@ -64,7 +63,7 @@ public interface Item extends WithId, WithMutableProperties, WithGroups, WithFil
    * @throws UnsupportedContentException if the clazz can't be created
    */
   <C extends Content<D>, D> Content.Builder<C, D> createContent(Class<C> clazz)
-          throws UnsupportedContentException;
+      throws UnsupportedContentException;
 
   /**
    * Remove the specified content object from this item
@@ -79,7 +78,7 @@ public interface Item extends WithId, WithMutableProperties, WithGroups, WithFil
    * @param content the content
    */
   default void removeContent(final Content<?> content) {
-    if(content != null) {
+    if (content != null) {
       removeContent(content.getId());
     }
   }
@@ -98,8 +97,6 @@ public interface Item extends WithId, WithMutableProperties, WithGroups, WithFil
    * @return true if discarded
    */
   boolean isDiscarded();
-
-
 
   /**
    * Create a child item of this item, which will be processed independently

@@ -7,8 +7,6 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Stream;
 
-import io.annot8.core.data.Content;
-import io.annot8.core.data.Item;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -16,6 +14,7 @@ import io.annot8.core.annotations.Annotation;
 import io.annot8.core.annotations.Annotation.Builder;
 import io.annot8.core.annotations.TestAnnotation;
 import io.annot8.core.bounds.Bounds;
+import io.annot8.core.data.Content;
 import io.annot8.core.exceptions.IncompleteException;
 import io.annot8.core.properties.ImmutableProperties;
 import io.annot8.core.properties.Properties;
@@ -103,7 +102,6 @@ public class AnnotationStoreTest {
 
     AnnotationStore store = new TestAnnotationStore(content, annotations);
 
-
     assertEquals(1, store.getByType("type").count());
     assertEquals(1, store.getByType("type2").count());
     assertEquals(id1, store.getByType("type").findFirst().get().getId());
@@ -134,9 +132,9 @@ public class AnnotationStoreTest {
     String id1 = "id1";
     String id2 = "id2";
     Annotation annotation =
-            new TestAnnotation(id1, null, null, Mockito.mock(TestBounds.class), null);
+        new TestAnnotation(id1, null, null, Mockito.mock(TestBounds.class), null);
     Annotation annotation2 =
-            new TestAnnotation(id2, null, null, Mockito.mock(TestBounds2.class), null);
+        new TestAnnotation(id2, null, null, Mockito.mock(TestBounds2.class), null);
     List<Annotation> annotations = new ArrayList<>();
     annotations.add(annotation);
     annotations.add(annotation2);
@@ -145,7 +143,6 @@ public class AnnotationStoreTest {
 
     assertEquals(2, store.filter(a -> true).count());
     assertEquals(1, store.filter(a -> a.getId().equals("id2")).count());
-
   }
 
   public abstract class TestBounds implements Bounds {}

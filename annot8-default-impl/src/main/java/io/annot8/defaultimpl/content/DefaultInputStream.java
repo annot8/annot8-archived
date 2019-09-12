@@ -16,9 +16,14 @@ import io.annot8.defaultimpl.stores.DefaultAnnotationStore;
 
 public class DefaultInputStream extends AbstractContent<InputStream> implements InputStreamContent {
 
-  private DefaultInputStream(Item item,
-      String id, String description, ImmutableProperties properties, Supplier<InputStream> data) {
-    super(item,
+  private DefaultInputStream(
+      Item item,
+      String id,
+      String description,
+      ImmutableProperties properties,
+      Supplier<InputStream> data) {
+    super(
+        item,
         InputStream.class,
         InputStreamContent.class,
         DefaultAnnotationStore::new,
@@ -30,11 +35,11 @@ public class DefaultInputStream extends AbstractContent<InputStream> implements 
 
   public static class Builder extends AbstractContentBuilder<InputStream, DefaultInputStream> {
 
-      public Builder(Item item) {
-          super(item);
-      }
+    public Builder(Item item) {
+      super(item);
+    }
 
-      @Override
+    @Override
     public Content.Builder<DefaultInputStream, InputStream> withData(InputStream data) {
       throw new Annot8RuntimeException(
           "Must use a Supplier to provider InputStream, otherwise it can only be read once");

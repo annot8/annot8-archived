@@ -24,7 +24,8 @@ public class TestAnnotationStore implements AnnotationStore {
     this(content, TestAnnotationBuilder.factory());
   }
 
-  public TestAnnotationStore(Content<?> content, AnnotationBuilderFactory annotationBuilderFactory) {
+  public TestAnnotationStore(
+      Content<?> content, AnnotationBuilderFactory annotationBuilderFactory) {
     this.content = content;
     this.annotationBuilderFactory = annotationBuilderFactory;
   }
