@@ -1,6 +1,9 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.implementations.delegates;
 
+import java.util.Optional;
+import java.util.stream.Stream;
+
 import io.annot8.core.data.Content;
 import io.annot8.core.data.Content.Builder;
 import io.annot8.core.data.Item;
@@ -9,10 +12,7 @@ import io.annot8.core.filters.Filter;
 import io.annot8.core.properties.MutableProperties;
 import io.annot8.core.stores.GroupStore;
 
-import java.util.Optional;
-import java.util.stream.Stream;
-
-public class DelegateItem implements Item{
+public class DelegateItem implements Item {
 
   private final Item item;
 
@@ -85,7 +85,6 @@ public class DelegateItem implements Item{
   public MutableProperties getProperties() {
     return item.getProperties();
   }
-
 
   @Override
   public Optional<Content<?>> find(Filter<Content<?>> filter) {

@@ -1,13 +1,13 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.core.components.responses;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 public class SourceResponseTest {
 
@@ -54,7 +54,10 @@ public class SourceResponseTest {
 
   @Test
   public void testSourceErrorExceptionArgs() {
-    SourceResponse sr = SourceResponse.sourceError(new IOException("Test exception"), new IllegalArgumentException("Another test exception"));
+    SourceResponse sr =
+        SourceResponse.sourceError(
+            new IOException("Test exception"),
+            new IllegalArgumentException("Another test exception"));
 
     assertEquals(SourceResponse.Status.SOURCE_ERROR, sr.getStatus());
     assertTrue(sr.hasExceptions());

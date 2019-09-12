@@ -9,9 +9,9 @@ import static org.junit.jupiter.api.Assertions.fail;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
-import io.annot8.core.data.Item;
 import org.junit.jupiter.api.Test;
 
+import io.annot8.core.data.Item;
 import io.annot8.core.exceptions.Annot8RuntimeException;
 import io.annot8.defaultimpl.content.DefaultInputStream.Builder;
 import io.annot8.defaultimpl.content.DefaultInputStream.BuilderFactory;

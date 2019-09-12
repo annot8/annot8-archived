@@ -94,7 +94,7 @@ public interface AnnotationStore extends WithFilter<Annotation> {
    * @return annotations
    */
   default Stream<Annotation> getByType(final String type) {
-    return getAll().filter( a-> type.equals(a.getType()));
+    return getAll().filter(a -> type.equals(a.getType()));
   }
 
   /**

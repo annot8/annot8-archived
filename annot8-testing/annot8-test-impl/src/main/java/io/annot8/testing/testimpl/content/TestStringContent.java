@@ -17,7 +17,6 @@ import io.annot8.testing.testimpl.TestItem;
 
 public class TestStringContent extends AbstractTestContent<String> implements Text {
 
-
   public TestStringContent() {
     super(new TestItem(), String.class);
     setData("Test data");
@@ -28,13 +27,17 @@ public class TestStringContent extends AbstractTestContent<String> implements Te
     setData("Test data");
   }
 
-  public TestStringContent(Item item,
-      String id, String description, ImmutableProperties properties, Supplier<String> data) {
+  public TestStringContent(
+      Item item,
+      String id,
+      String description,
+      ImmutableProperties properties,
+      Supplier<String> data) {
     super(item, String.class, id, description, properties, data);
   }
 
   public TestStringContent(
-          Item item,
+      Item item,
       AnnotationStore annotations,
       String id,
       String description,
@@ -44,7 +47,7 @@ public class TestStringContent extends AbstractTestContent<String> implements Te
   }
 
   public TestStringContent(
-          Item item,
+      Item item,
       AnnotationStoreFactory annotationStore,
       String id,
       String description,
@@ -63,14 +66,15 @@ public class TestStringContent extends AbstractTestContent<String> implements Te
     private final AnnotationStoreFactory annotationStoreFactory;
 
     public Builder(Item item, AnnotationStoreFactory annotationStoreFactory) {
-        super(item);
-        this.annotationStoreFactory = annotationStoreFactory;
+      super(item);
+      this.annotationStoreFactory = annotationStoreFactory;
     }
 
     @Override
     protected TestStringContent create(
         String id, String description, ImmutableProperties properties, Supplier<String> data) {
-      return new TestStringContent(getItem(), annotationStoreFactory, id, description, properties, data);
+      return new TestStringContent(
+          getItem(), annotationStoreFactory, id, description, properties, data);
     }
   }
 

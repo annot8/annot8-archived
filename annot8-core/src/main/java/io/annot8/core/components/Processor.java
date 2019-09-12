@@ -10,4 +10,5 @@ import io.annot8.core.settings.Settings;
  *
  * <p>Processors do work on an item, such as adding new annotations, or creating new content.
  */
-public interface Processor<S extends Settings> extends Annot8Component<S>, WithProcessItem, ComponentCapabilities {}
+public interface Processor<S extends Settings>
+    extends Annot8Component<S>, WithProcessItem, ComponentCapabilities {}

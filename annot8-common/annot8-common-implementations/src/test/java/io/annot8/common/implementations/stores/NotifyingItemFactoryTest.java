@@ -8,8 +8,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Consumer;
 
-import io.annot8.core.data.Item;
-import io.annot8.core.data.ItemFactory;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,15 +17,15 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import io.annot8.common.implementations.listeners.Deregister;
+import io.annot8.core.data.Item;
+import io.annot8.core.data.ItemFactory;
 
 @ExtendWith(MockitoExtension.class)
 class NotifyingItemFactoryTest {
 
-  @Mock
-  ItemFactory delegateItemFactory;
+  @Mock ItemFactory delegateItemFactory;
 
-  @Mock
-  Item itemWithoutParent;
+  @Mock Item itemWithoutParent;
 
   @Mock Item itemWithParent;
 

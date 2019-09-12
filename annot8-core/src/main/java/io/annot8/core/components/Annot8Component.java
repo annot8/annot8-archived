@@ -1,12 +1,12 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.core.components;
 
+import java.util.Collections;
+import java.util.Map;
+
 import io.annot8.core.exceptions.BadConfigurationException;
 import io.annot8.core.exceptions.MissingResourceException;
 import io.annot8.core.settings.Settings;
-
-import java.util.Collections;
-import java.util.Map;
 
 /** Base interface from which all other Annot8 components extend. */
 public interface Annot8Component<S extends Settings> extends AutoCloseable {
@@ -21,7 +21,8 @@ public interface Annot8Component<S extends Settings> extends AutoCloseable {
     // Do nothing
   }
 
-  default void configure(final S settings) throws BadConfigurationException, MissingResourceException {
+  default void configure(final S settings)
+      throws BadConfigurationException, MissingResourceException {
     configure(settings, Collections.emptyMap());
   }
 

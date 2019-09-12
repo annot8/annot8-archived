@@ -1,13 +1,14 @@
+/* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.pipelines.impl;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import io.annot8.common.pipelines.Pipeline;
 import io.annot8.core.components.Processor;
 import io.annot8.core.components.Source;
 import io.annot8.core.exceptions.IncompleteException;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 public class SimplePipeline implements Pipeline {
   private final String name;
@@ -16,7 +17,11 @@ public class SimplePipeline implements Pipeline {
   private final Collection<Source> sources;
   private final Collection<Processor> processors;
 
-  private SimplePipeline(String name, String description, Collection<Source> sources, Collection<Processor> processors) {
+  private SimplePipeline(
+      String name,
+      String description,
+      Collection<Source> sources,
+      Collection<Processor> processors) {
     this.name = name;
     this.description = description;
     this.sources = sources;
@@ -43,7 +48,7 @@ public class SimplePipeline implements Pipeline {
     return processors;
   }
 
-  static class Builder implements Pipeline.Builder{
+  static class Builder implements Pipeline.Builder {
 
     private String name;
     private String description;
@@ -86,15 +91,15 @@ public class SimplePipeline implements Pipeline {
 
     @Override
     public SimplePipeline build() throws IncompleteException {
-      if(name == null || name.isEmpty()){
+      if (name == null || name.isEmpty()) {
         throw new IncompleteException("Pipeline must have a name");
       }
 
-      if(sources.isEmpty()){
+      if (sources.isEmpty()) {
         throw new IncompleteException("Pipeline requires at least one source");
       }
 
-      if(processors.isEmpty()){
+      if (processors.isEmpty()) {
         throw new IncompleteException("Pipeline requires at least one processor");
       }
 

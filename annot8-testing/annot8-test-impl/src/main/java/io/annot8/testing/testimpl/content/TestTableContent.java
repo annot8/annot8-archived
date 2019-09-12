@@ -23,18 +23,26 @@ public class TestTableContent extends AbstractTestContent<Table> implements Tabl
     super(item, Table.class, description);
   }
 
-  public TestTableContent(Item item,
-                          Class<Table> dataClass, String id, String description, ImmutableProperties properties) {
+  public TestTableContent(
+      Item item,
+      Class<Table> dataClass,
+      String id,
+      String description,
+      ImmutableProperties properties) {
     super(item, Table.class, id, description, properties);
   }
 
-  public TestTableContent(Item item,
-                          String id, String description, ImmutableProperties properties, Supplier<Table> data) {
+  public TestTableContent(
+      Item item,
+      String id,
+      String description,
+      ImmutableProperties properties,
+      Supplier<Table> data) {
     super(item, Table.class, id, description, properties, data);
   }
 
   public TestTableContent(
-          Item item,
+      Item item,
       AnnotationStoreFactory annotationStoreFactory,
       String id,
       String description,
@@ -42,7 +50,6 @@ public class TestTableContent extends AbstractTestContent<Table> implements Tabl
       Supplier<Table> data) {
     super(item, Table.class, annotationStoreFactory, id, description, properties, data);
   }
-
 
   @Override
   public Class<? extends Content<Table>> getContentClass() {
@@ -52,8 +59,8 @@ public class TestTableContent extends AbstractTestContent<Table> implements Tabl
   public static class Builder extends AbstractContentBuilder<Table, TableContent> {
 
     public Builder(Item item) {
-          super(item);
-      }
+      super(item);
+    }
 
     @Override
     protected TableContent create(
