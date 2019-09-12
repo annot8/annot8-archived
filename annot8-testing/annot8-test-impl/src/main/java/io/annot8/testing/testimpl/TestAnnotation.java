@@ -108,4 +108,9 @@ public class TestAnnotation implements Annotation {
   public int hashCode() {
     return Objects.hash(bounds, content, id, properties, type);
   }
+
+  @Override
+  public String toString() {
+    return String.format("TestAnnotation[%s]", getId());
+  }
 }

@@ -34,5 +34,6 @@
     <module>annot8-common-utils</module>
     <module>annot8-common-pipelines</module>
     <module>annot8-common-serialization</module>
+    <module>annot8-common-support</module>
   </modules>
 </project>

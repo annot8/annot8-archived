@@ -9,9 +9,11 @@ import java.util.stream.Stream;
 import io.annot8.core.annotations.Annotation;
 import io.annot8.core.bounds.Bounds;
 import io.annot8.core.data.Content;
+import io.annot8.core.filters.Filter;
+import io.annot8.core.helpers.WithFilter;
 
 /** Base annotations interface from which all other annotation stores extend. */
-public interface AnnotationStore {
+public interface AnnotationStore extends WithFilter<Annotation> {
 
   /**
    * Get the content which this store holds annotations for.
@@ -92,7 +94,7 @@ public interface AnnotationStore {
    * @return annotations
    */
   default Stream<Annotation> getByType(final String type) {
-    return getAll().filter(a -> type.equals(a.getType()));
+    return getAll().filter( a-> type.equals(a.getType()));
   }
 
   /**
@@ -124,4 +126,14 @@ public interface AnnotationStore {
    * @return annotation
    */
   Optional<Annotation> getById(final String annotationId);
+
+  /**
+   * Filter annotations to match the test.
+   *
+   * @param filter the test to filter with
+   * @return stream of matching annotations
+   */
+  default Stream<Annotation> filter(Filter<Annotation> filter) {
+    return getAll().filter(filter::test);
+  }
 }

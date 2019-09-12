@@ -2,6 +2,8 @@
 package io.annot8.core.data;
 
 import io.annot8.core.exceptions.UnsupportedContentException;
+import io.annot8.core.filters.Filter;
+import io.annot8.core.helpers.WithFilter;
 import io.annot8.core.helpers.WithGroups;
 import io.annot8.core.helpers.WithId;
 import io.annot8.core.helpers.WithMutableProperties;
@@ -10,7 +12,7 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 /** Item interface used by components. */
-public interface Item extends WithId, WithMutableProperties, WithGroups {
+public interface Item extends WithId, WithMutableProperties, WithGroups, WithFilter<Content<?>> {
 
   Optional<String> getParent();
 
@@ -33,6 +35,16 @@ public interface Item extends WithId, WithMutableProperties, WithGroups {
    * @return all content
    */
   Stream<Content<?>> getContents();
+
+  /**
+   * Filter content to match the test.
+   *
+   * @param filter the test to filter with
+   * @return stream of matching annotations
+   */
+  default Stream<Content<?>> filter(Filter<Content<?>> filter) {
+    return getContents().filter(filter::test);
+  }
 
   /**
    * All content objects of the specified class contained within this item
@@ -86,6 +98,8 @@ public interface Item extends WithId, WithMutableProperties, WithGroups {
    * @return true if discarded
    */
   boolean isDiscarded();
+
+
 
   /**
    * Create a child item of this item, which will be processed independently
