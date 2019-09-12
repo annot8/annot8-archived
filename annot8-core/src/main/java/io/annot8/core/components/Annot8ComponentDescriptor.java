@@ -1,7 +1,7 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.core.components;
 
-import io.annot8.core.capabilities.ComponentCapabilities;
+import io.annot8.core.capabilities.Capabilities;
 import io.annot8.core.settings.Settings;
 
 public interface Annot8ComponentDescriptor<T extends Annot8Component, S extends Settings> {
@@ -13,7 +13,7 @@ public interface Annot8ComponentDescriptor<T extends Annot8Component, S extends 
 
   S getSettings();
 
-  ComponentCapabilities capabilities();
+  Capabilities capabilities();
 
   T create();
 }

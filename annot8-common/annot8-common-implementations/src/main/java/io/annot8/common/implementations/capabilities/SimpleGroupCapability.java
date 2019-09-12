@@ -1,0 +1,37 @@
+/* Annot8 (annot8.io) - Licensed under Apache-2.0. */
+package io.annot8.common.implementations.capabilities;
+
+import java.util.Objects;
+
+import javax.json.bind.annotation.JsonbCreator;
+import javax.json.bind.annotation.JsonbProperty;
+
+import io.annot8.core.capabilities.GroupCapability;
+
+public class SimpleGroupCapability implements GroupCapability {
+  private final String type;
+
+  @JsonbCreator
+  public SimpleGroupCapability(@JsonbProperty("type") String type) {
+    this.type = type;
+  }
+
+  @Override
+  public String getType() {
+    return type;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (o == this) return true;
+    if (!(o instanceof GroupCapability)) return false;
+    GroupCapability other = (GroupCapability) o;
+
+    return Objects.equals(type, other.getType());
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(type);
+  }
+}
