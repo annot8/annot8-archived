@@ -7,6 +7,7 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Stream;
 
+import io.annot8.core.annotations.TestAnnotation;
 import io.annot8.core.data.Item;
 import org.junit.jupiter.api.Test;
 
@@ -19,6 +20,7 @@ import io.annot8.core.properties.ImmutableProperties;
 import io.annot8.core.properties.Properties;
 import io.annot8.core.references.AnnotationReference;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 
 /** Unit tests for the default method implementations on {@link GroupStore} */
 public class GroupStoreTest {
@@ -92,6 +94,22 @@ public class GroupStoreTest {
     GroupStore store = new TestGroupStore(item, groups);
     assertEquals(1, store.getByType(type).count());
     assertEquals(GROUP_ID, store.getByType(type).findFirst().get().getId());
+  }
+
+  @Test
+  public void testFilter() {
+    String type = "testType";
+    TestGroup group = new TestGroup(GROUP_ID, type, null, null, null);
+    TestGroup group2 = new TestGroup("id2", "type2", null, null, null);
+    Collection<Group> groups = new ArrayList<>();
+    groups.add(group);
+    groups.add(group2);
+
+    GroupStore store = new TestGroupStore(item, groups);
+
+    assertEquals(2, store.filter(a -> true).count());
+    assertEquals(1, store.filter(a -> a.getType().endsWith("2")).count());
+
   }
 
   private class TestGroupStore implements GroupStore {

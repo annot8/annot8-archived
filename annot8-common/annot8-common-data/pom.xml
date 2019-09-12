@@ -22,6 +22,7 @@
       <groupId>io.annot8</groupId>
       <artifactId>annot8-common-utils</artifactId>
     </dependency>
+
   </dependencies>
 
 </project>

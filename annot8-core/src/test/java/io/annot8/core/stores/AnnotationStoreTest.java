@@ -129,6 +129,25 @@ public class AnnotationStoreTest {
     assertEquals(id2, store.getByBounds(TestBounds2.class).findFirst().get().getId());
   }
 
+  @Test
+  public void testFilter() {
+    String id1 = "id1";
+    String id2 = "id2";
+    Annotation annotation =
+            new TestAnnotation(id1, null, null, Mockito.mock(TestBounds.class), null);
+    Annotation annotation2 =
+            new TestAnnotation(id2, null, null, Mockito.mock(TestBounds2.class), null);
+    List<Annotation> annotations = new ArrayList<>();
+    annotations.add(annotation);
+    annotations.add(annotation2);
+
+    TestAnnotationStore store = new TestAnnotationStore(content, annotations);
+
+    assertEquals(2, store.filter(a -> true).count());
+    assertEquals(1, store.filter(a -> a.getId().equals("id2")).count());
+
+  }
+
   public abstract class TestBounds implements Bounds {}
 
   public abstract class TestBounds2 implements Bounds {}

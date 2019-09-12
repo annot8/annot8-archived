@@ -5,6 +5,7 @@ import io.annot8.core.data.Content;
 import io.annot8.core.data.Content.Builder;
 import io.annot8.core.data.Item;
 import io.annot8.core.exceptions.UnsupportedContentException;
+import io.annot8.core.filters.Filter;
 import io.annot8.core.properties.MutableProperties;
 import io.annot8.core.stores.GroupStore;
 
@@ -83,5 +84,16 @@ public class DelegateItem implements Item{
   @Override
   public MutableProperties getProperties() {
     return item.getProperties();
+  }
+
+
+  @Override
+  public Optional<Content<?>> find(Filter<Content<?>> filter) {
+    return item.find(filter);
+  }
+
+  @Override
+  public Stream<Content<?>> filter(Filter<Content<?>> filter) {
+    return item.filter(filter);
   }
 }
