@@ -1,5 +1,5 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
-package io.annot8.common.serialization;
+package io.annot8.implementations.serialization;
 
 import java.util.stream.Stream;
 

@@ -4,5 +4,5 @@ open module io.annot8.implementations.pipelines {
   requires io.annot8.implementations.support;
   requires io.annot8.common.components;
 
-  exports io.annot8.common.pipelines;
+  exports io.annot8.implementations.pipeline;
 }
