@@ -23,7 +23,7 @@ public @interface Description {
    *
    * @return description
    */
-  String description();
+  String value();
 
   /**
    * Default value of this parameter
