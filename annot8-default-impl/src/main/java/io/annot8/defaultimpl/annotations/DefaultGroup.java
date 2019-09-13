@@ -1,14 +1,6 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.defaultimpl.annotations;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Optional;
-import java.util.UUID;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 import io.annot8.common.implementations.annotations.AbstractGroup;
 import io.annot8.common.implementations.properties.MapImmutableProperties;
 import io.annot8.common.implementations.properties.MapMutableProperties;
@@ -22,6 +14,14 @@ import io.annot8.core.properties.MutableProperties;
 import io.annot8.core.properties.Properties;
 import io.annot8.core.references.AnnotationReference;
 import io.annot8.defaultimpl.references.DefaultAnnotationReference;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Optional;
+import java.util.UUID;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /** Simple implementation of Group interface */
 public class DefaultGroup extends AbstractGroup {
@@ -173,7 +173,7 @@ public class DefaultGroup extends AbstractGroup {
     }
 
     @Override
-    public Group save() throws IncompleteException {
+    public Group save()  {
 
       if (id == null) {
         id = UUID.randomUUID().toString();
