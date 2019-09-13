@@ -11,7 +11,7 @@
  * generally be used by any implementations of the interfaces they are abstracting.
  */
 open module io.annot8.common.implementations {
-  requires transitive io.annot8.core;
+  requires transitive io.annot8.api;
 
   exports io.annot8.common.implementations.annotations;
   exports io.annot8.common.implementations.factories;

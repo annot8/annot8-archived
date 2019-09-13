@@ -1,5 +1,5 @@
 open module io.annot8.testing.testimpl {
-  requires transitive io.annot8.core;
+  requires transitive io.annot8.api;
   requires io.annot8.common.implementations;
   requires io.annot8.common.utils;
   requires io.annot8.common.data;

@@ -1,5 +1,5 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
-package io.annot8.common.utils.properties;
+package io.annot8.common.data.properties;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

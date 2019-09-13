@@ -1,5 +1,5 @@
 open module io.annot8.common.pipelines {
-  requires transitive io.annot8.core;
+  requires transitive io.annot8.api;
   requires org.slf4j;
   requires io.annot8.common.implementations;
   requires io.annot8.common.components;

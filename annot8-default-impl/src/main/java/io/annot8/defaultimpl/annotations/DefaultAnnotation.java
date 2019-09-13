@@ -7,7 +7,7 @@ import java.util.UUID;
 import io.annot8.common.implementations.annotations.AbstractAnnotation;
 import io.annot8.common.implementations.properties.MapImmutableProperties;
 import io.annot8.common.implementations.properties.MapMutableProperties;
-import io.annot8.common.utils.properties.EmptyImmutableProperties;
+import io.annot8.common.data.properties.EmptyImmutableProperties;
 import io.annot8.core.annotations.Annotation;
 import io.annot8.core.bounds.Bounds;
 import io.annot8.core.exceptions.IncompleteException;

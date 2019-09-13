@@ -1,5 +1,5 @@
 open module io.annot8.common.components {
-  requires transitive io.annot8.core;
+  requires transitive io.annot8.api;
   requires org.slf4j;
   requires micrometer.core;
   requires java.json.bind;

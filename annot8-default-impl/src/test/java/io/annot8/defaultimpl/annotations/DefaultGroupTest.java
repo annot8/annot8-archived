@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import io.annot8.common.utils.properties.EmptyImmutableProperties;
+import io.annot8.common.data.properties.EmptyImmutableProperties;
 import io.annot8.core.annotations.Annotation;
 import io.annot8.core.annotations.Group;
 import io.annot8.core.exceptions.IncompleteException;

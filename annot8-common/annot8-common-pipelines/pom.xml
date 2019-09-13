@@ -20,7 +20,7 @@
     </dependency>
     <dependency>
       <groupId>io.annot8</groupId>
-      <artifactId>annot8-core</artifactId>
+      <artifactId>annot8-api</artifactId>
     </dependency>
     <dependency>
       <groupId>io.annot8</groupId>
