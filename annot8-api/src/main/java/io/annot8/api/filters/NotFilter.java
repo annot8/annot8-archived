@@ -1,6 +1,11 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.api.filters;
 
+/**
+ * Logical NOT of filter
+ *
+ * @param <T> element type
+ */
 public class NotFilter<T> implements Filter<T> {
 
   private final Filter<T> filter;
