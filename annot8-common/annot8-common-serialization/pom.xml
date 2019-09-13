@@ -9,9 +9,9 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>annot8-serialization</artifactId>
+  <artifactId>annot8-common-serialization</artifactId>
 
-  <name>Annot8 Serialization</name>
+  <name>Annot8 Common Serialization</name>
   <description>Tools for serialization of components</description>
 
   <dependencies>

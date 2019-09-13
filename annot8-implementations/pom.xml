@@ -16,7 +16,6 @@
 
     <modules>
         <module>annot8-implementations-support</module>
-        <module>annot8-serialization</module>
         <module>annot8-pipeline-implementation</module>
         <module>annot8-reference-implementation</module>
     </modules>
