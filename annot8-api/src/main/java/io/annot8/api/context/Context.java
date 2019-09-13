@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 import io.annot8.api.components.Resource;
 
-/** A context defines additional information in which the components are running. */
+/** A context defines additional information and resources for the environment in which the components are running. */
 public interface Context {
 
   /**
