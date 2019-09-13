@@ -1,5 +1,5 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
-package io.annot8.common.processor.indices;
+package io.annot8.common.processors.indices;
 
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;

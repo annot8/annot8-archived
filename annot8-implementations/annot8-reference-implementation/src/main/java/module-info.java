@@ -1,6 +1,6 @@
-open module io.annot8.defaultimpl {
+open module io.annot8.implementations.reference {
   requires io.annot8.api;
-  requires transitive io.annot8.common.implementations;
+  requires transitive io.annot8.implementations.support;
   requires transitive io.annot8.common.utils;
   requires transitive io.annot8.common.data;
 

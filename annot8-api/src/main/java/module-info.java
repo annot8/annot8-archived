@@ -21,7 +21,7 @@
  * GroupStore, which is held on the Item object so that a Group may contain Annotations from
  * multiple Content objects.
  *
- * <p>Most of the objects above processor Properties, which allow you to attach additional
+ * <p>Most of the objects above processors Properties, which allow you to attach additional
  * information to an object. Many objects also have a type and an ID.
  *
  * <p>There are three types of 'component' which are used to createContent and manipulate the above

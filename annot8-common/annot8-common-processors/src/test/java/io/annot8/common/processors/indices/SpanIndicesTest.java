@@ -1,5 +1,5 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
-package io.annot8.common.processor.indices;
+package io.annot8.common.processors.indices;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -39,11 +39,11 @@ class SpanIndicesTest {
 
   List<Annotation> under = List.of(u1, u2, u3, u4, u5, u6, u7);
 
-  private io.annot8.common.processor.indices.SpanIndices si;
+  private io.annot8.common.processors.indices.SpanIndices si;
 
   @BeforeEach
   void beforeEach() {
-    si = new io.annot8.common.processor.indices.SpanIndices(over.stream(), under.stream());
+    si = new io.annot8.common.processors.indices.SpanIndices(over.stream(), under.stream());
   }
 
   @Test

@@ -1,5 +1,5 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
-package io.annot8.common.processor.filters;
+package io.annot8.common.processors.filters;
 
 import java.util.Arrays;
 import java.util.List;
