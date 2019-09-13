@@ -41,8 +41,8 @@ public abstract class AbstractComponent implements Annot8Component {
    * @param metering metering to use
    */
   public AbstractComponent(Logging logging, Metering metering) {
-    logger = logging.getLogger(this.getClass());
-    metrics = metering.getMetrics(this.getClass());
+    logger = logging != null ? logging.getLogger(this.getClass()) : null;
+    metrics = metering != null ? metering.getMetrics(this.getClass()) : null;
   }
 
   /**

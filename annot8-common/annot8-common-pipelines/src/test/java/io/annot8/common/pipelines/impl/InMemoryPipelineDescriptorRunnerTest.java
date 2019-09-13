@@ -9,7 +9,6 @@ import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 import org.mockito.stubbing.Answer;
 
-import io.annot8.common.implementations.context.SimpleContext;
 import io.annot8.common.pipelines.PipelineDescriptor;
 import io.annot8.core.components.Processor;
 import io.annot8.core.components.ProcessorDescriptor;
@@ -17,6 +16,7 @@ import io.annot8.core.components.Source;
 import io.annot8.core.components.SourceDescriptor;
 import io.annot8.core.components.responses.ProcessorResponse;
 import io.annot8.core.components.responses.SourceResponse;
+import io.annot8.core.context.Context;
 import io.annot8.core.data.Item;
 import io.annot8.core.data.ItemFactory;
 
@@ -24,8 +24,6 @@ public class InMemoryPipelineDescriptorRunnerTest {
 
   @Test
   public void test() {
-    SimpleContext context = new SimpleContext();
-
     ItemFactory itemFactory = mock(ItemFactory.class);
     when(itemFactory.create()).thenReturn(mock(Item.class));
 
@@ -81,14 +79,14 @@ public class InMemoryPipelineDescriptorRunnerTest {
             ProcessorResponse.ok(), ProcessorResponse.ok(), ProcessorResponse.processingError());
 
     SourceDescriptor sd1 = mock(SourceDescriptor.class);
-    when(sd1.create(context)).thenReturn(source1);
+    when(sd1.create(any(Context.class))).thenReturn(source1);
     SourceDescriptor sd2 = mock(SourceDescriptor.class);
-    when(sd2.create(context)).thenReturn(source2);
+    when(sd2.create(any(Context.class))).thenReturn(source2);
 
     ProcessorDescriptor pd1 = mock(ProcessorDescriptor.class);
-    when(pd1.create(context)).thenReturn(processor1);
+    when(pd1.create(any(Context.class))).thenReturn(processor1);
     ProcessorDescriptor pd2 = mock(ProcessorDescriptor.class);
-    when(pd2.create(context)).thenReturn(processor2);
+    when(pd2.create(any(Context.class))).thenReturn(processor2);
 
     PipelineDescriptor pipelineDescriptor = mock(PipelineDescriptor.class);
     when(pipelineDescriptor.getSources()).thenReturn(Arrays.asList(sd1, sd2));

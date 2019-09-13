@@ -10,7 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>annot8-common-components</artifactId>
-
+    <name>Annot8 Common Components</name>
+    <description>Common functionality used to build components</description>
 
     <dependencies>
         <dependency>
