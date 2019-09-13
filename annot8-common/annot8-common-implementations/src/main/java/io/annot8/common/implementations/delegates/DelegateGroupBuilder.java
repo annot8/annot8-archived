@@ -6,7 +6,6 @@ import java.util.Optional;
 import io.annot8.core.annotations.Annotation;
 import io.annot8.core.annotations.Group;
 import io.annot8.core.annotations.Group.Builder;
-import io.annot8.core.exceptions.IncompleteException;
 import io.annot8.core.properties.Properties;
 
 public class DelegateGroupBuilder implements Group.Builder {

@@ -1,10 +1,10 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.core.context;
 
-import io.annot8.core.components.Resource;
-
 import java.util.Optional;
 import java.util.stream.Stream;
+
+import io.annot8.core.components.Resource;
 
 /** A context defines additional information in which the components are running. */
 public interface Context {

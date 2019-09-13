@@ -1,18 +1,16 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.core.filters;
 
-import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Test;
+
 class FilterTest {
 
-  Filter<String> f =
-          s -> s.length() == 1;
+  Filter<String> f = s -> s.length() == 1;
 
-  Filter<String> u =
-          s -> s.startsWith("t");
+  Filter<String> u = s -> s.startsWith("t");
 
   @Test
   void test() {

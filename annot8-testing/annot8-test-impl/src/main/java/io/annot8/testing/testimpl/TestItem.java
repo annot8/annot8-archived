@@ -15,7 +15,6 @@ import io.annot8.core.data.Content;
 import io.annot8.core.data.Content.Builder;
 import io.annot8.core.data.Item;
 import io.annot8.core.data.ItemFactory;
-import io.annot8.core.exceptions.AlreadyExistsException;
 import io.annot8.core.exceptions.IncompleteException;
 import io.annot8.core.exceptions.UnsupportedContentException;
 import io.annot8.core.properties.MutableProperties;
@@ -113,7 +112,7 @@ public class TestItem implements Item {
     Builder<C, D> builder = factory.create(this);
     return new DelegateContentBuilder<>(builder) {
       @Override
-      public C save()  {
+      public C save() {
         return TestItem.this.save(super.save());
       }
     };

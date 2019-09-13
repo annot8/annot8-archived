@@ -1,12 +1,12 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.implementations.delegates;
 
+import java.util.Optional;
+
 import io.annot8.core.annotations.Annotation;
 import io.annot8.core.annotations.Annotation.Builder;
 import io.annot8.core.bounds.Bounds;
 import io.annot8.core.properties.Properties;
-
-import java.util.Optional;
 
 public class DelegateAnnotationBuilder implements Annotation.Builder {
 
@@ -71,7 +71,7 @@ public class DelegateAnnotationBuilder implements Annotation.Builder {
   }
 
   @Override
-  public Annotation save()  {
+  public Annotation save() {
     return delegate.save();
   }
 

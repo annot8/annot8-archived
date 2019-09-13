@@ -1,10 +1,10 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.core.helpers;
 
-import io.annot8.core.filters.Filter;
-
 import java.util.Optional;
 import java.util.stream.Stream;
+
+import io.annot8.core.filters.Filter;
 
 /**
  * General interface for filtering elements to find matches.

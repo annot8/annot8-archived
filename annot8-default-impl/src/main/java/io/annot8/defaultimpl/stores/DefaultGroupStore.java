@@ -1,16 +1,16 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.defaultimpl.stores;
 
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import io.annot8.common.implementations.delegates.DelegateGroupBuilder;
 import io.annot8.core.annotations.Group;
 import io.annot8.core.data.Item;
 import io.annot8.core.stores.GroupStore;
 import io.annot8.defaultimpl.annotations.DefaultGroup;
-
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /** In memory implementation, backed by a HashMap, of GroupStore */
 public class DefaultGroupStore implements GroupStore {

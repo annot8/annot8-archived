@@ -1,14 +1,14 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.data.content;
 
+import java.util.Optional;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
+
 import io.annot8.common.data.bounds.SpanBounds;
 import io.annot8.core.annotations.Annotation;
 import io.annot8.core.bounds.Bounds;
 import io.annot8.core.data.Content;
-
-import java.util.Optional;
-import java.util.function.Predicate;
-import java.util.stream.Stream;
 
 /**
  * Represents plain text content having data of type string.
