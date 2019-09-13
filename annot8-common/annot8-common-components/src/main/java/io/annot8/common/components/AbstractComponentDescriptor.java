@@ -35,7 +35,7 @@ public abstract class AbstractComponentDescriptor<T extends AbstractComponent, S
 
   public final T create(Context context) {
 
-    T t = createComponent(context);
+    T t = createComponent(context, getSettings());
 
     // Set up logging and metrics from context
 
@@ -48,5 +48,5 @@ public abstract class AbstractComponentDescriptor<T extends AbstractComponent, S
     return t;
   }
 
-  protected abstract T createComponent(Context context);
+  protected abstract T createComponent(Context context, S settings);
 }
