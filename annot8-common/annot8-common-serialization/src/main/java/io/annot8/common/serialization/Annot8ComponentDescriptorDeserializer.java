@@ -14,6 +14,9 @@ import org.slf4j.LoggerFactory;
 
 import io.annot8.api.components.Annot8ComponentDescriptor;
 
+/**
+ * Deserialize Annot8ComponentDescriptor from JSON, using the JSON-B deserializer interface
+ */
 public class Annot8ComponentDescriptorDeserializer
     implements JsonbDeserializer<Annot8ComponentDescriptor> {
 
@@ -32,22 +35,26 @@ public class Annot8ComponentDescriptorDeserializer
         String className = parser.getString();
         parser.next();
         try {
-          // TODO: This is not a good way of doing it, as we lose any user provided config
-          // (including additional deserializers)
-          //    However, if we don't do this we get a recursive error because we try to deserialize
-          // with ctx which itself tries to use this deserializer
-          //    To change this, we need Yasson or JSON-B to update how they implement things
-          //    There are a number of open GitHub tickets about this
-          //        https://github.com/eclipse-ee4j/yasson/issues/133
-          //        https://github.com/eclipse-ee4j/yasson/issues/279
-          //        https://github.com/eclipse-ee4j/jsonb-api/issues/147
+          /* TODO: This is not a good way of doing it, as we lose any user provided config (including additional deserializers)
+           *    However, if we don't do this we get a recursive error because we try to deserialize
+           *    with ctx which itself tries to use this deserializer
+           *    To change this, we need Yasson or JSON-B to update how they implement things
+           *    There are a number of open GitHub tickets about this
+           *        https://github.com/eclipse-ee4j/yasson/issues/133
+           *         https://github.com/eclipse-ee4j/yasson/issues/279
+           *        https://github.com/eclipse-ee4j/jsonb-api/issues/147
+           */
           desc =
               jb.fromJson(
                   parser.getObject().toString(),
                   Class.forName(className).asSubclass(Annot8ComponentDescriptor.class));
-          // desc =
-          // ctx.deserialize(Class.forName(className).asSubclass(Annot8ComponentDescriptor.class),
-          // parser);
+          /* This is the correct way to do the above according to the JSON-B documentation,
+           * but fails with the reference implementation (see above)
+           *
+           * desc =
+           * ctx.deserialize(Class.forName(className).asSubclass(Annot8ComponentDescriptor.class),
+           * parser);
+           */
         } catch (ClassNotFoundException e) {
           LOGGER.error("Deserialization failed - could not find class " + className, e);
         }

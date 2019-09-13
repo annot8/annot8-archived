@@ -7,6 +7,9 @@ import javax.json.stream.JsonGenerator;
 
 import io.annot8.api.components.Annot8ComponentDescriptor;
 
+/**
+ * Serialize Annot8ComponentDescriptor from JSON, using the JSON-B serializer interface
+ */
 public class Annot8ComponentDescriptorSerializer
     implements JsonbSerializer<Annot8ComponentDescriptor> {
   @Override
