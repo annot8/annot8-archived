@@ -4,10 +4,10 @@ open module io.annot8.implementations.reference {
   requires transitive io.annot8.common.utils;
   requires transitive io.annot8.common.data;
 
-  exports io.annot8.defaultimpl.annotations;
-  exports io.annot8.defaultimpl.content;
-  exports io.annot8.defaultimpl.data;
-  exports io.annot8.defaultimpl.factories;
-  exports io.annot8.defaultimpl.references;
-  exports io.annot8.defaultimpl.stores;
+  exports io.annot8.implementations.reference.annotations;
+  exports io.annot8.implementations.reference.content;
+  exports io.annot8.implementations.reference.data;
+  exports io.annot8.implementations.reference.factories;
+  exports io.annot8.implementations.reference.references;
+  exports io.annot8.implementations.reference.stores;
 }

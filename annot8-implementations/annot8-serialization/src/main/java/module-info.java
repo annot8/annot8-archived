@@ -4,5 +4,5 @@ module io.annot8.implementations.serialization {
   requires transitive java.json;
   requires transitive org.slf4j;
 
-  exports io.annot8.common.serialization;
+  exports io.annot8.implementations.serialization;
 }

@@ -12,7 +12,7 @@
 
   <artifactId>annot8-implementations-support</artifactId>
 
-  <name>Annot8 Common Implementations</name>
+  <name>Annot8 Implementation Support</name>
   <description>Common functionality used by Annot8 implementations</description>
 
   <dependencies>
