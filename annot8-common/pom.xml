@@ -14,27 +14,13 @@
   <packaging>pom</packaging>
 
   <name>Annot8 Common</name>
-  <description>Common functionality used by Annot8 implementations</description>
-  <version>0.4.0-SNAPSHOT</version>
+  <description>Common functionality used by Annot8 components</description>
 
-  <issueManagement>
-    <url>https://github.com/annot8/common/issues</url>
-    <system>GitHub Issues</system>
-  </issueManagement>
-
-  <scm>
-    <url>https://github.com/annot8/common/</url>
-    <connection>scm:git:git://github.com/annot8/common.git</connection>
-    <developerConnection>scm:git:git@github.com/annot8/common.git</developerConnection>
-  </scm>
 
   <modules>
-    <module>annot8-common-implementations</module>
     <module>annot8-common-data</module>
     <module>annot8-common-utils</module>
-    <module>annot8-common-pipelines</module>
-    <module>annot8-common-serialization</module>
-    <module>annot8-common-support</module>
+    <module>annot8-common-processors</module>
     <module>annot8-common-components</module>
   </modules>
 </project>

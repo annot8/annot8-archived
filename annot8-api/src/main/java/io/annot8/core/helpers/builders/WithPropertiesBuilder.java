@@ -6,7 +6,7 @@ import java.util.Optional;
 import io.annot8.core.properties.Properties;
 
 /**
- * Helper interface to indicate that a builder should support adding properties to an object
+ * Helper interface to indicate that a builder should processor adding properties to an object
  *
  * @param <A> The builder class
  */

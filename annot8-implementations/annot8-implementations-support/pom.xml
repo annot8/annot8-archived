@@ -6,14 +6,14 @@
 
   <parent>
     <groupId>io.annot8</groupId>
-    <artifactId>annot8-testing</artifactId>
+    <artifactId>annot8-implementations</artifactId>
     <version>0.4.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>annot8-test-impl</artifactId>
+  <artifactId>annot8-implementations-support</artifactId>
 
-  <name>Annot8 Test Implementation</name>
-  <description>Implementation of core classes useful for unit testing</description>
+  <name>Annot8 Common Implementations</name>
+  <description>Common functionality used by Annot8 implementations</description>
 
   <dependencies>
     <dependency>
@@ -22,23 +22,28 @@
     </dependency>
 
     <dependency>
-      <groupId>io.annot8</groupId>
-      <artifactId>annot8-implementations-support</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.annot8</groupId>
-      <artifactId>annot8-common-data</artifactId>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
     </dependency>
 
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-guava</artifactId>
+      <scope>test</scope>
+    </dependency>
     <dependency>
       <groupId>io.annot8</groupId>
       <artifactId>annot8-common-utils</artifactId>
     </dependency>
-
     <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
+      <groupId>io.annot8</groupId>
+      <artifactId>annot8-common-data</artifactId>
+      <scope>test</scope>
     </dependency>
   </dependencies>
-
 </project>

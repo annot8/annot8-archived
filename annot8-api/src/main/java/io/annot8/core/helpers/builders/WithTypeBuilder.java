@@ -2,7 +2,7 @@
 package io.annot8.core.helpers.builders;
 
 /**
- * Helper interface to indicate that a builder should support setting a type on an object
+ * Helper interface to indicate that a builder should processor setting a type on an object
  *
  * @param <A> The builder class
  */

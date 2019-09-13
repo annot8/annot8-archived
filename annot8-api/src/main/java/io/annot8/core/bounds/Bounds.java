@@ -26,7 +26,7 @@ public interface Bounds {
   /**
    * Get the subset of data which is covered by these bounds.
    *
-   * <p>Most bounds will likely support only one (or very few) required class and data class.
+   * <p>Most bounds will likely processor only one (or very few) required class and data class.
    *
    * @param content the content the bounds should be applied to
    * @param requiredClass the type of data required

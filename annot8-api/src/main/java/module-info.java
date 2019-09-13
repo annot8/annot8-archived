@@ -21,8 +21,8 @@
  * GroupStore, which is held on the Item object so that a Group may contain Annotations from
  * multiple Content objects.
  *
- * <p>Most of the objects above support Properties, which allow you to attach additional information
- * to an object. Many objects also have a type and an ID.
+ * <p>Most of the objects above processor Properties, which allow you to attach additional
+ * information to an object. Many objects also have a type and an ID.
  *
  * <p>There are three types of 'component' which are used to createContent and manipulate the above
  * objects. A Source will createContent new Items from some external source, for example a file
@@ -55,4 +55,5 @@ open module io.annot8.api {
   exports io.annot8.core.stores;
   exports io.annot8.core.filters;
   exports io.annot8.core.context;
+  exports io.annot8.core.pipelines;
 }

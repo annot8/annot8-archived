@@ -303,12 +303,12 @@
       </dependency>
       <dependency>
         <groupId>io.annot8</groupId>
-        <artifactId>annot8-common-implementations</artifactId>
+        <artifactId>annot8-implementations-support</artifactId>
         <version>${annot8.version}</version>
       </dependency>
       <dependency>
         <groupId>io.annot8</groupId>
-        <artifactId>annot8-default-impl</artifactId>
+        <artifactId>annot8-reference-implementation</artifactId>
         <version>${annot8.version}</version>
       </dependency>
       <dependency>
@@ -430,8 +430,8 @@
   <modules>
     <module>annot8-api</module>
     <module>annot8-common</module>
-    <module>annot8-default-impl</module>
     <module>annot8-testing</module>
+      <module>annot8-implementations</module>
   </modules>
 
   <profiles>

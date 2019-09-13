@@ -1,10 +1,10 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.data.properties;
 
-import io.annot8.core.properties.ImmutableProperties;
-
 import java.util.Collections;
 import java.util.Map;
+
+import io.annot8.core.properties.ImmutableProperties;
 
 /** Empty implementation of ImmutableProperties interface */
 public final class EmptyImmutableProperties implements ImmutableProperties {

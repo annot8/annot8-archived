@@ -5,7 +5,7 @@ package io.annot8.core.data;
  * Factory to createContent new items.
  *
  * <p>The implementation must always be able to createContent a new item, but it doesn't need to
- * support linking with child items. In which case createContent(Item parent) should call
+ * processor linking with child items. In which case createContent(Item parent) should call
  * createContent().
  */
 public interface ItemFactory {
