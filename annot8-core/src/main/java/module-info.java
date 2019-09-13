@@ -54,4 +54,5 @@ open module io.annot8.core {
   exports io.annot8.core.settings;
   exports io.annot8.core.stores;
   exports io.annot8.core.filters;
+  exports io.annot8.core.context;
 }

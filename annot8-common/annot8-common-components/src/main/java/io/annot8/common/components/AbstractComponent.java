@@ -4,9 +4,12 @@ package io.annot8.common.components;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import io.annot8.common.components.logging.Logging;
+import io.annot8.common.components.metering.Metering;
 import io.annot8.common.components.metering.Metrics;
 import io.annot8.common.components.metering.NoOpMetrics;
 import io.annot8.core.components.Annot8Component;
+import io.annot8.core.context.Context;
 import io.micrometer.core.lang.Nullable;
 
 public abstract class AbstractComponent implements Annot8Component {
@@ -14,6 +17,33 @@ public abstract class AbstractComponent implements Annot8Component {
   private Logger logger;
 
   private Metrics metrics;
+
+  /** Create component with default logging and metrics */
+  public AbstractComponent() {
+    this(null, null);
+  }
+
+  /**
+   * Create component with specific logging and metrics from context
+   *
+   * @param context the context
+   */
+  public AbstractComponent(Context context) {
+    this(
+        context.getResource(Logging.class).orElse(null),
+        context.getResource(Metering.class).orElse(null));
+  }
+
+  /**
+   * Create component with specific logging and metrics
+   *
+   * @param logging logging to use
+   * @param metering metering to use
+   */
+  public AbstractComponent(Logging logging, Metering metering) {
+    logger = logging.getLogger(this.getClass());
+    metrics = metering.getMetrics(this.getClass());
+  }
 
   /**
    * Get the (slf4j) logger for this component.
