@@ -6,11 +6,11 @@ import java.util.UUID;
 import java.util.function.Supplier;
 
 import io.annot8.common.implementations.properties.MapImmutableProperties;
-import io.annot8.core.data.Content;
-import io.annot8.core.data.Item;
-import io.annot8.core.exceptions.IncompleteException;
-import io.annot8.core.properties.ImmutableProperties;
-import io.annot8.core.properties.Properties;
+import io.annot8.api.data.Content;
+import io.annot8.api.data.Item;
+import io.annot8.api.exceptions.IncompleteException;
+import io.annot8.api.properties.ImmutableProperties;
+import io.annot8.api.properties.Properties;
 
 public abstract class AbstractContentBuilder<D, C extends Content<D>>
     implements Content.Builder<C, D> {

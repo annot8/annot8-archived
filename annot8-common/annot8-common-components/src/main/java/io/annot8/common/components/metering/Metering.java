@@ -3,8 +3,8 @@ package io.annot8.common.components.metering;
 
 import java.util.Objects;
 
-import io.annot8.core.components.Annot8Component;
-import io.annot8.core.components.Resource;
+import io.annot8.api.components.Annot8Component;
+import io.annot8.api.components.Resource;
 
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.simple.SimpleMeterRegistry;

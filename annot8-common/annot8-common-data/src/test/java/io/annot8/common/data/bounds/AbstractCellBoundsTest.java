@@ -13,7 +13,7 @@ import org.mockito.Mockito;
 import io.annot8.common.data.content.FileContent;
 import io.annot8.common.data.content.Table;
 import io.annot8.common.data.content.TableContent;
-import io.annot8.core.data.Content;
+import io.annot8.api.data.Content;
 
 public class AbstractCellBoundsTest {
 

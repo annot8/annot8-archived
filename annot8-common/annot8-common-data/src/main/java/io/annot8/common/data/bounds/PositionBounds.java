@@ -8,9 +8,9 @@ import java.util.Optional;
 import javax.json.bind.annotation.JsonbCreator;
 import javax.json.bind.annotation.JsonbProperty;
 
-import io.annot8.core.bounds.Bounds;
-import io.annot8.core.data.Content;
-import io.annot8.core.exceptions.InvalidBoundsException;
+import io.annot8.api.bounds.Bounds;
+import io.annot8.api.data.Content;
+import io.annot8.api.exceptions.InvalidBoundsException;
 
 /**
  * A position marker within a content.

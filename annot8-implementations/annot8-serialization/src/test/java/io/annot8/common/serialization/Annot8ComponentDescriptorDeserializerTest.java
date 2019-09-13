@@ -9,7 +9,7 @@ import javax.json.bind.JsonbConfig;
 
 import org.junit.jupiter.api.Test;
 
-import io.annot8.core.components.Annot8ComponentDescriptor;
+import io.annot8.api.components.Annot8ComponentDescriptor;
 
 public class Annot8ComponentDescriptorDeserializerTest {
   private static final TestDescriptor descriptor = new TestDescriptor("Test", "localhost", 8080);

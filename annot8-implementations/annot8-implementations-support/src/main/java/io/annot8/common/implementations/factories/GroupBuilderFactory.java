@@ -1,9 +1,9 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.implementations.factories;
 
-import io.annot8.core.annotations.Group;
-import io.annot8.core.data.Item;
-import io.annot8.core.stores.GroupStore;
+import io.annot8.api.annotations.Group;
+import io.annot8.api.data.Item;
+import io.annot8.api.stores.GroupStore;
 
 /**
  * Factory to createContent an group builder.

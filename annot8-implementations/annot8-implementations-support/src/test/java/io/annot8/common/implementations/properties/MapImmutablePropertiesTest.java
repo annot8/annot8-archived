@@ -7,8 +7,8 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
-import io.annot8.core.exceptions.IncompleteException;
-import io.annot8.core.properties.ImmutableProperties;
+import io.annot8.api.exceptions.IncompleteException;
+import io.annot8.api.properties.ImmutableProperties;
 
 public class MapImmutablePropertiesTest {
 

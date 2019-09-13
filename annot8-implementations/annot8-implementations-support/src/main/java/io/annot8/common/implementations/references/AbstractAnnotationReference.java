@@ -3,7 +3,7 @@ package io.annot8.common.implementations.references;
 
 import java.util.Objects;
 
-import io.annot8.core.references.AnnotationReference;
+import io.annot8.api.references.AnnotationReference;
 
 /**
  * Abstract implementation of AnnotationReference, providing correct implementations of equals,

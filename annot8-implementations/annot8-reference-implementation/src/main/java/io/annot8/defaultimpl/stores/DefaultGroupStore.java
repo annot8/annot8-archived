@@ -7,9 +7,9 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import io.annot8.common.implementations.delegates.DelegateGroupBuilder;
-import io.annot8.core.annotations.Group;
-import io.annot8.core.data.Item;
-import io.annot8.core.stores.GroupStore;
+import io.annot8.api.annotations.Group;
+import io.annot8.api.data.Item;
+import io.annot8.api.stores.GroupStore;
 import io.annot8.defaultimpl.annotations.DefaultGroup;
 
 /** In memory implementation, backed by a HashMap, of GroupStore */

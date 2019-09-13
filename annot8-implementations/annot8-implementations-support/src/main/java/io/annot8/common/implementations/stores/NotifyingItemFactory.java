@@ -6,8 +6,8 @@ import java.util.function.Consumer;
 import io.annot8.common.implementations.listeners.Deregister;
 import io.annot8.common.implementations.listeners.Listenable;
 import io.annot8.common.implementations.listeners.Listeners;
-import io.annot8.core.data.Item;
-import io.annot8.core.data.ItemFactory;
+import io.annot8.api.data.Item;
+import io.annot8.api.data.ItemFactory;
 
 public class NotifyingItemFactory implements ItemFactory, Listenable<Consumer<Item>> {
 

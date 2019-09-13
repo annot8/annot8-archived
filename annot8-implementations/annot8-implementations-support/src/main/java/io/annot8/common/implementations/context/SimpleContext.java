@@ -6,8 +6,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.stream.Stream;
 
-import io.annot8.core.components.Resource;
-import io.annot8.core.context.Context;
+import io.annot8.api.components.Resource;
+import io.annot8.api.context.Context;
 
 public class SimpleContext implements Context {
 

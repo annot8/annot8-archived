@@ -4,9 +4,9 @@ package io.annot8.common.implementations.delegates;
 import java.util.Optional;
 import java.util.function.Supplier;
 
-import io.annot8.core.data.Content;
-import io.annot8.core.data.Content.Builder;
-import io.annot8.core.properties.Properties;
+import io.annot8.api.data.Content;
+import io.annot8.api.data.Content.Builder;
+import io.annot8.api.properties.Properties;
 
 public class DelegateContentBuilder<C extends Content<D>, D> implements Builder<C, D> {
 

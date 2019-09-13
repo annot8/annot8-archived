@@ -4,7 +4,7 @@ package io.annot8.common.serialization;
 import javax.json.bind.annotation.JsonbCreator;
 import javax.json.bind.annotation.JsonbProperty;
 
-import io.annot8.core.settings.Settings;
+import io.annot8.api.settings.Settings;
 
 public class TestSettings implements Settings {
   private final String host;

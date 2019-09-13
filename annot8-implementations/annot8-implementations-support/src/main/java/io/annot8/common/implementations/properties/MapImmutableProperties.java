@@ -7,8 +7,8 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import io.annot8.core.properties.ImmutableProperties;
-import io.annot8.core.properties.Properties;
+import io.annot8.api.properties.ImmutableProperties;
+import io.annot8.api.properties.Properties;
 
 /**
  * Implementation of ImmutableProperties interface using an in-memory HashMap to store the
@@ -95,7 +95,7 @@ public class MapImmutableProperties implements ImmutableProperties {
     }
 
     @Override
-    public io.annot8.core.properties.ImmutableProperties.Builder withProperties(
+    public io.annot8.api.properties.ImmutableProperties.Builder withProperties(
         Properties properties) {
       properties.getAll().forEach(this.properties::put);
       return this;

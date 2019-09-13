@@ -12,7 +12,7 @@ import javax.json.stream.JsonParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.annot8.core.components.Annot8ComponentDescriptor;
+import io.annot8.api.components.Annot8ComponentDescriptor;
 
 public class Annot8ComponentDescriptorDeserializer
     implements JsonbDeserializer<Annot8ComponentDescriptor> {

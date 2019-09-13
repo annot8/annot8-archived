@@ -2,7 +2,7 @@
 package io.annot8.common.implementations.content;
 
 import io.annot8.common.implementations.factories.ContentBuilderFactory;
-import io.annot8.core.data.Content;
+import io.annot8.api.data.Content;
 
 public abstract class AbstractContentBuilderFactory<D, C extends Content<D>>
     implements ContentBuilderFactory<D, C> {

@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import io.annot8.common.data.content.Text;
-import io.annot8.core.capabilities.ContentCapability;
+import io.annot8.api.capabilities.ContentCapability;
 
 public class SimpleContentCapabilityTest {
   @Test

@@ -12,9 +12,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import io.annot8.common.data.properties.EmptyImmutableProperties;
-import io.annot8.core.annotations.Annotation;
-import io.annot8.core.annotations.Group;
-import io.annot8.core.exceptions.IncompleteException;
+import io.annot8.api.annotations.Annotation;
+import io.annot8.api.annotations.Group;
+import io.annot8.api.exceptions.IncompleteException;
 import io.annot8.defaultimpl.annotations.DefaultGroup.Builder;
 import io.annot8.testing.tck.impl.WithIdBuilderTestUtils;
 import io.annot8.testing.tck.impl.WithPropertiesBuilderTestUtils;

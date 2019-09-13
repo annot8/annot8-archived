@@ -10,7 +10,7 @@ import javax.json.bind.annotation.JsonbProperty;
 
 import io.annot8.common.data.content.Row;
 import io.annot8.common.data.content.TableContent;
-import io.annot8.core.data.Content;
+import io.annot8.api.data.Content;
 
 /**
  * Bounds to represent multiple cells within a table row

@@ -10,11 +10,11 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import io.annot8.core.annotations.Annotation;
-import io.annot8.core.annotations.Annotation.Builder;
-import io.annot8.core.data.Content;
-import io.annot8.core.exceptions.IncompleteException;
-import io.annot8.core.stores.AnnotationStore;
+import io.annot8.api.annotations.Annotation;
+import io.annot8.api.annotations.Annotation.Builder;
+import io.annot8.api.data.Content;
+import io.annot8.api.exceptions.IncompleteException;
+import io.annot8.api.stores.AnnotationStore;
 import io.annot8.testing.testimpl.TestBounds;
 import io.annot8.testing.testimpl.TestItem;
 import io.annot8.testing.testimpl.TestProperties;

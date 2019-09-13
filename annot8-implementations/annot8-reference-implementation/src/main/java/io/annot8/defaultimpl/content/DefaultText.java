@@ -7,9 +7,9 @@ import io.annot8.common.data.content.Text;
 import io.annot8.common.implementations.content.AbstractContent;
 import io.annot8.common.implementations.content.AbstractContentBuilder;
 import io.annot8.common.implementations.content.AbstractContentBuilderFactory;
-import io.annot8.core.data.Content;
-import io.annot8.core.data.Item;
-import io.annot8.core.properties.ImmutableProperties;
+import io.annot8.api.data.Content;
+import io.annot8.api.data.Item;
+import io.annot8.api.properties.ImmutableProperties;
 import io.annot8.defaultimpl.stores.DefaultAnnotationStore;
 
 public class DefaultText extends AbstractContent<String> implements Text {

@@ -8,8 +8,8 @@ import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 
-import io.annot8.core.annotations.Annotation;
-import io.annot8.core.references.AnnotationReference;
+import io.annot8.api.annotations.Annotation;
+import io.annot8.api.references.AnnotationReference;
 
 public class AbstractAnnotationReferenceTest {
 

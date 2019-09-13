@@ -13,14 +13,14 @@ import io.annot8.common.data.properties.EmptyImmutableProperties;
 import io.annot8.common.implementations.annotations.AbstractGroup;
 import io.annot8.common.implementations.properties.MapImmutableProperties;
 import io.annot8.common.implementations.properties.MapMutableProperties;
-import io.annot8.core.annotations.Annotation;
-import io.annot8.core.annotations.Group;
-import io.annot8.core.data.Item;
-import io.annot8.core.exceptions.IncompleteException;
-import io.annot8.core.properties.ImmutableProperties;
-import io.annot8.core.properties.MutableProperties;
-import io.annot8.core.properties.Properties;
-import io.annot8.core.references.AnnotationReference;
+import io.annot8.api.annotations.Annotation;
+import io.annot8.api.annotations.Group;
+import io.annot8.api.data.Item;
+import io.annot8.api.exceptions.IncompleteException;
+import io.annot8.api.properties.ImmutableProperties;
+import io.annot8.api.properties.MutableProperties;
+import io.annot8.api.properties.Properties;
+import io.annot8.api.references.AnnotationReference;
 import io.annot8.defaultimpl.references.DefaultAnnotationReference;
 
 /** Simple implementation of Group interface */
@@ -108,19 +108,19 @@ public class DefaultGroup extends AbstractGroup {
     }
 
     @Override
-    public io.annot8.core.annotations.Group.Builder withId(String id) {
+    public io.annot8.api.annotations.Group.Builder withId(String id) {
       this.id = id;
       return this;
     }
 
     @Override
-    public io.annot8.core.annotations.Group.Builder withType(String type) {
+    public io.annot8.api.annotations.Group.Builder withType(String type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public io.annot8.core.annotations.Group.Builder withProperty(String key, Object value) {
+    public io.annot8.api.annotations.Group.Builder withProperty(String key, Object value) {
       properties.set(key, value);
       return this;
     }
@@ -148,19 +148,19 @@ public class DefaultGroup extends AbstractGroup {
     }
 
     @Override
-    public io.annot8.core.annotations.Group.Builder withProperties(Properties properties) {
+    public io.annot8.api.annotations.Group.Builder withProperties(Properties properties) {
       this.properties = new MapMutableProperties(properties);
       return this;
     }
 
     @Override
-    public io.annot8.core.annotations.Group.Builder newId() {
+    public io.annot8.api.annotations.Group.Builder newId() {
       this.id = null;
       return this;
     }
 
     @Override
-    public io.annot8.core.annotations.Group.Builder from(Group from) {
+    public io.annot8.api.annotations.Group.Builder from(Group from) {
       this.id = from.getId();
       this.type = from.getType();
       this.properties = new MapMutableProperties(from.getProperties());
@@ -202,7 +202,7 @@ public class DefaultGroup extends AbstractGroup {
     }
 
     @Override
-    public io.annot8.core.annotations.Group.Builder withAnnotation(
+    public io.annot8.api.annotations.Group.Builder withAnnotation(
         String role, Annotation annotation) {
       annotations.put(annotation, role);
 

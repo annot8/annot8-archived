@@ -7,8 +7,8 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import io.annot8.core.properties.MutableProperties;
-import io.annot8.core.properties.Properties;
+import io.annot8.api.properties.MutableProperties;
+import io.annot8.api.properties.Properties;
 
 /**
  * Implementation of MutableProperties interface using an in-memory HashMap to store the properties.

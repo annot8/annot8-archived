@@ -11,8 +11,8 @@ import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
 
-import io.annot8.core.data.Item;
-import io.annot8.core.exceptions.Annot8RuntimeException;
+import io.annot8.api.data.Item;
+import io.annot8.api.exceptions.Annot8RuntimeException;
 import io.annot8.defaultimpl.content.DefaultInputStream.Builder;
 import io.annot8.defaultimpl.content.DefaultInputStream.BuilderFactory;
 import io.annot8.testing.testimpl.TestConstants;

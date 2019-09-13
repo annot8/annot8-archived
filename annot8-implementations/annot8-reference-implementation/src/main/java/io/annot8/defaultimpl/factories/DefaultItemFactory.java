@@ -4,8 +4,8 @@ package io.annot8.defaultimpl.factories;
 import java.util.Objects;
 
 import io.annot8.common.implementations.registries.ContentBuilderFactoryRegistry;
-import io.annot8.core.data.Item;
-import io.annot8.core.data.ItemFactory;
+import io.annot8.api.data.Item;
+import io.annot8.api.data.ItemFactory;
 import io.annot8.defaultimpl.data.DefaultItem;
 
 public class DefaultItemFactory implements ItemFactory {

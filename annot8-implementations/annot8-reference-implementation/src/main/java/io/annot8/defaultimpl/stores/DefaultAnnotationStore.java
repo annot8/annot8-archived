@@ -7,9 +7,9 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import io.annot8.common.implementations.delegates.DelegateAnnotationBuilder;
-import io.annot8.core.annotations.Annotation;
-import io.annot8.core.data.Content;
-import io.annot8.core.stores.AnnotationStore;
+import io.annot8.api.annotations.Annotation;
+import io.annot8.api.data.Content;
+import io.annot8.api.stores.AnnotationStore;
 import io.annot8.defaultimpl.annotations.DefaultAnnotation;
 
 /** In memory implementation, backed by a HashMap, of AnnotationStore */

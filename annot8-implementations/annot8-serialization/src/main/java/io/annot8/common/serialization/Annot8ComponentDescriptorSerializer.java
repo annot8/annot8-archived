@@ -5,7 +5,7 @@ import javax.json.bind.serializer.JsonbSerializer;
 import javax.json.bind.serializer.SerializationContext;
 import javax.json.stream.JsonGenerator;
 
-import io.annot8.core.components.Annot8ComponentDescriptor;
+import io.annot8.api.components.Annot8ComponentDescriptor;
 
 public class Annot8ComponentDescriptorSerializer
     implements JsonbSerializer<Annot8ComponentDescriptor> {

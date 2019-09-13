@@ -9,10 +9,10 @@ import java.util.Optional;
 import org.junit.jupiter.api.Test;
 
 import io.annot8.common.data.content.Text;
-import io.annot8.core.data.Content;
-import io.annot8.core.data.Item;
-import io.annot8.core.exceptions.IncompleteException;
-import io.annot8.core.exceptions.UnsupportedContentException;
+import io.annot8.api.data.Content;
+import io.annot8.api.data.Item;
+import io.annot8.api.exceptions.IncompleteException;
+import io.annot8.api.exceptions.UnsupportedContentException;
 import io.annot8.testing.testimpl.TestConstants;
 
 /**

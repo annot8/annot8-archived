@@ -9,8 +9,8 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
-import io.annot8.core.bounds.Bounds;
-import io.annot8.core.properties.ImmutableProperties;
+import io.annot8.api.bounds.Bounds;
+import io.annot8.api.properties.ImmutableProperties;
 
 public class AbstractAnnotationTest {
 

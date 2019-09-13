@@ -3,10 +3,10 @@ package io.annot8.testing.tck.impl;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import io.annot8.core.exceptions.IncompleteException;
-import io.annot8.core.helpers.WithProperties;
-import io.annot8.core.helpers.builders.WithPropertiesBuilder;
-import io.annot8.core.helpers.builders.WithSave;
+import io.annot8.api.exceptions.IncompleteException;
+import io.annot8.api.helpers.WithProperties;
+import io.annot8.api.helpers.builders.WithPropertiesBuilder;
+import io.annot8.api.helpers.builders.WithSave;
 import io.annot8.testing.testimpl.TestConstants;
 import io.annot8.testing.testimpl.TestProperties;
 

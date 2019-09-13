@@ -8,8 +8,8 @@ import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 
-import io.annot8.core.annotations.Group;
-import io.annot8.core.references.GroupReference;
+import io.annot8.api.annotations.Group;
+import io.annot8.api.references.GroupReference;
 
 public class AbstractGroupReferenceTest {
 

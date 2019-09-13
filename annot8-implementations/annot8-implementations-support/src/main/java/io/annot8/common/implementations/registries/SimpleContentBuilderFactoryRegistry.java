@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import io.annot8.common.implementations.factories.ContentBuilderFactory;
-import io.annot8.core.data.Content;
+import io.annot8.api.data.Content;
 
 public class SimpleContentBuilderFactoryRegistry implements ContentBuilderFactoryRegistry {
 

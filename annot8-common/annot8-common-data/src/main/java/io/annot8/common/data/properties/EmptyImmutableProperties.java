@@ -4,7 +4,7 @@ package io.annot8.common.data.properties;
 import java.util.Collections;
 import java.util.Map;
 
-import io.annot8.core.properties.ImmutableProperties;
+import io.annot8.api.properties.ImmutableProperties;
 
 /** Empty implementation of ImmutableProperties interface */
 public final class EmptyImmutableProperties implements ImmutableProperties {

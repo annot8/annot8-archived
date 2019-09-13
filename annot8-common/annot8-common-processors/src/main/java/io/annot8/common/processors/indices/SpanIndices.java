@@ -14,7 +14,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 
 import io.annot8.common.data.bounds.SpanBounds;
-import io.annot8.core.annotations.Annotation;
+import io.annot8.api.annotations.Annotation;
 
 public class SpanIndices {
 

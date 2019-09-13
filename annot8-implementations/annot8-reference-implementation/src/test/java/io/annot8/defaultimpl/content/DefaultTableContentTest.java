@@ -11,8 +11,8 @@ import org.mockito.Mockito;
 
 import io.annot8.common.data.content.Table;
 import io.annot8.common.data.content.TableContent;
-import io.annot8.core.data.Content.Builder;
-import io.annot8.core.exceptions.IncompleteException;
+import io.annot8.api.data.Content.Builder;
+import io.annot8.api.exceptions.IncompleteException;
 import io.annot8.defaultimpl.content.DefaultTableContent.BuilderFactory;
 import io.annot8.testing.testimpl.TestItem;
 

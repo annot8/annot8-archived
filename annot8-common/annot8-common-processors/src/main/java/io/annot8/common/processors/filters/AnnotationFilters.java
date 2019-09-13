@@ -3,11 +3,11 @@ package io.annot8.common.processors.filters;
 
 import java.util.Optional;
 
-import io.annot8.core.annotations.Annotation;
-import io.annot8.core.bounds.Bounds;
-import io.annot8.core.filters.AndFilter;
-import io.annot8.core.filters.Filter;
-import io.annot8.core.filters.NotFilter;
+import io.annot8.api.annotations.Annotation;
+import io.annot8.api.bounds.Bounds;
+import io.annot8.api.filters.AndFilter;
+import io.annot8.api.filters.Filter;
+import io.annot8.api.filters.NotFilter;
 
 public class AnnotationFilters {
 

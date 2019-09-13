@@ -4,7 +4,7 @@ package io.annot8.common.implementations.registries;
 import java.util.Optional;
 
 import io.annot8.common.implementations.factories.ContentBuilderFactory;
-import io.annot8.core.data.Content;
+import io.annot8.api.data.Content;
 
 /** A registry of content builder factories. */
 public interface ContentBuilderFactoryRegistry {

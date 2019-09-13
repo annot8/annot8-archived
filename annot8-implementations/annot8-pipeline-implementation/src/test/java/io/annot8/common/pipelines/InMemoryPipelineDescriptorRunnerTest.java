@@ -8,16 +8,16 @@ import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 import org.mockito.stubbing.Answer;
 
-import io.annot8.core.components.Processor;
-import io.annot8.core.components.ProcessorDescriptor;
-import io.annot8.core.components.Source;
-import io.annot8.core.components.SourceDescriptor;
-import io.annot8.core.components.responses.ProcessorResponse;
-import io.annot8.core.components.responses.SourceResponse;
-import io.annot8.core.context.Context;
-import io.annot8.core.data.Item;
-import io.annot8.core.data.ItemFactory;
-import io.annot8.core.pipelines.PipelineDescriptor;
+import io.annot8.api.components.Processor;
+import io.annot8.api.components.ProcessorDescriptor;
+import io.annot8.api.components.Source;
+import io.annot8.api.components.SourceDescriptor;
+import io.annot8.api.components.responses.ProcessorResponse;
+import io.annot8.api.components.responses.SourceResponse;
+import io.annot8.api.context.Context;
+import io.annot8.api.data.Item;
+import io.annot8.api.data.ItemFactory;
+import io.annot8.api.pipelines.PipelineDescriptor;
 
 public class InMemoryPipelineDescriptorRunnerTest {
 

@@ -3,12 +3,12 @@ package io.annot8.common.serialization;
 
 import java.util.stream.Stream;
 
-import io.annot8.core.bounds.Bounds;
-import io.annot8.core.capabilities.AnnotationCapability;
-import io.annot8.core.capabilities.Capabilities;
-import io.annot8.core.capabilities.Capability;
-import io.annot8.core.components.ProcessorDescriptor;
-import io.annot8.core.context.Context;
+import io.annot8.api.bounds.Bounds;
+import io.annot8.api.capabilities.AnnotationCapability;
+import io.annot8.api.capabilities.Capabilities;
+import io.annot8.api.capabilities.Capability;
+import io.annot8.api.components.ProcessorDescriptor;
+import io.annot8.api.context.Context;
 
 public class TestDescriptor implements ProcessorDescriptor<TestProcessor, TestSettings> {
 

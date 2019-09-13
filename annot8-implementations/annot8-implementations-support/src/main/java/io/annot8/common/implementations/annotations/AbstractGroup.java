@@ -5,9 +5,9 @@ import java.util.Iterator;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-import io.annot8.core.annotations.Group;
-import io.annot8.core.properties.Properties;
-import io.annot8.core.references.AnnotationReference;
+import io.annot8.api.annotations.Group;
+import io.annot8.api.properties.Properties;
+import io.annot8.api.references.AnnotationReference;
 
 /**
  * Abstract implementation of Group, providing correct implementations of equals, hashCode and

@@ -1,5 +1,5 @@
 /**
- * This module contains the core interfaces for use within Annot8. It does not contain any
+ * This module contains the api interfaces for use within Annot8. It does not contain any
  * implementations of the interfaces described.
  *
  * <p>The basic premise of how Annot8 works is as follows:
@@ -39,21 +39,21 @@
  * users free to combine the components in any manner they wish.
  */
 open module io.annot8.api {
-  exports io.annot8.core.annotations;
-  exports io.annot8.core.bounds;
-  exports io.annot8.core.capabilities;
-  exports io.annot8.core.components;
-  exports io.annot8.core.components.annotations;
-  exports io.annot8.core.components.responses;
-  exports io.annot8.core.data;
-  exports io.annot8.core.exceptions;
-  exports io.annot8.core.helpers;
-  exports io.annot8.core.helpers.builders;
-  exports io.annot8.core.properties;
-  exports io.annot8.core.references;
-  exports io.annot8.core.settings;
-  exports io.annot8.core.stores;
-  exports io.annot8.core.filters;
-  exports io.annot8.core.context;
-  exports io.annot8.core.pipelines;
+  exports io.annot8.api.annotations;
+  exports io.annot8.api.bounds;
+  exports io.annot8.api.capabilities;
+  exports io.annot8.api.components;
+  exports io.annot8.api.components.annotations;
+  exports io.annot8.api.components.responses;
+  exports io.annot8.api.data;
+  exports io.annot8.api.exceptions;
+  exports io.annot8.api.helpers;
+  exports io.annot8.api.helpers.builders;
+  exports io.annot8.api.properties;
+  exports io.annot8.api.references;
+  exports io.annot8.api.settings;
+  exports io.annot8.api.stores;
+  exports io.annot8.api.filters;
+  exports io.annot8.api.context;
+  exports io.annot8.api.pipelines;
 }

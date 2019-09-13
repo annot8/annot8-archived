@@ -3,7 +3,7 @@ package io.annot8.common.data.content;
 
 import java.io.File;
 
-import io.annot8.core.data.Content;
+import io.annot8.api.data.Content;
 
 /**
  * Content which is backed by a file.

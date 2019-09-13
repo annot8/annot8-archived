@@ -10,7 +10,7 @@ import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 
-import io.annot8.core.properties.MutableProperties;
+import io.annot8.api.properties.MutableProperties;
 
 public class MapMutablePropertiesTest {
 

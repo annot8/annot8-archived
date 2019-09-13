@@ -8,12 +8,12 @@ import io.annot8.common.data.properties.EmptyImmutableProperties;
 import io.annot8.common.implementations.annotations.AbstractAnnotation;
 import io.annot8.common.implementations.properties.MapImmutableProperties;
 import io.annot8.common.implementations.properties.MapMutableProperties;
-import io.annot8.core.annotations.Annotation;
-import io.annot8.core.bounds.Bounds;
-import io.annot8.core.exceptions.IncompleteException;
-import io.annot8.core.properties.ImmutableProperties;
-import io.annot8.core.properties.MutableProperties;
-import io.annot8.core.properties.Properties;
+import io.annot8.api.annotations.Annotation;
+import io.annot8.api.bounds.Bounds;
+import io.annot8.api.exceptions.IncompleteException;
+import io.annot8.api.properties.ImmutableProperties;
+import io.annot8.api.properties.MutableProperties;
+import io.annot8.api.properties.Properties;
 
 /** Simple implementation of Annotation interface */
 public class DefaultAnnotation extends AbstractAnnotation {
@@ -85,13 +85,13 @@ public class DefaultAnnotation extends AbstractAnnotation {
     }
 
     @Override
-    public io.annot8.core.annotations.Annotation.Builder withType(String type) {
+    public io.annot8.api.annotations.Annotation.Builder withType(String type) {
       this.type = type;
       return this;
     }
 
     @Override
-    public io.annot8.core.annotations.Annotation.Builder withProperty(String key, Object value) {
+    public io.annot8.api.annotations.Annotation.Builder withProperty(String key, Object value) {
       properties.set(key, value);
       return this;
     }
@@ -119,19 +119,19 @@ public class DefaultAnnotation extends AbstractAnnotation {
     }
 
     @Override
-    public io.annot8.core.annotations.Annotation.Builder withProperties(Properties properties) {
+    public io.annot8.api.annotations.Annotation.Builder withProperties(Properties properties) {
       this.properties = new MapMutableProperties(properties);
       return this;
     }
 
     @Override
-    public io.annot8.core.annotations.Annotation.Builder newId() {
+    public io.annot8.api.annotations.Annotation.Builder newId() {
       this.id = null;
       return this;
     }
 
     @Override
-    public io.annot8.core.annotations.Annotation.Builder from(Annotation from) {
+    public io.annot8.api.annotations.Annotation.Builder from(Annotation from) {
       this.id = from.getId();
       this.type = from.getType();
       this.properties = new MapMutableProperties(from.getProperties());
@@ -169,7 +169,7 @@ public class DefaultAnnotation extends AbstractAnnotation {
     }
 
     @Override
-    public io.annot8.core.annotations.Annotation.Builder withBounds(Bounds bounds) {
+    public io.annot8.api.annotations.Annotation.Builder withBounds(Bounds bounds) {
       this.bounds = bounds;
       return this;
     }

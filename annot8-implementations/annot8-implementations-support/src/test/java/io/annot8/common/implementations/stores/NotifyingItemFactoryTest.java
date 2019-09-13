@@ -17,8 +17,8 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import io.annot8.common.implementations.listeners.Deregister;
-import io.annot8.core.data.Item;
-import io.annot8.core.data.ItemFactory;
+import io.annot8.api.data.Item;
+import io.annot8.api.data.ItemFactory;
 
 @ExtendWith(MockitoExtension.class)
 class NotifyingItemFactoryTest {

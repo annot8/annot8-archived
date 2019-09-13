@@ -4,12 +4,12 @@ package io.annot8.common.implementations.delegates;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-import io.annot8.core.data.Content;
-import io.annot8.core.data.Content.Builder;
-import io.annot8.core.data.Item;
-import io.annot8.core.filters.Filter;
-import io.annot8.core.properties.MutableProperties;
-import io.annot8.core.stores.GroupStore;
+import io.annot8.api.data.Content;
+import io.annot8.api.data.Content.Builder;
+import io.annot8.api.data.Item;
+import io.annot8.api.filters.Filter;
+import io.annot8.api.properties.MutableProperties;
+import io.annot8.api.stores.GroupStore;
 
 public class DelegateItem implements Item {
 

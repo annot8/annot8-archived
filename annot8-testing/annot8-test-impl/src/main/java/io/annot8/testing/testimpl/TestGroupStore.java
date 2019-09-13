@@ -8,10 +8,10 @@ import java.util.stream.Stream;
 
 import io.annot8.common.implementations.delegates.DelegateGroupBuilder;
 import io.annot8.common.implementations.factories.GroupBuilderFactory;
-import io.annot8.core.annotations.Group;
-import io.annot8.core.annotations.Group.Builder;
-import io.annot8.core.data.Item;
-import io.annot8.core.stores.GroupStore;
+import io.annot8.api.annotations.Group;
+import io.annot8.api.annotations.Group.Builder;
+import io.annot8.api.data.Item;
+import io.annot8.api.stores.GroupStore;
 
 public class TestGroupStore implements GroupStore {
 

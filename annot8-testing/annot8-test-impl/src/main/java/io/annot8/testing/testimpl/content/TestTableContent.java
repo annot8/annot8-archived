@@ -8,9 +8,9 @@ import io.annot8.common.data.content.TableContent;
 import io.annot8.common.implementations.content.AbstractContentBuilder;
 import io.annot8.common.implementations.content.AbstractContentBuilderFactory;
 import io.annot8.common.implementations.stores.AnnotationStoreFactory;
-import io.annot8.core.data.Content;
-import io.annot8.core.data.Item;
-import io.annot8.core.properties.ImmutableProperties;
+import io.annot8.api.data.Content;
+import io.annot8.api.data.Item;
+import io.annot8.api.properties.ImmutableProperties;
 import io.annot8.testing.testimpl.AbstractTestContent;
 
 public class TestTableContent extends AbstractTestContent<Table> implements TableContent {

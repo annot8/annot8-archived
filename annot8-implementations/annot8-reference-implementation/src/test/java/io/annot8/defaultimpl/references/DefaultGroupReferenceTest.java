@@ -10,9 +10,9 @@ import java.util.Optional;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import io.annot8.core.annotations.Group;
-import io.annot8.core.data.Item;
-import io.annot8.core.stores.GroupStore;
+import io.annot8.api.annotations.Group;
+import io.annot8.api.data.Item;
+import io.annot8.api.stores.GroupStore;
 
 class DefaultGroupReferenceTest {
 

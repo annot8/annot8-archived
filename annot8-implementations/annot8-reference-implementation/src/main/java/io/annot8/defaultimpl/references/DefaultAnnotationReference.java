@@ -4,9 +4,9 @@ package io.annot8.defaultimpl.references;
 import java.util.Optional;
 
 import io.annot8.common.implementations.references.AbstractAnnotationReference;
-import io.annot8.core.annotations.Annotation;
-import io.annot8.core.data.Content;
-import io.annot8.core.data.Item;
+import io.annot8.api.annotations.Annotation;
+import io.annot8.api.data.Content;
+import io.annot8.api.data.Item;
 
 /**
  * A reference which will always retrieve the latest annotation from the appropriate annotation

@@ -3,7 +3,7 @@ package io.annot8.common.implementations.references;
 
 import java.util.Objects;
 
-import io.annot8.core.references.GroupReference;
+import io.annot8.api.references.GroupReference;
 
 /**
  * Abstract implementation of GroupReference, providing correct implementations of equals, hashCode

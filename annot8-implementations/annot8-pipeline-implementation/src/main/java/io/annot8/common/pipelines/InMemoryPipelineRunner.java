@@ -12,15 +12,15 @@ import io.annot8.common.components.logging.Logging;
 import io.annot8.common.components.metering.Metering;
 import io.annot8.common.implementations.context.SimpleContext;
 import io.annot8.common.implementations.stores.NotifyingItemFactory;
-import io.annot8.core.components.Annot8Component;
-import io.annot8.core.components.Annot8ComponentDescriptor;
-import io.annot8.core.components.Processor;
-import io.annot8.core.components.Source;
-import io.annot8.core.components.responses.ProcessorResponse;
-import io.annot8.core.components.responses.SourceResponse;
-import io.annot8.core.data.Item;
-import io.annot8.core.data.ItemFactory;
-import io.annot8.core.pipelines.PipelineDescriptor;
+import io.annot8.api.components.Annot8Component;
+import io.annot8.api.components.Annot8ComponentDescriptor;
+import io.annot8.api.components.Processor;
+import io.annot8.api.components.Source;
+import io.annot8.api.components.responses.ProcessorResponse;
+import io.annot8.api.components.responses.SourceResponse;
+import io.annot8.api.data.Item;
+import io.annot8.api.data.ItemFactory;
+import io.annot8.api.pipelines.PipelineDescriptor;
 
 public class InMemoryPipelineRunner implements Runnable {
 

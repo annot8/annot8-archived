@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import io.annot8.core.components.Annot8Component;
+import io.annot8.api.components.Annot8Component;
 
 public class Annot8ComponentRegistryTest {
 

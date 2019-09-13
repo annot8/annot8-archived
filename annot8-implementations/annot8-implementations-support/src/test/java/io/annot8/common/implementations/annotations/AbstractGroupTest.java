@@ -14,10 +14,10 @@ import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Test;
 
-import io.annot8.core.annotations.Annotation;
-import io.annot8.core.annotations.Group;
-import io.annot8.core.properties.ImmutableProperties;
-import io.annot8.core.references.AnnotationReference;
+import io.annot8.api.annotations.Annotation;
+import io.annot8.api.annotations.Group;
+import io.annot8.api.properties.ImmutableProperties;
+import io.annot8.api.references.AnnotationReference;
 
 public class AbstractGroupTest {
 

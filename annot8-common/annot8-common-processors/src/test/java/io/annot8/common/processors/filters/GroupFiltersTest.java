@@ -8,9 +8,9 @@ import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import io.annot8.core.annotations.Group;
-import io.annot8.core.filters.Filter;
-import io.annot8.core.stores.GroupStore;
+import io.annot8.api.annotations.Group;
+import io.annot8.api.filters.Filter;
+import io.annot8.api.stores.GroupStore;
 import io.annot8.testing.testimpl.TestAnnotation;
 import io.annot8.testing.testimpl.TestGroupStore;
 import io.annot8.testing.testimpl.TestItem;

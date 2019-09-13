@@ -9,10 +9,10 @@ import java.util.stream.Stream;
 import javax.json.bind.annotation.JsonbCreator;
 import javax.json.bind.annotation.JsonbProperty;
 
-import io.annot8.core.bounds.Bounds;
-import io.annot8.core.capabilities.Capabilities;
-import io.annot8.core.capabilities.Capability;
-import io.annot8.core.data.Content;
+import io.annot8.api.bounds.Bounds;
+import io.annot8.api.capabilities.Capabilities;
+import io.annot8.api.capabilities.Capability;
+import io.annot8.api.data.Content;
 
 public class SimpleCapabilities implements Capabilities {
 

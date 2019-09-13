@@ -5,10 +5,10 @@ import java.util.UUID;
 import java.util.function.Supplier;
 
 import io.annot8.common.implementations.stores.AnnotationStoreFactory;
-import io.annot8.core.data.Content;
-import io.annot8.core.data.Item;
-import io.annot8.core.properties.ImmutableProperties;
-import io.annot8.core.stores.AnnotationStore;
+import io.annot8.api.data.Content;
+import io.annot8.api.data.Item;
+import io.annot8.api.properties.ImmutableProperties;
+import io.annot8.api.stores.AnnotationStore;
 
 public abstract class AbstractTestContent<D> implements Content<D> {
 

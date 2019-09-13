@@ -6,9 +6,9 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import io.annot8.core.components.Annot8Component;
-import io.annot8.core.components.Processor;
-import io.annot8.core.components.Source;
+import io.annot8.api.components.Annot8Component;
+import io.annot8.api.components.Processor;
+import io.annot8.api.components.Source;
 
 public class Annot8ComponentRegistry {
 

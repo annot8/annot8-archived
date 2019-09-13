@@ -2,8 +2,8 @@
 package io.annot8.testing.testimpl;
 
 import io.annot8.common.implementations.stores.AnnotationStoreFactory;
-import io.annot8.core.data.Content;
-import io.annot8.core.stores.AnnotationStore;
+import io.annot8.api.data.Content;
+import io.annot8.api.stores.AnnotationStore;
 
 public class TestAnnotationStoreFactory implements AnnotationStoreFactory {
 

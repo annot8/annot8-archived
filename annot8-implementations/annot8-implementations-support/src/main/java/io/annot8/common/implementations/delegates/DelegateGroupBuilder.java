@@ -3,10 +3,10 @@ package io.annot8.common.implementations.delegates;
 
 import java.util.Optional;
 
-import io.annot8.core.annotations.Annotation;
-import io.annot8.core.annotations.Group;
-import io.annot8.core.annotations.Group.Builder;
-import io.annot8.core.properties.Properties;
+import io.annot8.api.annotations.Annotation;
+import io.annot8.api.annotations.Group;
+import io.annot8.api.annotations.Group.Builder;
+import io.annot8.api.properties.Properties;
 
 public class DelegateGroupBuilder implements Group.Builder {
 

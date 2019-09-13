@@ -11,10 +11,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import io.annot8.core.components.ProcessorDescriptor;
-import io.annot8.core.components.SourceDescriptor;
-import io.annot8.core.exceptions.IncompleteException;
-import io.annot8.core.pipelines.PipelineDescriptor;
+import io.annot8.api.components.ProcessorDescriptor;
+import io.annot8.api.components.SourceDescriptor;
+import io.annot8.api.exceptions.IncompleteException;
+import io.annot8.api.pipelines.PipelineDescriptor;
 
 @ExtendWith(MockitoExtension.class)
 public class SimplePipelineDescriptorTest {
