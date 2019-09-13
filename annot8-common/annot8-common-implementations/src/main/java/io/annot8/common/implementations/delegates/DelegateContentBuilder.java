@@ -6,7 +6,6 @@ import java.util.function.Supplier;
 
 import io.annot8.core.data.Content;
 import io.annot8.core.data.Content.Builder;
-import io.annot8.core.exceptions.IncompleteException;
 import io.annot8.core.properties.Properties;
 
 public class DelegateContentBuilder<C extends Content<D>, D> implements Builder<C, D> {
@@ -72,7 +71,7 @@ public class DelegateContentBuilder<C extends Content<D>, D> implements Builder<
   }
 
   @Override
-  public C save() throws IncompleteException {
+  public C save() {
     return delegate.save();
   }
 }

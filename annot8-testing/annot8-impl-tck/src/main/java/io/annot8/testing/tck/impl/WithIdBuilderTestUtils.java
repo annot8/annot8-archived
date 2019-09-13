@@ -15,9 +15,9 @@ public class WithIdBuilderTestUtils<T extends WithIdBuilder<T> & WithSave<WithId
     WithId withId = null;
     try {
       withId = builder.withId("test").save();
+      assertEquals("test", withId.getId());
     } catch (IncompleteException e) {
       fail("Test should not throw an exception here", e);
     }
-    assertEquals("test", withId.getId());
   }
 }

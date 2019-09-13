@@ -141,7 +141,7 @@ public class DefaultAnnotation extends AbstractAnnotation {
     }
 
     @Override
-    public Annotation save() throws IncompleteException {
+    public Annotation save() {
       if (id == null) {
         id = UUID.randomUUID().toString();
       }

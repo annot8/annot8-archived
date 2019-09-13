@@ -155,7 +155,7 @@ public class AnnotationStoreTest {
     private final Content<?> content;
 
     public TestAnnotationStore(Content<?> content) {
-      this(content, Collections.EMPTY_LIST);
+      this(content, Collections.emptyList());
     }
 
     public TestAnnotationStore(Content<?> content, Collection<Annotation> annotationsToAdd) {

@@ -173,7 +173,7 @@ public class DefaultGroup extends AbstractGroup {
     }
 
     @Override
-    public Group save() throws IncompleteException {
+    public Group save() {
 
       if (id == null) {
         id = UUID.randomUUID().toString();

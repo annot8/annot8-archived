@@ -20,9 +20,9 @@ public class SimpleGroupCapabilityTest {
     GroupCapability gc1 = new SimpleGroupCapability("test");
     GroupCapability gc2 = new SimpleGroupCapability("test");
 
-    assertTrue(gc1.equals(gc2));
-    assertFalse(gc1.equals("Hello world"));
-    assertFalse(gc1.equals(123));
+    assertEquals(gc1, gc2);
+    assertNotEquals("Hello world", gc1);
+    assertNotEquals(123, gc1);
 
     assertEquals(gc1.hashCode(), gc2.hashCode());
   }

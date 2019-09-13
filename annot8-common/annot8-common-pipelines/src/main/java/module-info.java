@@ -1,9 +1,7 @@
 open module io.annot8.common.pipelines {
-  requires com.google.common;
   requires transitive io.annot8.core;
   requires org.slf4j;
   requires io.annot8.common.implementations;
-  requires io.annot8.common.utils;
   requires io.annot8.common.components;
 
   exports io.annot8.common.pipelines;

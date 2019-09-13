@@ -28,6 +28,6 @@ public interface WithFilter<T> {
    * @return single of matching annotation (or empty)
    */
   default Optional<T> find(Filter<T> filter) {
-    return filter(filter::test).findAny();
+    return filter(filter).findAny();
   }
 }

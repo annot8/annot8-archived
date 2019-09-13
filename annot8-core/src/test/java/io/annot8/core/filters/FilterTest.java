@@ -8,21 +8,9 @@ import org.junit.jupiter.api.Test;
 
 class FilterTest {
 
-  Filter<String> f =
-      new Filter<String>() {
-        @Override
-        public boolean test(String s) {
-          return s.length() == 1;
-        }
-      };
+  Filter<String> f = s -> s.length() == 1;
 
-  Filter<String> u =
-      new Filter<String>() {
-        @Override
-        public boolean test(String s) {
-          return s.startsWith("t");
-        }
-      };
+  Filter<String> u = s -> s.startsWith("t");
 
   @Test
   void test() {

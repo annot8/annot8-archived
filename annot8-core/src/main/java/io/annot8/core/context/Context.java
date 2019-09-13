@@ -32,7 +32,7 @@ public interface Context {
    *
    * <p>If there are multiple matches the underlying implementation may provide any back.
    *
-   * @param resourceClass
+   * @param resourceClass the resource class required
    * @param <R> the resource class to return
    * @return optional of matching resources
    */

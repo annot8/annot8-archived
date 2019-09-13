@@ -63,8 +63,7 @@ public class DefaultItem implements Item {
   }
 
   @Override
-  public <C extends Content<D>, D> Builder<C, D> createContent(Class<C> clazz)
-      throws UnsupportedContentException {
+  public <C extends Content<D>, D> Builder<C, D> createContent(Class<C> clazz) {
     Optional<ContentBuilderFactory<D, C>> factory = contentBuilderFactoryRegistry.get(clazz);
 
     if (factory.isEmpty()) {

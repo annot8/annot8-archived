@@ -6,7 +6,6 @@ import java.util.Optional;
 import io.annot8.core.annotations.Annotation;
 import io.annot8.core.annotations.Annotation.Builder;
 import io.annot8.core.bounds.Bounds;
-import io.annot8.core.exceptions.IncompleteException;
 import io.annot8.core.properties.Properties;
 
 public class DelegateAnnotationBuilder implements Annotation.Builder {
@@ -72,7 +71,7 @@ public class DelegateAnnotationBuilder implements Annotation.Builder {
   }
 
   @Override
-  public Annotation save() throws IncompleteException {
+  public Annotation save() {
     return delegate.save();
   }
 

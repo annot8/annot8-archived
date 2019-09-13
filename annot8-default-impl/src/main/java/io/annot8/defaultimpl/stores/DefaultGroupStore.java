@@ -1,11 +1,7 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.defaultimpl.stores;
 
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -13,7 +9,6 @@ import java.util.stream.Stream;
 import io.annot8.common.implementations.delegates.DelegateGroupBuilder;
 import io.annot8.core.annotations.Group;
 import io.annot8.core.data.Item;
-import io.annot8.core.exceptions.IncompleteException;
 import io.annot8.core.stores.GroupStore;
 import io.annot8.defaultimpl.annotations.DefaultGroup;
 
@@ -36,7 +31,7 @@ public class DefaultGroupStore implements GroupStore {
   public Group.Builder getBuilder() {
     return new DelegateGroupBuilder(new DefaultGroup.Builder(item)) {
       @Override
-      public Group save() throws IncompleteException {
+      public Group save() {
         return DefaultGroupStore.this.save(super.save());
       }
     };

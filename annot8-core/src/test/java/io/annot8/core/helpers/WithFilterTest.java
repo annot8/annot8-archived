@@ -2,7 +2,6 @@
 package io.annot8.core.helpers;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.stream.Stream;
 

@@ -21,9 +21,9 @@ public class SimpleContentCapabilityTest {
     ContentCapability cc1 = new SimpleContentCapability(Text.class);
     ContentCapability cc2 = new SimpleContentCapability(Text.class);
 
-    assertTrue(cc1.equals(cc2));
-    assertFalse(cc1.equals("Hello world"));
-    assertFalse(cc1.equals(123));
+    assertEquals(cc1, cc2);
+    assertNotEquals("Hello world", cc1);
+    assertNotEquals(123, cc1);
 
     assertEquals(cc1.hashCode(), cc2.hashCode());
   }

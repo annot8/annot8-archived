@@ -1,8 +1,6 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.core.helpers.builders;
 
-import io.annot8.core.exceptions.IncompleteException;
-
 /**
  * Helper interface to indicate that a builder has a build method.
  *
@@ -15,5 +13,5 @@ public interface WithBuild<A> {
    *
    * @return the object being built by this builder
    */
-  A build() throws IncompleteException;
+  A build();
 }

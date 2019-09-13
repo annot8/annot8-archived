@@ -11,7 +11,6 @@ import io.annot8.common.implementations.factories.AnnotationBuilderFactory;
 import io.annot8.core.annotations.Annotation;
 import io.annot8.core.annotations.Annotation.Builder;
 import io.annot8.core.data.Content;
-import io.annot8.core.exceptions.IncompleteException;
 import io.annot8.core.stores.AnnotationStore;
 
 public class TestAnnotationStore implements AnnotationStore {
@@ -43,13 +42,13 @@ public class TestAnnotationStore implements AnnotationStore {
   public Builder getBuilder() {
     return new DelegateAnnotationBuilder(annotationBuilderFactory.create(content, this)) {
       @Override
-      public Annotation save() throws IncompleteException {
+      public Annotation save() {
         return TestAnnotationStore.this.save(super.save());
       }
     };
   }
 
-  public Annotation save(Builder annotationBuilder) throws IncompleteException {
+  public Annotation save(Builder annotationBuilder) {
     Annotation annotation = annotationBuilder.save();
     return save(annotation);
   }

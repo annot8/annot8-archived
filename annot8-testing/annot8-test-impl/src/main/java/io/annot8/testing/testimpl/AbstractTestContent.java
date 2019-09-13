@@ -45,7 +45,7 @@ public abstract class AbstractTestContent<D> implements Content<D> {
       String description,
       ImmutableProperties properties,
       Supplier<D> data) {
-    this(item, dataClass, n -> new TestAnnotationStore(n), id, description, properties, data);
+    this(item, dataClass, TestAnnotationStore::new, id, description, properties, data);
   }
 
   public AbstractTestContent(

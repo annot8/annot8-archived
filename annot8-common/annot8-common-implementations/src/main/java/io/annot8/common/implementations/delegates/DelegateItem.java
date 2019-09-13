@@ -7,7 +7,6 @@ import java.util.stream.Stream;
 import io.annot8.core.data.Content;
 import io.annot8.core.data.Content.Builder;
 import io.annot8.core.data.Item;
-import io.annot8.core.exceptions.UnsupportedContentException;
 import io.annot8.core.filters.Filter;
 import io.annot8.core.properties.MutableProperties;
 import io.annot8.core.stores.GroupStore;
@@ -46,8 +45,7 @@ public class DelegateItem implements Item {
   }
 
   @Override
-  public <C extends Content<D>, D> Builder<C, D> createContent(Class<C> clazz)
-      throws UnsupportedContentException {
+  public <C extends Content<D>, D> Builder<C, D> createContent(Class<C> clazz) {
     return item.createContent(clazz);
   }
 

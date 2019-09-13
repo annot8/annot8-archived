@@ -40,19 +40,19 @@ public class MultiCellBounds extends AbstractCellBounds {
   public <D, C extends Content<D>, R> Optional<R> getData(C content, Class<R> requiredClass) {
     if (requiredClass.equals(MultiCellData.class)) {
       if (!isValid(content)) {
-        Optional.empty();
+        return Optional.empty();
       }
 
       TableContent tableContent = (TableContent) content;
       Optional<Row> rowOptional = tableContent.getData().getRow(this.row);
 
       if (rowOptional.isPresent()) {
-        Row row = rowOptional.get();
+        Row r = rowOptional.get();
         Map<Integer, Object> values = new HashMap<>();
         Map<String, Integer> headers = new HashMap<>();
         for (int i : cells) {
-          Optional<Object> valueOptional = row.getValueAt(i);
-          Optional<String> headerOptional = row.getColumnName(i);
+          Optional<Object> valueOptional = r.getValueAt(i);
+          Optional<String> headerOptional = r.getColumnName(i);
           if (valueOptional.isPresent()) {
             values.put(i, valueOptional.get());
             headerOptional.ifPresent(s -> headers.put(s, i));

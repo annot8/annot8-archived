@@ -27,6 +27,9 @@ public class SpanIndices {
   }
 
   public Multimap<Annotation, Annotation> topDown() {
+    // Suppressed because it's (orElse(null) never happens as those are filtered out in the
+    // constructor
+    @SuppressWarnings("ConstantConditions")
     Map<Annotation, SpanBounds> underMap =
         under
             .stream()
@@ -65,7 +68,9 @@ public class SpanIndices {
   }
 
   public Multimap<Annotation, Annotation> bottomUp() {
-
+    // Suppressed because it's (orElse(null) never happens as those are filtered out in the
+    // constructor
+    @SuppressWarnings("ConstantConditions")
     Map<Annotation, SpanBounds> overMap =
         over.stream().collect(toMap(e -> e, e -> e.getBounds(SpanBounds.class).orElse(null)));
 

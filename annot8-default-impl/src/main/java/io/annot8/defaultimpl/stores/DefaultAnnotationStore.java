@@ -1,11 +1,7 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.defaultimpl.stores;
 
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -13,7 +9,6 @@ import java.util.stream.Stream;
 import io.annot8.common.implementations.delegates.DelegateAnnotationBuilder;
 import io.annot8.core.annotations.Annotation;
 import io.annot8.core.data.Content;
-import io.annot8.core.exceptions.IncompleteException;
 import io.annot8.core.stores.AnnotationStore;
 import io.annot8.defaultimpl.annotations.DefaultAnnotation;
 
@@ -40,7 +35,7 @@ public class DefaultAnnotationStore implements AnnotationStore {
   public Annotation.Builder getBuilder() {
     return new DelegateAnnotationBuilder(new DefaultAnnotation.Builder(content.getId())) {
       @Override
-      public Annotation save() throws IncompleteException {
+      public Annotation save() {
         return DefaultAnnotationStore.this.save(super.save());
       }
     };

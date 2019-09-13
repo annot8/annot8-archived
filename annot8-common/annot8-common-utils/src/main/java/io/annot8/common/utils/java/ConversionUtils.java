@@ -6,6 +6,10 @@ import java.util.function.Function;
 
 public final class ConversionUtils {
 
+  private ConversionUtils() {
+    // Singleton
+  }
+
   /**
    * Converts the provided value to an Integer if possible.
    *

@@ -76,6 +76,7 @@ public interface Text extends Content<String> {
 
   private <T extends Bounds> Stream<Annotation> filterAnnotations(
       Class<T> boundsClass, Predicate<T> predicate) {
+    //noinspection OptionalGetWithoutIsPresent
     return getAnnotations()
         .getByBounds(boundsClass)
         .filter(a -> predicate.test(a.getBounds(boundsClass).get()));
