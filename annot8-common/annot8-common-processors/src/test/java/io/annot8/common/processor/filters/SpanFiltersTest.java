@@ -1,18 +1,19 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.processor.filters;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.stream.Stream;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import io.annot8.common.data.bounds.SpanBounds;
 import io.annot8.core.annotations.Annotation;
 import io.annot8.core.filters.Filter;
 import io.annot8.testing.testimpl.TestAnnotation;
 import io.annot8.testing.testimpl.TestAnnotationStore;
 import io.annot8.testing.testimpl.content.TestStringContent;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.util.stream.Stream;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 class SpanFiltersTest {
 

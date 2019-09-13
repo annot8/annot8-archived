@@ -1,20 +1,20 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.pipelines;
 
-import io.annot8.common.pipelines.SimplePipelineDescriptor;
-import io.annot8.core.components.ProcessorDescriptor;
-import io.annot8.core.components.SourceDescriptor;
-import io.annot8.core.exceptions.IncompleteException;
-import io.annot8.core.pipelines.PipelineDescriptor;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.util.Arrays;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Arrays;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import io.annot8.core.components.ProcessorDescriptor;
+import io.annot8.core.components.SourceDescriptor;
+import io.annot8.core.exceptions.IncompleteException;
+import io.annot8.core.pipelines.PipelineDescriptor;
 
 @ExtendWith(MockitoExtension.class)
 public class SimplePipelineDescriptorTest {

@@ -1,14 +1,14 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.pipelines;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import io.annot8.core.components.ProcessorDescriptor;
 import io.annot8.core.components.SourceDescriptor;
 import io.annot8.core.exceptions.IncompleteException;
 import io.annot8.core.pipelines.PipelineDescriptor;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 public class SimplePipelineDescriptor implements PipelineDescriptor {
   private final String name;

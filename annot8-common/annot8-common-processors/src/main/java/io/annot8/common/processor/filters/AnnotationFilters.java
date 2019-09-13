@@ -1,13 +1,13 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.processor.filters;
 
+import java.util.Optional;
+
 import io.annot8.core.annotations.Annotation;
 import io.annot8.core.bounds.Bounds;
 import io.annot8.core.filters.AndFilter;
 import io.annot8.core.filters.Filter;
 import io.annot8.core.filters.NotFilter;
-
-import java.util.Optional;
 
 public class AnnotationFilters {
 

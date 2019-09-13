@@ -9,10 +9,10 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import io.annot8.common.data.properties.EmptyImmutableProperties;
 import io.annot8.common.implementations.annotations.AbstractGroup;
 import io.annot8.common.implementations.properties.MapImmutableProperties;
 import io.annot8.common.implementations.properties.MapMutableProperties;
-import io.annot8.common.data.properties.EmptyImmutableProperties;
 import io.annot8.core.annotations.Annotation;
 import io.annot8.core.annotations.Group;
 import io.annot8.core.data.Item;

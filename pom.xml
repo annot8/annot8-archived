@@ -281,6 +281,7 @@
         <artifactId>annot8-api</artifactId>
         <version>${annot8.version}</version>
       </dependency>
+      <!-- Common -->
       <dependency>
         <groupId>io.annot8</groupId>
         <artifactId>annot8-common-data</artifactId>
@@ -298,9 +299,11 @@
       </dependency>
       <dependency>
         <groupId>io.annot8</groupId>
-        <artifactId>annot8-common-pipelines</artifactId>
+        <artifactId>annot8-common-processors</artifactId>
         <version>${annot8.version}</version>
       </dependency>
+
+      <!-- Implementations-->
       <dependency>
         <groupId>io.annot8</groupId>
         <artifactId>annot8-implementations-support</artifactId>
@@ -311,6 +314,13 @@
         <artifactId>annot8-reference-implementation</artifactId>
         <version>${annot8.version}</version>
       </dependency>
+      <dependency>
+        <groupId>io.annot8</groupId>
+        <artifactId>annot8-pipelines-implemenation</artifactId>
+        <version>${annot8.version}</version>
+      </dependency>
+
+      <!-- Testing -->
       <dependency>
         <groupId>io.annot8</groupId>
         <artifactId>annot8-test-impl</artifactId>

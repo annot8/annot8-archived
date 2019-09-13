@@ -5,5 +5,4 @@ open module io.annot8.common.support {
 
   exports io.annot8.common.processor.filters;
   exports io.annot8.common.processor.indices;
-
 }

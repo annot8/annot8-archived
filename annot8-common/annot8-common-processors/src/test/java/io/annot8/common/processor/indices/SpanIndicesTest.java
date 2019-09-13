@@ -1,16 +1,18 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.processor.indices;
 
-import com.google.common.collect.Multimap;
-import io.annot8.common.data.bounds.SpanBounds;
-import io.annot8.core.annotations.Annotation;
-import io.annot8.testing.testimpl.TestAnnotation;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import com.google.common.collect.Multimap;
+
+import io.annot8.common.data.bounds.SpanBounds;
+import io.annot8.core.annotations.Annotation;
+import io.annot8.testing.testimpl.TestAnnotation;
 
 class SpanIndicesTest {
 

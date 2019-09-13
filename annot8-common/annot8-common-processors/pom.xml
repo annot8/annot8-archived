@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>annot8-common-support</artifactId>
+    <artifactId>annot8-common-processors</artifactId>
     <name>Annot8 Common Processors</name>
     <description>Supporting functions for building processors</description>
 

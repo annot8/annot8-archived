@@ -1,10 +1,8 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.processor.indices;
 
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
-import io.annot8.common.data.bounds.SpanBounds;
-import io.annot8.core.annotations.Annotation;
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toMap;
 
 import java.util.List;
 import java.util.Map;
@@ -12,8 +10,11 @@ import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toMap;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
+
+import io.annot8.common.data.bounds.SpanBounds;
+import io.annot8.core.annotations.Annotation;
 
 public class SpanIndices {
 
