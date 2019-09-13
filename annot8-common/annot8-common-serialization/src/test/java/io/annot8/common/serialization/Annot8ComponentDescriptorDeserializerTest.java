@@ -1,13 +1,15 @@
+/* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.serialization;
 
-import io.annot8.core.components.Annot8ComponentDescriptor;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import javax.json.bind.JsonbConfig;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
+import io.annot8.core.components.Annot8ComponentDescriptor;
 
 public class Annot8ComponentDescriptorDeserializerTest {
   private static final TestDescriptor descriptor = new TestDescriptor("Test", "localhost", 8080);
@@ -15,9 +17,11 @@ public class Annot8ComponentDescriptorDeserializerTest {
       "{\""
           + TestDescriptor.class.getName()
           + "\":{\"name\":\"Test\",\"settings\":{\"host\":\"localhost\",\"port\":8080}}}";
+
   @Test
-  public void test(){
-    JsonbConfig config = new JsonbConfig().withDeserializers(new Annot8ComponentDescriptorDeserializer());
+  public void test() {
+    JsonbConfig config =
+        new JsonbConfig().withDeserializers(new Annot8ComponentDescriptorDeserializer());
     Jsonb jb = JsonbBuilder.create(config);
 
     Annot8ComponentDescriptor desc = jb.fromJson(serialized, Annot8ComponentDescriptor.class);
