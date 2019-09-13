@@ -30,5 +30,5 @@ public @interface Description {
    *
    * @return default value of this parameter
    */
-  String defaultValue();
+  String defaultValue() default "";
 }
