@@ -8,7 +8,11 @@ import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
-/** Human readable component description */
+/**
+ * Human readable component description
+ *
+ * Should be used on the {@link io.annot8.api.components.Annot8ComponentDescriptor}
+ */
 @Documented
 @Retention(RUNTIME)
 @Target(TYPE)
