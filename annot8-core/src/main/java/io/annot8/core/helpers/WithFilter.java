@@ -1,10 +1,10 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.core.helpers;
 
+import io.annot8.core.filters.Filter;
+
 import java.util.Optional;
 import java.util.stream.Stream;
-
-import io.annot8.core.filters.Filter;
 
 /**
  * General interface for filtering elements to find matches.
@@ -28,6 +28,6 @@ public interface WithFilter<T> {
    * @return single of matching annotation (or empty)
    */
   default Optional<T> find(Filter<T> filter) {
-    return filter(filter::test).findAny();
+    return filter(filter).findAny();
   }
 }

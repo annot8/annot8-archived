@@ -62,8 +62,7 @@ public interface Item extends WithId, WithMutableProperties, WithGroups, WithFil
    * @return content builder
    * @throws UnsupportedContentException if the clazz can't be created
    */
-  <C extends Content<D>, D> Content.Builder<C, D> createContent(Class<C> clazz)
-      throws UnsupportedContentException;
+  <C extends Content<D>, D> Content.Builder<C, D> createContent(Class<C> clazz);
 
   /**
    * Remove the specified content object from this item

@@ -1,28 +1,18 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.core.filters;
 
+import org.junit.jupiter.api.Test;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Test;
 
 class FilterTest {
 
   Filter<String> f =
-      new Filter<String>() {
-        @Override
-        public boolean test(String s) {
-          return s.length() == 1;
-        }
-      };
+          s -> s.length() == 1;
 
   Filter<String> u =
-      new Filter<String>() {
-        @Override
-        public boolean test(String s) {
-          return s.startsWith("t");
-        }
-      };
+          s -> s.startsWith("t");
 
   @Test
   void test() {

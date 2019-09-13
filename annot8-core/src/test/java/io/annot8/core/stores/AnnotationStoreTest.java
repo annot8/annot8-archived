@@ -1,15 +1,6 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.core.stores;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Stream;
-
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-
 import io.annot8.core.annotations.Annotation;
 import io.annot8.core.annotations.Annotation.Builder;
 import io.annot8.core.annotations.TestAnnotation;
@@ -18,6 +9,14 @@ import io.annot8.core.data.Content;
 import io.annot8.core.exceptions.IncompleteException;
 import io.annot8.core.properties.ImmutableProperties;
 import io.annot8.core.properties.Properties;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /** Unit tests for the default method implementations on {@link AnnotationStore} */
 public class AnnotationStoreTest {
@@ -155,7 +154,7 @@ public class AnnotationStoreTest {
     private final Content<?> content;
 
     public TestAnnotationStore(Content<?> content) {
-      this(content, Collections.EMPTY_LIST);
+      this(content, Collections.emptyList());
     }
 
     public TestAnnotationStore(Content<?> content, Collection<Annotation> annotationsToAdd) {
