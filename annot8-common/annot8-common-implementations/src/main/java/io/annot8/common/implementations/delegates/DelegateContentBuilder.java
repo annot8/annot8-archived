@@ -72,7 +72,7 @@ public class DelegateContentBuilder<C extends Content<D>, D> implements Builder<
   }
 
   @Override
-  public C save() throws IncompleteException {
+  public C save()  {
     return delegate.save();
   }
 }

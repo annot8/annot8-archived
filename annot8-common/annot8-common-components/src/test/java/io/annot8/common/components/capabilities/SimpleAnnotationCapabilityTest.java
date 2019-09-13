@@ -22,9 +22,9 @@ public class SimpleAnnotationCapabilityTest {
     AnnotationCapability ac1 = new SimpleAnnotationCapability("test", NoBounds.class);
     AnnotationCapability ac2 = new SimpleAnnotationCapability("test", NoBounds.class);
 
-    assertTrue(ac1.equals(ac2));
-    assertFalse(ac1.equals("Hello world"));
-    assertFalse(ac1.equals(123));
+      assertEquals(ac1, ac2);
+      assertNotEquals("Hello world", ac1);
+      assertNotEquals(123, ac1);
 
     assertEquals(ac1.hashCode(), ac2.hashCode());
   }

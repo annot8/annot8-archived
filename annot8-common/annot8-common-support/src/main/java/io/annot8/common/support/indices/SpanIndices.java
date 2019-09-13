@@ -1,8 +1,10 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.support.indices;
 
-import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toMap;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
+import io.annot8.common.data.bounds.SpanBounds;
+import io.annot8.core.annotations.Annotation;
 
 import java.util.List;
 import java.util.Map;
@@ -10,11 +12,8 @@ import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
-
-import io.annot8.common.data.bounds.SpanBounds;
-import io.annot8.core.annotations.Annotation;
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toMap;
 
 public class SpanIndices {
 
@@ -27,6 +26,8 @@ public class SpanIndices {
   }
 
   public Multimap<Annotation, Annotation> topDown() {
+    // Suppressed because it's (orElse(null) never happens as those are filtered out in the constructor
+    @SuppressWarnings("ConstantConditions")
     Map<Annotation, SpanBounds> underMap =
         under
             .stream()
@@ -65,7 +66,8 @@ public class SpanIndices {
   }
 
   public Multimap<Annotation, Annotation> bottomUp() {
-
+    // Suppressed because it's (orElse(null) never happens as those are filtered out in the constructor
+    @SuppressWarnings("ConstantConditions")
     Map<Annotation, SpanBounds> overMap =
         over.stream().collect(toMap(e -> e, e -> e.getBounds(SpanBounds.class).orElse(null)));
 

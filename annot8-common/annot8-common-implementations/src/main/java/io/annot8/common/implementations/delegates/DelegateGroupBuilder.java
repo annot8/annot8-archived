@@ -72,7 +72,7 @@ public class DelegateGroupBuilder implements Group.Builder {
   }
 
   @Override
-  public Group save() throws IncompleteException {
+  public Group save() {
     return delegate.save();
   }
 

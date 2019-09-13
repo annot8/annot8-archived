@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 import org.junit.jupiter.api.Test;
 
@@ -29,7 +30,7 @@ public class SimpleCapabilitiesTest {
 
     Capabilities c =
         new SimpleCapabilities(
-            Arrays.asList(ac1, gc1), Arrays.asList(ac2, cc1, cc2), Arrays.asList(gc2));
+            Arrays.asList(ac1, gc1), Arrays.asList(ac2, cc1, cc2), Collections.singletonList(gc2));
 
     assertEquals(2, c.creates().count());
     assertEquals(3, c.processes().count());
@@ -61,7 +62,7 @@ public class SimpleCapabilitiesTest {
 
     Capabilities c1 =
         new SimpleCapabilities(
-            Arrays.asList(ac1, gc1), Arrays.asList(ac2, cc1, cc2), Arrays.asList(gc2));
+            Arrays.asList(ac1, gc1), Arrays.asList(ac2, cc1, cc2), Collections.singletonList(gc2));
     Capabilities c2 = new SimpleCapabilities.Builder().from(c1).build();
 
     assertArrayEquals(c1.creates().toArray(), c2.creates().toArray());
