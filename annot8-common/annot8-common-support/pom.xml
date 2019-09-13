@@ -10,6 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>annot8-common-support</artifactId>
+    <name>Annot8 Common Support</name>
+    <description>Supporting functions for building processors</description>
 
     <dependencies>
         <dependency>
