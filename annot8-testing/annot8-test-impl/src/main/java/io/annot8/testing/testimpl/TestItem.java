@@ -101,8 +101,7 @@ public class TestItem implements Item {
   }
 
   @Override
-  public <C extends Content<D>, D> Builder<C, D> createContent(Class<C> clazz)
-      throws UnsupportedContentException {
+  public <C extends Content<D>, D> Builder<C, D> createContent(Class<C> clazz) {
     Optional<ContentBuilderFactory<D, C>> optional = contentBuilderFactoryRegistry.get(clazz);
 
     if (optional.isEmpty()) {
@@ -114,13 +113,13 @@ public class TestItem implements Item {
     Builder<C, D> builder = factory.create(this);
     return new DelegateContentBuilder<>(builder) {
       @Override
-      public C save() throws IncompleteException {
+      public C save()  {
         return TestItem.this.save(super.save());
       }
     };
   }
 
-  public <C extends Content<D>, D> C save(Builder<C, D> builder) throws AlreadyExistsException {
+  public <C extends Content<D>, D> C save(Builder<C, D> builder) {
     C c;
     try {
       c = builder.save();

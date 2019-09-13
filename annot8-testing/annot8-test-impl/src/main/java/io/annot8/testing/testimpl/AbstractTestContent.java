@@ -1,14 +1,14 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.testing.testimpl;
 
-import java.util.UUID;
-import java.util.function.Supplier;
-
 import io.annot8.common.implementations.stores.AnnotationStoreFactory;
 import io.annot8.core.data.Content;
 import io.annot8.core.data.Item;
 import io.annot8.core.properties.ImmutableProperties;
 import io.annot8.core.stores.AnnotationStore;
+
+import java.util.UUID;
+import java.util.function.Supplier;
 
 public abstract class AbstractTestContent<D> implements Content<D> {
 
@@ -45,7 +45,7 @@ public abstract class AbstractTestContent<D> implements Content<D> {
       String description,
       ImmutableProperties properties,
       Supplier<D> data) {
-    this(item, dataClass, n -> new TestAnnotationStore(n), id, description, properties, data);
+    this(item, dataClass, TestAnnotationStore::new, id, description, properties, data);
   }
 
   public AbstractTestContent(

@@ -1,18 +1,17 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.testing.testimpl;
 
-import java.util.Map;
-import java.util.Optional;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Stream;
-
 import io.annot8.common.implementations.delegates.DelegateGroupBuilder;
 import io.annot8.common.implementations.factories.GroupBuilderFactory;
 import io.annot8.core.annotations.Group;
 import io.annot8.core.annotations.Group.Builder;
 import io.annot8.core.data.Item;
-import io.annot8.core.exceptions.IncompleteException;
 import io.annot8.core.stores.GroupStore;
+
+import java.util.Map;
+import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Stream;
 
 public class TestGroupStore implements GroupStore {
 
@@ -45,13 +44,13 @@ public class TestGroupStore implements GroupStore {
   public Builder getBuilder() {
     return new DelegateGroupBuilder(groupBuilderFactory.create(item, this)) {
       @Override
-      public Group save() throws IncompleteException {
+      public Group save() {
         return TestGroupStore.this.save(super.save());
       }
     };
   }
 
-  public Group save(Builder groupBuilder) throws IncompleteException {
+  public Group save(Builder groupBuilder) {
     Group group = groupBuilder.save();
     return save(group);
   }
