@@ -20,10 +20,10 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.mockito.stubbing.Answer;
 
-import io.annot8.common.data.bounds.SpanBounds;
 import io.annot8.api.annotations.Annotation;
 import io.annot8.api.bounds.Bounds;
 import io.annot8.api.stores.AnnotationStore;
+import io.annot8.common.data.bounds.SpanBounds;
 
 class TextTest {
 

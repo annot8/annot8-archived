@@ -8,10 +8,6 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.annot8.common.components.logging.Logging;
-import io.annot8.common.components.metering.Metering;
-import io.annot8.common.implementations.context.SimpleContext;
-import io.annot8.common.implementations.stores.NotifyingItemFactory;
 import io.annot8.api.components.Annot8Component;
 import io.annot8.api.components.Annot8ComponentDescriptor;
 import io.annot8.api.components.Processor;
@@ -21,6 +17,10 @@ import io.annot8.api.components.responses.SourceResponse;
 import io.annot8.api.data.Item;
 import io.annot8.api.data.ItemFactory;
 import io.annot8.api.pipelines.PipelineDescriptor;
+import io.annot8.common.components.logging.Logging;
+import io.annot8.common.components.metering.Metering;
+import io.annot8.implementations.support.context.SimpleContext;
+import io.annot8.implementations.support.stores.NotifyingItemFactory;
 
 public class InMemoryPipelineRunner implements Runnable {
 

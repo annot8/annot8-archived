@@ -11,9 +11,9 @@ import java.net.URISyntaxException;
 
 import org.junit.jupiter.api.Test;
 
-import io.annot8.common.data.content.UriContent;
 import io.annot8.api.data.Content.Builder;
 import io.annot8.api.exceptions.IncompleteException;
+import io.annot8.common.data.content.UriContent;
 import io.annot8.implementations.reference.content.DefaultUri.BuilderFactory;
 import io.annot8.testing.testimpl.TestItem;
 

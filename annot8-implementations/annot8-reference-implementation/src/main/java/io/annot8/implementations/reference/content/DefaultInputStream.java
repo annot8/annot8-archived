@@ -4,15 +4,15 @@ package io.annot8.implementations.reference.content;
 import java.io.InputStream;
 import java.util.function.Supplier;
 
-import io.annot8.common.data.content.InputStreamContent;
-import io.annot8.common.implementations.content.AbstractContent;
-import io.annot8.common.implementations.content.AbstractContentBuilder;
-import io.annot8.common.implementations.content.AbstractContentBuilderFactory;
 import io.annot8.api.data.Content;
 import io.annot8.api.data.Item;
 import io.annot8.api.exceptions.Annot8RuntimeException;
 import io.annot8.api.properties.ImmutableProperties;
+import io.annot8.common.data.content.InputStreamContent;
 import io.annot8.implementations.reference.stores.DefaultAnnotationStore;
+import io.annot8.implementations.support.content.AbstractContent;
+import io.annot8.implementations.support.content.AbstractContentBuilder;
+import io.annot8.implementations.support.content.AbstractContentBuilderFactory;
 
 public class DefaultInputStream extends AbstractContent<InputStream> implements InputStreamContent {
 

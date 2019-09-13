@@ -4,16 +4,16 @@ package io.annot8.implementations.reference.annotations;
 import java.util.Optional;
 import java.util.UUID;
 
-import io.annot8.common.data.properties.EmptyImmutableProperties;
-import io.annot8.common.implementations.annotations.AbstractAnnotation;
-import io.annot8.common.implementations.properties.MapImmutableProperties;
-import io.annot8.common.implementations.properties.MapMutableProperties;
 import io.annot8.api.annotations.Annotation;
 import io.annot8.api.bounds.Bounds;
 import io.annot8.api.exceptions.IncompleteException;
 import io.annot8.api.properties.ImmutableProperties;
 import io.annot8.api.properties.MutableProperties;
 import io.annot8.api.properties.Properties;
+import io.annot8.common.data.properties.EmptyImmutableProperties;
+import io.annot8.implementations.support.annotations.AbstractAnnotation;
+import io.annot8.implementations.support.properties.MapImmutableProperties;
+import io.annot8.implementations.support.properties.MapMutableProperties;
 
 /** Simple implementation of Annotation interface */
 public class DefaultAnnotation extends AbstractAnnotation {

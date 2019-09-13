@@ -6,12 +6,12 @@ import io.annot8.common.data.content.InputStreamContent;
 import io.annot8.common.data.content.TableContent;
 import io.annot8.common.data.content.Text;
 import io.annot8.common.data.content.UriContent;
-import io.annot8.common.implementations.registries.SimpleContentBuilderFactoryRegistry;
 import io.annot8.implementations.reference.content.DefaultFile;
 import io.annot8.implementations.reference.content.DefaultInputStream;
 import io.annot8.implementations.reference.content.DefaultTableContent;
 import io.annot8.implementations.reference.content.DefaultText;
 import io.annot8.implementations.reference.content.DefaultUri;
+import io.annot8.implementations.support.registries.SimpleContentBuilderFactoryRegistry;
 
 public class DefaultContentBuilderFactoryRegistry extends SimpleContentBuilderFactoryRegistry {
 

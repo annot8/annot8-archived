@@ -3,10 +3,10 @@ package io.annot8.implementations.reference.factories;
 
 import java.util.Objects;
 
-import io.annot8.common.implementations.registries.ContentBuilderFactoryRegistry;
 import io.annot8.api.data.Item;
 import io.annot8.api.data.ItemFactory;
 import io.annot8.implementations.reference.data.DefaultItem;
+import io.annot8.implementations.support.registries.ContentBuilderFactoryRegistry;
 
 public class DefaultItemFactory implements ItemFactory {
 

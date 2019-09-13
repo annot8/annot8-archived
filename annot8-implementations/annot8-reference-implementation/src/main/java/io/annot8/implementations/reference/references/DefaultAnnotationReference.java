@@ -3,10 +3,10 @@ package io.annot8.implementations.reference.references;
 
 import java.util.Optional;
 
-import io.annot8.common.implementations.references.AbstractAnnotationReference;
 import io.annot8.api.annotations.Annotation;
 import io.annot8.api.data.Content;
 import io.annot8.api.data.Item;
+import io.annot8.implementations.support.references.AbstractAnnotationReference;
 
 /**
  * A reference which will always retrieve the latest annotation from the appropriate annotation

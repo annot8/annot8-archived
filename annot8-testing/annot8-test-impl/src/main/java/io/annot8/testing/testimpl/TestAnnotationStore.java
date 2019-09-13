@@ -6,12 +6,12 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Stream;
 
-import io.annot8.common.implementations.delegates.DelegateAnnotationBuilder;
-import io.annot8.common.implementations.factories.AnnotationBuilderFactory;
 import io.annot8.api.annotations.Annotation;
 import io.annot8.api.annotations.Annotation.Builder;
 import io.annot8.api.data.Content;
 import io.annot8.api.stores.AnnotationStore;
+import io.annot8.implementations.support.delegates.DelegateAnnotationBuilder;
+import io.annot8.implementations.support.factories.AnnotationBuilderFactory;
 
 public class TestAnnotationStore implements AnnotationStore {
 

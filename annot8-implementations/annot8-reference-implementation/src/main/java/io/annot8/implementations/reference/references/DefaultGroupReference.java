@@ -3,9 +3,9 @@ package io.annot8.implementations.reference.references;
 
 import java.util.Optional;
 
-import io.annot8.common.implementations.references.AbstractGroupReference;
 import io.annot8.api.annotations.Group;
 import io.annot8.api.data.Item;
+import io.annot8.implementations.support.references.AbstractGroupReference;
 
 /**
  * A reference which will always retrieve the latest group from the appropriate group store.

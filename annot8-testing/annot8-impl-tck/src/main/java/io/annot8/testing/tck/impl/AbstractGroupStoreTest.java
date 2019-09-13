@@ -13,8 +13,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 
-import io.annot8.common.implementations.properties.MapMutableProperties;
-import io.annot8.common.implementations.stores.AnnotationStoreFactory;
 import io.annot8.api.annotations.Annotation;
 import io.annot8.api.annotations.Group;
 import io.annot8.api.data.Content;
@@ -22,6 +20,8 @@ import io.annot8.api.data.Item;
 import io.annot8.api.exceptions.IncompleteException;
 import io.annot8.api.stores.AnnotationStore;
 import io.annot8.api.stores.GroupStore;
+import io.annot8.implementations.support.properties.MapMutableProperties;
+import io.annot8.implementations.support.stores.AnnotationStoreFactory;
 import io.annot8.testing.testimpl.TestAnnotation;
 
 public abstract class AbstractGroupStoreTest {

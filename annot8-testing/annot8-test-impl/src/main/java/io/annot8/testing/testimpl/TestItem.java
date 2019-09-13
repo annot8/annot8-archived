@@ -7,10 +7,6 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Stream;
 
-import io.annot8.common.implementations.delegates.DelegateContentBuilder;
-import io.annot8.common.implementations.factories.ContentBuilderFactory;
-import io.annot8.common.implementations.registries.ContentBuilderFactoryRegistry;
-import io.annot8.common.utils.java.StreamUtils;
 import io.annot8.api.data.Content;
 import io.annot8.api.data.Content.Builder;
 import io.annot8.api.data.Item;
@@ -19,6 +15,10 @@ import io.annot8.api.exceptions.IncompleteException;
 import io.annot8.api.exceptions.UnsupportedContentException;
 import io.annot8.api.properties.MutableProperties;
 import io.annot8.api.stores.GroupStore;
+import io.annot8.common.utils.java.StreamUtils;
+import io.annot8.implementations.support.delegates.DelegateContentBuilder;
+import io.annot8.implementations.support.factories.ContentBuilderFactory;
+import io.annot8.implementations.support.registries.ContentBuilderFactoryRegistry;
 
 public class TestItem implements Item {
 

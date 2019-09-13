@@ -13,14 +13,14 @@
 open module io.annot8.implementations.support {
   requires transitive io.annot8.api;
 
-  exports io.annot8.common.implementations.annotations;
-  exports io.annot8.common.implementations.factories;
-  exports io.annot8.common.implementations.references;
-  exports io.annot8.common.implementations.registries;
-  exports io.annot8.common.implementations.stores;
-  exports io.annot8.common.implementations.properties;
-  exports io.annot8.common.implementations.content;
-  exports io.annot8.common.implementations.delegates;
-  exports io.annot8.common.implementations.listeners;
-  exports io.annot8.common.implementations.context;
+  exports io.annot8.implementations.support.annotations;
+  exports io.annot8.implementations.support.factories;
+  exports io.annot8.implementations.support.references;
+  exports io.annot8.implementations.support.registries;
+  exports io.annot8.implementations.support.stores;
+  exports io.annot8.implementations.support.properties;
+  exports io.annot8.implementations.support.content;
+  exports io.annot8.implementations.support.delegates;
+  exports io.annot8.implementations.support.listeners;
+  exports io.annot8.implementations.support.context;
 }

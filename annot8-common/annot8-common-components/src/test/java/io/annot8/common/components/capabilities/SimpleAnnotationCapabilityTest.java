@@ -5,8 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import io.annot8.common.data.bounds.NoBounds;
 import io.annot8.api.capabilities.AnnotationCapability;
+import io.annot8.common.data.bounds.NoBounds;
 
 public class SimpleAnnotationCapabilityTest {
   @Test

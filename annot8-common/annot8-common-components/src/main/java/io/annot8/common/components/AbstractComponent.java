@@ -4,12 +4,12 @@ package io.annot8.common.components;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import io.annot8.api.components.Annot8Component;
+import io.annot8.api.context.Context;
 import io.annot8.common.components.logging.Logging;
 import io.annot8.common.components.metering.Metering;
 import io.annot8.common.components.metering.Metrics;
 import io.annot8.common.components.metering.NoOpMetrics;
-import io.annot8.api.components.Annot8Component;
-import io.annot8.api.context.Context;
 import io.micrometer.core.lang.Nullable;
 
 public abstract class AbstractComponent implements Annot8Component {

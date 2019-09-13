@@ -8,10 +8,10 @@ import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import io.annot8.common.data.bounds.PositionBounds;
-import io.annot8.common.data.bounds.SpanBounds;
 import io.annot8.api.annotations.Annotation;
 import io.annot8.api.filters.Filter;
+import io.annot8.common.data.bounds.PositionBounds;
+import io.annot8.common.data.bounds.SpanBounds;
 import io.annot8.testing.testimpl.TestAnnotation;
 import io.annot8.testing.testimpl.TestAnnotationStore;
 import io.annot8.testing.testimpl.content.TestStringContent;

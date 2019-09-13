@@ -3,9 +3,9 @@ package io.annot8.common.processors.filters;
 
 import java.util.Optional;
 
-import io.annot8.common.data.bounds.SpanBounds;
 import io.annot8.api.annotations.Annotation;
 import io.annot8.api.filters.Filter;
+import io.annot8.common.data.bounds.SpanBounds;
 
 public class SpanFilters {
 

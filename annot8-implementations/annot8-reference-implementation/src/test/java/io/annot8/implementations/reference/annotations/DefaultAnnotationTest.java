@@ -8,11 +8,11 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
-import io.annot8.common.implementations.properties.MapMutableProperties;
 import io.annot8.api.annotations.Annotation;
 import io.annot8.api.bounds.Bounds;
 import io.annot8.api.exceptions.IncompleteException;
 import io.annot8.implementations.reference.annotations.DefaultAnnotation.Builder;
+import io.annot8.implementations.support.properties.MapMutableProperties;
 import io.annot8.testing.tck.impl.WithIdBuilderTestUtils;
 import io.annot8.testing.tck.impl.WithPropertiesBuilderTestUtils;
 import io.annot8.testing.testimpl.TestBounds;
