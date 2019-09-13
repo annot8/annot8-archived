@@ -98,11 +98,11 @@ public abstract class AbstractComponent implements Annot8Component {
     this.metrics = metrics;
   }
 
-  private void createDefaultLogger() {
+  protected void createDefaultLogger() {
     logger = LoggerFactory.getLogger(this.getClass());
   }
 
-  private void createDefaultMetrics() {
+  protected void createDefaultMetrics() {
     metrics = NoOpMetrics.instance();
   }
 }
