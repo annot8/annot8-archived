@@ -8,6 +8,7 @@ import io.annot8.core.capabilities.AnnotationCapability;
 import io.annot8.core.capabilities.Capabilities;
 import io.annot8.core.capabilities.Capability;
 import io.annot8.core.components.ProcessorDescriptor;
+import io.annot8.core.context.Context;
 
 public class TestDescriptor implements ProcessorDescriptor<TestProcessor, TestSettings> {
 
@@ -75,7 +76,7 @@ public class TestDescriptor implements ProcessorDescriptor<TestProcessor, TestSe
   }
 
   @Override
-  public TestProcessor create() {
+  public TestProcessor create(Context context) {
     return new TestProcessor(getSettings());
   }
 }

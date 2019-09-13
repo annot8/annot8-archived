@@ -4,11 +4,12 @@ package io.annot8.common.components.metering;
 import java.util.Objects;
 
 import io.annot8.core.components.Annot8Component;
+import io.annot8.core.components.Resource;
 
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
 
-public final class Metering {
+public final class Metering implements Resource {
 
   private final MeterRegistry meterRegistry;
   private final String prefix;

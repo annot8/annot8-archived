@@ -8,9 +8,9 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.annot8.common.components.AbstractComponent;
 import io.annot8.common.components.logging.Logging;
 import io.annot8.common.components.metering.Metering;
+import io.annot8.common.implementations.context.SimpleContext;
 import io.annot8.common.implementations.stores.NotifyingItemFactory;
 import io.annot8.common.pipelines.PipelineDescriptor;
 import io.annot8.core.components.Annot8Component;
@@ -28,8 +28,7 @@ public class InMemoryPipelineRunner implements Runnable {
   private final ItemFactory itemFactory;
 
   private static final Logger LOGGER = LoggerFactory.getLogger(InMemoryPipelineRunner.class);
-  private final Metering metering;
-  private final Logging logging;
+  private final SimpleContext context;
 
   private boolean running = true;
 
@@ -37,8 +36,9 @@ public class InMemoryPipelineRunner implements Runnable {
     this.pipelineDescriptor = pipelineDescriptor;
     this.itemFactory = itemFactory;
 
-    this.logging = Logging.useLoggerFactory();
-    this.metering = Metering.useGlobalRegistry(pipelineDescriptor.getName());
+    Logging logging = Logging.useLoggerFactory();
+    Metering metering = Metering.useGlobalRegistry(pipelineDescriptor.getName());
+    this.context = new SimpleContext(logging, metering);
   }
 
   @Override
@@ -53,14 +53,14 @@ public class InMemoryPipelineRunner implements Runnable {
     pipelineDescriptor
         .getSources()
         .stream()
-        .map(d -> (Source) create(d))
+        .map(d -> create(d, Source.class))
         .forEach(activeSources::add);
 
     List<Processor> activeProcessors = new ArrayList<>();
     pipelineDescriptor
         .getProcessors()
         .stream()
-        .map(d -> (Processor) create(d))
+        .map(d -> create(d, Processor.class))
         .forEach(activeProcessors::add);
 
     while (running && !activeSources.isEmpty()) {
@@ -149,17 +149,9 @@ public class InMemoryPipelineRunner implements Runnable {
     }
   }
 
-  private <T extends Annot8Component> T create(Annot8ComponentDescriptor<T, ?> descriptor) {
-    T t = descriptor.create();
-
-    if (t instanceof AbstractComponent) {
-      AbstractComponent ac = (AbstractComponent) t;
-      Class<? extends AbstractComponent> clazz = ac.getClass();
-      ac.setMetrics(metering.getMetrics(clazz));
-      ac.setLogger(logging.getLogger(clazz));
-    }
-
-    return t;
+  private <T extends Annot8Component> T create(
+      Annot8ComponentDescriptor<T, ?> descriptor, Class<T> clazz) {
+    return descriptor.create(context);
   }
 
   public void stop() {

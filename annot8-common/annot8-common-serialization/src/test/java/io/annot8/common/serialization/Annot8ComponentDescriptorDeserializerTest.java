@@ -33,6 +33,6 @@ public class Annot8ComponentDescriptorDeserializerTest {
     assertEquals("localhost", ts.getHost());
     assertEquals(8080, ts.getPort());
 
-    assertEquals(TestProcessor.class, desc.create().getClass());
+    assertEquals(TestProcessor.class, desc.create(null).getClass());
   }
 }

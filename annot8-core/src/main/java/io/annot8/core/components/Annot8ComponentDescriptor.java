@@ -2,6 +2,7 @@
 package io.annot8.core.components;
 
 import io.annot8.core.capabilities.Capabilities;
+import io.annot8.core.context.Context;
 import io.annot8.core.settings.Settings;
 
 public interface Annot8ComponentDescriptor<T extends Annot8Component, S extends Settings> {
@@ -15,5 +16,5 @@ public interface Annot8ComponentDescriptor<T extends Annot8Component, S extends 
 
   Capabilities capabilities();
 
-  T create();
+  T create(Context context);
 }

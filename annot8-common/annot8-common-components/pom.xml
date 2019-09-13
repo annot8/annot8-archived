@@ -11,7 +11,7 @@
 
     <artifactId>annot8-common-components</artifactId>
     <name>Annot8 Common Components</name>
-    <description>Common components and functionality</description>
+    <description>Common functionality used to build components</description>
 
     <dependencies>
         <dependency>
