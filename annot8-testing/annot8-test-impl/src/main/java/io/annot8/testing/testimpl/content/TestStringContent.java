@@ -3,14 +3,14 @@ package io.annot8.testing.testimpl.content;
 
 import java.util.function.Supplier;
 
+import io.annot8.api.data.Content;
+import io.annot8.api.data.Item;
+import io.annot8.api.properties.ImmutableProperties;
+import io.annot8.api.stores.AnnotationStore;
 import io.annot8.common.data.content.Text;
-import io.annot8.common.implementations.content.AbstractContentBuilder;
-import io.annot8.common.implementations.content.AbstractContentBuilderFactory;
-import io.annot8.common.implementations.stores.AnnotationStoreFactory;
-import io.annot8.core.data.Content;
-import io.annot8.core.data.Item;
-import io.annot8.core.properties.ImmutableProperties;
-import io.annot8.core.stores.AnnotationStore;
+import io.annot8.implementations.support.content.AbstractContentBuilder;
+import io.annot8.implementations.support.content.AbstractContentBuilderFactory;
+import io.annot8.implementations.support.stores.AnnotationStoreFactory;
 import io.annot8.testing.testimpl.AbstractTestContent;
 import io.annot8.testing.testimpl.TestAnnotationStoreFactory;
 import io.annot8.testing.testimpl.TestItem;

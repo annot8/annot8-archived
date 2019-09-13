@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import io.annot8.core.capabilities.GroupCapability;
+import io.annot8.api.capabilities.GroupCapability;
 
 public class SimpleGroupCapabilityTest {
   @Test

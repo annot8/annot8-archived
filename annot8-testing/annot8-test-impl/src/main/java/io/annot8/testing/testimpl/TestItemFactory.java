@@ -4,8 +4,8 @@ package io.annot8.testing.testimpl;
 import java.util.LinkedList;
 import java.util.List;
 
-import io.annot8.core.data.Item;
-import io.annot8.core.data.ItemFactory;
+import io.annot8.api.data.Item;
+import io.annot8.api.data.ItemFactory;
 
 public class TestItemFactory implements ItemFactory {
 

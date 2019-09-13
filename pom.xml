@@ -62,10 +62,7 @@
     <!-- Annot8 versions -->
     <!-- Though we separate this into properties, they are versioned in sync at the moment -->
     <annot8.version>${project.version}</annot8.version>
-    <annot8-core.version>${annot8.version}</annot8-core.version>
-    <annot8-common.version>${annot8.version}</annot8-common.version>
-    <annot8-default-impl.version>${annot8.version}</annot8-default-impl.version>
-    <annot8-testing.version>${annot8.version}</annot8-testing.version>
+
 
     <!-- Core utitities and helpers -->
     <jsonb.version>1.0</jsonb.version>
@@ -281,49 +278,59 @@
       <!-- Annot8 -->
       <dependency>
         <groupId>io.annot8</groupId>
-        <artifactId>annot8-core</artifactId>
-        <version>${annot8-core.version}</version>
+        <artifactId>annot8-api</artifactId>
+        <version>${annot8.version}</version>
       </dependency>
+      <!-- Common -->
       <dependency>
         <groupId>io.annot8</groupId>
         <artifactId>annot8-common-data</artifactId>
-        <version>${annot8-common.version}</version>
+        <version>${annot8.version}</version>
       </dependency>
       <dependency>
         <groupId>io.annot8</groupId>
         <artifactId>annot8-common-utils</artifactId>
-        <version>${annot8-common.version}</version>
+        <version>${annot8.version}</version>
       </dependency>
       <dependency>
         <groupId>io.annot8</groupId>
         <artifactId>annot8-common-components</artifactId>
-        <version>${annot8-common.version}</version>
+        <version>${annot8.version}</version>
       </dependency>
       <dependency>
         <groupId>io.annot8</groupId>
-        <artifactId>annot8-common-pipelines</artifactId>
-        <version>${annot8-common.version}</version>
+        <artifactId>annot8-common-processors</artifactId>
+        <version>${annot8.version}</version>
+      </dependency>
+
+      <!-- Implementations-->
+      <dependency>
+        <groupId>io.annot8</groupId>
+        <artifactId>annot8-implementations-support</artifactId>
+        <version>${annot8.version}</version>
       </dependency>
       <dependency>
         <groupId>io.annot8</groupId>
-        <artifactId>annot8-common-implementations</artifactId>
-        <version>${annot8-common.version}</version>
+        <artifactId>annot8-reference-implementation</artifactId>
+        <version>${annot8.version}</version>
       </dependency>
       <dependency>
         <groupId>io.annot8</groupId>
-        <artifactId>annot8-default-impl</artifactId>
-        <version>${annot8-default-impl.version}</version>
+        <artifactId>annot8-pipelines-implemenation</artifactId>
+        <version>${annot8.version}</version>
       </dependency>
+
+      <!-- Testing -->
       <dependency>
         <groupId>io.annot8</groupId>
         <artifactId>annot8-test-impl</artifactId>
-        <version>${annot8-testing.version}</version>
+        <version>${annot8.version}</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>io.annot8</groupId>
         <artifactId>annot8-impl-tck</artifactId>
-        <version>${annot8-testing.version}</version>
+        <version>${annot8.version}</version>
         <scope>test</scope>
       </dependency>
 
@@ -431,10 +438,10 @@
   </dependencyManagement>
 
   <modules>
-    <module>annot8-core</module>
+    <module>annot8-api</module>
     <module>annot8-common</module>
-    <module>annot8-default-impl</module>
     <module>annot8-testing</module>
+      <module>annot8-implementations</module>
   </modules>
 
   <profiles>

@@ -1,10 +1,10 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.data.bounds;
 
+import io.annot8.api.bounds.Bounds;
+import io.annot8.api.data.Content;
 import io.annot8.common.data.content.Table;
 import io.annot8.common.data.content.TableContent;
-import io.annot8.core.bounds.Bounds;
-import io.annot8.core.data.Content;
 
 public abstract class AbstractCellBounds implements Bounds {
 

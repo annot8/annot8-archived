@@ -4,12 +4,12 @@ package io.annot8.testing.testimpl;
 import java.util.Optional;
 import java.util.UUID;
 
-import io.annot8.common.implementations.factories.AnnotationBuilderFactory;
-import io.annot8.core.annotations.Annotation;
-import io.annot8.core.annotations.Annotation.Builder;
-import io.annot8.core.bounds.Bounds;
-import io.annot8.core.properties.MutableProperties;
-import io.annot8.core.properties.Properties;
+import io.annot8.api.annotations.Annotation;
+import io.annot8.api.annotations.Annotation.Builder;
+import io.annot8.api.bounds.Bounds;
+import io.annot8.api.properties.MutableProperties;
+import io.annot8.api.properties.Properties;
+import io.annot8.implementations.support.factories.AnnotationBuilderFactory;
 
 public class TestAnnotationBuilder implements Annotation.Builder {
 

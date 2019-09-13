@@ -11,7 +11,7 @@ import static org.mockito.Mockito.when;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import io.annot8.core.data.Content;
+import io.annot8.api.data.Content;
 
 class NoBoundsTest {
 

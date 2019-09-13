@@ -4,9 +4,9 @@ package io.annot8.testing.testimpl.components;
 import java.util.LinkedList;
 import java.util.List;
 
-import io.annot8.core.components.Processor;
-import io.annot8.core.components.responses.ProcessorResponse;
-import io.annot8.core.data.Item;
+import io.annot8.api.components.Processor;
+import io.annot8.api.components.responses.ProcessorResponse;
+import io.annot8.api.data.Item;
 
 public class ItemCollector implements Processor {
 

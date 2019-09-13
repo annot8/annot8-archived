@@ -1,9 +1,9 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.components;
 
-import io.annot8.core.components.Annot8Component;
-import io.annot8.core.components.Annot8ComponentDescriptor;
-import io.annot8.core.settings.Settings;
+import io.annot8.api.components.Annot8Component;
+import io.annot8.api.components.Annot8ComponentDescriptor;
+import io.annot8.api.settings.Settings;
 
 public abstract class AbstractAnnot8ComponentDescriptor<
         T extends Annot8Component, S extends Settings>

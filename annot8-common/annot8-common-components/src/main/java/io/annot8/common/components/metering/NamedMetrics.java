@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.function.ToDoubleFunction;
 
-import io.annot8.core.components.Annot8Component;
+import io.annot8.api.components.Annot8Component;
 import io.micrometer.core.instrument.*;
 
 public class NamedMetrics implements Metrics {

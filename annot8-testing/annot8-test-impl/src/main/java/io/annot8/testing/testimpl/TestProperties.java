@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-import io.annot8.core.properties.ImmutableProperties;
-import io.annot8.core.properties.MutableProperties;
+import io.annot8.api.properties.ImmutableProperties;
+import io.annot8.api.properties.MutableProperties;
 
 public class TestProperties implements MutableProperties, ImmutableProperties {
 

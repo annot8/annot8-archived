@@ -4,10 +4,10 @@ package io.annot8.testing.tck.impl;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-import io.annot8.core.exceptions.IncompleteException;
-import io.annot8.core.helpers.WithId;
-import io.annot8.core.helpers.builders.WithIdBuilder;
-import io.annot8.core.helpers.builders.WithSave;
+import io.annot8.api.exceptions.IncompleteException;
+import io.annot8.api.helpers.WithId;
+import io.annot8.api.helpers.builders.WithIdBuilder;
+import io.annot8.api.helpers.builders.WithSave;
 
 public class WithIdBuilderTestUtils<T extends WithIdBuilder<T> & WithSave<WithId>> {
 

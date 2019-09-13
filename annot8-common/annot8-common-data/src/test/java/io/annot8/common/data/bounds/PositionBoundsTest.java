@@ -16,8 +16,8 @@ import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 
-import io.annot8.core.data.Content;
-import io.annot8.core.exceptions.Annot8RuntimeException;
+import io.annot8.api.data.Content;
+import io.annot8.api.exceptions.Annot8RuntimeException;
 
 class PositionBoundsTest {
 

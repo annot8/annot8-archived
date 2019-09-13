@@ -4,9 +4,9 @@ package io.annot8.testing.testimpl;
 import java.util.Objects;
 import java.util.UUID;
 
-import io.annot8.core.annotations.Annotation;
-import io.annot8.core.bounds.Bounds;
-import io.annot8.core.properties.ImmutableProperties;
+import io.annot8.api.annotations.Annotation;
+import io.annot8.api.bounds.Bounds;
+import io.annot8.api.properties.ImmutableProperties;
 
 /**
  * An annotation for use (only) in unit tests.

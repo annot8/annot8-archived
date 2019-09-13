@@ -8,10 +8,10 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Stream;
 
-import io.annot8.core.annotations.Annotation;
-import io.annot8.core.annotations.Group;
-import io.annot8.core.properties.ImmutableProperties;
-import io.annot8.core.references.AnnotationReference;
+import io.annot8.api.annotations.Annotation;
+import io.annot8.api.annotations.Group;
+import io.annot8.api.properties.ImmutableProperties;
+import io.annot8.api.references.AnnotationReference;
 
 /**
  * A group implementation which provides convenience for unit testing.

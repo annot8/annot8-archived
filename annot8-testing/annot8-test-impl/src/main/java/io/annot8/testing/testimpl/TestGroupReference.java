@@ -4,8 +4,8 @@ package io.annot8.testing.testimpl;
 import java.util.Objects;
 import java.util.Optional;
 
-import io.annot8.core.annotations.Group;
-import io.annot8.core.references.GroupReference;
+import io.annot8.api.annotations.Group;
+import io.annot8.api.references.GroupReference;
 
 public class TestGroupReference implements GroupReference {
 

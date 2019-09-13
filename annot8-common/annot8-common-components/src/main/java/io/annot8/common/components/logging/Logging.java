@@ -5,7 +5,7 @@ import org.slf4j.ILoggerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.annot8.core.components.Resource;
+import io.annot8.api.components.Resource;
 
 /* Logging */
 public final class Logging implements Resource {

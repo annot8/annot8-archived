@@ -3,6 +3,6 @@ package io.annot8.common.data.content;
 
 import java.net.URI;
 
-import io.annot8.core.data.Content;
+import io.annot8.api.data.Content;
 
 public interface UriContent extends Content<URI> {}

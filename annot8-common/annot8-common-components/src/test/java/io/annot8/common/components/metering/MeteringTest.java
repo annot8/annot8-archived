@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import io.annot8.core.components.Annot8Component;
+import io.annot8.api.components.Annot8Component;
 import io.micrometer.core.instrument.MeterRegistry;
 
 public class MeteringTest {

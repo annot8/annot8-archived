@@ -5,10 +5,10 @@ import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
+import io.annot8.api.annotations.Annotation;
+import io.annot8.api.bounds.Bounds;
+import io.annot8.api.data.Content;
 import io.annot8.common.data.bounds.SpanBounds;
-import io.annot8.core.annotations.Annotation;
-import io.annot8.core.bounds.Bounds;
-import io.annot8.core.data.Content;
 
 /**
  * Represents plain text content having data of type string.

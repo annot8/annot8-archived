@@ -6,8 +6,8 @@ import java.util.Objects;
 import javax.json.bind.annotation.JsonbCreator;
 import javax.json.bind.annotation.JsonbProperty;
 
-import io.annot8.core.bounds.Bounds;
-import io.annot8.core.capabilities.AnnotationCapability;
+import io.annot8.api.bounds.Bounds;
+import io.annot8.api.capabilities.AnnotationCapability;
 
 public class SimpleAnnotationCapability implements AnnotationCapability {
 

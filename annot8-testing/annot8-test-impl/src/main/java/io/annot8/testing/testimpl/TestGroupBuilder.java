@@ -6,12 +6,12 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
-import io.annot8.common.implementations.factories.GroupBuilderFactory;
-import io.annot8.core.annotations.Annotation;
-import io.annot8.core.annotations.Group;
-import io.annot8.core.annotations.Group.Builder;
-import io.annot8.core.properties.Properties;
-import io.annot8.core.references.AnnotationReference;
+import io.annot8.api.annotations.Annotation;
+import io.annot8.api.annotations.Group;
+import io.annot8.api.annotations.Group.Builder;
+import io.annot8.api.properties.Properties;
+import io.annot8.api.references.AnnotationReference;
+import io.annot8.implementations.support.factories.GroupBuilderFactory;
 
 public class TestGroupBuilder implements Group.Builder {
 

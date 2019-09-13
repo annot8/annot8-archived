@@ -4,8 +4,8 @@ package io.annot8.testing.testimpl;
 import java.util.Objects;
 import java.util.Optional;
 
-import io.annot8.core.annotations.Annotation;
-import io.annot8.core.references.AnnotationReference;
+import io.annot8.api.annotations.Annotation;
+import io.annot8.api.references.AnnotationReference;
 
 public class TestAnnotationReference implements AnnotationReference {
 
