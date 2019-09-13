@@ -8,25 +8,15 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Declares a parameter within a settings class.
+ * Describes a parameter within a settings class.
  *
  * <p>This should be set on the get method for a parameter, and it may generally be assumed that
  * there is a corresponding set method.
- *
- * <p>All parameters must have a default value of some description, and therefore no parameters are
- * required.
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface Parameter {
-
-  /**
-   * The configuration key associated with this parameter
-   *
-   * @return the key
-   */
-  String key();
+public @interface Description {
 
   /**
    * A description of this parameter
@@ -34,4 +24,11 @@ public @interface Parameter {
    * @return description
    */
   String description();
+
+  /**
+   * Default value of this parameter
+   *
+   * @return default value of this parameter
+   */
+  String defaultValue();
 }
