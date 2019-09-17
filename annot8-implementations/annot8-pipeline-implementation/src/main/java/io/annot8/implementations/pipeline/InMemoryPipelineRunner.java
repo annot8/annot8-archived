@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import io.annot8.api.context.Context;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,8 +28,8 @@ public class InMemoryPipelineRunner implements Runnable {
   private final PipelineDescriptor pipelineDescriptor;
   private final ItemFactory itemFactory;
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(InMemoryPipelineRunner.class);
-  private final SimpleContext context;
+  private final Context context;
+  private final Logger logger;
 
   private boolean running = true;
 
@@ -39,6 +40,14 @@ public class InMemoryPipelineRunner implements Runnable {
     Logging logging = Logging.useLoggerFactory();
     Metering metering = Metering.useGlobalRegistry(pipelineDescriptor.getName());
     this.context = new SimpleContext(logging, metering);
+    this.logger = logging.getLogger(InMemoryPipelineRunner.class);
+  }
+
+  public InMemoryPipelineRunner(PipelineDescriptor pipelineDescriptor, ItemFactory itemFactory, Logging logging, Metering metering) {
+    this.pipelineDescriptor = pipelineDescriptor;
+    this.itemFactory = itemFactory;
+    this.context = new SimpleContext(logging, metering);
+    this.logger = logging.getLogger(InMemoryPipelineRunner.class);
   }
 
   @Override
@@ -47,7 +56,7 @@ public class InMemoryPipelineRunner implements Runnable {
 
     NotifyingItemFactory nif = new NotifyingItemFactory(itemFactory);
     nif.register(itemsToProcess::add);
-    nif.register(i -> LOGGER.debug("Item {} added to queue", i.getId()));
+    nif.register(i -> logger.debug("Item {} added to queue", i.getId()));
 
     List<Source> activeSources = new ArrayList<>();
     pipelineDescriptor
@@ -68,28 +77,28 @@ public class InMemoryPipelineRunner implements Runnable {
       while (sourceIter.hasNext()) {
         Source source = sourceIter.next();
 
-        LOGGER.debug(
+        logger.debug(
             "[{}] Reading source {} for new items",
             pipelineDescriptor.getName(),
             source.toString());
         SourceResponse response = source.read(nif);
 
-        switch (response.getStatus()) {
+        switch (response.getStatus()) {` `
           case DONE:
-            LOGGER.info(
+            logger.info(
                 "[{}] Finished reading all items from source {}",
                 pipelineDescriptor.getName(),
                 source.toString());
             sourceIter.remove();
             break;
           case SOURCE_ERROR:
-            LOGGER.error(
+            logger.error(
                 "[{}] Source {} returned a non-recoverable error and has been removed from the pipeline",
                 pipelineDescriptor.getName(),
                 source.toString());
             if (response.hasExceptions()) {
               for (Exception e : response.getExceptions()) {
-                LOGGER.error("The following exception was caught by the source", e);
+                logger.error("The following exception was caught by the source", e);
               }
             }
 
@@ -103,7 +112,7 @@ public class InMemoryPipelineRunner implements Runnable {
       // Process current items
       while (running && !itemsToProcess.isEmpty()) {
         Item item = itemsToProcess.remove(0);
-        LOGGER.debug(
+        logger.debug(
             "[{}] Beginning processing of item {}", pipelineDescriptor.getName(), item.getId());
 
         Iterator<Processor> processorIter = activeProcessors.iterator();
@@ -111,7 +120,7 @@ public class InMemoryPipelineRunner implements Runnable {
         while (processorIter.hasNext()) {
           Processor processor = processorIter.next();
 
-          LOGGER.debug(
+          logger.debug(
               "[{}] Processing item {} using processor {}",
               pipelineDescriptor.getName(),
               item.getId(),
@@ -119,26 +128,26 @@ public class InMemoryPipelineRunner implements Runnable {
           ProcessorResponse response = processor.process(item);
 
           if (response.getStatus() == ProcessorResponse.Status.ITEM_ERROR) {
-            LOGGER.error(
+            logger.error(
                 "[{}] Processor {} returned an error whilst processing the current item {}, and the item will not be processed by the remainder of the pipeline",
                 pipelineDescriptor.getName(),
                 processor.toString(),
                 item.getId());
             if (response.hasExceptions()) {
               for (Exception e : response.getExceptions()) {
-                LOGGER.error("The following exception was caught by the processor", e);
+                logger.error("The following exception was caught by the processor", e);
               }
             }
             break;
           } else if (response.getStatus() == ProcessorResponse.Status.PROCESSOR_ERROR) {
-            LOGGER.error(
+            logger.error(
                 "[{}] Processor {} returned a non-recoverable error whilst processing the current item {}, and the processor has been removed from the pipeline",
                 pipelineDescriptor.getName(),
                 processor.toString(),
                 item.getId());
             if (response.hasExceptions()) {
               for (Exception e : response.getExceptions()) {
-                LOGGER.error("The following exception was caught by the processor", e);
+                logger.error("The following exception was caught by the processor", e);
               }
             }
 
@@ -155,7 +164,7 @@ public class InMemoryPipelineRunner implements Runnable {
   }
 
   public void stop() {
-    LOGGER.info("Stopping pipeline after current item/source");
+    logger.info("Stopping pipeline after current item/source");
     running = false;
   }
 }
