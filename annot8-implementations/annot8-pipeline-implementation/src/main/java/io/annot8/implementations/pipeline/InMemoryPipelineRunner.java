@@ -83,7 +83,7 @@ public class InMemoryPipelineRunner implements Runnable {
             source.toString());
         SourceResponse response = source.read(nif);
 
-        switch (response.getStatus()) {` `
+        switch (response.getStatus()) {
           case DONE:
             logger.info(
                 "[{}] Finished reading all items from source {}",
