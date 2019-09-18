@@ -17,10 +17,12 @@ import io.annot8.common.components.metering.Metering;
 import io.annot8.implementations.support.context.SimpleContext;
 import io.annot8.implementations.support.stores.NotifyingItemFactory;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 public class InMemoryPipelineRunner implements PipelineRunner {
 
@@ -48,6 +50,20 @@ public class InMemoryPipelineRunner implements PipelineRunner {
     this.context = new SimpleContext(logging, metering);
     this.logger = logging.getLogger(InMemoryPipelineRunner.class);
   }
+
+  public InMemoryPipelineRunner(PipelineDescriptor pipelineDescriptor, ItemFactory itemFactory, Context context) {
+    this.pipelineDescriptor = pipelineDescriptor;
+    this.itemFactory = itemFactory;
+    this.context = context;
+
+    Optional<Logging> logging = context.getResource(Logging.class);
+    if(logging.isPresent()) {
+      this.logger = logging.get().getLogger(InMemoryPipelineRunner.class);
+    }else{
+      this.logger = LoggerFactory.getLogger(InMemoryPipelineRunner.class);
+    }
+  }
+
 
   @Override
   public void run() {
