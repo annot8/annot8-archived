@@ -11,6 +11,7 @@ import io.annot8.api.context.Context;
 import io.annot8.api.data.Item;
 import io.annot8.api.data.ItemFactory;
 import io.annot8.api.pipelines.PipelineDescriptor;
+import io.annot8.api.pipelines.PipelineRunner;
 import io.annot8.common.components.logging.Logging;
 import io.annot8.common.components.metering.Metering;
 import io.annot8.implementations.support.context.SimpleContext;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class InMemoryPipelineRunner implements Runnable {
+public class InMemoryPipelineRunner implements PipelineRunner {
 
   private final PipelineDescriptor pipelineDescriptor;
   private final ItemFactory itemFactory;

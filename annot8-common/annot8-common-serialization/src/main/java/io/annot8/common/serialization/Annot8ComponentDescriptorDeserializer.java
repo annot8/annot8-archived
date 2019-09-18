@@ -1,18 +1,16 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.serialization;
 
-import java.lang.reflect.Type;
+import io.annot8.api.components.Annot8ComponentDescriptor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import javax.json.bind.serializer.DeserializationContext;
 import javax.json.bind.serializer.JsonbDeserializer;
 import javax.json.stream.JsonParser;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import io.annot8.api.components.Annot8ComponentDescriptor;
+import java.lang.reflect.Type;
 
 /**
  * Deserialize Annot8ComponentDescriptor from JSON, using the JSON-B deserializer interface
@@ -41,7 +39,7 @@ public class Annot8ComponentDescriptorDeserializer
            *    To change this, we need Yasson or JSON-B to update how they implement things
            *    There are a number of open GitHub tickets about this
            *        https://github.com/eclipse-ee4j/yasson/issues/133
-           *         https://github.com/eclipse-ee4j/yasson/issues/279
+           *        https://github.com/eclipse-ee4j/yasson/issues/279
            *        https://github.com/eclipse-ee4j/jsonb-api/issues/147
            */
           desc =

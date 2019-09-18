@@ -1,14 +1,14 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.serialization;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import io.annot8.common.serialization.TestNested.Descriptor;
+import org.junit.jupiter.api.Test;
+
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import javax.json.bind.JsonbConfig;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Annot8ComponentDescriptorSerializerTest {
 
