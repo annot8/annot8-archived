@@ -26,8 +26,7 @@ import java.util.Optional;
 
 public class InMemoryPipelineRunner implements PipelineRunner {
 
-  private final PipelineDescriptor pipelineDescriptor;
-  private final ItemFactory itemFactory;
+
 
   private final Context context;
   private final Logger logger;
@@ -38,10 +37,7 @@ public class InMemoryPipelineRunner implements PipelineRunner {
     this.pipelineDescriptor = pipelineDescriptor;
     this.itemFactory = itemFactory;
 
-    Logging logging = Logging.useLoggerFactory();
-    Metering metering = Metering.useGlobalRegistry(pipelineDescriptor.getName());
-    this.context = new SimpleContext(logging, metering);
-    this.logger = logging.getLogger(InMemoryPipelineRunner.class);
+
   }
 
   public InMemoryPipelineRunner(PipelineDescriptor pipelineDescriptor, ItemFactory itemFactory, Logging logging, Metering metering) {
@@ -67,25 +63,7 @@ public class InMemoryPipelineRunner implements PipelineRunner {
 
   @Override
   public void run() {
-    List<Item> itemsToProcess = new ArrayList<>();
 
-    NotifyingItemFactory nif = new NotifyingItemFactory(itemFactory);
-    nif.register(itemsToProcess::add);
-    nif.register(i -> logger.debug("Item {} added to queue", i.getId()));
-
-    List<Source> activeSources = new ArrayList<>();
-    pipelineDescriptor
-        .getSources()
-        .stream()
-        .map(d -> create(d, Source.class))
-        .forEach(activeSources::add);
-
-    List<Processor> activeProcessors = new ArrayList<>();
-    pipelineDescriptor
-        .getProcessors()
-        .stream()
-        .map(d -> create(d, Processor.class))
-        .forEach(activeProcessors::add);
 
     while (running && !activeSources.isEmpty()) {
       Iterator<Source> sourceIter = activeSources.iterator();
@@ -173,10 +151,7 @@ public class InMemoryPipelineRunner implements PipelineRunner {
     }
   }
 
-  private <T extends Annot8Component> T create(
-      Annot8ComponentDescriptor<T, ?> descriptor, Class<T> clazz) {
-    return descriptor.create(context);
-  }
+
 
   public void stop() {
     logger.info("Stopping pipeline after current item/source");
