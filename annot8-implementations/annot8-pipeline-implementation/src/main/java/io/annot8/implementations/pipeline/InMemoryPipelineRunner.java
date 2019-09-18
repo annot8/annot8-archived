@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import io.annot8.api.components.responses.SourceResponse;
 import io.annot8.api.data.Item;
 import io.annot8.api.data.ItemFactory;
+import io.annot8.api.pipelines.Pipeline;
 import io.annot8.api.pipelines.PipelineDescriptor;
 import io.annot8.api.pipelines.PipelineRunner;
 import io.annot8.common.components.logging.Logging;
