@@ -40,7 +40,9 @@ public class SimplePipeline implements Pipeline {
     this.processors = processors;
     this.context = context;
 
-    this.logger = this.getContext().getResource(Logging.class)
+    this.logger =
+        this.getContext()
+            .getResource(Logging.class)
             .map(l -> l.getLogger(InMemoryPipelineRunner.class))
             .orElse(LoggerFactory.getLogger(InMemoryPipelineRunner.class));
   }
@@ -68,32 +70,26 @@ public class SimplePipeline implements Pipeline {
   public SourceResponse read(ItemFactory itemFactory) {
     Optional<Source> optional = getSources().stream().findFirst();
 
-    if(optional.isEmpty()) {
+    if (optional.isEmpty()) {
       return SourceResponse.done();
     }
 
     Source source = optional.get();
 
-    logger.debug(
-            "[{}] Reading source {} for new items",
-            getName(),
-            source.toString());
+    logger.debug("[{}] Reading source {} for new items", getName(), source.toString());
     SourceResponse response = source.read(itemFactory);
 
     switch (response.getStatus()) {
       case DONE:
-        logger.info(
-                "[{}] Finished reading all items from source {}",
-                getName(),
-                source.toString());
+        logger.info("[{}] Finished reading all items from source {}", getName(), source.toString());
         remove(source);
         // Move onto the next source
         return read(itemFactory);
       case SOURCE_ERROR:
         logger.error(
-                "[{}] Source {} returned a non-recoverable error and has been removed from the pipeline",
-                getName(),
-                source.toString());
+            "[{}] Source {} returned a non-recoverable error and has been removed from the pipeline",
+            getName(),
+            source.toString());
         if (response.hasExceptions()) {
           for (Exception e : response.getExceptions()) {
             logger.error("The following exception was caught by the source", e);
@@ -107,28 +103,27 @@ public class SimplePipeline implements Pipeline {
   }
 
   public ProcessorResponse process(Item item) {
-    logger.debug(
-            "[{}] Beginning processing of item {}", getName(), item.getId());
+    logger.debug("[{}] Beginning processing of item {}", getName(), item.getId());
 
     List<Processor> erroring = new LinkedList<>();
 
     ProcessorResponse response = ProcessorResponse.ok();
 
-    for(Processor processor : getProcessors()) {
+    for (Processor processor : getProcessors()) {
 
       logger.debug(
-              "[{}] Processing item {} using processor {}",
-              getName(),
-              item.getId(),
-              processor.toString());
+          "[{}] Processing item {} using processor {}",
+          getName(),
+          item.getId(),
+          processor.toString());
       response = processor.process(item);
 
       if (response.getStatus() == ProcessorResponse.Status.ITEM_ERROR) {
         logger.error(
-                "[{}] Processor {} returned an error whilst processing the current item {}, and the item will not be processed by the remainder of the pipeline",
-                getName(),
-                processor.toString(),
-                item.getId());
+            "[{}] Processor {} returned an error whilst processing the current item {}, and the item will not be processed by the remainder of the pipeline",
+            getName(),
+            processor.toString(),
+            item.getId());
         if (response.hasExceptions()) {
           for (Exception e : response.getExceptions()) {
             logger.error("The following exception was caught by the processor", e);
@@ -137,10 +132,10 @@ public class SimplePipeline implements Pipeline {
         break;
       } else if (response.getStatus() == ProcessorResponse.Status.PROCESSOR_ERROR) {
         logger.error(
-                "[{}] Processor {} returned a non-recoverable error whilst processing the current item {}, and the processor has been removed from the pipeline",
-                getName(),
-                processor.toString(),
-                item.getId());
+            "[{}] Processor {} returned a non-recoverable error whilst processing the current item {}, and the processor has been removed from the pipeline",
+            getName(),
+            processor.toString(),
+            item.getId());
         if (response.hasExceptions()) {
           for (Exception e : response.getExceptions()) {
             logger.error("The following exception was caught by the processor", e);
@@ -222,7 +217,7 @@ public class SimplePipeline implements Pipeline {
 
     @Override
     public Pipeline build() throws IncompleteException {
-      if(descriptor != null && name == null) {
+      if (descriptor != null && name == null) {
         name = descriptor.getName();
       }
 
@@ -230,36 +225,36 @@ public class SimplePipeline implements Pipeline {
         throw new IncompleteException("Pipeline must have a name");
       }
 
-      if(!resources.stream().anyMatch(Logging.class::isInstance)) {
+      if (!resources.stream().anyMatch(Logging.class::isInstance)) {
         resources.add(Logging.useLoggerFactory());
       }
 
-      if(!resources.stream().anyMatch(Metering.class::isInstance)) {
+      if (!resources.stream().anyMatch(Metering.class::isInstance)) {
         resources.add(Metering.useGlobalRegistry(name));
       }
 
       Context context = new SimpleContext(resources);
 
-      if(descriptor != null) {
+      if (descriptor != null) {
         descriptor
-                .getSources()
-                .stream()
-                .map(d -> d.create(context))
-                .map(Source.class::cast)
-                .forEach(this::withSource);
+            .getSources()
+            .stream()
+            .map(d -> d.create(context))
+            .map(Source.class::cast)
+            .forEach(this::withSource);
 
         descriptor
-                .getProcessors()
-                .stream()
-                .map(d -> d.create(context))
-                .map(Processor.class::cast)
-                .forEach(this::withProcessor);
+            .getProcessors()
+            .stream()
+            .map(d -> d.create(context))
+            .map(Processor.class::cast)
+            .forEach(this::withProcessor);
 
-        if(name == null) {
+        if (name == null) {
           name = descriptor.getName();
         }
 
-        if(description == null) {
+        if (description == null) {
           description = descriptor.getDescription();
         }
       }
@@ -271,7 +266,6 @@ public class SimplePipeline implements Pipeline {
       if (processors.isEmpty()) {
         throw new IncompleteException("Pipeline requires at least one processor");
       }
-
 
       return new SimplePipeline(context, name, description, sources, processors);
     }

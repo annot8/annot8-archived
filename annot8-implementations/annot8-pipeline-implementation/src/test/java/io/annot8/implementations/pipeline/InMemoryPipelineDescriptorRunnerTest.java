@@ -1,6 +1,13 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.implementations.pipeline;
 
+import static org.mockito.Mockito.*;
+
+import java.util.Arrays;
+
+import org.junit.jupiter.api.Test;
+import org.mockito.stubbing.Answer;
+
 import io.annot8.api.components.Processor;
 import io.annot8.api.components.ProcessorDescriptor;
 import io.annot8.api.components.Source;
@@ -11,12 +18,6 @@ import io.annot8.api.context.Context;
 import io.annot8.api.data.Item;
 import io.annot8.api.data.ItemFactory;
 import io.annot8.api.pipelines.PipelineDescriptor;
-import org.junit.jupiter.api.Test;
-import org.mockito.stubbing.Answer;
-
-import java.util.Arrays;
-
-import static org.mockito.Mockito.*;
 
 public class InMemoryPipelineDescriptorRunnerTest {
 

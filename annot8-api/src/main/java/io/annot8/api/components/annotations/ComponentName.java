@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
 /**
  * Human readable component name, where it differs from the class name
  *
- * Should be used on the {@link io.annot8.api.components.Annot8ComponentDescriptor}
+ * <p>Should be used on the {@link io.annot8.api.components.Annot8ComponentDescriptor}
  */
 @Documented
 @Retention(RUNTIME)

@@ -1,4 +1,8 @@
+/* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.implementations.pipeline;
+
+import java.io.Closeable;
+import java.util.Collection;
 
 import io.annot8.api.components.Processor;
 import io.annot8.api.components.Resource;
@@ -9,9 +13,6 @@ import io.annot8.api.context.Context;
 import io.annot8.api.data.Item;
 import io.annot8.api.data.ItemFactory;
 import io.annot8.api.pipelines.PipelineDescriptor;
-
-import java.io.Closeable;
-import java.util.Collection;
 
 public interface Pipeline extends Closeable {
 
@@ -35,7 +36,7 @@ public interface Pipeline extends Closeable {
 
     Builder withName(String name);
 
-    Builder withDescription(String description) ;
+    Builder withDescription(String description);
 
     Builder withSource(Source source);
 
@@ -44,6 +45,5 @@ public interface Pipeline extends Closeable {
     Builder withResource(Resource resource);
 
     Pipeline build();
-
   }
 }

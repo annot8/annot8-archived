@@ -1,6 +1,4 @@
-/**
- * Module for serialization classes
- */
+/** Module for serialization classes */
 module io.annot8.common.serialization {
   requires transitive io.annot8.api;
   requires transitive java.json.bind;

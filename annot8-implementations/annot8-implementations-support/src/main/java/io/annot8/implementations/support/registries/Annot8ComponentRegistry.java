@@ -1,12 +1,12 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.implementations.support.registries;
 
-import io.annot8.api.components.*;
-
 import java.util.Collections;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
+
+import io.annot8.api.components.*;
 
 public class Annot8ComponentRegistry {
 
