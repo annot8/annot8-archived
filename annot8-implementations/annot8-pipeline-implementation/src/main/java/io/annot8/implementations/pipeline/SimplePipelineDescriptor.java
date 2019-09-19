@@ -1,14 +1,16 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.implementations.pipeline;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import io.annot8.api.components.ProcessorDescriptor;
 import io.annot8.api.components.SourceDescriptor;
 import io.annot8.api.exceptions.IncompleteException;
+import io.annot8.api.pipelines.NoOpOrderer;
 import io.annot8.api.pipelines.PipelineDescriptor;
+import io.annot8.api.pipelines.PipelineOrderer;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class SimplePipelineDescriptor implements PipelineDescriptor {
   private final String name;
@@ -54,6 +56,7 @@ public class SimplePipelineDescriptor implements PipelineDescriptor {
     private String description;
     private List<SourceDescriptor> sources = new ArrayList<>();
     private List<ProcessorDescriptor> processors = new ArrayList<>();
+    private PipelineOrderer orderer = NoOpOrderer.getInstance();
 
     @Override
     public Builder from(PipelineDescriptor pipelineDescriptor) {
@@ -74,6 +77,12 @@ public class SimplePipelineDescriptor implements PipelineDescriptor {
     @Override
     public Builder withDescription(String description) {
       this.description = description;
+      return this;
+    }
+
+    @Override
+    public PipelineDescriptor.Builder withOrderer(PipelineOrderer orderer) {
+      this.orderer = orderer;
       return this;
     }
 
@@ -103,7 +112,14 @@ public class SimplePipelineDescriptor implements PipelineDescriptor {
         throw new IncompleteException("Pipeline requires at least one processor");
       }
 
-      return new SimplePipelineDescriptor(name, description, sources, processors);
+      if(orderer == null){
+        throw new IncompleteException("Pipeline requires a PipelineOrderer");
+      }
+
+      Collection<SourceDescriptor> orderedSources = orderer.orderSources(sources);
+      Collection<ProcessorDescriptor> orderedProcessors = orderer.orderProcessors(processors);
+
+      return new SimplePipelineDescriptor(name, description, orderedSources, orderedProcessors);
     }
   }
 }
