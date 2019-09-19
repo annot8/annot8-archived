@@ -176,6 +176,7 @@ public class SimplePipeline implements Pipeline {
     private List<Processor> processors = new ArrayList<>();
     private List<Resource> resources = new ArrayList<>();
     private PipelineDescriptor descriptor = null;
+    private Context context;
 
     public Builder() {
       // Do nothing
@@ -218,7 +219,16 @@ public class SimplePipeline implements Pipeline {
     }
 
     @Override
+    public Builder withContext(Context context) {
+      this.context = context;
+      return this;
+    }
+
+    @Override
     public Pipeline build() throws IncompleteException {
+
+      // Ensure we have a name
+
       if (descriptor != null && name == null) {
         name = descriptor.getName();
       }
@@ -226,6 +236,14 @@ public class SimplePipeline implements Pipeline {
       if (name == null || name.isEmpty()) {
         throw new IncompleteException("Pipeline must have a name");
       }
+
+      // Pull resources from the provided context
+
+      if(context != null) {
+        context.getResources().forEach(resources::add);
+      }
+
+      // Add in Logging and Metering is none has been supplied
 
       if (!resources.stream().anyMatch(Logging.class::isInstance)) {
         resources.add(Logging.useLoggerFactory());
@@ -235,20 +253,28 @@ public class SimplePipeline implements Pipeline {
         resources.add(Metering.useGlobalRegistry(name));
       }
 
-      Context context = new SimpleContext(resources);
+      // New context
+
+      Context pipelineContext = new SimpleContext(resources);
+
+      // Build the pipeline from the descriptor (if present)
 
       if (descriptor != null) {
+
+        // NOTE that the sources and processors will be added to the end of the pipeline here
+        // (depending ordering implementation)
+
         descriptor
             .getSources()
             .stream()
-            .map(d -> d.create(context))
+            .map(d -> d.create(pipelineContext))
             .map(Source.class::cast)
             .forEach(this::withSource);
 
         descriptor
             .getProcessors()
             .stream()
-            .map(d -> d.create(context))
+            .map(d -> d.create(pipelineContext))
             .map(Processor.class::cast)
             .forEach(this::withProcessor);
 
@@ -261,6 +287,8 @@ public class SimplePipeline implements Pipeline {
         }
       }
 
+      // Check that the pipeline is valid
+
       if (sources.isEmpty()) {
         throw new IncompleteException("Pipeline requires at least one source");
       }
@@ -269,7 +297,9 @@ public class SimplePipeline implements Pipeline {
         throw new IncompleteException("Pipeline requires at least one processor");
       }
 
-      return new SimplePipeline(context, name, description, sources, processors);
+
+
+      return new SimplePipeline(pipelineContext, name, description, sources, processors);
     }
   }
 }

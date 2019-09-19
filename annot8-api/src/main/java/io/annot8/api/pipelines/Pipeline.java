@@ -43,6 +43,8 @@ public interface Pipeline extends Closeable {
 
     Builder withResource(Resource resource);
 
+    Builder withContext(Context context);
+
     Pipeline build();
   }
 }
