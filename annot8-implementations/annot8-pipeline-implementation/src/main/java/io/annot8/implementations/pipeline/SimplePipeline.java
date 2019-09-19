@@ -239,7 +239,7 @@ public class SimplePipeline implements Pipeline {
 
       // Pull resources from the provided context
 
-      if(context != null) {
+      if (context != null) {
         context.getResources().forEach(resources::add);
       }
 
@@ -296,8 +296,6 @@ public class SimplePipeline implements Pipeline {
       if (processors.isEmpty()) {
         throw new IncompleteException("Pipeline requires at least one processor");
       }
-
-
 
       return new SimplePipeline(pipelineContext, name, description, sources, processors);
     }
