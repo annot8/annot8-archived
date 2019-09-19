@@ -19,6 +19,8 @@ public class QueueItemFactory extends NotifyingItemFactory {
   public QueueItemFactory(ItemFactory itemFactory, Queue<Item> queue) {
     super(itemFactory);
     this.queue = queue;
+    // All new items go on the queue
+    register(queue::add);
   }
 
   public void clear() {

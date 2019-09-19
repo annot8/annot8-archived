@@ -48,7 +48,7 @@ public class InMemoryPipelineRunner implements PipelineRunner {
   @Override
   public void run() {
     logger.info("Pipeline {} started", pipeline.getName());
-
+    running = true;
     while (running) {
       SourceResponse sr = pipeline.read(itemFactory);
 
