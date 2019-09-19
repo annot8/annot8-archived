@@ -2,6 +2,7 @@
 package io.annot8.common.serialization;
 
 import io.annot8.api.components.Annot8ComponentDescriptor;
+import java.lang.reflect.Type;
 
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
@@ -9,11 +10,13 @@ import javax.json.bind.JsonbException;
 import javax.json.bind.serializer.DeserializationContext;
 import javax.json.bind.serializer.JsonbDeserializer;
 import javax.json.stream.JsonParser;
-import java.lang.reflect.Type;
 
-/**
- * Deserialize Annot8ComponentDescriptor from JSON, using the JSON-B deserializer interface
- */
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import io.annot8.api.components.Annot8ComponentDescriptor;
+
+/** Deserialize Annot8ComponentDescriptor from JSON, using the JSON-B deserializer interface */
 public class Annot8ComponentDescriptorDeserializer
     implements JsonbDeserializer<Annot8ComponentDescriptor> {
 

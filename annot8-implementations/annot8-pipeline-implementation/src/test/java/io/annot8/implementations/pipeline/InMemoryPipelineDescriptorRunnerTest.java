@@ -88,6 +88,7 @@ public class InMemoryPipelineDescriptorRunnerTest {
     when(pd2.create(any(Context.class))).thenReturn(processor2);
 
     PipelineDescriptor pipelineDescriptor = mock(PipelineDescriptor.class);
+    when(pipelineDescriptor.getName()).thenReturn("test");
     when(pipelineDescriptor.getSources()).thenReturn(Arrays.asList(sd1, sd2));
     when((pipelineDescriptor.getProcessors())).thenReturn(Arrays.asList(pd1, pd2));
 

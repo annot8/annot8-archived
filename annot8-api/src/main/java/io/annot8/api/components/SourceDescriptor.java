@@ -5,10 +5,10 @@ import io.annot8.api.settings.Settings;
 
 /**
  * Helper interface for using {@link Annot8ComponentDescriptor} with {@link Source} interfaces
- * @param <T>
- *      The Annot8 source described by this descriptor
- * @param <S>
- *      The settings used by this source, or {@link io.annot8.api.settings.NoSettings} if the component doesn't use settings
+ *
+ * @param <T> The Annot8 source described by this descriptor
+ * @param <S> The settings used by this source, or {@link io.annot8.api.settings.NoSettings} if the
+ *     component doesn't use settings
  */
 public interface SourceDescriptor<T extends Source, S extends Settings>
     extends Annot8ComponentDescriptor<T, S> {}
