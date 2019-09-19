@@ -2,11 +2,10 @@
 package io.annot8.common.serialization;
 
 import io.annot8.api.components.Annot8ComponentDescriptor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
+import javax.json.bind.JsonbException;
 import javax.json.bind.serializer.DeserializationContext;
 import javax.json.bind.serializer.JsonbDeserializer;
 import javax.json.stream.JsonParser;
@@ -19,8 +18,6 @@ public class Annot8ComponentDescriptorDeserializer
     implements JsonbDeserializer<Annot8ComponentDescriptor> {
 
   private static final Jsonb jb = JsonbBuilder.create();
-  private static final Logger LOGGER =
-      LoggerFactory.getLogger(Annot8ComponentDescriptorDeserializer.class);
 
   @Override
   public Annot8ComponentDescriptor deserialize(
@@ -54,7 +51,7 @@ public class Annot8ComponentDescriptorDeserializer
            * parser);
            */
         } catch (ClassNotFoundException e) {
-          LOGGER.error("Deserialization failed - could not find class " + className, e);
+          throw new JsonbException("Deserialization failed - could not find class " + className, e);
         }
       }
     }
