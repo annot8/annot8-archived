@@ -3,6 +3,7 @@ open module io.annot8.implementations.reference {
   requires transitive io.annot8.implementations.support;
   requires transitive io.annot8.common.utils;
   requires transitive io.annot8.common.data;
+  requires java.desktop;
 
   exports io.annot8.implementations.reference.annotations;
   exports io.annot8.implementations.reference.content;

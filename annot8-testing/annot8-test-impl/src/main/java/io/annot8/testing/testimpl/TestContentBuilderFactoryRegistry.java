@@ -12,10 +12,16 @@ import io.annot8.api.data.Content;
 import io.annot8.api.data.Content.Builder;
 import io.annot8.api.data.Item;
 import io.annot8.api.properties.Properties;
-import io.annot8.common.data.content.*;
+import io.annot8.common.data.content.FileContent;
+import io.annot8.common.data.content.Image;
+import io.annot8.common.data.content.InputStreamContent;
+import io.annot8.common.data.content.TableContent;
+import io.annot8.common.data.content.Text;
+import io.annot8.common.data.content.UriContent;
 import io.annot8.implementations.support.factories.ContentBuilderFactory;
 import io.annot8.implementations.support.registries.SimpleContentBuilderFactoryRegistry;
 import io.annot8.testing.testimpl.content.TestFileContent;
+import io.annot8.testing.testimpl.content.TestImage;
 import io.annot8.testing.testimpl.content.TestInputStreamContent;
 import io.annot8.testing.testimpl.content.TestStringContent;
 import io.annot8.testing.testimpl.content.TestTableContent;
@@ -38,6 +44,7 @@ public class TestContentBuilderFactoryRegistry extends SimpleContentBuilderFacto
       register(InputStreamContent.class, new TestInputStreamContent.BuilderFactory());
       register(UriContent.class, new TestURLBuilderFactory());
       register(TableContent.class, new TestTableContent.BuilderFactory());
+      register(Image.class, new TestImage.BuilderFactory());
     }
   }
 
