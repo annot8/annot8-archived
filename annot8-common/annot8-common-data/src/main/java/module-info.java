@@ -3,6 +3,7 @@ open module io.annot8.common.data {
   requires io.annot8.common.utils;
   requires java.json.bind;
   requires com.google.common;
+  requires java.desktop;
 
   exports io.annot8.common.data.bounds;
   exports io.annot8.common.data.content;
