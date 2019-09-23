@@ -1,16 +1,16 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.implementations.pipeline;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import io.annot8.api.components.ProcessorDescriptor;
 import io.annot8.api.components.SourceDescriptor;
 import io.annot8.api.exceptions.IncompleteException;
 import io.annot8.api.pipelines.NoOpOrderer;
 import io.annot8.api.pipelines.PipelineDescriptor;
 import io.annot8.api.pipelines.PipelineOrderer;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 public class SimplePipelineDescriptor implements PipelineDescriptor {
   private final String name;
@@ -112,7 +112,7 @@ public class SimplePipelineDescriptor implements PipelineDescriptor {
         throw new IncompleteException("Pipeline requires at least one processor");
       }
 
-      if(orderer == null){
+      if (orderer == null) {
         throw new IncompleteException("Pipeline requires a PipelineOrderer");
       }
 

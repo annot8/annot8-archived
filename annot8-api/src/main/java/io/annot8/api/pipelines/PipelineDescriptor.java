@@ -1,13 +1,13 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.api.pipelines;
 
+import java.util.Collection;
+
 import io.annot8.api.components.ProcessorDescriptor;
 import io.annot8.api.components.SourceDescriptor;
 import io.annot8.api.exceptions.IncompleteException;
 import io.annot8.api.helpers.WithDescription;
 import io.annot8.api.helpers.WithName;
-
-import java.util.Collection;
 
 /**
  * Describes a pipeline, which is a collection of ordered sources and processors.
