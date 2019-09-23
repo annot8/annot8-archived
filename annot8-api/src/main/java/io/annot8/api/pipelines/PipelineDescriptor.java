@@ -23,7 +23,7 @@ public interface PipelineDescriptor extends WithName, WithDescription {
   Collection<SourceDescriptor> getSources();
 
   /**
-   * Return an ordered list of {@link ProcessorDescriptor}s describing the processes that will
+   * Return an ordered list of {@link ProcessorDescriptor}s describing the processers that will
    * process data in the pipeline
    */
   Collection<ProcessorDescriptor> getProcessors();
@@ -38,6 +38,9 @@ public interface PipelineDescriptor extends WithName, WithDescription {
 
     /** Set a description of the pipeline */
     PipelineDescriptor.Builder withDescription(String description);
+
+    /** Set an orderer to order components */
+    PipelineDescriptor.Builder withOrderer(PipelineOrderer orderer);
 
     /** Add a source to the pipeline that is being built */
     PipelineDescriptor.Builder withSource(SourceDescriptor source);
