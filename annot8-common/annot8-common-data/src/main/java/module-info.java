@@ -9,4 +9,5 @@ open module io.annot8.common.data {
   exports io.annot8.common.data.content;
   exports io.annot8.common.data.tuple;
   exports io.annot8.common.data.properties;
+  exports io.annot8.common.data.utils;
 }
