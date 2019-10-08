@@ -5,7 +5,7 @@
   <parent>
     <artifactId>annot8-common</artifactId>
     <groupId>io.annot8</groupId>
-    <version>0.4.0-SNAPSHOT</version>
+    <version>0.4.0</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
@@ -21,10 +21,6 @@
     <dependency>
       <groupId>io.annot8</groupId>
       <artifactId>annot8-common-utils</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.annot8</groupId>
-      <artifactId>annot8-api</artifactId>
     </dependency>
     <dependency>
       <groupId>com.google.guava</groupId>
