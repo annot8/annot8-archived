@@ -31,6 +31,8 @@ public interface Properties {
   /**
    * Check if key existing and its value is of a specific class
    *
+   * @param key the key
+   * @param clazz class the value must be assignable to
    * @return true if a property of the given class with the given key exists
    */
   default boolean has(final String key, final Class<?> clazz) {
@@ -50,6 +52,7 @@ public interface Properties {
   /**
    * Get the property value of specified class
    *
+   * @param <T> required class
    * @param key the key
    * @param clazz the requried value classs
    * @return the property value as the specified class for the specified key, if it exists
@@ -72,7 +75,7 @@ public interface Properties {
 
   /**
    * Get a specific class at the key, or use the default
-   *
+   * @param <T> required class
    * @param key the key
    * @param defaultValue the value to return if key is missing or of different type (non-null)
    * @return the property value for the specified key, or a default value if the key doesn't exist
@@ -100,6 +103,7 @@ public interface Properties {
   /**
    * Get all keys which have the value an instance of class
    *
+   * @param <T> value class
    * @param clazz the class to filter on
    * @return all the property keys that have a value of the specified class
    */
@@ -117,6 +121,7 @@ public interface Properties {
   /**
    * Get all properties which have a value instance of class
    *
+   * @param <T> value class
    * @param clazz the class to filter on
    * @return a map of all properties that have a value of the specified class
    */

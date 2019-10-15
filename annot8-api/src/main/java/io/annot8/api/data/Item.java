@@ -14,8 +14,16 @@ import io.annot8.api.helpers.WithMutableProperties;
 /** Item interface used by components. */
 public interface Item extends WithId, WithMutableProperties, WithGroups, WithFilter<Content<?>> {
 
+  /**
+   * Get id of parent
+   * @return id if exists
+   */
   Optional<String> getParent();
 
+  /**
+   * Does this item have a parent?
+   * @return true if has a parent.
+   */
   default boolean hasParent() {
     return getParent().isPresent();
   }
@@ -48,6 +56,7 @@ public interface Item extends WithId, WithMutableProperties, WithGroups, WithFil
   /**
    * All content objects of the specified class contained within this item
    *
+   * @param <T> the content class
    * @param clazz the content class to filter against
    * @return content
    */
@@ -56,8 +65,11 @@ public interface Item extends WithId, WithMutableProperties, WithGroups, WithFil
   }
 
   /**
+   *
    * Create a new content builder to generate content.
    *
+   * @param <C> the content class
+   * @param <D> the data class
    * @param clazz the top level content type required
    * @return content builder
    * @throws UnsupportedContentException if the clazz can't be created

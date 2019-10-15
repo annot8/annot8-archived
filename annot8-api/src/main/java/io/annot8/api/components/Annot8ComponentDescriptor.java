@@ -19,23 +19,37 @@ import io.annot8.api.settings.Settings;
  */
 public interface Annot8ComponentDescriptor<T extends Annot8Component, S extends Settings> {
 
-  /** Set the name of this component */
+  /** Set the name of this component
+   * @param name  name of the component
+   */
   void setName(String name);
 
-  /** Get the name of this component */
+  /** Get the name of this component
+   * @return name of the component
+   */
   String getName();
 
-  /** Set the settings for this component */
+  /** Set the settings for this component
+   * @param settings the settings to apply
+   */
   void setSettings(S settings);
 
-  /** Get the settings for this component */
+  /** Get the settings for this component
+   *
+   * @return settings used to create the component (or null)
+   */
   S getSettings();
 
-  /** Get the capabilities of the component, as configured with the current settings */
+  /** Get the capabilities of the component, as configured with the current settings
+   * @return  the capabilities of the component (wrt to the settings)
+   */
   Capabilities capabilities();
 
   /**
    * Create an instance of the component, with the current settings and using the provided context
+   *
+   * @param context the context used to create the new instance
+   * @return new instance of the component
    */
   T create(Context context);
 }

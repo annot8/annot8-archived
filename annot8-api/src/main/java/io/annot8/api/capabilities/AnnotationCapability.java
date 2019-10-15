@@ -5,9 +5,14 @@ import io.annot8.api.bounds.Bounds;
 
 /** Describes an annotation that is created, processed or deleted */
 public interface AnnotationCapability extends Capability {
-  /** The type of annotation */
+  /** The type of annotation
+   *
+   * @return the type
+   */
   String getType();
 
-  /** The bounds of the annotation */
+  /** The bounds of the annotation
+   * @return the bounds class
+   */
   Class<? extends Bounds> getBounds();
 }

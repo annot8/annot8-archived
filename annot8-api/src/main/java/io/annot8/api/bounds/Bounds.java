@@ -12,6 +12,8 @@ public interface Bounds {
    * Get the subset of data which is covered by these bounds, returning the data in the native
    * format of the Content.
    *
+   * @param <C> content class
+   * @param <D> data class
    * @param content the content the bounds should be applied to
    * @return optional empty if there is nothing covered.
    */
@@ -28,6 +30,9 @@ public interface Bounds {
    *
    * <p>Most bounds will likely processor only one (or very few) required class and data class.
    *
+   * @param <C> content class
+   * @param <D> data class
+   * @param <R> required data class
    * @param content the content the bounds should be applied to
    * @param requiredClass the type of data required
    * @return optional empty if there is nothing covered, or if the combinations are not supported.
@@ -43,6 +48,11 @@ public interface Bounds {
    *
    * <p>Note that returning true here does not imply that getData will not be empty. The bounds may
    * apply to the content but they may still cover no data.
+   *
+   * @param <C> content class
+   * @param <D> data class
+   * @param content the content to check
+   * @return true is this bounds can be used with this content
    */
   <D, C extends Content<D>> boolean isValid(C content);
 }
