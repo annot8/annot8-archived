@@ -13,10 +13,4 @@
   <name>Annot8 Common Utils</name>
   <description>Common utility functions</description>
 
-  <dependencies>
-    <dependency>
-      <groupId>io.annot8</groupId>
-      <artifactId>annot8-api</artifactId>
-    </dependency>
-  </dependencies>
 </project>

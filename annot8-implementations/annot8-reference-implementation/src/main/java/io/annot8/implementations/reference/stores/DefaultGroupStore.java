@@ -17,7 +17,9 @@ public class DefaultGroupStore implements GroupStore {
 
   private final Item item;
   private final Map<String, Group> groups = new ConcurrentHashMap<>();
-  /** Construct a new instance of this class for the provided item */
+  /** Construct a new instance of this class for the provided item
+   * @param item the owning item
+   */
   public DefaultGroupStore(Item item) {
     this.item = item;
   }

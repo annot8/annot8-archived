@@ -100,6 +100,7 @@ public interface AnnotationStore extends WithFilter<Annotation> {
   /**
    * Get all annotations of a given bounds currently held in this store
    *
+   * @param <B> bounds class
    * @param boundsClass the bound to filter on
    * @return annotations
    */
@@ -110,6 +111,7 @@ public interface AnnotationStore extends WithFilter<Annotation> {
   /**
    * Get all annotations of a given bounds and type currently held in this store
    *
+   * @param <B> bounds class
    * @param boundsClass the bound to filter on
    * @param type the annotation type to find
    * @return annotations

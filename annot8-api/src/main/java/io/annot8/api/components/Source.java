@@ -12,6 +12,9 @@ import io.annot8.api.data.ItemFactory;
  */
 public interface Source extends Annot8Component {
 
-  /** Read from the data source and return new items if found */
+  /** Read from the data source and return new items if found
+   * @param itemFactory factory used to create new items
+   * @return status response
+   */
   SourceResponse read(ItemFactory itemFactory);
 }

@@ -20,6 +20,7 @@ public interface ItemFactory {
   /**
    * Create a new item with a parent
    *
+   * @param parent the parent
    * @return non-null
    */
   Item create(Item parent);

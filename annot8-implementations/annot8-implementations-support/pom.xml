@@ -20,17 +20,6 @@
       <groupId>io.annot8</groupId>
       <artifactId>annot8-api</artifactId>
     </dependency>
-
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava</artifactId>
-    </dependency>
-
     <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-guava</artifactId>
@@ -38,12 +27,13 @@
     </dependency>
     <dependency>
       <groupId>io.annot8</groupId>
-      <artifactId>annot8-common-utils</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.annot8</groupId>
       <artifactId>annot8-common-data</artifactId>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.findbugs</groupId>
+      <artifactId>jsr305</artifactId>
+      <version>3.0.2</version>
     </dependency>
   </dependencies>
 </project>

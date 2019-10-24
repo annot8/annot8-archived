@@ -28,6 +28,7 @@ public interface Annotation extends WithId, WithType, WithProperties {
    * Get the {@link Bounds} associated with this annotation casting it to the bounds provided (if it
    * is of that type / subtype).
    *
+   * @param <B> bounds class
    * @param boundsClass the class the bounds should have
    * @return optional bounds of requested class, empty if the bounds are not of that class
    */

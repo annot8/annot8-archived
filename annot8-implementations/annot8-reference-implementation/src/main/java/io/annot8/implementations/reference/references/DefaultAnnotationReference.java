@@ -22,14 +22,21 @@ public class DefaultAnnotationReference extends AbstractAnnotationReference {
 
   private final String annotationId;
 
-  /** New reference either from another reference or manually created. */
+  /** New reference either from another reference or manually created.
+   * @param annotationId the annotation id
+   * @param contentId the content id
+   * @param item the item (which owns the content) */
   public DefaultAnnotationReference(Item item, String contentId, String annotationId) {
     this.item = item;
     this.contentId = contentId;
     this.annotationId = annotationId;
   }
 
-  /** Create an annotation reference for the annotation. */
+  /** Create an annotation reference for the annotation.
+   * @param annotation the annotation
+   * @param item the item owning the annotation
+   * @return reference to the annotation
+   */
   public static DefaultAnnotationReference to(Item item, Annotation annotation) {
     return new DefaultAnnotationReference(item, annotation.getContentId(), annotation.getId());
   }

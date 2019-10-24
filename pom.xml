@@ -88,8 +88,8 @@
     <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
     <jacoco-maven-plugin.version>0.8.2</jacoco-maven-plugin.version>
     <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
-    <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
-    <maven-javadoc-plugin.version>3.0.1</maven-javadoc-plugin.version>
+    <maven-source-plugin.version>3.1.0</maven-source-plugin.version>
+    <maven-javadoc-plugin.version>3.1.1</maven-javadoc-plugin.version>
     <githook-maven-plugin.version>1.0.4</githook-maven-plugin.version>
 
   </properties>
@@ -452,7 +452,6 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
-            <version>3.0.1</version>
             <executions>
               <execution>
                 <id>attach-sources</id>
@@ -465,7 +464,6 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
-            <version>3.0.1</version>
             <executions>
               <execution>
                 <id>attach-javadocs</id>
@@ -478,7 +476,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.6</version>
+            <version>${maven-gpg-plugin.version}</version>
             <executions>
               <execution>
                 <id>sign-artifacts</id>

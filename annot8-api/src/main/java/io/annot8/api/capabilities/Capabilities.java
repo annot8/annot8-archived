@@ -17,6 +17,7 @@ public interface Capabilities {
    *
    * @param type The type of capability to filter to
    * @param <T> Class extending Capability
+   * @return Stream of {@link Capability} objects describing what is created
    */
   default <T extends Capability> Stream<T> creates(Class<T> type) {
     return creates().filter(c -> type.isAssignableFrom(c.getClass())).map(type::cast);
@@ -34,6 +35,7 @@ public interface Capabilities {
    *
    * @param type The type of capability to filter to
    * @param <T> Class extending Capability
+   * @return Stream of {@link Capability} objects describing what is processed
    */
   default <T extends Capability> Stream<T> processes(Class<T> type) {
     return processes().filter(c -> type.isAssignableFrom(c.getClass())).map(type::cast);
@@ -51,6 +53,7 @@ public interface Capabilities {
    *
    * @param type The type of capability to filter to
    * @param <T> Class extending Capability
+   * @return Stream of {@link Capability} objects describing what is deleted
    */
   default <T extends Capability> Stream<T> deletes(Class<T> type) {
     return deletes().filter(c -> type.isAssignableFrom(c.getClass())).map(type::cast);

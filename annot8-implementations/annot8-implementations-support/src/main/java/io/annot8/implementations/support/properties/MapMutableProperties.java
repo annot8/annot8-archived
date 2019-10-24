@@ -22,12 +22,16 @@ public class MapMutableProperties implements MutableProperties {
     // Do nothing
   }
 
-  /** Create a new instance with key-values from an existing Properties object */
+  /** Create a new instance with key-values from an existing Properties object *
+   * @param properties properties to copy
+   */
   public MapMutableProperties(Properties properties) {
     properties.getAll().forEach(this.properties::put);
   }
 
-  /** Create a new instance with key-values from an existing Map */
+  /** Create a new instance with key-values from an existing Map
+   * @param properties properties to copy
+   * */
   public MapMutableProperties(Map<String, Object> properties) {
     properties.forEach(this.properties::put);
   }
