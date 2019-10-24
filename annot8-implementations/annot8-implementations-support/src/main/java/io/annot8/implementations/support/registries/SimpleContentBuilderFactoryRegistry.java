@@ -1,12 +1,11 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.implementations.support.registries;
 
+import io.annot8.api.data.Content;
+import io.annot8.implementations.support.factories.ContentBuilderFactory;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-
-import io.annot8.api.data.Content;
-import io.annot8.implementations.support.factories.ContentBuilderFactory;
 
 public class SimpleContentBuilderFactoryRegistry implements ContentBuilderFactoryRegistry {
 

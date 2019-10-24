@@ -3,13 +3,11 @@ package io.annot8.api.components.responses;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import io.annot8.api.components.responses.ProcessorResponse.Status;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
-
 import org.junit.jupiter.api.Test;
-
-import io.annot8.api.components.responses.ProcessorResponse.Status;
 
 public class ProcessorResponseTest {
 

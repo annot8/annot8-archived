@@ -1,12 +1,6 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.api.annotations;
 
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 import io.annot8.api.data.Content;
 import io.annot8.api.helpers.WithId;
 import io.annot8.api.helpers.WithProperties;
@@ -18,6 +12,11 @@ import io.annot8.api.helpers.builders.WithPropertiesBuilder;
 import io.annot8.api.helpers.builders.WithSave;
 import io.annot8.api.helpers.builders.WithTypeBuilder;
 import io.annot8.api.references.AnnotationReference;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /** Base annotation interface from which all other annotations extend. */
 public interface Group extends WithId, WithType, WithProperties {
@@ -28,9 +27,7 @@ public interface Group extends WithId, WithType, WithProperties {
    * @return a map of all roles
    */
   default Map<String, Stream<Annotation>> getAnnotations() {
-    return getReferences()
-        .entrySet()
-        .stream()
+    return getReferences().entrySet().stream()
         .collect(
             Collectors.toMap(Entry::getKey, e -> AnnotationReference.toAnnotations(e.getValue())));
   }
@@ -79,9 +76,7 @@ public interface Group extends WithId, WithType, WithProperties {
    * @return annotations in that content
    */
   default Stream<Annotation> getAnnotationsForContent(Content content) {
-    return getAnnotations()
-        .values()
-        .stream()
+    return getAnnotations().values().stream()
         .flatMap(s -> s)
         .filter(a -> content.getId().equals(a.getContentId()));
   }

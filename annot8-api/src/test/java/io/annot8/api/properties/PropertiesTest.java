@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.HashMap;
-
 import org.junit.jupiter.api.Test;
 
 /** Unit tests for the default methods on the {@link Properties} interface. */

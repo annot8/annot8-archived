@@ -3,12 +3,6 @@ package io.annot8.api.stores;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Stream;
-
-import org.junit.jupiter.api.Test;
-
 import io.annot8.api.annotations.Annotation;
 import io.annot8.api.annotations.Group;
 import io.annot8.api.annotations.Group.Builder;
@@ -18,6 +12,10 @@ import io.annot8.api.exceptions.IncompleteException;
 import io.annot8.api.properties.ImmutableProperties;
 import io.annot8.api.properties.Properties;
 import io.annot8.api.references.AnnotationReference;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
 
 /** Unit tests for the default method implementations on {@link GroupStore} */
 public class GroupStoreTest {

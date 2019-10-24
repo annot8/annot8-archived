@@ -1,15 +1,14 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.api.stores;
 
-import java.util.Collection;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 import io.annot8.api.annotations.Group;
 import io.annot8.api.data.Item;
 import io.annot8.api.filters.Filter;
 import io.annot8.api.helpers.WithFilter;
+import java.util.Collection;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /** Base groups interface from which all other group stores extend. */
 public interface GroupStore extends WithFilter<Group> {

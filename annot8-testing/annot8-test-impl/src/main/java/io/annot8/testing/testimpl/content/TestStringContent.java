@@ -1,8 +1,6 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.testing.testimpl.content;
 
-import java.util.function.Supplier;
-
 import io.annot8.api.data.Content;
 import io.annot8.api.data.Item;
 import io.annot8.api.properties.ImmutableProperties;
@@ -14,6 +12,7 @@ import io.annot8.implementations.support.stores.AnnotationStoreFactory;
 import io.annot8.testing.testimpl.AbstractTestContent;
 import io.annot8.testing.testimpl.TestAnnotationStoreFactory;
 import io.annot8.testing.testimpl.TestItem;
+import java.util.function.Supplier;
 
 public class TestStringContent extends AbstractTestContent<String> implements Text {
 

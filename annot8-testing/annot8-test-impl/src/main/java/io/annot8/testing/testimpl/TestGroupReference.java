@@ -1,11 +1,10 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.testing.testimpl;
 
-import java.util.Objects;
-import java.util.Optional;
-
 import io.annot8.api.annotations.Group;
 import io.annot8.api.references.GroupReference;
+import java.util.Objects;
+import java.util.Optional;
 
 public class TestGroupReference implements GroupReference {
 

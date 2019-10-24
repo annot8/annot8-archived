@@ -4,10 +4,12 @@ package io.annot8.implementations.support.stores;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
+import io.annot8.api.data.Item;
+import io.annot8.api.data.ItemFactory;
+import io.annot8.implementations.support.listeners.Deregister;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Consumer;
-
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,10 +17,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import io.annot8.api.data.Item;
-import io.annot8.api.data.ItemFactory;
-import io.annot8.implementations.support.listeners.Deregister;
 
 @ExtendWith(MockitoExtension.class)
 class NotifyingItemFactoryTest {

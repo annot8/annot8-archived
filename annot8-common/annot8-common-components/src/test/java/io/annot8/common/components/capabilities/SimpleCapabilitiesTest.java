@@ -5,15 +5,13 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 
-import java.util.Arrays;
-import java.util.Collections;
-
-import org.junit.jupiter.api.Test;
-
 import io.annot8.api.capabilities.AnnotationCapability;
 import io.annot8.api.capabilities.Capabilities;
 import io.annot8.api.capabilities.ContentCapability;
 import io.annot8.api.capabilities.GroupCapability;
+import java.util.Arrays;
+import java.util.Collections;
+import org.junit.jupiter.api.Test;
 
 public class SimpleCapabilitiesTest {
 

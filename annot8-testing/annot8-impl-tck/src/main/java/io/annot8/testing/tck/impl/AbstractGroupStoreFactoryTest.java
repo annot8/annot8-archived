@@ -3,11 +3,10 @@ package io.annot8.testing.tck.impl;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import org.junit.jupiter.api.Test;
-
 import io.annot8.api.stores.GroupStore;
 import io.annot8.implementations.support.stores.GroupStoreFactory;
 import io.annot8.testing.testimpl.TestItem;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractGroupStoreFactoryTest {
 

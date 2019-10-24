@@ -3,12 +3,11 @@ package io.annot8.testing.tck.impl;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import org.junit.jupiter.api.Test;
-
 import io.annot8.api.stores.AnnotationStore;
 import io.annot8.implementations.support.stores.AnnotationStoreFactory;
 import io.annot8.testing.testimpl.TestProperties;
 import io.annot8.testing.testimpl.content.TestStringContent;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractAnnotationStoreFactoryTest {
 

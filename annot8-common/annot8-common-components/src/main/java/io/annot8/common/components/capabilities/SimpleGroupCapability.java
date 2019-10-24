@@ -1,12 +1,10 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.components.capabilities;
 
+import io.annot8.api.capabilities.GroupCapability;
 import java.util.Objects;
-
 import javax.json.bind.annotation.JsonbCreator;
 import javax.json.bind.annotation.JsonbProperty;
-
-import io.annot8.api.capabilities.GroupCapability;
 
 public class SimpleGroupCapability implements GroupCapability {
   private final String type;

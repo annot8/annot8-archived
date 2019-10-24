@@ -1,13 +1,11 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.components.metering;
 
-import java.util.Objects;
-
 import io.annot8.api.components.Annot8Component;
 import io.annot8.api.components.Resource;
-
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
+import java.util.Objects;
 
 public final class Metering implements Resource {
 

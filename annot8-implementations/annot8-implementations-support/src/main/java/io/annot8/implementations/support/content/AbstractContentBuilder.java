@@ -1,16 +1,15 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.implementations.support.content;
 
-import java.util.Optional;
-import java.util.UUID;
-import java.util.function.Supplier;
-
 import io.annot8.api.data.Content;
 import io.annot8.api.data.Item;
 import io.annot8.api.exceptions.IncompleteException;
 import io.annot8.api.properties.ImmutableProperties;
 import io.annot8.api.properties.Properties;
 import io.annot8.implementations.support.properties.MapImmutableProperties;
+import java.util.Optional;
+import java.util.UUID;
+import java.util.function.Supplier;
 
 public abstract class AbstractContentBuilder<D, C extends Content<D>>
     implements Content.Builder<C, D> {

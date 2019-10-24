@@ -6,7 +6,8 @@ public class UnsupportedContentException extends Annot8RuntimeException {
 
   private static final long serialVersionUID = 1L;
 
-  /** Create an exception with the given message
+  /**
+   * Create an exception with the given message
    *
    * @param message the message for information
    */
@@ -14,7 +15,8 @@ public class UnsupportedContentException extends Annot8RuntimeException {
     super(message);
   }
 
-  /** Create an exception with the given message and a root cause
+  /**
+   * Create an exception with the given message and a root cause
    *
    * @param message the message for information
    * @param t original throwable

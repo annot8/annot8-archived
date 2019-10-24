@@ -9,7 +9,6 @@ import static org.mockito.Mockito.when;
 
 import java.util.Optional;
 import java.util.stream.Stream;
-
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.mockito.stubbing.Answer;

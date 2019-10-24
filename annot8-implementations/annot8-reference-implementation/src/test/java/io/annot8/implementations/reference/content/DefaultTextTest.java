@@ -3,11 +3,10 @@ package io.annot8.implementations.reference.content;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 import io.annot8.testing.testimpl.TestConstants;
 import io.annot8.testing.testimpl.TestItem;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class DefaultTextTest {
 

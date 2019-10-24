@@ -4,6 +4,10 @@ package io.annot8.implementations.support.annotations;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
+import io.annot8.api.annotations.Annotation;
+import io.annot8.api.annotations.Group;
+import io.annot8.api.properties.ImmutableProperties;
+import io.annot8.api.references.AnnotationReference;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
@@ -11,13 +15,7 @@ import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
 import org.junit.jupiter.api.Test;
-
-import io.annot8.api.annotations.Annotation;
-import io.annot8.api.annotations.Group;
-import io.annot8.api.properties.ImmutableProperties;
-import io.annot8.api.references.AnnotationReference;
 
 public class AbstractGroupTest {
 
@@ -143,8 +141,7 @@ public class AbstractGroupTest {
 
     @Override
     public Map<String, Stream<AnnotationReference>> getReferences() {
-      return refs.entrySet()
-          .stream()
+      return refs.entrySet().stream()
           .collect(Collectors.toMap(Entry::getKey, v -> v.getValue().stream()));
     }
 

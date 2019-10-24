@@ -3,16 +3,13 @@ package io.annot8.common.processing.indices;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.List;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import com.google.common.collect.Multimap;
-
 import io.annot8.api.annotations.Annotation;
 import io.annot8.common.data.bounds.SpanBounds;
 import io.annot8.testing.testimpl.TestAnnotation;
+import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class SpanIndicesTest {
 

@@ -1,17 +1,16 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.testing.testimpl;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-import java.util.UUID;
-
 import io.annot8.api.annotations.Annotation;
 import io.annot8.api.annotations.Group;
 import io.annot8.api.annotations.Group.Builder;
 import io.annot8.api.properties.Properties;
 import io.annot8.api.references.AnnotationReference;
 import io.annot8.implementations.support.factories.GroupBuilderFactory;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+import java.util.UUID;
 
 public class TestGroupBuilder implements Group.Builder {
 

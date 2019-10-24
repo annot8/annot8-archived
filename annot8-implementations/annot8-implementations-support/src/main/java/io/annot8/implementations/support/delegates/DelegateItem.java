@@ -1,15 +1,14 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.implementations.support.delegates;
 
-import java.util.Optional;
-import java.util.stream.Stream;
-
 import io.annot8.api.data.Content;
 import io.annot8.api.data.Content.Builder;
 import io.annot8.api.data.Item;
 import io.annot8.api.filters.Filter;
 import io.annot8.api.properties.MutableProperties;
 import io.annot8.api.stores.GroupStore;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 public class DelegateItem implements Item {
 

@@ -5,7 +5,9 @@ import io.annot8.api.data.Content;
 
 /** Describes content that is created, processed or deleted */
 public interface ContentCapability extends Capability {
-  /** The type of content
+  /**
+   * The type of content
+   *
    * @return type name
    */
   Class<? extends Content> getType();

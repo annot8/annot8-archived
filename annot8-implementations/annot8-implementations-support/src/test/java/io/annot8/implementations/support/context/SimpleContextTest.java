@@ -4,9 +4,8 @@ package io.annot8.implementations.support.context;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
-import org.junit.jupiter.api.Test;
-
 import io.annot8.api.components.Resource;
+import org.junit.jupiter.api.Test;
 
 class SimpleContextTest {
 

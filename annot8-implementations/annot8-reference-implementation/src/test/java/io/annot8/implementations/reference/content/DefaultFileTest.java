@@ -6,14 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
 
-import java.io.File;
-
-import org.junit.jupiter.api.Test;
-
 import io.annot8.api.data.Content;
 import io.annot8.api.exceptions.IncompleteException;
 import io.annot8.implementations.reference.content.DefaultFile.BuilderFactory;
 import io.annot8.testing.testimpl.TestItem;
+import java.io.File;
+import org.junit.jupiter.api.Test;
 
 public class DefaultFileTest {
 

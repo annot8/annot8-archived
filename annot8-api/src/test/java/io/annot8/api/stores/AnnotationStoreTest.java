@@ -3,13 +3,6 @@ package io.annot8.api.stores;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Stream;
-
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-
 import io.annot8.api.annotations.Annotation;
 import io.annot8.api.annotations.Annotation.Builder;
 import io.annot8.api.annotations.TestAnnotation;
@@ -18,6 +11,11 @@ import io.annot8.api.data.Content;
 import io.annot8.api.exceptions.IncompleteException;
 import io.annot8.api.properties.ImmutableProperties;
 import io.annot8.api.properties.Properties;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 /** Unit tests for the default method implementations on {@link AnnotationStore} */
 public class AnnotationStoreTest {

@@ -1,8 +1,6 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.serialization;
 
-import java.util.stream.Stream;
-
 import io.annot8.api.capabilities.Capabilities;
 import io.annot8.api.capabilities.Capability;
 import io.annot8.api.components.Annot8ComponentDescriptor;
@@ -11,6 +9,7 @@ import io.annot8.api.components.responses.ProcessorResponse;
 import io.annot8.api.context.Context;
 import io.annot8.api.data.Item;
 import io.annot8.api.settings.Settings;
+import java.util.stream.Stream;
 
 public class TestNested implements Processor {
 

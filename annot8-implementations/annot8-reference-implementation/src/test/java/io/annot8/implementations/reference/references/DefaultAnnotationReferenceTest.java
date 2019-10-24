@@ -5,15 +5,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import java.util.Optional;
-
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-
 import io.annot8.api.annotations.Annotation;
 import io.annot8.api.data.Content;
 import io.annot8.api.data.Item;
 import io.annot8.api.stores.AnnotationStore;
+import java.util.Optional;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 class DefaultAnnotationReferenceTest {
 

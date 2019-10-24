@@ -1,9 +1,8 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.data.content;
 
-import java.io.InputStream;
-
 import io.annot8.api.data.Content;
+import java.io.InputStream;
 
 /**
  * Content which is backed by a input stream.

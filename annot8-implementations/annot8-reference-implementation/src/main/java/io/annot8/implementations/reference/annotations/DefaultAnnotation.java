@@ -1,9 +1,6 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.implementations.reference.annotations;
 
-import java.util.Optional;
-import java.util.UUID;
-
 import io.annot8.api.annotations.Annotation;
 import io.annot8.api.bounds.Bounds;
 import io.annot8.api.exceptions.IncompleteException;
@@ -14,6 +11,8 @@ import io.annot8.common.data.properties.EmptyImmutableProperties;
 import io.annot8.implementations.support.annotations.AbstractAnnotation;
 import io.annot8.implementations.support.properties.MapImmutableProperties;
 import io.annot8.implementations.support.properties.MapMutableProperties;
+import java.util.Optional;
+import java.util.UUID;
 
 /** Simple implementation of Annotation interface */
 public class DefaultAnnotation extends AbstractAnnotation {

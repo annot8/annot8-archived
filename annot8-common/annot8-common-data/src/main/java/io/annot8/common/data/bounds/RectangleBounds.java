@@ -1,20 +1,19 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.data.bounds;
 
-import java.awt.image.BufferedImage;
-import java.util.Optional;
-
 import io.annot8.api.bounds.Bounds;
 import io.annot8.api.data.Content;
 import io.annot8.common.data.content.Image;
+import java.awt.image.BufferedImage;
+import java.util.Optional;
 
 /**
  * A bounds which is a rectangle.
  *
  * <p>This is used for images.
  *
- * <p>NOTE that BufferedImage is (0,0) at the upper-left, so top is less than bottom. Since this may be
- * confusing the constructor will correct the ordering
+ * <p>NOTE that BufferedImage is (0,0) at the upper-left, so top is less than bottom. Since this may
+ * be confusing the constructor will correct the ordering
  */
 public class RectangleBounds implements Bounds {
 

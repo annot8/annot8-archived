@@ -9,16 +9,21 @@ public class AlreadyExistsException extends Annot8RuntimeException {
 
   private static final long serialVersionUID = 1L;
 
-  /** Create an exception with the given message
- *  @param message the message for info
-*/
+  /**
+   * Create an exception with the given message
+   *
+   * @param message the message for info
+   */
   public AlreadyExistsException(final String message) {
     super(message);
   }
 
-  /** Create an exception with the given message and a root cause
-   *  @param message the message for info
-   *  @param t original exception   */
+  /**
+   * Create an exception with the given message and a root cause
+   *
+   * @param message the message for info
+   * @param t original exception
+   */
   public AlreadyExistsException(final String message, final Throwable t) {
     super(message, t);
   }

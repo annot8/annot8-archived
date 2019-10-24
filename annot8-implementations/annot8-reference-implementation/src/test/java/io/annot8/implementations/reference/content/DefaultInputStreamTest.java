@@ -6,17 +6,15 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-
-import org.junit.jupiter.api.Test;
-
 import io.annot8.api.data.Item;
 import io.annot8.api.exceptions.Annot8RuntimeException;
 import io.annot8.implementations.reference.content.DefaultInputStream.Builder;
 import io.annot8.implementations.reference.content.DefaultInputStream.BuilderFactory;
 import io.annot8.testing.testimpl.TestConstants;
 import io.annot8.testing.testimpl.TestItem;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import org.junit.jupiter.api.Test;
 
 public class DefaultInputStreamTest {
 

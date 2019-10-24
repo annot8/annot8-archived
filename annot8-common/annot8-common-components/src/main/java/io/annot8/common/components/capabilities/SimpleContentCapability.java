@@ -1,13 +1,11 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.components.capabilities;
 
-import java.util.Objects;
-
-import javax.json.bind.annotation.JsonbCreator;
-import javax.json.bind.annotation.JsonbProperty;
-
 import io.annot8.api.capabilities.ContentCapability;
 import io.annot8.api.data.Content;
+import java.util.Objects;
+import javax.json.bind.annotation.JsonbCreator;
+import javax.json.bind.annotation.JsonbProperty;
 
 public class SimpleContentCapability implements ContentCapability {
 

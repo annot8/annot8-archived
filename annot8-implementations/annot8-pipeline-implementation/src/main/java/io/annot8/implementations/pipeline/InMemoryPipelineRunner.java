@@ -1,9 +1,6 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.implementations.pipeline;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import io.annot8.api.components.responses.SourceResponse;
 import io.annot8.api.context.Context;
 import io.annot8.api.data.ItemFactory;
@@ -12,6 +9,8 @@ import io.annot8.api.pipelines.PipelineDescriptor;
 import io.annot8.api.pipelines.PipelineRunner;
 import io.annot8.common.components.logging.Logging;
 import io.annot8.implementations.support.stores.QueueItemFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class InMemoryPipelineRunner implements PipelineRunner {
 

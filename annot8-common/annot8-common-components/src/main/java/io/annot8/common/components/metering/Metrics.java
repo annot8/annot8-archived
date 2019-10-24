@@ -1,15 +1,14 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.components.metering;
 
-import java.util.Collection;
-import java.util.Map;
-import java.util.function.ToDoubleFunction;
-
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.DistributionSummary;
 import io.micrometer.core.instrument.Tag;
 import io.micrometer.core.instrument.Timer;
 import io.micrometer.core.lang.Nullable;
+import java.util.Collection;
+import java.util.Map;
+import java.util.function.ToDoubleFunction;
 
 public interface Metrics {
 

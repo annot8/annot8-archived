@@ -13,55 +13,81 @@ import java.util.Objects;
  */
 public interface SourceResponse {
 
-  /** Create source read items normally
-   * @return builder for continuation */
+  /**
+   * Create source read items normally
+   *
+   * @return builder for continuation
+   */
   static SourceResponseBuilder ok() {
     return new SourceResponseBuilder(Status.OK);
   }
 
-  /** Source is now out of items
-   * @return builder for continuation */
+  /**
+   * Source is now out of items
+   *
+   * @return builder for continuation
+   */
   static SourceResponseBuilder done() {
     return new SourceResponseBuilder(Status.DONE);
   }
 
-  /** There was an error reading from the Source
-   * @return builder for continuation */
+  /**
+   * There was an error reading from the Source
+   *
+   * @return builder for continuation
+   */
   static SourceResponseBuilder sourceError() {
     return new SourceResponseBuilder(Status.SOURCE_ERROR);
   }
 
-  /** There was an error reading from the Source with a collection of exceptions
+  /**
+   * There was an error reading from the Source with a collection of exceptions
+   *
    * @param exceptions exception for information
-   * @return builder for continuation */
+   * @return builder for continuation
+   */
   static SourceResponseBuilder sourceError(Collection<Exception> exceptions) {
     return new SourceResponseBuilder(Status.SOURCE_ERROR, exceptions);
   }
 
-  /** There was an error reading from the Source with one or more exception
-   *  @param exceptions exception for information
-   * @return builder for continuation */
+  /**
+   * There was an error reading from the Source with one or more exception
+   *
+   * @param exceptions exception for information
+   * @return builder for continuation
+   */
   static SourceResponseBuilder sourceError(Exception... exceptions) {
     return new SourceResponseBuilder(Status.SOURCE_ERROR, Arrays.asList(exceptions));
   }
 
-  /** The Source is currently empty
-   * @return builder for continuation */
+  /**
+   * The Source is currently empty
+   *
+   * @return builder for continuation
+   */
   static SourceResponseBuilder empty() {
     return new SourceResponseBuilder(Status.EMPTY);
   }
 
-  /** Return the status associated with this response
+  /**
+   * Return the status associated with this response
+   *
    * @return status
    */
   Status getStatus();
 
-  /** Return any exceptions associated with this response
-   * @return list of exceptions during read */
+  /**
+   * Return any exceptions associated with this response
+   *
+   * @return list of exceptions during read
+   */
   Collection<Exception> getExceptions();
 
-  /** Does this response has exceptions associated with it?
-   * @return true is has exceptions */
+  /**
+   * Does this response has exceptions associated with it?
+   *
+   * @return true is has exceptions
+   */
   default boolean hasExceptions() {
     return !getExceptions().isEmpty();
   }

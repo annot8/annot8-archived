@@ -1,9 +1,8 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.api.helpers.builders;
 
-import java.util.Optional;
-
 import io.annot8.api.properties.Properties;
+import java.util.Optional;
 
 /**
  * Helper interface to indicate that a builder should processor adding properties to an object

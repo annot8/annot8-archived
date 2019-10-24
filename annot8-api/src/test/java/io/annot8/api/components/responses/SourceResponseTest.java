@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
-
 import org.junit.jupiter.api.Test;
 
 public class SourceResponseTest {

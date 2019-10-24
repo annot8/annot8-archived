@@ -5,12 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import io.annot8.api.properties.MutableProperties;
 import java.util.Map;
 import java.util.Optional;
-
 import org.junit.jupiter.api.Test;
-
-import io.annot8.api.properties.MutableProperties;
 
 public class MapMutablePropertiesTest {
 

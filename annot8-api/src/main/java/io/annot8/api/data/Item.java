@@ -1,27 +1,28 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.api.data;
 
-import java.util.Optional;
-import java.util.stream.Stream;
-
 import io.annot8.api.exceptions.UnsupportedContentException;
 import io.annot8.api.filters.Filter;
 import io.annot8.api.helpers.WithFilter;
 import io.annot8.api.helpers.WithGroups;
 import io.annot8.api.helpers.WithId;
 import io.annot8.api.helpers.WithMutableProperties;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 /** Item interface used by components. */
 public interface Item extends WithId, WithMutableProperties, WithGroups, WithFilter<Content<?>> {
 
   /**
    * Get id of parent
+   *
    * @return id if exists
    */
   Optional<String> getParent();
 
   /**
    * Does this item have a parent?
+   *
    * @return true if has a parent.
    */
   default boolean hasParent() {
@@ -65,7 +66,6 @@ public interface Item extends WithId, WithMutableProperties, WithGroups, WithFil
   }
 
   /**
-   *
    * Create a new content builder to generate content.
    *
    * @param <C> the content class

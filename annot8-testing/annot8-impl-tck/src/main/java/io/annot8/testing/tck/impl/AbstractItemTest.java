@@ -4,16 +4,14 @@ package io.annot8.testing.tck.impl;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.Optional;
-
-import org.junit.jupiter.api.Test;
-
 import io.annot8.api.data.Content;
 import io.annot8.api.data.Item;
 import io.annot8.api.exceptions.IncompleteException;
 import io.annot8.api.exceptions.UnsupportedContentException;
 import io.annot8.common.data.content.Text;
 import io.annot8.testing.testimpl.TestConstants;
+import java.util.Optional;
+import org.junit.jupiter.api.Test;
 
 /**
  * Abstract class providing tests for non default methods on provided implementations of {@link

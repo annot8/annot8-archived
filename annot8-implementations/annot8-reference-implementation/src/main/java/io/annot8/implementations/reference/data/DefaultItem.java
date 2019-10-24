@@ -1,12 +1,6 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.implementations.reference.data;
 
-import java.util.Map;
-import java.util.Optional;
-import java.util.UUID;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Stream;
-
 import io.annot8.api.data.Content;
 import io.annot8.api.data.Content.Builder;
 import io.annot8.api.data.Item;
@@ -20,6 +14,11 @@ import io.annot8.implementations.support.delegates.DelegateContentBuilder;
 import io.annot8.implementations.support.factories.ContentBuilderFactory;
 import io.annot8.implementations.support.properties.MapMutableProperties;
 import io.annot8.implementations.support.registries.ContentBuilderFactoryRegistry;
+import java.util.Map;
+import java.util.Optional;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Stream;
 
 public class DefaultItem implements Item {
 

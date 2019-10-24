@@ -1,10 +1,9 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.api.references;
 
+import io.annot8.api.annotations.Annotation;
 import java.util.Optional;
 import java.util.stream.Stream;
-
-import io.annot8.api.annotations.Annotation;
 
 /**
  * A reference to an annotation.

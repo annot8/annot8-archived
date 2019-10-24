@@ -1,16 +1,14 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.data.bounds;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-
-import javax.json.bind.annotation.JsonbCreator;
-import javax.json.bind.annotation.JsonbProperty;
-
 import io.annot8.api.data.Content;
 import io.annot8.common.data.content.Row;
 import io.annot8.common.data.content.TableContent;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+import javax.json.bind.annotation.JsonbCreator;
+import javax.json.bind.annotation.JsonbProperty;
 
 /**
  * Bounds to represent multiple cells within a table row

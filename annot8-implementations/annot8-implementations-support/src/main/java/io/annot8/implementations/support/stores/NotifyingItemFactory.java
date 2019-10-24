@@ -1,13 +1,12 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.implementations.support.stores;
 
-import java.util.function.Consumer;
-
 import io.annot8.api.data.Item;
 import io.annot8.api.data.ItemFactory;
 import io.annot8.implementations.support.listeners.Deregister;
 import io.annot8.implementations.support.listeners.Listenable;
 import io.annot8.implementations.support.listeners.Listeners;
+import java.util.function.Consumer;
 
 public class NotifyingItemFactory implements ItemFactory, Listenable<Consumer<Item>> {
 

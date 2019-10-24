@@ -1,11 +1,10 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.testing.testimpl;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import io.annot8.api.data.Item;
 import io.annot8.api.data.ItemFactory;
+import java.util.LinkedList;
+import java.util.List;
 
 public class TestItemFactory implements ItemFactory {
 

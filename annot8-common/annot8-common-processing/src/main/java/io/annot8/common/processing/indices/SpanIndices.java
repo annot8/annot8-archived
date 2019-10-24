@@ -4,17 +4,15 @@ package io.annot8.common.processing.indices;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
 
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
+import io.annot8.api.annotations.Annotation;
+import io.annot8.common.data.bounds.SpanBounds;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Stream;
-
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
-
-import io.annot8.api.annotations.Annotation;
-import io.annot8.common.data.bounds.SpanBounds;
 
 public class SpanIndices {
 
@@ -31,8 +29,7 @@ public class SpanIndices {
     // constructor
     @SuppressWarnings("ConstantConditions")
     Map<Annotation, SpanBounds> underMap =
-        under
-            .stream()
+        under.stream()
             .collect(toMap(Function.identity(), e -> e.getBounds(SpanBounds.class).orElse(null)));
 
     HashMultimap<Annotation, Annotation> multimap = HashMultimap.create();
@@ -60,8 +57,7 @@ public class SpanIndices {
   private List<Annotation> findEnclosedAnnotations(
       SpanBounds bounds, Map<Annotation, SpanBounds> list) {
 
-    return list.entrySet()
-        .stream()
+    return list.entrySet().stream()
         .filter(e -> bounds.isWithin(e.getValue()))
         .map(Map.Entry::getKey)
         .collect(toList());
@@ -94,8 +90,7 @@ public class SpanIndices {
 
   private List<Annotation> findInsideAnnotations(
       SpanBounds bounds, Map<Annotation, SpanBounds> list) {
-    return list.entrySet()
-        .stream()
+    return list.entrySet().stream()
         .filter(e -> e.getValue().isWithin(bounds))
         .map(Map.Entry::getKey)
         .collect(toList());

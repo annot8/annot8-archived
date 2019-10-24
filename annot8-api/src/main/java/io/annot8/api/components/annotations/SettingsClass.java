@@ -4,11 +4,10 @@ package io.annot8.api.components.annotations;
 import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+import io.annot8.api.settings.Settings;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
-
-import io.annot8.api.settings.Settings;
 
 /**
  * Indicates the settings class used by a component.

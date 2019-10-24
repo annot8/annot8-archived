@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.doReturn;
 
+import io.annot8.api.data.Content;
+import io.annot8.api.references.AnnotationReference;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -14,14 +16,10 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
-
-import io.annot8.api.data.Content;
-import io.annot8.api.references.AnnotationReference;
 
 /**
  * Unit tests for the default method implementations on the {@link Group} interface.

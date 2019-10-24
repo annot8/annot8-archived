@@ -1,16 +1,15 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.implementations.reference.stores;
 
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 import io.annot8.api.annotations.Annotation;
 import io.annot8.api.data.Content;
 import io.annot8.api.stores.AnnotationStore;
 import io.annot8.implementations.reference.annotations.DefaultAnnotation;
 import io.annot8.implementations.support.delegates.DelegateAnnotationBuilder;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /** In memory implementation, backed by a HashMap, of AnnotationStore */
 public class DefaultAnnotationStore implements AnnotationStore {
@@ -21,6 +20,7 @@ public class DefaultAnnotationStore implements AnnotationStore {
   /**
    * Construct a new instance of this class using DefaultAnnotation.AbstractContentBuilder as the
    * annotation builder
+   *
    * @param content the owning content
    */
   public DefaultAnnotationStore(Content<?> content) {

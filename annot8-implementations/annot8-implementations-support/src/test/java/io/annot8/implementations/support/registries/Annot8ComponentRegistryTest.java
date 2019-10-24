@@ -1,14 +1,12 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.implementations.support.registries;
 
+import io.annot8.api.components.Annot8ComponentDescriptor;
 import java.util.HashSet;
 import java.util.Set;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import io.annot8.api.components.Annot8ComponentDescriptor;
 
 public class Annot8ComponentRegistryTest {
 

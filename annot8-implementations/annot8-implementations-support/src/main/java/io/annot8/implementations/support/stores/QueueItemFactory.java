@@ -1,12 +1,11 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.implementations.support.stores;
 
+import io.annot8.api.data.Item;
+import io.annot8.api.data.ItemFactory;
 import java.util.LinkedList;
 import java.util.Optional;
 import java.util.Queue;
-
-import io.annot8.api.data.Item;
-import io.annot8.api.data.ItemFactory;
 
 public class QueueItemFactory extends NotifyingItemFactory {
 

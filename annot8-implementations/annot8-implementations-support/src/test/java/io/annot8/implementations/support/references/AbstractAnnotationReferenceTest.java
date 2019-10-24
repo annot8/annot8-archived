@@ -4,12 +4,10 @@ package io.annot8.implementations.support.references;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-import java.util.Optional;
-
-import org.junit.jupiter.api.Test;
-
 import io.annot8.api.annotations.Annotation;
 import io.annot8.api.references.AnnotationReference;
+import java.util.Optional;
+import org.junit.jupiter.api.Test;
 
 public class AbstractAnnotationReferenceTest {
 
