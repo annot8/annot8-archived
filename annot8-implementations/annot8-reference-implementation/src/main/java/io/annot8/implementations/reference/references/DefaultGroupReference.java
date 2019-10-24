@@ -18,13 +18,19 @@ public class DefaultGroupReference extends AbstractGroupReference {
 
   private final String groupId;
 
-  /** New reference either from another reference or manually created. */
+  /** New reference either from another reference or manually created.
+   * @param item the item
+   * @param groupId the group id */
   public DefaultGroupReference(Item item, String groupId) {
     this.item = item;
     this.groupId = groupId;
   }
 
-  /** Create a reference from a group instance. */
+  /** Create a reference from a group instance.
+   * @param item the item owning the group
+   * @param group the group id
+   * @return reference to this group
+   */
   public static DefaultGroupReference to(Item item, Group group) {
     return new DefaultGroupReference(item, group.getId());
   }

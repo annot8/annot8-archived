@@ -13,7 +13,7 @@ import io.annot8.common.data.content.Image;
  *
  * <p>This is used for images.
  *
- * <p>NOTE that BufferedImage is (0,0) at the upper-left, so top < bottom. Since this may be
+ * <p>NOTE that BufferedImage is (0,0) at the upper-left, so top is less than bottom. Since this may be
  * confusing the constructor will correct the ordering
  */
 public class RectangleBounds implements Bounds {

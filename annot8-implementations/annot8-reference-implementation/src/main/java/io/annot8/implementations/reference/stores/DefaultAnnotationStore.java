@@ -21,6 +21,7 @@ public class DefaultAnnotationStore implements AnnotationStore {
   /**
    * Construct a new instance of this class using DefaultAnnotation.AbstractContentBuilder as the
    * annotation builder
+   * @param content the owning content
    */
   public DefaultAnnotationStore(Content<?> content) {
     this.content = content;

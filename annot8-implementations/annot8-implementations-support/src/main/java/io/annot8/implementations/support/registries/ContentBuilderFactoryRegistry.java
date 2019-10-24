@@ -12,6 +12,8 @@ public interface ContentBuilderFactoryRegistry {
   /**
    * Get the (best) content builder factory for the content class requested, if available.
    *
+   * @param <C> the content class
+   * @param <D> the data class
    * @param contentClass the content type required
    * @return builder (if available for that content class)
    */
