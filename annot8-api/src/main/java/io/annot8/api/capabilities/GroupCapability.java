@@ -3,7 +3,9 @@ package io.annot8.api.capabilities;
 
 /** Describes a group that is created, processed or deleted */
 public interface GroupCapability extends Capability {
-  /** The type of group
+  /**
+   * The type of group
+   *
    * @return type
    */
   String getType();

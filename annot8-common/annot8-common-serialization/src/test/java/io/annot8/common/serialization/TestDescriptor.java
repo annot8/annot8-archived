@@ -1,14 +1,13 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.serialization;
 
-import java.util.stream.Stream;
-
 import io.annot8.api.bounds.Bounds;
 import io.annot8.api.capabilities.AnnotationCapability;
 import io.annot8.api.capabilities.Capabilities;
 import io.annot8.api.capabilities.Capability;
 import io.annot8.api.components.ProcessorDescriptor;
 import io.annot8.api.context.Context;
+import java.util.stream.Stream;
 
 public class TestDescriptor implements ProcessorDescriptor<TestProcessor, TestSettings> {
 

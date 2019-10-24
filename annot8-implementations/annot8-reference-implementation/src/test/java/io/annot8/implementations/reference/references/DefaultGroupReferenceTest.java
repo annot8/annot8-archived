@@ -5,14 +5,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import java.util.Optional;
-
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-
 import io.annot8.api.annotations.Group;
 import io.annot8.api.data.Item;
 import io.annot8.api.stores.GroupStore;
+import java.util.Optional;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 class DefaultGroupReferenceTest {
 

@@ -1,17 +1,16 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.testing.testimpl;
 
-import java.util.Map;
-import java.util.Optional;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Stream;
-
 import io.annot8.api.annotations.Annotation;
 import io.annot8.api.annotations.Annotation.Builder;
 import io.annot8.api.data.Content;
 import io.annot8.api.stores.AnnotationStore;
 import io.annot8.implementations.support.delegates.DelegateAnnotationBuilder;
 import io.annot8.implementations.support.factories.AnnotationBuilderFactory;
+import java.util.Map;
+import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Stream;
 
 public class TestAnnotationStore implements AnnotationStore {
 

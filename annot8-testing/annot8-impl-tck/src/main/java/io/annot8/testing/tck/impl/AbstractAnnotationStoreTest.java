@@ -1,15 +1,6 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.testing.tck.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 import io.annot8.api.annotations.Annotation;
 import io.annot8.api.annotations.Annotation.Builder;
 import io.annot8.api.data.Content;
@@ -19,6 +10,13 @@ import io.annot8.testing.testimpl.TestBounds;
 import io.annot8.testing.testimpl.TestItem;
 import io.annot8.testing.testimpl.TestProperties;
 import io.annot8.testing.testimpl.content.TestStringContent;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractAnnotationStoreTest {
 

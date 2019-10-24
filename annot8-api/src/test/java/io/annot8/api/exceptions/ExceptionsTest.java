@@ -4,7 +4,6 @@ package io.annot8.api.exceptions;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
-
 import org.junit.jupiter.api.Test;
 
 public class ExceptionsTest {

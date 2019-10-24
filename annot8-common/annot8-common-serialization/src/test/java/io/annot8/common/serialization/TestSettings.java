@@ -1,10 +1,9 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.serialization;
 
+import io.annot8.api.settings.Settings;
 import javax.json.bind.annotation.JsonbCreator;
 import javax.json.bind.annotation.JsonbProperty;
-
-import io.annot8.api.settings.Settings;
 
 public class TestSettings implements Settings {
   private final String host;

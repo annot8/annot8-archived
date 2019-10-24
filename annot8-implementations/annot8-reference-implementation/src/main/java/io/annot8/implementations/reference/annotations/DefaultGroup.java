@@ -1,14 +1,6 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.implementations.reference.annotations;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Optional;
-import java.util.UUID;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 import io.annot8.api.annotations.Annotation;
 import io.annot8.api.annotations.Group;
 import io.annot8.api.data.Item;
@@ -22,6 +14,13 @@ import io.annot8.implementations.reference.references.DefaultAnnotationReference
 import io.annot8.implementations.support.annotations.AbstractGroup;
 import io.annot8.implementations.support.properties.MapImmutableProperties;
 import io.annot8.implementations.support.properties.MapMutableProperties;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Optional;
+import java.util.UUID;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /** Simple implementation of Group interface */
 public class DefaultGroup extends AbstractGroup {
@@ -191,9 +190,7 @@ public class DefaultGroup extends AbstractGroup {
       }
 
       Map<DefaultAnnotationReference, String> references =
-          annotations
-              .entrySet()
-              .stream()
+          annotations.entrySet().stream()
               .collect(
                   Collectors.toMap(
                       e -> DefaultAnnotationReference.to(item, e.getKey()), Entry::getValue));

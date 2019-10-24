@@ -1,10 +1,9 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.implementations.support.annotations;
 
-import java.util.Objects;
-
 import io.annot8.api.annotations.Annotation;
 import io.annot8.api.properties.Properties;
+import java.util.Objects;
 
 /**
  * Abstract implementation of Annotation, providing correct implementations of equals, hashCode and

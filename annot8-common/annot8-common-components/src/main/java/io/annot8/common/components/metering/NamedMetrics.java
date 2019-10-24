@@ -1,12 +1,11 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.components.metering;
 
+import io.annot8.api.components.Annot8Component;
+import io.micrometer.core.instrument.*;
 import java.util.Collection;
 import java.util.Map;
 import java.util.function.ToDoubleFunction;
-
-import io.annot8.api.components.Annot8Component;
-import io.micrometer.core.instrument.*;
 
 public class NamedMetrics implements Metrics {
 

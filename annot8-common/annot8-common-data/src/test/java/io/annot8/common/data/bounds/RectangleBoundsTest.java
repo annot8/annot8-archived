@@ -5,18 +5,16 @@ import static java.awt.image.BufferedImage.TYPE_INT_RGB;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Optional;
-
-import org.junit.jupiter.api.Test;
-
 import io.annot8.api.data.Content;
 import io.annot8.api.data.Item;
 import io.annot8.api.properties.ImmutableProperties;
 import io.annot8.api.stores.AnnotationStore;
 import io.annot8.common.data.content.Image;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Optional;
+import org.junit.jupiter.api.Test;
 
 class RectangleBoundsTest {
 

@@ -1,16 +1,14 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.data.bounds;
 
-import java.util.Objects;
-import java.util.Optional;
-
-import javax.json.bind.annotation.JsonbCreator;
-import javax.json.bind.annotation.JsonbProperty;
-import javax.json.bind.annotation.JsonbTransient;
-
 import io.annot8.api.bounds.Bounds;
 import io.annot8.api.data.Content;
 import io.annot8.api.exceptions.InvalidBoundsException;
+import java.util.Objects;
+import java.util.Optional;
+import javax.json.bind.annotation.JsonbCreator;
+import javax.json.bind.annotation.JsonbProperty;
+import javax.json.bind.annotation.JsonbTransient;
 
 /** Implementation of Bounds for a simple 2D span, such as an offset of text. */
 public class SpanBounds implements Bounds {

@@ -11,7 +11,9 @@ import io.annot8.api.data.Item;
  */
 public interface Processor extends Annot8Component {
 
-  /** Process the given item
+  /**
+   * Process the given item
+   *
    * @param item the item to process
    * @return status of processing
    */

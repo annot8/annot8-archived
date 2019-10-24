@@ -4,15 +4,13 @@ package io.annot8.api.references;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
+import io.annot8.api.annotations.Group;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-
-import io.annot8.api.annotations.Group;
 
 class GroupReferenceTest {
 

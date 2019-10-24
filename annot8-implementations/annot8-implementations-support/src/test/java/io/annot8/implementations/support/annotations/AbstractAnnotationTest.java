@@ -4,13 +4,11 @@ package io.annot8.implementations.support.annotations;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-import java.util.Collections;
-import java.util.Map;
-
-import org.junit.jupiter.api.Test;
-
 import io.annot8.api.bounds.Bounds;
 import io.annot8.api.properties.ImmutableProperties;
+import java.util.Collections;
+import java.util.Map;
+import org.junit.jupiter.api.Test;
 
 public class AbstractAnnotationTest {
 

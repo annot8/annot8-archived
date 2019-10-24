@@ -3,12 +3,10 @@ package io.annot8.implementations.support.properties;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.Map;
-
-import org.junit.jupiter.api.Test;
-
 import io.annot8.api.exceptions.IncompleteException;
 import io.annot8.api.properties.ImmutableProperties;
+import java.util.Map;
+import org.junit.jupiter.api.Test;
 
 public class MapImmutablePropertiesTest {
 

@@ -1,9 +1,8 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.implementations.support.references;
 
-import java.util.Objects;
-
 import io.annot8.api.references.GroupReference;
+import java.util.Objects;
 
 /**
  * Abstract implementation of GroupReference, providing correct implementations of equals, hashCode

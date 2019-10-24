@@ -1,14 +1,13 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.implementations.support.properties;
 
+import io.annot8.api.properties.ImmutableProperties;
+import io.annot8.api.properties.Properties;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
-import io.annot8.api.properties.ImmutableProperties;
-import io.annot8.api.properties.Properties;
 
 /**
  * Implementation of ImmutableProperties interface using an in-memory HashMap to store the
@@ -31,9 +30,7 @@ public class MapImmutableProperties implements ImmutableProperties {
   public String toString() {
     return this.getClass().getName()
         + " ["
-        + properties
-            .entrySet()
-            .stream()
+        + properties.entrySet().stream()
             .map(e -> e.getKey() + "=" + e.getValue())
             .collect(Collectors.joining(", "))
         + "]";

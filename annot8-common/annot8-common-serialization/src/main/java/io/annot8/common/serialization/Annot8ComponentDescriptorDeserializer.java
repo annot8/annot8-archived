@@ -1,16 +1,14 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.serialization;
 
+import io.annot8.api.components.Annot8ComponentDescriptor;
 import java.lang.reflect.Type;
-
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import javax.json.bind.JsonbException;
 import javax.json.bind.serializer.DeserializationContext;
 import javax.json.bind.serializer.JsonbDeserializer;
 import javax.json.stream.JsonParser;
-
-import io.annot8.api.components.Annot8ComponentDescriptor;
 
 /** Deserialize Annot8ComponentDescriptor from JSON, using the JSON-B deserializer interface */
 public class Annot8ComponentDescriptorDeserializer

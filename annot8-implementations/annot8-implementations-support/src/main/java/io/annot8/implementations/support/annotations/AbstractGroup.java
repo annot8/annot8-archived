@@ -1,13 +1,12 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.implementations.support.annotations;
 
-import java.util.Iterator;
-import java.util.Objects;
-import java.util.stream.Stream;
-
 import io.annot8.api.annotations.Group;
 import io.annot8.api.properties.Properties;
 import io.annot8.api.references.AnnotationReference;
+import java.util.Iterator;
+import java.util.Objects;
+import java.util.stream.Stream;
 
 /**
  * Abstract implementation of Group, providing correct implementations of equals, hashCode and

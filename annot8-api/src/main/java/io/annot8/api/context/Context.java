@@ -1,10 +1,9 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.api.context;
 
+import io.annot8.api.components.Resource;
 import java.util.Optional;
 import java.util.stream.Stream;
-
-import io.annot8.api.components.Resource;
 
 /**
  * A context defines additional information and resources for the environment in which the

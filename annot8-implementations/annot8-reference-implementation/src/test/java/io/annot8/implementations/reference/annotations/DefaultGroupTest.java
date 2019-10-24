@@ -3,14 +3,6 @@ package io.annot8.implementations.reference.annotations;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import io.annot8.api.annotations.Annotation;
 import io.annot8.api.annotations.Group;
 import io.annot8.api.exceptions.IncompleteException;
@@ -21,6 +13,12 @@ import io.annot8.testing.tck.impl.WithPropertiesBuilderTestUtils;
 import io.annot8.testing.testimpl.TestConstants;
 import io.annot8.testing.testimpl.TestItem;
 import io.annot8.testing.testimpl.content.TestStringContent;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class DefaultGroupTest {
 

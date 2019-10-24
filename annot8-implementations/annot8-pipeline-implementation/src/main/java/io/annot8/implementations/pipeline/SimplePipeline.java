@@ -1,11 +1,6 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.implementations.pipeline;
 
-import java.util.*;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import io.annot8.api.components.Processor;
 import io.annot8.api.components.Resource;
 import io.annot8.api.components.Source;
@@ -20,6 +15,9 @@ import io.annot8.api.pipelines.PipelineDescriptor;
 import io.annot8.common.components.logging.Logging;
 import io.annot8.common.components.metering.Metering;
 import io.annot8.implementations.support.context.SimpleContext;
+import java.util.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SimplePipeline implements Pipeline {
   private final String name;
@@ -264,16 +262,12 @@ public class SimplePipeline implements Pipeline {
         // NOTE that the sources and processors will be added to the end of the pipeline here
         // (depending ordering implementation)
 
-        descriptor
-            .getSources()
-            .stream()
+        descriptor.getSources().stream()
             .map(d -> d.create(pipelineContext))
             .map(Source.class::cast)
             .forEach(this::withSource);
 
-        descriptor
-            .getProcessors()
-            .stream()
+        descriptor.getProcessors().stream()
             .map(d -> d.create(pipelineContext))
             .map(Processor.class::cast)
             .forEach(this::withProcessor);

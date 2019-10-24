@@ -1,8 +1,6 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.implementations.support.registries;
 
-import java.util.stream.Stream;
-
 import io.annot8.api.capabilities.Capabilities;
 import io.annot8.api.capabilities.Capability;
 import io.annot8.api.components.Source;
@@ -11,6 +9,7 @@ import io.annot8.api.components.responses.SourceResponse;
 import io.annot8.api.context.Context;
 import io.annot8.api.data.ItemFactory;
 import io.annot8.api.settings.NoSettings;
+import java.util.stream.Stream;
 
 public class TestSourceDescriptor
     implements SourceDescriptor<TestSourceDescriptor.TestSource, NoSettings> {

@@ -1,9 +1,8 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.api.bounds;
 
-import java.util.Optional;
-
 import io.annot8.api.data.Content;
+import java.util.Optional;
 
 /** Base bounds interface from which all other bounds extend. */
 public interface Bounds {

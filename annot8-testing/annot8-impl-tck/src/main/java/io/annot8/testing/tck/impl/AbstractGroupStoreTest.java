@@ -1,18 +1,6 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.testing.tck.impl;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentMatchers;
-import org.mockito.Mockito;
-
 import io.annot8.api.annotations.Annotation;
 import io.annot8.api.annotations.Group;
 import io.annot8.api.data.Content;
@@ -23,6 +11,16 @@ import io.annot8.api.stores.GroupStore;
 import io.annot8.implementations.support.properties.MapMutableProperties;
 import io.annot8.implementations.support.stores.AnnotationStoreFactory;
 import io.annot8.testing.testimpl.TestAnnotation;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentMatchers;
+import org.mockito.Mockito;
 
 public abstract class AbstractGroupStoreTest {
 

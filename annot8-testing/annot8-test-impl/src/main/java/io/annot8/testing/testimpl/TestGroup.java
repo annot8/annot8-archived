@@ -1,17 +1,16 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.testing.testimpl;
 
+import io.annot8.api.annotations.Annotation;
+import io.annot8.api.annotations.Group;
+import io.annot8.api.properties.ImmutableProperties;
+import io.annot8.api.references.AnnotationReference;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Stream;
-
-import io.annot8.api.annotations.Annotation;
-import io.annot8.api.annotations.Group;
-import io.annot8.api.properties.ImmutableProperties;
-import io.annot8.api.references.AnnotationReference;
 
 /**
  * A group implementation which provides convenience for unit testing.

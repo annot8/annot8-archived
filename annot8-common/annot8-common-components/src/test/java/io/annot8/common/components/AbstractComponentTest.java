@@ -3,11 +3,10 @@ package io.annot8.common.components;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import org.junit.jupiter.api.Test;
-
 import io.annot8.api.components.Processor;
 import io.annot8.api.components.responses.ProcessorResponse;
 import io.annot8.api.data.Item;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit tests to ensure the AbstractComponent implementation provides the correct resources to the

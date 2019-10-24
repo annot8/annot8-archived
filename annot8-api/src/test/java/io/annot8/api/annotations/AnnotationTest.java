@@ -7,12 +7,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.doCallRealMethod;
 import static org.mockito.Mockito.doReturn;
 
+import io.annot8.api.bounds.Bounds;
 import java.util.Optional;
-
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-
-import io.annot8.api.bounds.Bounds;
 
 public class AnnotationTest {
 

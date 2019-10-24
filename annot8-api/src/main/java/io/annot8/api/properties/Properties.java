@@ -75,6 +75,7 @@ public interface Properties {
 
   /**
    * Get a specific class at the key, or use the default
+   *
    * @param <T> required class
    * @param key the key
    * @param defaultValue the value to return if key is missing or of different type (non-null)
@@ -126,9 +127,7 @@ public interface Properties {
    * @return a map of all properties that have a value of the specified class
    */
   default <T> Map<String, T> getAll(final Class<T> clazz) {
-    return getAll()
-        .entrySet()
-        .stream()
+    return getAll().entrySet().stream()
         .filter(e -> clazz.isInstance(e.getValue()))
         .collect(Collectors.toMap(Entry::getKey, e -> clazz.cast(e.getValue())));
   }

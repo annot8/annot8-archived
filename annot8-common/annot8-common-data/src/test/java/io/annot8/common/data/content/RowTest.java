@@ -12,7 +12,6 @@ import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
 import java.util.Optional;
-
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 

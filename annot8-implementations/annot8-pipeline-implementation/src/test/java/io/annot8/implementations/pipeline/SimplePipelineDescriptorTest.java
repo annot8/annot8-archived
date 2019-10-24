@@ -4,17 +4,15 @@ package io.annot8.implementations.pipeline;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import java.util.Arrays;
-
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
-
 import io.annot8.api.components.ProcessorDescriptor;
 import io.annot8.api.components.SourceDescriptor;
 import io.annot8.api.exceptions.IncompleteException;
 import io.annot8.api.pipelines.PipelineDescriptor;
+import java.util.Arrays;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
 public class SimplePipelineDescriptorTest {

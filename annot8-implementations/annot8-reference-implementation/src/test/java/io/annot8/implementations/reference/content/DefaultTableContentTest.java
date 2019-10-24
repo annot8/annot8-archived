@@ -6,15 +6,14 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-
 import io.annot8.api.data.Content.Builder;
 import io.annot8.api.exceptions.IncompleteException;
 import io.annot8.common.data.content.Table;
 import io.annot8.common.data.content.TableContent;
 import io.annot8.implementations.reference.content.DefaultTableContent.BuilderFactory;
 import io.annot8.testing.testimpl.TestItem;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 public class DefaultTableContentTest {
 

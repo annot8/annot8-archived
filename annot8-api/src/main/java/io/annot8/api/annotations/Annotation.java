@@ -1,8 +1,6 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.api.annotations;
 
-import java.util.Optional;
-
 import io.annot8.api.bounds.Bounds;
 import io.annot8.api.helpers.WithId;
 import io.annot8.api.helpers.WithProperties;
@@ -13,6 +11,7 @@ import io.annot8.api.helpers.builders.WithNewIdBuilder;
 import io.annot8.api.helpers.builders.WithPropertiesBuilder;
 import io.annot8.api.helpers.builders.WithSave;
 import io.annot8.api.helpers.builders.WithTypeBuilder;
+import java.util.Optional;
 
 /** Base annotation interface from which all other annotations extend. */
 public interface Annotation extends WithId, WithType, WithProperties {

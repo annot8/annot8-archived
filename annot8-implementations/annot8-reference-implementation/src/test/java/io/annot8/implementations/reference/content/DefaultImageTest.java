@@ -4,13 +4,11 @@ package io.annot8.implementations.reference.content;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import io.annot8.implementations.support.properties.MapImmutableProperties;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-
 import org.junit.jupiter.api.Test;
-
-import io.annot8.implementations.support.properties.MapImmutableProperties;
 
 class DefaultImageTest {
 

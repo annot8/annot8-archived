@@ -1,13 +1,12 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.testing.testimpl;
 
+import io.annot8.api.properties.ImmutableProperties;
+import io.annot8.api.properties.MutableProperties;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-
-import io.annot8.api.properties.ImmutableProperties;
-import io.annot8.api.properties.MutableProperties;
 
 public class TestProperties implements MutableProperties, ImmutableProperties {
 

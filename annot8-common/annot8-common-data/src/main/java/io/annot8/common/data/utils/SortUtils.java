@@ -1,10 +1,9 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.common.data.utils;
 
-import java.util.Comparator;
-
 import io.annot8.api.annotations.Annotation;
 import io.annot8.common.data.bounds.SpanBounds;
+import java.util.Comparator;
 
 public class SortUtils {
 

@@ -3,11 +3,10 @@ package io.annot8.common.components.metering;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-
 import io.annot8.api.components.Annot8Component;
 import io.micrometer.core.instrument.MeterRegistry;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 public class MeteringTest {
 

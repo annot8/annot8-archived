@@ -1,14 +1,13 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.testing.testimpl;
 
-import java.util.UUID;
-import java.util.function.Supplier;
-
 import io.annot8.api.data.Content;
 import io.annot8.api.data.Item;
 import io.annot8.api.properties.ImmutableProperties;
 import io.annot8.api.stores.AnnotationStore;
 import io.annot8.implementations.support.stores.AnnotationStoreFactory;
+import java.util.UUID;
+import java.util.function.Supplier;
 
 public abstract class AbstractTestContent<D> implements Content<D> {
 
