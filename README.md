@@ -32,6 +32,5 @@ This repository contains 4 sub-projects
 
 ## Licence
 
-Annot8 is licenced under [Apache Software Licence 2](https://www.apache.org/licenses/LICENSE-2.0).
-
-Some parts of the code may be Crown Copyright - please refer to the Git commit logs to see attribution.
+Code in this repository is licenced under the [Apache Software Licence 2](https://www.apache.org/licenses/LICENSE-2.0).
+See the NOTICE file for any additional restrictions.
