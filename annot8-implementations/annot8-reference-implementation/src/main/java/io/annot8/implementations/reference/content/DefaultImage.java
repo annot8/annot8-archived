@@ -9,11 +9,13 @@ import io.annot8.implementations.reference.stores.DefaultAnnotationStore;
 import io.annot8.implementations.support.content.AbstractContent;
 import io.annot8.implementations.support.content.AbstractContentBuilder;
 import io.annot8.implementations.support.content.AbstractContentBuilderFactory;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.function.Supplier;
-import javax.imageio.ImageIO;
 
 public class DefaultImage extends AbstractContent<BufferedImage> implements Image {
 
@@ -55,12 +57,23 @@ public class DefaultImage extends AbstractContent<BufferedImage> implements Imag
 
   @Override
   public void saveAsJpg(OutputStream outputStream) throws IOException {
-    ImageIO.write(getData(), "jpg", outputStream);
+    //Convert to RGB so we can save it out
+    BufferedImage bImgRgb = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
+
+    Graphics g = bImgRgb.createGraphics();
+    g.drawImage(getData(), 0, 0, null);
+    g.dispose();
+
+    boolean ret = ImageIO.write(bImgRgb, "jpg", outputStream);
+    if(!ret)
+      throw new IOException("No writer found for format JPG");
   }
 
   @Override
   public void saveAsPng(OutputStream outputStream) throws IOException {
-    ImageIO.write(getData(), "png", outputStream);
+    boolean ret = ImageIO.write(getData(), "png", outputStream);
+    if(!ret)
+      throw new IOException("No writer found for format PNG");
   }
 
   public static class Builder extends AbstractContentBuilder<BufferedImage, Image> {
