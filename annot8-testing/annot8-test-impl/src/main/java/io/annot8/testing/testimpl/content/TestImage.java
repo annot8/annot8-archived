@@ -10,13 +10,12 @@ import io.annot8.implementations.support.content.AbstractContentBuilderFactory;
 import io.annot8.testing.testimpl.AbstractTestContent;
 import io.annot8.testing.testimpl.TestAnnotationStore;
 import io.annot8.testing.testimpl.TestProperties;
-
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.function.Supplier;
+import javax.imageio.ImageIO;
 
 public class TestImage extends AbstractTestContent<BufferedImage> implements Image {
 
@@ -61,7 +60,7 @@ public class TestImage extends AbstractTestContent<BufferedImage> implements Ima
 
   @Override
   public void saveAsJpg(OutputStream outputStream) throws IOException {
-    //Convert to RGB so we can save it out
+    // Convert to RGB so we can save it out
     BufferedImage bImgRgb = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
 
     Graphics g = bImgRgb.createGraphics();
@@ -69,15 +68,13 @@ public class TestImage extends AbstractTestContent<BufferedImage> implements Ima
     g.dispose();
 
     boolean ret = ImageIO.write(bImgRgb, "jpg", outputStream);
-    if(!ret)
-      throw new IOException("No writer found for format JPG");
+    if (!ret) throw new IOException("No writer found for format JPG");
   }
 
   @Override
   public void saveAsPng(OutputStream outputStream) throws IOException {
     boolean ret = ImageIO.write(getData(), "png", outputStream);
-    if(!ret)
-      throw new IOException("No writer found for format PNG");
+    if (!ret) throw new IOException("No writer found for format PNG");
   }
 
   public static class Builder extends AbstractContentBuilder<BufferedImage, Image> {

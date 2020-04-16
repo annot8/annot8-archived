@@ -2,14 +2,13 @@
 package io.annot8.common.serialization;
 
 import io.annot8.api.components.Annot8ComponentDescriptor;
-
+import java.lang.reflect.Type;
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import javax.json.bind.JsonbException;
 import javax.json.bind.serializer.DeserializationContext;
 import javax.json.bind.serializer.JsonbDeserializer;
 import javax.json.stream.JsonParser;
-import java.lang.reflect.Type;
 
 /** Deserialize Annot8ComponentDescriptor from JSON, using the JSON-B deserializer interface */
 public class Annot8ComponentDescriptorDeserializer
@@ -17,8 +16,9 @@ public class Annot8ComponentDescriptorDeserializer
 
   private final Jsonb jb = createJsonB();
 
-  //Overideable method so that additional configuration can be passed until the issue below is resolved
-  protected Jsonb createJsonB(){
+  // Overideable method so that additional configuration can be passed until the issue below is
+  // resolved
+  protected Jsonb createJsonB() {
     return JsonbBuilder.create();
   }
 
