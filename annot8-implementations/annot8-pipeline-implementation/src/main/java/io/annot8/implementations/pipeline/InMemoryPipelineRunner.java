@@ -8,6 +8,9 @@ import io.annot8.api.pipelines.Pipeline;
 import io.annot8.api.pipelines.PipelineDescriptor;
 import io.annot8.api.pipelines.PipelineRunner;
 import io.annot8.common.components.logging.Logging;
+import io.annot8.common.components.metering.Metering;
+import io.annot8.common.components.metering.Metrics;
+import io.annot8.common.components.metering.NoOpMetrics;
 import io.annot8.implementations.support.stores.QueueItemFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +19,7 @@ public class InMemoryPipelineRunner implements PipelineRunner {
 
   private final Pipeline pipeline;
   private final Logger logger;
+  private final Metrics metrics;
   private final QueueItemFactory itemFactory;
 
   private boolean running = true;
@@ -28,6 +32,9 @@ public class InMemoryPipelineRunner implements PipelineRunner {
             .getResource(Logging.class)
             .map(l -> l.getLogger(InMemoryPipelineRunner.class))
             .orElse(LoggerFactory.getLogger(InMemoryPipelineRunner.class));
+
+    this.metrics = pipeline.getContext().getResource(Metering.class)
+            .map(value -> value.getMetrics("pipeline")).orElseGet(NoOpMetrics::instance);
 
     this.itemFactory = new QueueItemFactory(itemFactory);
     this.itemFactory.register(i -> logger.debug("Item {} added to queue", i.getId()));
@@ -48,11 +55,16 @@ public class InMemoryPipelineRunner implements PipelineRunner {
   public void run() {
     logger.info("Pipeline {} started", pipeline.getName());
     running = true;
+
+    long startTime = System.currentTimeMillis();
+    metrics.gauge("runTime", startTime, t -> System.currentTimeMillis() - t);
+
     while (running) {
       SourceResponse sr = pipeline.read(itemFactory);
 
       while (running && !itemFactory.isEmpty()) {
-        itemFactory.next().ifPresent(pipeline::process);
+        metrics.timer("itemProcessingTime").record(() -> itemFactory.next().ifPresent(pipeline::process));
+        metrics.counter("itemsProcessed").increment();
       }
 
       // If we are done, then we stop
