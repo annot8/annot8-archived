@@ -56,8 +56,8 @@ public class InMemoryPipelineRunner implements PipelineRunner {
     logger.info("Pipeline {} started", pipeline.getName());
     running = true;
 
-    long startTime = System.currentTimeMillis();
-    metrics.gauge("runTime", startTime, t -> System.currentTimeMillis() - t);
+    Long startTime = metrics.gauge("runTime", System.currentTimeMillis(), t -> System.currentTimeMillis() - t);
+    logger.debug("Pipeline {} started at {}", pipeline.getName(), startTime);
 
     while (running) {
       SourceResponse sr = pipeline.read(itemFactory);
@@ -72,6 +72,9 @@ public class InMemoryPipelineRunner implements PipelineRunner {
         stop();
       }
     }
+
+    logger.debug("Pipeline {} finished at {}", pipeline.getName(), startTime);
+    logger.info("Pipeline {} ran for {} seconds", pipeline.getName(), (System.currentTimeMillis() - startTime)/1000.0);
   }
 
   public void stop() {
