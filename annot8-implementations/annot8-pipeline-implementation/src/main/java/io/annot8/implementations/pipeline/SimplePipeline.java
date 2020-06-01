@@ -17,10 +17,9 @@ import io.annot8.api.settings.Settings;
 import io.annot8.common.components.logging.Logging;
 import io.annot8.common.components.metering.Metering;
 import io.annot8.implementations.support.context.SimpleContext;
+import java.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.*;
 
 public class SimplePipeline implements Pipeline {
   private final String name;
@@ -268,48 +267,56 @@ public class SimplePipeline implements Pipeline {
         // (depending ordering implementation)
 
         descriptor.getSources().stream()
-            .map(d -> {
-              //If settings haven't been provided, try to create some default settings
-              if(d.getSettings() == null){
-                SettingsClass s = d.getClass().getAnnotation(SettingsClass.class);
-                if(s != null){
-                  try {
-                    Settings settings = s.value().getConstructor().newInstance();
-                    d.setSettings(settings);
-                  }catch (NoSuchMethodException nsme){
-                    LOGGER.warn("Could not create default settings - {} does not have a no-args constructor", s.value().getName());
-                  }catch (Exception e){
-                    LOGGER.warn("Could not instantiate default settings {}", s.value().getName(), e);
+            .map(
+                d -> {
+                  // If settings haven't been provided, try to create some default settings
+                  if (d.getSettings() == null) {
+                    SettingsClass s = d.getClass().getAnnotation(SettingsClass.class);
+                    if (s != null) {
+                      try {
+                        Settings settings = s.value().getConstructor().newInstance();
+                        d.setSettings(settings);
+                      } catch (NoSuchMethodException nsme) {
+                        LOGGER.warn(
+                            "Could not create default settings - {} does not have a no-args constructor",
+                            s.value().getName());
+                      } catch (Exception e) {
+                        LOGGER.warn(
+                            "Could not instantiate default settings {}", s.value().getName(), e);
+                      }
+                    }
                   }
-                }
-              }
 
-              //Convert from SourceDescriptor to Source
-              return d.create(pipelineContext);
-            })
+                  // Convert from SourceDescriptor to Source
+                  return d.create(pipelineContext);
+                })
             .map(Source.class::cast)
             .forEach(this::withSource);
 
         descriptor.getProcessors().stream()
-            .map(d -> {
-              //If settings haven't been provided, try to create some default settings
-              if(d.getSettings() == null){
-                SettingsClass s = d.getClass().getAnnotation(SettingsClass.class);
-                if(s != null){
-                  try {
-                    Settings settings = s.value().getConstructor().newInstance();
-                    d.setSettings(settings);
-                  }catch (NoSuchMethodException nsme){
-                    LOGGER.warn("Could not create default settings - {} does not have a no-args constructor", s.value().getName());
-                  }catch (Exception e){
-                    LOGGER.warn("Could not instantiate default settings {}", s.value().getName(), e);
+            .map(
+                d -> {
+                  // If settings haven't been provided, try to create some default settings
+                  if (d.getSettings() == null) {
+                    SettingsClass s = d.getClass().getAnnotation(SettingsClass.class);
+                    if (s != null) {
+                      try {
+                        Settings settings = s.value().getConstructor().newInstance();
+                        d.setSettings(settings);
+                      } catch (NoSuchMethodException nsme) {
+                        LOGGER.warn(
+                            "Could not create default settings - {} does not have a no-args constructor",
+                            s.value().getName());
+                      } catch (Exception e) {
+                        LOGGER.warn(
+                            "Could not instantiate default settings {}", s.value().getName(), e);
+                      }
+                    }
                   }
-                }
-              }
 
-              //Convert from ProcessorDescriptor to Processor
-              return d.create(pipelineContext);
-            })
+                  // Convert from ProcessorDescriptor to Processor
+                  return d.create(pipelineContext);
+                })
             .map(Processor.class::cast)
             .forEach(this::withProcessor);
 
