@@ -1,10 +1,7 @@
 /* Annot8 (annot8.io) - Licensed under Apache-2.0. */
 package io.annot8.implementations.reference.content;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 import io.annot8.api.data.Item;
 import io.annot8.api.exceptions.Annot8RuntimeException;
@@ -37,6 +34,12 @@ public class DefaultInputStreamTest {
             () -> new ByteArrayInputStream("test".getBytes()));
     assertEquals(TestConstants.CONTENT_ID, content.getId());
     assertEquals(TestConstants.CONTENT_DESCRIPTION, content.getDescription());
+    try {
+      assertEquals("test", new String(content.getData().readAllBytes()));
+    } catch (IOException e) {
+      fail("Test should not throw an exception here", e);
+    }
+    // Test reading for a second time
     try {
       assertEquals("test", new String(content.getData().readAllBytes()));
     } catch (IOException e) {
