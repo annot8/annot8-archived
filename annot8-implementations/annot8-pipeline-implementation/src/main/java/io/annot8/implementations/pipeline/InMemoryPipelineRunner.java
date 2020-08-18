@@ -17,14 +17,21 @@ import org.slf4j.LoggerFactory;
 
 public class InMemoryPipelineRunner implements PipelineRunner {
 
+  private static final long DEFAULT_DELAY = 1000;
+
   private final Pipeline pipeline;
   private final Logger logger;
   private final Metrics metrics;
   private final QueueItemFactory itemFactory;
+  private final long delay;
 
   private boolean running = true;
 
   public InMemoryPipelineRunner(Pipeline pipeline, ItemFactory itemFactory) {
+    this(pipeline, itemFactory, DEFAULT_DELAY);
+  }
+
+  public InMemoryPipelineRunner(Pipeline pipeline, ItemFactory itemFactory, long delay) {
     this.pipeline = pipeline;
     this.logger =
         pipeline
@@ -38,17 +45,32 @@ public class InMemoryPipelineRunner implements PipelineRunner {
 
     this.itemFactory = new QueueItemFactory(itemFactory);
     this.itemFactory.register(i -> logger.debug("Item {} added to queue", i.getId()));
+
+    this.delay = delay;
   }
 
   public InMemoryPipelineRunner(PipelineDescriptor pipelineDescriptor, ItemFactory itemFactory) {
-    this(new SimplePipeline.Builder().from(pipelineDescriptor).build(), itemFactory);
+    this(new SimplePipeline.Builder().from(pipelineDescriptor).build(), itemFactory, DEFAULT_DELAY);
+  }
+
+  public InMemoryPipelineRunner(PipelineDescriptor pipelineDescriptor, ItemFactory itemFactory, long delay) {
+    this(new SimplePipeline.Builder().from(pipelineDescriptor).build(), itemFactory, delay);
   }
 
   public InMemoryPipelineRunner(
       PipelineDescriptor pipelineDescriptor, ItemFactory itemFactory, Context context) {
     this(
         new SimplePipeline.Builder().from(pipelineDescriptor).withContext(context).build(),
-        itemFactory);
+        itemFactory,
+        DEFAULT_DELAY);
+  }
+
+  public InMemoryPipelineRunner(
+    PipelineDescriptor pipelineDescriptor, ItemFactory itemFactory, Context context, long delay) {
+    this(
+      new SimplePipeline.Builder().from(pipelineDescriptor).withContext(context).build(),
+      itemFactory,
+      delay);
   }
 
   @Override
@@ -70,6 +92,14 @@ public class InMemoryPipelineRunner implements PipelineRunner {
       // If we are done, then we stop
       if (sr.getStatus() == SourceResponse.Status.DONE) {
         stop();
+      }
+
+      if(delay > 0){
+        try {
+          Thread.sleep(delay);
+        } catch (InterruptedException e) {
+          logger.debug("Sleep interrupted - {}", e.getMessage());
+        }
       }
     }
 
