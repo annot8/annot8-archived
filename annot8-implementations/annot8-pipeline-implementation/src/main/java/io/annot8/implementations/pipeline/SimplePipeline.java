@@ -13,13 +13,15 @@ import io.annot8.api.data.ItemFactory;
 import io.annot8.api.exceptions.IncompleteException;
 import io.annot8.api.pipelines.Pipeline;
 import io.annot8.api.pipelines.PipelineDescriptor;
+import io.annot8.api.settings.NoSettings;
 import io.annot8.api.settings.Settings;
 import io.annot8.common.components.logging.Logging;
 import io.annot8.common.components.metering.Metering;
 import io.annot8.implementations.support.context.SimpleContext;
-import java.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.*;
 
 public class SimplePipeline implements Pipeline {
   private final String name;
@@ -272,7 +274,7 @@ public class SimplePipeline implements Pipeline {
                   // If settings haven't been provided, try to create some default settings
                   if (d.getSettings() == null) {
                     SettingsClass s = d.getClass().getAnnotation(SettingsClass.class);
-                    if (s != null) {
+                    if (s != null && s.value() != NoSettings.class) {
                       try {
                         Settings settings = s.value().getConstructor().newInstance();
                         d.setSettings(settings);
@@ -299,7 +301,7 @@ public class SimplePipeline implements Pipeline {
                   // If settings haven't been provided, try to create some default settings
                   if (d.getSettings() == null) {
                     SettingsClass s = d.getClass().getAnnotation(SettingsClass.class);
-                    if (s != null) {
+                    if (s != null && s.value() != NoSettings.class) {
                       try {
                         Settings settings = s.value().getConstructor().newInstance();
                         d.setSettings(settings);
