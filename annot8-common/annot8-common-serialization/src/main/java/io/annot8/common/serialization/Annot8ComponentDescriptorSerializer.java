@@ -12,6 +12,7 @@ public class Annot8ComponentDescriptorSerializer
   @Override
   public void serialize(
       Annot8ComponentDescriptor descriptor, JsonGenerator generator, SerializationContext ctx) {
+    System.out.println("HELLO");
     generator.writeStartObject();
     generator.writeStartObject(descriptor.getClass().getName());
     generator.write("name", descriptor.getName());

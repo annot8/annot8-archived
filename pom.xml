@@ -78,7 +78,7 @@
     <mockito.version>3.5.7</mockito.version>
     <assertj-core.version>3.17.1</assertj-core.version>
     <assertj-guava.version>3.4.0</assertj-guava.version>
-    <yasson.version>1.0.8</yasson.version>
+    <yasson.version>1.0.7d</yasson.version>
 
     <!-- Plugins -->
     <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
