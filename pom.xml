@@ -70,15 +70,15 @@
     <lombok.version>1.18.12</lombok.version>
     <guava.version>29.0-jre</guava.version>
     <slf4j.version>1.7.30</slf4j.version>
-    <micrometer.version>1.4.1</micrometer.version>
-    <classgraph.version>4.8.69</classgraph.version>
+    <micrometer.version>1.5.4</micrometer.version>
+    <classgraph.version>4.8.89</classgraph.version>
 
     <!-- Testing -->
     <junit.version>5.6.2</junit.version>
-    <mockito.version>3.3.3</mockito.version>
-    <assertj-core.version>3.15.0</assertj-core.version>
-    <assertj-guava.version>3.3.0</assertj-guava.version>
-    <yasson.version>1.0.7</yasson.version>
+    <mockito.version>3.5.7</mockito.version>
+    <assertj-core.version>3.17.1</assertj-core.version>
+    <assertj-guava.version>3.4.0</assertj-guava.version>
+    <yasson.version>1.0.8</yasson.version>
 
     <!-- Plugins -->
     <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
