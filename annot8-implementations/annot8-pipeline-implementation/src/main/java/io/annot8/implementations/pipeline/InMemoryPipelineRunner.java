@@ -57,7 +57,8 @@ public class InMemoryPipelineRunner implements PipelineRunner {
     this(new SimplePipeline.Builder().from(pipelineDescriptor).build(), itemFactory, DEFAULT_DELAY);
   }
 
-  public InMemoryPipelineRunner(PipelineDescriptor pipelineDescriptor, ItemFactory itemFactory, long delay) {
+  public InMemoryPipelineRunner(
+      PipelineDescriptor pipelineDescriptor, ItemFactory itemFactory, long delay) {
     this(new SimplePipeline.Builder().from(pipelineDescriptor).build(), itemFactory, delay);
   }
 
@@ -70,11 +71,11 @@ public class InMemoryPipelineRunner implements PipelineRunner {
   }
 
   public InMemoryPipelineRunner(
-    PipelineDescriptor pipelineDescriptor, ItemFactory itemFactory, Context context, long delay) {
+      PipelineDescriptor pipelineDescriptor, ItemFactory itemFactory, Context context, long delay) {
     this(
-      new SimplePipeline.Builder().from(pipelineDescriptor).withContext(context).build(),
-      itemFactory,
-      delay);
+        new SimplePipeline.Builder().from(pipelineDescriptor).withContext(context).build(),
+        itemFactory,
+        delay);
   }
 
   @Override
@@ -101,7 +102,7 @@ public class InMemoryPipelineRunner implements PipelineRunner {
         stop();
       }
 
-      if(delay > 0){
+      if (delay > 0) {
         try {
           Thread.sleep(delay);
         } catch (InterruptedException e) {
