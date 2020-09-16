@@ -21,9 +21,13 @@ public class TestInputStreamContent extends AbstractTestContent<InputStream>
 
   private static final byte[] DEFAULT_DATA = "Test Data".getBytes(StandardCharsets.UTF_8);
 
+  public TestInputStreamContent(){
+    this(null);
+  }
+
   public TestInputStreamContent(Item item) {
     super(item, InputStream.class);
-    // THis is not really useful in general, but its something non-null
+    // Ths is not really useful in general, but its something non-null
     setData(() -> new ByteArrayInputStream(DEFAULT_DATA));
   }
 

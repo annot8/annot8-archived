@@ -11,14 +11,13 @@ import io.annot8.implementations.support.content.AbstractContentBuilderFactory;
 import io.annot8.implementations.support.stores.AnnotationStoreFactory;
 import io.annot8.testing.testimpl.AbstractTestContent;
 import io.annot8.testing.testimpl.TestAnnotationStoreFactory;
-import io.annot8.testing.testimpl.TestItem;
+
 import java.util.function.Supplier;
 
 public class TestStringContent extends AbstractTestContent<String> implements Text {
 
   public TestStringContent() {
-    super(new TestItem(), String.class);
-    setData("Test data");
+    this(null);
   }
 
   public TestStringContent(Item item) {

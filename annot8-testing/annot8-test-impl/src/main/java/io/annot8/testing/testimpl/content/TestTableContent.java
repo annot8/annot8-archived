@@ -14,6 +14,10 @@ import java.util.function.Supplier;
 
 public class TestTableContent extends AbstractTestContent<Table> implements TableContent {
 
+  public TestTableContent(){
+    this(null);
+  }
+
   public TestTableContent(Item item) {
     super(item, Table.class);
   }

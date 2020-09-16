@@ -11,10 +11,15 @@ import io.annot8.implementations.support.content.AbstractContentBuilderFactory;
 import io.annot8.implementations.support.stores.AnnotationStoreFactory;
 import io.annot8.testing.testimpl.AbstractTestContent;
 import io.annot8.testing.testimpl.TestAnnotationStoreFactory;
+
 import java.io.File;
 import java.util.function.Supplier;
 
 public class TestFileContent extends AbstractTestContent<File> implements FileContent {
+
+  public TestFileContent() {
+    this(null);
+  }
 
   public TestFileContent(Item item) {
     super(item, File.class);
