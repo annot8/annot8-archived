@@ -30,6 +30,16 @@ This repository contains 4 sub-projects
 * `annot8-implementations` - The standard implementation of Annot8 classes
 * `annot8-testing` - Implementations and utilities useful when testing
 
+## Versioning
+
+The following approach is used to versioning within the Annot8 projects:
+
+* The core Annot8 API will be versioned as `major.minor` (e.g. `1.0`). 
+  Any minor versions will be fully backwards compatible, but major versions may not be.
+* Supplementary Annot8 projects, including Annot8 implementations and components, will be versioned as `major.project-version.patch` (e.g. `1.2.1`).
+  The major version will match the API version used by the project, and will have their own project version followed by a patch level to indicate bug fixes.
+  These projects may be developed and released at different rates, and therefore may have different project versions.
+
 ## Licence
 
 Code in this repository is licenced under the [Apache Software Licence 2](https://www.apache.org/licenses/LICENSE-2.0).
