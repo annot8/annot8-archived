@@ -14,7 +14,7 @@ import java.util.function.Supplier;
 
 public class TestTableContent extends AbstractTestContent<Table> implements TableContent {
 
-  public TestTableContent(){
+  public TestTableContent() {
     this(null);
   }
 

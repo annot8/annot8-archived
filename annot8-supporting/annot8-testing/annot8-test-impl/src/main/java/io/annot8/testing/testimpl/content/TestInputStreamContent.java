@@ -21,7 +21,7 @@ public class TestInputStreamContent extends AbstractTestContent<InputStream>
 
   private static final byte[] DEFAULT_DATA = "Test Data".getBytes(StandardCharsets.UTF_8);
 
-  public TestInputStreamContent(){
+  public TestInputStreamContent() {
     this(null);
   }
 

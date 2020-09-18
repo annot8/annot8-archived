@@ -8,7 +8,6 @@ import io.annot8.common.data.content.UriContent;
 import io.annot8.implementations.support.content.AbstractContentBuilder;
 import io.annot8.implementations.support.content.AbstractContentBuilderFactory;
 import io.annot8.testing.testimpl.AbstractTestContent;
-
 import java.net.URI;
 import java.util.function.Supplier;
 

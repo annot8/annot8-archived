@@ -5,62 +5,60 @@ import io.annot8.api.data.Content;
 import io.annot8.api.data.Item;
 import io.annot8.api.properties.ImmutableProperties;
 import io.annot8.api.stores.AnnotationStore;
-import io.annot8.common.data.content.FileContent;
+import io.annot8.common.data.content.Text;
 import io.annot8.implementations.support.content.AbstractContentBuilder;
 import io.annot8.implementations.support.content.AbstractContentBuilderFactory;
 import io.annot8.implementations.support.stores.AnnotationStoreFactory;
 import io.annot8.testing.testimpl.AbstractTestContent;
 import io.annot8.testing.testimpl.TestAnnotationStoreFactory;
-
-import java.io.File;
 import java.util.function.Supplier;
 
-public class TestFileContent extends AbstractTestContent<File> implements FileContent {
+public class TestStringContent extends AbstractTestContent<String> implements Text {
 
-  public TestFileContent() {
+  public TestStringContent() {
     this(null);
   }
 
-  public TestFileContent(Item item) {
-    super(item, File.class);
-    setData(new File("."));
+  public TestStringContent(Item item) {
+    super(item, String.class);
+    setData("Test data");
   }
 
-  public TestFileContent(
+  public TestStringContent(
       Item item,
       String id,
       String description,
       ImmutableProperties properties,
-      Supplier<File> data) {
-    super(item, File.class, id, description, properties, data);
+      Supplier<String> data) {
+    super(item, String.class, id, description, properties, data);
   }
 
-  public TestFileContent(
+  public TestStringContent(
       Item item,
       AnnotationStore annotations,
       String id,
       String description,
       ImmutableProperties properties,
-      Supplier<File> data) {
-    super(item, File.class, c -> annotations, id, description, properties, data);
+      Supplier<String> data) {
+    super(item, String.class, c -> annotations, id, description, properties, data);
   }
 
-  public TestFileContent(
+  public TestStringContent(
       Item item,
       AnnotationStoreFactory annotationStore,
       String id,
       String description,
       ImmutableProperties properties,
-      Supplier<File> data) {
-    super(item, File.class, annotationStore, id, description, properties, data);
+      Supplier<String> data) {
+    super(item, String.class, annotationStore, id, description, properties, data);
   }
 
   @Override
-  public Class<? extends Content<File>> getContentClass() {
-    return FileContent.class;
+  public Class<? extends Content<String>> getContentClass() {
+    return Text.class;
   }
 
-  public static class Builder extends AbstractContentBuilder<File, TestFileContent> {
+  public static class Builder extends AbstractContentBuilder<String, TestStringContent> {
 
     private final AnnotationStoreFactory annotationStoreFactory;
 
@@ -70,14 +68,15 @@ public class TestFileContent extends AbstractTestContent<File> implements FileCo
     }
 
     @Override
-    protected TestFileContent create(
-        String id, String description, ImmutableProperties properties, Supplier<File> data) {
-      return new TestFileContent(
+    protected TestStringContent create(
+        String id, String description, ImmutableProperties properties, Supplier<String> data) {
+      return new TestStringContent(
           getItem(), annotationStoreFactory, id, description, properties, data);
     }
   }
 
-  public static class BuilderFactory extends AbstractContentBuilderFactory<File, TestFileContent> {
+  public static class BuilderFactory
+      extends AbstractContentBuilderFactory<String, TestStringContent> {
 
     private final AnnotationStoreFactory annotationStoreFactory;
 
@@ -86,13 +85,13 @@ public class TestFileContent extends AbstractTestContent<File> implements FileCo
     }
 
     public BuilderFactory(AnnotationStoreFactory annotationStoreFactory) {
-      super(File.class, TestFileContent.class);
+      super(String.class, TestStringContent.class);
       this.annotationStoreFactory = annotationStoreFactory;
     }
 
     @Override
-    public TestFileContent.Builder create(Item item) {
-      return new TestFileContent.Builder(item, annotationStoreFactory);
+    public Builder create(Item item) {
+      return new Builder(item, annotationStoreFactory);
     }
   }
 }

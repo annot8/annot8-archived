@@ -10,20 +10,19 @@ import io.annot8.implementations.support.content.AbstractContentBuilderFactory;
 import io.annot8.testing.testimpl.AbstractTestContent;
 import io.annot8.testing.testimpl.TestAnnotationStore;
 import io.annot8.testing.testimpl.TestProperties;
-
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.function.Supplier;
+import javax.imageio.ImageIO;
 
 public class TestImage extends AbstractTestContent<BufferedImage> implements Image {
 
   private int height;
   private Integer width;
 
-  public TestImage(){
+  public TestImage() {
     this(null);
   }
 

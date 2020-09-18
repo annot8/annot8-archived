@@ -26,9 +26,10 @@ This repository does not contain any implementations of components, these are in
 This repository contains 4 sub-projects
 
 * `annot8-api` - The core interfaces (API) used by Annot8
-* `annot8-common` - Common tools, classes and helpers
-* `annot8-implementations` - The standard implementation of Annot8 classes
-* `annot8-testing` - Implementations and utilities useful when testing
+* `annot8-supporting` - Supporting projects
+  * `annot8-common` - Common tools, classes and helpers
+  * `annot8-implementations` - The standard implementation of Annot8 classes
+  * `annot8-testing` - Implementations and utilities useful when testing
 
 ## Versioning
 
