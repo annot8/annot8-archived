@@ -7,10 +7,11 @@
   <parent>
     <groupId>io.annot8</groupId>
     <artifactId>annot8-implementations</artifactId>
-    <version>0.5.0</version>
+    <version>1.0.0</version>
   </parent>
 
   <artifactId>annot8-reference-implementation</artifactId>
+  <version>1.0.0</version>
   <name>Annot8 Reference Implementations</name>
   <description>Reference implementation of Annot8 interfaces</description>
 

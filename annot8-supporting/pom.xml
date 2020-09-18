@@ -76,7 +76,7 @@
     <mockito.version>3.5.11</mockito.version>
     <assertj-core.version>3.17.2</assertj-core.version>
     <assertj-guava.version>3.4.0</assertj-guava.version>
-    <yasson.version>1.0.8</yasson.version>
+    <yasson.version>1.0.7</yasson.version> <!-- Note 1.0.8 causes deserialization to fail in some instances -->
 
     <!-- Plugins -->
     <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
@@ -256,53 +256,58 @@
       <!-- Common -->
       <dependency>
         <groupId>io.annot8</groupId>
-        <artifactId>annot8-common-data</artifactId>
-        <version>${annot8.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>io.annot8</groupId>
-        <artifactId>annot8-common-utils</artifactId>
-        <version>${annot8.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>io.annot8</groupId>
         <artifactId>annot8-common-components</artifactId>
-        <version>${annot8.version}</version>
+        <version>1.0.0</version>
+      </dependency>
+      <dependency>
+        <groupId>io.annot8</groupId>
+        <artifactId>annot8-common-data</artifactId>
+        <version>1.0.0</version>
       </dependency>
       <dependency>
         <groupId>io.annot8</groupId>
         <artifactId>annot8-common-processors</artifactId>
-        <version>${annot8.version}</version>
+        <version>1.0.0</version>
+      </dependency>
+      <dependency>
+        <groupId>io.annot8</groupId>
+        <artifactId>annot8-common-serialization</artifactId>
+        <version>1.0.0</version>
+      </dependency>
+      <dependency>
+        <groupId>io.annot8</groupId>
+        <artifactId>annot8-common-utils</artifactId>
+        <version>1.0.0</version>
       </dependency>
 
       <!-- Implementations-->
       <dependency>
         <groupId>io.annot8</groupId>
         <artifactId>annot8-implementations-support</artifactId>
-        <version>${annot8.version}</version>
+        <version>1.0.0</version>
       </dependency>
       <dependency>
         <groupId>io.annot8</groupId>
         <artifactId>annot8-reference-implementation</artifactId>
-        <version>${annot8.version}</version>
+        <version>1.0.0</version>
       </dependency>
       <dependency>
         <groupId>io.annot8</groupId>
         <artifactId>annot8-pipelines-implemenation</artifactId>
-        <version>${annot8.version}</version>
+        <version>1.0.0</version>
       </dependency>
 
       <!-- Testing -->
       <dependency>
         <groupId>io.annot8</groupId>
         <artifactId>annot8-test-impl</artifactId>
-        <version>${annot8.version}</version>
+        <version>1.0.0</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>io.annot8</groupId>
         <artifactId>annot8-impl-tck</artifactId>
-        <version>${annot8.version}</version>
+        <version>1.0.0</version>
         <scope>test</scope>
       </dependency>
 
